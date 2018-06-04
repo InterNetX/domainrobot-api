@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Domainrobot Productstore Json API",
-    "description": "Central api for all product informations",
+    "description": "Central api that provides information about the products offered by InterNetX",
     "version": "1.0.0"
   },
   "basePath": "/v1",
@@ -99,7 +99,7 @@
     },
     "/tld": {
       "get": {
-        "summary": "List ssl products",
+        "summary": "List tld products",
         "description": "Returns a list of all ssl products",
         "parameters": [
           {
@@ -1009,4 +1009,3 @@
     }
   }
 }
-
