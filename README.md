@@ -2,15 +2,20 @@
 All the files needed to interact with the InterNetX APIs. The files help to create documentation and models matching the API. 
 
 ## Table of Contents
-1. [Product Store](#product-store)
-   * [About](#about-product-store)
+1. [API](#api)
+   * [Product Store](#product-store)
 2. [Changelog](#changelog)
 3. [Authors](#authors)
 3. [License](#license)
 
-## Product Store
-### About Product Store
+## API
+Short information about all APIs offered by InterNetX.
+
+### Product Store
+#### About
 The "Product Store" is a central service that provides information about the products offered by InterNetX. The product information can be retrieved via a REST API.
+#### URL
+The API can be accessed via the following URL: https://api.autodns.com/productstore/v1/
 
 ## Changelog
 ### 1.0.0
