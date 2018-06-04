@@ -1,0 +1,1012 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Domainrobot Productstore Json API",
+    "description": "Central api for all product informations",
+    "version": "1.0.0"
+  },
+  "basePath": "/v1",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/ssl": {
+      "get": {
+        "summary": "List ssl products",
+        "description": "Returns a list of all ssl products",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "The product to search for",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SslProduct"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ssl/_paginate": {
+      "get": {
+        "summary": "Paginate ssl products",
+        "description": "Returns a list of all ssl products as a pagination object",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SslProductPagination"
+            }
+          }
+        }
+      }
+    },
+    "/ssl/{label}": {
+      "get": {
+        "summary": "Show ssl product information.",
+        "description": "Returns the information belonging to the given product.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "label",
+            "description": "The label of the ssl product.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product found.",
+            "schema": {
+              "$ref": "#/definitions/SslProduct"
+            }
+          },
+          "404": {
+            "description": "Product not found.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/tld": {
+      "get": {
+        "summary": "List ssl products",
+        "description": "Returns a list of all ssl products",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "The product to search for. Can be \"de\" or a comma seperated list like \"de,com,org\".  If you search without a list, it will search for the exact match and a wildcard at the beginning  and the end of the keyword. For example, if you search for \"de\" you will receive \"de,deals,com.de,de.com\" etc.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldType",
+            "in": "query",
+            "description": "The type of the tld. CCTLD / GTLD / NEW_GTLD",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldContinent",
+            "in": "query",
+            "description": "The contintent of the tld. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldLanguageOfOffice",
+            "in": "query",
+            "description": "The official language of the tld as two letter representation, for example FR for french language. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldGeoPol",
+            "in": "query",
+            "description": "A geo / political filter. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "dnssec",
+            "in": "query",
+            "description": "Filter for tlds which support dnssec.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "privacy",
+            "in": "query",
+            "description": "Filter for tlds which support privacy.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "trustee",
+            "in": "query",
+            "description": "Filter for tlds which support trustee.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "premium",
+            "in": "query",
+            "description": "Filter for tlds which have premium domains.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authinfo",
+            "in": "query",
+            "description": "Filter for tlds which support authinfo.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "contactExtensions",
+            "in": "query",
+            "description": "Filter for tlds which have special contact extensions.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TldProduct"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tld/_paginate": {
+      "get": {
+        "summary": "Paginate tld products",
+        "description": "Returns a list of all tld products as a pagination object",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "The product to search for. Can be \"de\" or a comma seperated list like \"de,com,org\".  If you search without a list, it will search for the exact match and a wildcard at the beginning  and the end of the keyword. For example, if you search for \"de\" you will receive \"de,deals,com.de,de.com\" etc.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldType",
+            "in": "query",
+            "description": "The type of the tld. CCTLD / GTLD / NEW_GTLD",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldContinent",
+            "in": "query",
+            "description": "The contintent of the tld. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldLanguageOfOffice",
+            "in": "query",
+            "description": "The official language of the tld as two letter representation, for example FR for french language. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tldGeoPol",
+            "in": "query",
+            "description": "A geo / political filter. Only useful for CCTLDs.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "dnssec",
+            "in": "query",
+            "description": "Filter for tlds which support dnssec.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "privacy",
+            "in": "query",
+            "description": "Filter for tlds which support privacy.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "trustee",
+            "in": "query",
+            "description": "Filter for tlds which support trustee.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "premium",
+            "in": "query",
+            "description": "Filter for tlds which have premium domains.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authinfo",
+            "in": "query",
+            "description": "Filter for tlds which support authinfo.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "contactExtensions",
+            "in": "query",
+            "description": "Filter for tlds which have special contact extensions.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TldProductPagination"
+            }
+          }
+        }
+      }
+    },
+    "/tld/{label}": {
+      "get": {
+        "summary": "Show tld product information.",
+        "description": "Returns the information belonging to the given product.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "label",
+            "description": "The label of the tld product.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product found.",
+            "schema": {
+              "$ref": "#/definitions/TldProduct"
+            }
+          },
+          "404": {
+            "description": "Product not found.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SslProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "acl": {
+          "type": "string"
+        },
+        "productCode": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/definitions/SslProductProvider"
+        },
+        "certificateType": {
+          "$ref": "#/definitions/SslProductCertificateType"
+        },
+        "validationType": {
+          "$ref": "#/definitions/SslProductValidationType"
+        },
+        "certificateAuthority": {
+          "$ref": "#/definitions/SslProductCertificateAuthority"
+        },
+        "periods": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "wildcard": {
+          "type": "boolean"
+        },
+        "authMethods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProductAuthMethod"
+          }
+        },
+        "mandatoryContacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vulnerabilityAnalysis": {
+          "type": "boolean"
+        },
+        "malwareScan": {
+          "type": "boolean"
+        },
+        "sealInSearch": {
+          "type": "boolean"
+        },
+        "greenAddressBar": {
+          "type": "boolean"
+        },
+        "companyVisible": {
+          "type": "boolean"
+        },
+        "trustSeal": {
+          "type": "boolean"
+        },
+        "encryptionStrength": {
+          "type": "string"
+        },
+        "assurance": {
+          "type": "string"
+        },
+        "trustLevel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "digitalIdUsage": {
+          "$ref": "#/definitions/SslProductDigitalIdUsage"
+        },
+        "digitalIdVerification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProductDigitalIdVerification"
+          }
+        },
+        "digitalIdAuthentication": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProductDigitalIdAuthentication"
+          }
+        },
+        "san": {
+          "$ref": "#/definitions/SanInformation"
+        },
+        "csr": {
+          "$ref": "#/definitions/CsrInformation"
+        },
+        "dataControllers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslDataController"
+          }
+        },
+        "public": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SslProductData": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProduct"
+          }
+        }
+      }
+    },
+    "SslProductProvider": {
+      "type": "string",
+      "enum": [
+        "SYMANTEC",
+        "SYMANTEC_STARTER",
+        "GLOBALSIGN",
+        "COMODO",
+        "MANUAL_CERTIFICATE",
+        "MANUAL"
+      ]
+    },
+    "SslProductCertificateType": {
+      "type": "string",
+      "enum": [
+        "FQDN",
+        "MAIL",
+        "CODE"
+      ]
+    },
+    "SslProductValidationType": {
+      "type": "string",
+      "enum": [
+        "DV",
+        "EV",
+        "OV"
+      ]
+    },
+    "SslProductCertificateAuthority": {
+      "type": "string",
+      "enum": [
+        "Globalsign",
+        "Symantec",
+        "Comodo",
+        "Thawte",
+        "GeoTrust"
+      ]
+    },
+    "SslProductAuthMethod": {
+      "type": "string",
+      "enum": [
+        "EMAIL",
+        "FILE",
+        "DNS",
+        "ORG"
+      ]
+    },
+    "SslProductDigitalIdUsage": {
+      "type": "string",
+      "enum": [
+        "GENERAL",
+        "PERSONAL",
+        "DEPARTMENT",
+        "COMPANY"
+      ]
+    },
+    "SslProductDigitalIdVerification": {
+      "type": "string",
+      "enum": [
+        "EMAIL",
+        "IDENTITY",
+        "ORGANIZATION"
+      ]
+    },
+    "SslProductDigitalIdAuthentication": {
+      "type": "string",
+      "enum": [
+        "EMAIL",
+        "IDENTITY_CARD",
+        "CALL",
+        "COMMERCIAL_REGISTER"
+      ]
+    },
+    "SslProductCsrHashAlgorithm": {
+      "type": "string",
+      "enum": [
+        "ECC",
+        "RSA",
+        "DSA"
+      ]
+    },
+    "CsrInformation": {
+      "type": "object",
+      "properties": {
+        "keySizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hashAlgorithms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SanInformation": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "max": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inclusive": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "included": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SslDataController": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SslProductPagination": {
+      "type": "object",
+      "properties": {
+        "current_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "from": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "last_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "to": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProduct"
+          }
+        }
+      }
+    },
+    "TldProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "label": {
+          "type": "string"
+        },
+        "charMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "charMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dnssecMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dnssecMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dnssecAlgorithms": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nserverMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nserverMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv4Min": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv4Max": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv6Min": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv6Max": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nsentryMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nsentryMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootNserver": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dnssecRecord": {
+          "type": "boolean"
+        },
+        "restoreArgpPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "restoreRgpPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "cancelationPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "taskCreate": {
+          "type": "boolean"
+        },
+        "taskUpdate": {
+          "type": "boolean"
+        },
+        "taskDelete": {
+          "type": "boolean"
+        },
+        "taskRenew": {
+          "type": "boolean"
+        },
+        "taskTransfer": {
+          "type": "boolean"
+        },
+        "taskPreack": {
+          "type": "boolean"
+        },
+        "taskRestore": {
+          "type": "boolean"
+        },
+        "taskAuthinfoCreate": {
+          "type": "boolean"
+        },
+        "taskAuthinfoDelete": {
+          "type": "boolean"
+        },
+        "taskAuthinfo2": {
+          "type": "boolean"
+        },
+        "taskStatusUpdate": {
+          "type": "boolean"
+        },
+        "taskOwnerChange": {
+          "type": "boolean"
+        },
+        "cancelationExpireOnly": {
+          "type": "boolean"
+        },
+        "registrarStatus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "authinfo1Location": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AuthInfo1Location"
+          }
+        },
+        "numeralDomains": {
+          "type": "boolean"
+        },
+        "realtime": {
+          "type": "boolean"
+        },
+        "idn": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Charset"
+          }
+        },
+        "transferComfirmation": {
+          "type": "boolean"
+        },
+        "dnsCheck": {
+          "type": "boolean"
+        },
+        "premiumDomains": {
+          "type": "boolean"
+        },
+        "contactExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "privacy": {
+          "type": "boolean"
+        },
+        "trustee": {
+          "type": "boolean"
+        },
+        "errorCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tldType": {
+          "$ref": "#/definitions/TldType"
+        },
+        "tldContinent": {
+          "$ref": "#/definitions/TldContinent"
+        },
+        "confluencePageDe": {
+          "type": "string"
+        },
+        "confluencePageEn": {
+          "type": "string"
+        },
+        "commentDe": {
+          "type": "string"
+        },
+        "commentEn": {
+          "type": "string"
+        },
+        "whois": {
+          "type": "string"
+        },
+        "countryIso": {
+          "type": "string"
+        },
+        "geoPol": {
+          "type": "string"
+        },
+        "officialLanguage": {
+          "type": "string"
+        },
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Condition"
+          }
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "dataControllers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TldDataController"
+          }
+        }
+      }
+    },
+    "AuthInfo1Location": {
+      "type": "string",
+      "enum": [
+        "REGISTRAR",
+        "REGISTRY",
+        "REGISTRANT"
+      ]
+    },
+    "TldType": {
+      "type": "string",
+      "enum": [
+        "CCTLD",
+        "GTLD",
+        "NEW_GTLD"
+      ]
+    },
+    "TldContinent": {
+      "type": "string",
+      "enum": [
+        "ASIA",
+        "AFRICA,",
+        "NORTH_AMERICA",
+        "SOUTH_AMERICA",
+        "ANTARCTICA",
+        "EUROPE",
+        "OCEANIA"
+      ]
+    },
+    "Charset": {
+      "type": "string",
+      "enum": [
+        "BIG5",
+        "EUC_JP",
+        "EUC_KR",
+        "ISCII",
+        "KOI8_R",
+        "KOI8_U",
+        "SHIFT_JIS",
+        "TIS_620"
+      ]
+    },
+    "Condition": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "TldDataController": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organisation": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TldProductPagination": {
+      "type": "object",
+      "properties": {
+        "current_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "from": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "last_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "to": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TldProduct"
+          }
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "properties": {
+        "isoCode": {
+          "type": "string"
+        },
+        "countrynameDe": {
+          "type": "string"
+        },
+        "countrynameEn": {
+          "type": "string"
+        }
+      }
+    },
+    "TimePeriod": {
+      "type": "object",
+      "properties": {
+        "unit": {
+          "$ref": "#/definitions/TimeUnitConstants"
+        },
+        "period": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TimeUnitConstants": {
+      "type": "string",
+      "enum": [
+        "ms",
+        "s",
+        "min",
+        "h",
+        "d",
+        "w",
+        "m",
+        "q",
+        "y"
+      ]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+
