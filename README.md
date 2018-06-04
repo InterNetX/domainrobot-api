@@ -6,7 +6,8 @@ All the files needed to interact with the InterNetX APIs. The files help to crea
    * [Product Store](#product-store)
 2. [Changelog](#changelog)
 3. [Authors](#authors)
-3. [License](#license)
+4. [Swagger](#swagger)
+5. [License](#license)
 
 ## API
 Short information about all APIs offered by InterNetX.
@@ -23,6 +24,9 @@ The API can be accessed via the following URL: https://api.autodns.com/productst
 
 ## Authors
 * **Daniel Linsenmeier** - *Initial work*
+
+## Swagger
+Swagger is a powerful yet easy-to-use suite of API developer tools for teams and individuals, enabling development across the entire API lifecycle, from design and documentation, to test and deployment. More information at https://swagger.io.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
