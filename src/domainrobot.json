@@ -1,0 +1,5027 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Domainrobot JSON API for managing: Domains, SSL Certificates, DNS and much more.",
+    "version" : "v1",
+    "title" : "Domainrobot JSON API"
+  },
+  "host" : "api.autodns.com:443",
+  "basePath" : "/api/v1",
+  "tags" : [ {
+    "name" : "Certificate Tasks"
+  }, {
+    "name" : "Contact Tasks"
+  }, {
+    "name" : "Document Tasks"
+  }, {
+    "name" : "Domain Tasks"
+  }, {
+    "name" : "Job Tasks"
+  }, {
+    "name" : "Poll Tasks"
+  }, {
+    "name" : "Redirect Tasks"
+  }, {
+    "name" : "Session Tasks"
+  }, {
+    "name" : "SslContact Tasks"
+  }, {
+    "name" : "Zone Tasks"
+  } ],
+  "paths" : {
+    "/certificate" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Create Certificate",
+        "description" : "Order a new certificate. The operation is asynchronous and creates a job.",
+        "operationId" : "certificateCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/_search" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "List Certificates",
+        "description" : "Inquire a list of certificates with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "certificateList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/prepareOrder" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Prepare certificate order",
+        "description" : "Prepare a certificate order. This call checks the csr and generates authentication data required for further calls like order, renew, reissue, revoke, delete.",
+        "operationId" : "certificatePrepareOrder",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificateData",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "CertificateData",
+            "$ref" : "#/definitions/CertificateData"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/{id}" : {
+      "get" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Get Certificate",
+        "description" : "Inquire the data for the specified certificate.",
+        "operationId" : "certificateinfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Reissue Certificate",
+        "description" : "Reissue an existing certificate. The operation is asynchronous and creates a job.",
+        "operationId" : "certificateReissue",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Delete Certificate",
+        "description" : "Delete an existing certificate. The operation is asynchronous and creates a job.",
+        "operationId" : "certificateDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/{id}/comment" : {
+      "put" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Update Certificate Comment",
+        "description" : "Update a comment for an existing certificate.",
+        "operationId" : "certificateCommentUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/{id}/renew" : {
+      "put" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Renew Certificate",
+        "description" : "Renew an existing certificate. The operation is asynchronous and creates a job.",
+        "operationId" : "certificateRenew",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/{id}/revoke" : {
+      "delete" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Revoke Certificate",
+        "description" : "Revoke an existing certificate. The operation is asynchronous and creates a job.",
+        "operationId" : "certificateRevoke",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/contact" : {
+      "post" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Create Contact",
+        "description" : "Create a new domain contact.",
+        "operationId" : "contactCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "contact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
+            }
+          }
+        }
+      }
+    },
+    "/contact/_search" : {
+      "post" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "List Contact",
+        "description" : "Inquire a list of contacts with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "contactList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/contact/{id}" : {
+      "get" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Get Contact",
+        "description" : "Inquire the data for the specified domain contact.",
+        "operationId" : "contactInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Update Contact",
+        "description" : "Update an existing domain contact.",
+        "operationId" : "contactUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Delete Contact",
+        "description" : "Delete an existing domain contact.",
+        "operationId" : "contactDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/document/{alias}" : {
+      "get" : {
+        "tags" : [ "Document Tasks" ],
+        "summary" : "Get Document",
+        "description" : "Fetch the document for the given alias. The alias can be an ID, UUID or a script name like pricelist.xml.",
+        "operationId" : "documentInfoWithAlias",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "alias",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataBasicDocument",
+              "$ref" : "#/definitions/JsonResponseDataBasicDocument"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataBasicDocument",
+              "$ref" : "#/definitions/JsonResponseDataBasicDocument"
+            }
+          }
+        }
+      }
+    },
+    "/domain" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Create Domain",
+        "description" : "Order a new domain. The operation is asynchronous and creates a job.",
+        "operationId" : "domainCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/_search" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "List Domains",
+        "description" : "Inquire a list of domains with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "domainList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/buy" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Buy a domain from the premium market",
+        "description" : "Buy a domain from the premium market. The operation is asynchronous and creates a job.",
+        "operationId" : "domainBuy",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/cancelation/_search" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "List cancelation Domains",
+        "description" : "Inquire a list of cancelations with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "domainCancelationList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/import" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Import Domain",
+        "description" : "Import a domain. The operation is asynchronous and creates a job.",
+        "operationId" : "domainImport",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/restore/_search" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "List restore Domains",
+        "description" : "Inquire a list of restorable domains with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "domainRestoreList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainRestore",
+              "$ref" : "#/definitions/JsonResponseDataDomainRestore"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainRestore",
+              "$ref" : "#/definitions/JsonResponseDataDomainRestore"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}" : {
+      "get" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Get Domain",
+        "description" : "Fetch the data for the specified domain.",
+        "operationId" : "domainInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Update Domain",
+        "description" : "Update an existing domain. The operation is asynchronous and creates a job.",
+        "operationId" : "domainUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/authinfo1" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Create Domain Authinfo1",
+        "description" : "Create an authinfo1 for the specified domain.",
+        "operationId" : "domainAuthinfo1Create",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Delete DomainAuthinfo1",
+        "description" : "Delete an existing authinfo1 for the specified domain.",
+        "operationId" : "domainAuthinfo1Delete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/authinfo2" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Create Domain Authinfo2",
+        "description" : "Create an authinfo2 for the specified domain.",
+        "operationId" : "domainAuthinfo2Create",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/cancelation" : {
+      "get" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Get DomainCancelation",
+        "description" : "Fetch the cancelation data for the specified domain.",
+        "operationId" : "domainCancelationInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Create Domain Cancelation",
+        "description" : "Create a cancelation for the specified domain.",
+        "operationId" : "domainCancelationCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainCancelation",
+            "$ref" : "#/definitions/DomainCancelation"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Update DomainCancelation",
+        "description" : "Update an existing cancelation for the specified domain.",
+        "operationId" : "domainCancelationUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Delete DomainCancelation",
+        "description" : "Delete an existing cancelation for the specified domain.",
+        "operationId" : "domainCancelationDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/renew" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Renew Domain",
+        "description" : "Renew an existing domain.",
+        "operationId" : "domainRenew",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/restore" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Restore Domain",
+        "description" : "Restore an existing domain.",
+        "operationId" : "domainRestore",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/transfer" : {
+      "post" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Transfer Domain",
+        "description" : "Transfer a domain. The operation is asynchronous and creates a job.",
+        "operationId" : "domainTransfer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/job/_search" : {
+      "post" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "List Jobs",
+        "description" : "Inquire a list of jobs with certain details.",
+        "operationId" : "jobList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            }
+          }
+        }
+      }
+    },
+    "/job/history/_search" : {
+      "post" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "List history jobs",
+        "description" : "Inquire a list of finished jobs with certain details.",
+        "operationId" : "jobHistoryList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            }
+          }
+        }
+      }
+    },
+    "/job/history/{id}" : {
+      "get" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Get history job",
+        "description" : "Inquire the data for the specified finished job.",
+        "operationId" : "jobHistoryInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}" : {
+      "get" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Get Job",
+        "description" : "Inquire the data for the specified job.",
+        "operationId" : "jobInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/cancel" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Cancel Job",
+        "description" : "Cancel the specified job.",
+        "operationId" : "jobCancel",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/confirm" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Confirm Job",
+        "description" : "Confirm the specified job.",
+        "operationId" : "jobConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/reject" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Reject Job",
+        "description" : "Reject the specified job.",
+        "operationId" : "jobReject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/login" : {
+      "get" : {
+        "tags" : [ "Session Tasks" ],
+        "summary" : "Login",
+        "description" : "Login and create a new session.",
+        "operationId" : "login",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "user",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        }, {
+          "name" : "acl",
+          "in" : "query",
+          "description" : "Specifies whether the acls are returned in the response. The possible values are true or false.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "profiles",
+          "in" : "query",
+          "description" : "Specifies whether the user profile is returned in the response. The possible values are true or false.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customer",
+          "in" : "query",
+          "description" : "Specifies whether the customer data is returned in the response. The possible values are true or false.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "timeout",
+          "in" : "query",
+          "description" : "Defines the timeout of the session in minutes. Default is 10 minutes. The possible values are true or false.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            }
+          }
+        }
+      }
+    },
+    "/logout" : {
+      "get" : {
+        "tags" : [ "Session Tasks" ],
+        "summary" : "Logout",
+        "description" : "Logout and delete the current session.",
+        "operationId" : "logout",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/poll" : {
+      "get" : {
+        "tags" : [ "Poll Tasks" ],
+        "summary" : "Get PollMessage",
+        "description" : "Fetch the latest poll message.",
+        "operationId" : "pollInfo",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataPollInfo",
+              "$ref" : "#/definitions/JsonResponseDataPollInfo"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataPollInfo",
+              "$ref" : "#/definitions/JsonResponseDataPollInfo"
+            }
+          }
+        }
+      }
+    },
+    "/poll/{id}" : {
+      "put" : {
+        "tags" : [ "Poll Tasks" ],
+        "summary" : "Confirm PollMessage",
+        "description" : "Confirm the specified poll message",
+        "operationId" : "pollConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/redirect" : {
+      "post" : {
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Create Redirect",
+        "description" : "Create a new redirect.",
+        "operationId" : "redirectCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "redirect",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/redirect/_search" : {
+      "post" : {
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "List Redirect",
+        "description" : "Inquire a list of redirects with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "redirectList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/redirect/{source}" : {
+      "get" : {
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Get Redirect",
+        "description" : "Inquire the data for the specified redirect.",
+        "operationId" : "redirectInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "source",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Update Redirect",
+        "description" : "Update an existing redirect.",
+        "operationId" : "redirectUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "source",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "redirect",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Delete Redirect",
+        "description" : "Delete an existing redirect.",
+        "operationId" : "redirectDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "source",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/sslcontact" : {
+      "post" : {
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "Create SslContact",
+        "description" : "Create a new sslcontact.",
+        "operationId" : "sslContactCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "sslcontact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/sslcontact/_search" : {
+      "post" : {
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "List SslContact",
+        "description" : "Inquire a list of sslcontacts with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "sslContactList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/sslcontact/{id}" : {
+      "get" : {
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "Get SslContact",
+        "description" : "Inquire the data for the specified sslcontact.",
+        "operationId" : "sslContactInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "Update SslContact",
+        "description" : "Update an existing sslcontact.",
+        "operationId" : "sslContactUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "sslcontact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "Delete SslContact",
+        "description" : "Delete an existing sslcontact.",
+        "operationId" : "sslContactDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/zone" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Create Zone",
+        "description" : "Create a zone.",
+        "operationId" : "zoneCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/_search" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "List Zones",
+        "description" : "Inquire a list of zones with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "zoneList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{nameserver}" : {
+      "get" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Get Zone",
+        "description" : "Fetch the data for the specified zone.",
+        "operationId" : "zoneInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "nameserver",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Update Zone",
+        "description" : "Update an existing zone.",
+        "operationId" : "zoneUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "nameserver",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Delete Zone",
+        "description" : "Delete an existing zone.",
+        "operationId" : "zoneDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "nameserver",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{nameserver}/axfr" : {
+      "get" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Get Axfr",
+        "description" : "Fetch the axfr data for the specified zone.",
+        "operationId" : "zoneAxfr",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "nameserver",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{nameserver}/transfer" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Transfer Zone",
+        "description" : "Transfer the specified zone.",
+        "operationId" : "zoneTransfer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "nameserver",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AuEligibilityIdTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "ACN", "ABN", "VIC_BN", "NSW_BN", "SA", "BN", "NT_BN", "WA_BN", "TAS_BN", "ACT_BN", "QLD_BN", "TM", "OTHER" ]
+    },
+    "AuEligibilityTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "COMPANY", "REGISTERED_BUSINESS", "SOLE_TRADER", "PARTNERSHIP", "TRADEMARK_OWNER", "PENDING_TM_OWNER", "CITIZEN_RESIDENT", "INCORPORATED_ASSOCIATION", "UNINCORPORATED_ASSOCIATION", "CLUB", "NON_PROFIT_ORGANISATION", "CHARITY", "TRADE_UNION", "INDUSTRY_BODY", "COMMERCIAL_STATUTORY_BODY", "POLITICAL_PARTY", "RELIGIOUS_CHURCH_GROUPS", "OTHER" ]
+    },
+    "AuRegistrantIdTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "ACN", "ABN", "OTHER" ]
+    },
+    "AuthMethodConstants" : {
+      "type" : "string",
+      "enum" : [ "DNS", "EMAIL", "FILE", "ORG" ]
+    },
+    "AutoRenewStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "TRUE", "FALSE", "ONCE" ]
+    },
+    "BasicDocument" : {
+      "type" : "object",
+      "required" : [ "uuid" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "addon" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "mimeType" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "data" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "uuid" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "alias" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "owner" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        }
+      }
+    },
+    "CaCertificate" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Unique identifier of the object"
+        },
+        "caType" : {
+          "type" : "string",
+          "description" : "The type of the intermediate certificate."
+        },
+        "caCertificate" : {
+          "type" : "string",
+          "description" : "The plain intermediate certificate."
+        }
+      }
+    },
+    "CancelationStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "DELETE", "DELETE_EXPIRE", "TRANSIT", "TRANSIT_EXPIRE", "PREACK", "PREACK_EXPIRE" ]
+    },
+    "CertAuthentication" : {
+      "type" : "object",
+      "properties" : {
+        "method" : {
+          "description" : "The authentication method.",
+          "originalRef" : "AuthMethodConstants",
+          "$ref" : "#/definitions/AuthMethodConstants"
+        },
+        "dns" : {
+          "type" : "string",
+          "description" : "The dns entry for dns based authentication."
+        },
+        "fileName" : {
+          "type" : "string",
+          "description" : "The filename for file based authentication."
+        },
+        "fileContent" : {
+          "type" : "string",
+          "description" : "The content for file based authentication."
+        },
+        "approverEmails" : {
+          "type" : "array",
+          "description" : "The approver addresses for email based authentication.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "provisioning" : {
+          "type" : "boolean",
+          "description" : "Activates automatic provisioning of the zone for dns based authentication."
+        }
+      }
+    },
+    "Certificate" : {
+      "type" : "object",
+      "required" : [ "lifetime", "product", "software" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Unique identifier of the object"
+        },
+        "owner" : {
+          "description" : "The owner of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updating user of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "partnerOrderId" : {
+          "type" : "string",
+          "description" : "The order number of the related request"
+        },
+        "orderId" : {
+          "type" : "string",
+          "description" : "The unique certificate order number"
+        },
+        "adminContact" : {
+          "description" : "The administrative contact",
+          "originalRef" : "SslContact",
+          "$ref" : "#/definitions/SslContact"
+        },
+        "technicalContact" : {
+          "description" : "The technical contact",
+          "originalRef" : "SslContact",
+          "$ref" : "#/definitions/SslContact"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the certificate"
+        },
+        "lifetime" : {
+          "description" : "The certificate term in months",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "software" : {
+          "description" : "The webserver software in use, relevant values: 'II5' for Mircosoft, 'APACHE2' for Linux",
+          "originalRef" : "ServerSoftwareTypeConstants",
+          "$ref" : "#/definitions/ServerSoftwareTypeConstants"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A custom field."
+        },
+        "csr" : {
+          "type" : "string",
+          "description" : "CSR - Key (Certificate Signing Request)"
+        },
+        "server" : {
+          "type" : "string",
+          "description" : "The certificate"
+        },
+        "serialNumber" : {
+          "type" : "string",
+          "description" : "Serial number of the certificate"
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "The ordered product"
+        },
+        "codeSigningType" : {
+          "type" : "string",
+          "description" : "The type of code signing"
+        },
+        "certificateType" : {
+          "type" : "string",
+          "description" : "The type of the certificate"
+        },
+        "sha" : {
+          "type" : "string",
+          "description" : "The signature hash algorithm which was used"
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the certificate expires"
+        },
+        "subjectAlternativeNames" : {
+          "type" : "array",
+          "description" : "Subject Alternative Names (SANs)",
+          "items" : {
+            "originalRef" : "SubjectAlternativeName",
+            "$ref" : "#/definitions/SubjectAlternativeName"
+          }
+        },
+        "histories" : {
+          "type" : "array",
+          "description" : "The history of the certificate (old certificate versions)",
+          "items" : {
+            "originalRef" : "CertificateHistory",
+            "$ref" : "#/definitions/CertificateHistory"
+          }
+        },
+        "certificationAuthority" : {
+          "type" : "array",
+          "description" : "The authentication of the certificate",
+          "items" : {
+            "originalRef" : "CaCertificate",
+            "$ref" : "#/definitions/CaCertificate"
+          }
+        },
+        "password" : {
+          "type" : "string",
+          "description" : "The password that is to be used for the certificate download. Only for S/MIME!",
+          "pattern" : "^[-a-zA-Z0-9 ]{8,32}$"
+        },
+        "firstname" : {
+          "type" : "string",
+          "description" : "First Name. Only for S/MIME!"
+        },
+        "lastname" : {
+          "type" : "string",
+          "description" : "Last Name. Only for S/MIME!"
+        },
+        "organizationUnitName" : {
+          "type" : "string",
+          "description" : "The organization unit. Only for S/MIME!"
+        },
+        "authentication" : {
+          "description" : "The authentication of the certificate",
+          "originalRef" : "CertAuthentication",
+          "$ref" : "#/definitions/CertAuthentication"
+        },
+        "certificateTransparency" : {
+          "type" : "boolean",
+          "description" : "Activates the certificate transparency for a certificate. Default is \"True\"."
+        },
+        "certificateTransparencyPrivacy" : {
+          "description" : "The privacy settings for certificate transparency. Default is \"Redacted\".",
+          "originalRef" : "CertificateTransparencyPrivacyConstants",
+          "$ref" : "#/definitions/CertificateTransparencyPrivacyConstants"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "The domain, which the redirect belongs."
+        },
+        "hasCsr" : {
+          "type" : "boolean",
+          "description" : "States if a self created CSR is to be used for S/MIME. Default is false. Only for S/MIME!"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The IDN version of the URL of the target domain."
+        }
+      }
+    },
+    "CertificateData" : {
+      "type" : "object",
+      "properties" : {
+        "plain" : {
+          "type" : "string",
+          "description" : "The plain csr."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The common name."
+        },
+        "san" : {
+          "type" : "array",
+          "description" : "The subject alternative names, listed in the csr.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "history" : {
+          "type" : "array",
+          "description" : "The certificate history.",
+          "items" : {
+            "originalRef" : "CertificateHistory",
+            "$ref" : "#/definitions/CertificateHistory"
+          }
+        },
+        "keySize" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The size of the csr key."
+        },
+        "countryCode" : {
+          "type" : "string",
+          "description" : "The country code defined in the csr."
+        },
+        "challengePassword" : {
+          "type" : "string",
+          "description" : "The password defined in the csr."
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "The state defined in the csr."
+        },
+        "city" : {
+          "type" : "string",
+          "description" : "The city defined in the csr."
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "The organization defined in the csr."
+        },
+        "organizationUnit" : {
+          "type" : "string",
+          "description" : "The organization unit defined in the csr."
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "The email defined in the csr."
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "The ssl product."
+        },
+        "authentication" : {
+          "type" : "array",
+          "description" : "The authentication data.",
+          "items" : {
+            "originalRef" : "CertAuthentication",
+            "$ref" : "#/definitions/CertAuthentication"
+          }
+        },
+        "algorithm" : {
+          "description" : "The csr algorithm.",
+          "originalRef" : "CsrHashAlgorithmConstants",
+          "$ref" : "#/definitions/CsrHashAlgorithmConstants"
+        },
+        "signatureHashAlgorithm" : {
+          "description" : "The signature hash algorithm.",
+          "originalRef" : "SignatureHashAlgorithmConstants",
+          "$ref" : "#/definitions/SignatureHashAlgorithmConstants"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the common name."
+        },
+        "checkCaa" : {
+          "type" : "boolean",
+          "description" : "Activates the caa record check."
+        }
+      }
+    },
+    "CertificateHistory" : {
+      "type" : "object",
+      "properties" : {
+        "serialNumber" : {
+          "type" : "string",
+          "description" : "The serialnumber of the certificate."
+        },
+        "revoked" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The revoked date of the certificate."
+        }
+      }
+    },
+    "CertificateTransparencyPrivacyConstants" : {
+      "type" : "string",
+      "enum" : [ "PUBLIC", "REDACTED" ]
+    },
+    "CiraCprConstants" : {
+      "type" : "string",
+      "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
+    },
+    "Configuration" : {
+      "type" : "object"
+    },
+    "Contact" : {
+      "type" : "object",
+      "required" : [ "address", "city", "country", "lname", "pcode", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Unique identifier of the object"
+        },
+        "owner" : {
+          "description" : "The owner of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updating user of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "alias" : {
+          "type" : "string",
+          "example" : "John-Doe-1",
+          "description" : "The unique alias of the contact"
+        },
+        "type" : {
+          "description" : "The type of the contact",
+          "originalRef" : "ContactTypeConstants",
+          "$ref" : "#/definitions/ContactTypeConstants"
+        },
+        "fname" : {
+          "type" : "string",
+          "example" : "John",
+          "description" : "The first name of the contact"
+        },
+        "lname" : {
+          "type" : "string",
+          "example" : "Doe",
+          "description" : "The last name of the contact"
+        },
+        "organization" : {
+          "type" : "string",
+          "example" : "Company",
+          "description" : "The name of the organization"
+        },
+        "title" : {
+          "type" : "string",
+          "example" : "Dr.",
+          "description" : "The title of the contact"
+        },
+        "address" : {
+          "type" : "array",
+          "example" : "123 Main Street",
+          "description" : "The address of the contact.",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        },
+        "pcode" : {
+          "type" : "string",
+          "example" : "12345",
+          "description" : "The pcode of the contact"
+        },
+        "city" : {
+          "type" : "string",
+          "example" : "Anytown",
+          "description" : "The city of the contact"
+        },
+        "country" : {
+          "type" : "string",
+          "example" : "DE",
+          "description" : "The country of the contact"
+        },
+        "state" : {
+          "type" : "string",
+          "example" : "BY",
+          "description" : "The local country state of the contact"
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The phone number of the contact"
+        },
+        "fax" : {
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The fax number of the contact"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "john.doe@domain.com",
+          "description" : "The email of the contact"
+        },
+        "protection" : {
+          "description" : "The protection of the contact",
+          "originalRef" : "ContactProtectionConstants",
+          "$ref" : "#/definitions/ContactProtectionConstants"
+        },
+        "sip" : {
+          "type" : "string",
+          "description" : "The sip of the contact"
+        },
+        "remarks" : {
+          "type" : "array",
+          "description" : "The remarks of the contact",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "nicRef" : {
+          "type" : "array",
+          "description" : "The nic references of the contact",
+          "items" : {
+            "originalRef" : "ContactReference",
+            "$ref" : "#/definitions/ContactReference"
+          }
+        },
+        "domainsafe" : {
+          "type" : "boolean",
+          "description" : "The nic references of the contact"
+        },
+        "confirmOwnerConsent" : {
+          "type" : "boolean",
+          "description" : "???"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "The comment for the contact"
+        },
+        "verification" : {
+          "description" : "The verification status of the contact",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "extensions" : {
+          "description" : "The verification status of the contact",
+          "originalRef" : "ContactExtensions",
+          "$ref" : "#/definitions/ContactExtensions"
+        }
+      }
+    },
+    "ContactAeroExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "ensAuthId" : {
+          "type" : "string"
+        },
+        "ensKey" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactAuExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "eligibilityId" : {
+          "type" : "string"
+        },
+        "eligibilityIdType" : {
+          "originalRef" : "AuEligibilityIdTypeConstants",
+          "$ref" : "#/definitions/AuEligibilityIdTypeConstants"
+        },
+        "eligibilityName" : {
+          "type" : "string"
+        },
+        "eligibilityType" : {
+          "originalRef" : "AuEligibilityTypeConstants",
+          "$ref" : "#/definitions/AuEligibilityTypeConstants"
+        },
+        "policyReason" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1,
+          "maximum" : 106
+        },
+        "registrantId" : {
+          "type" : "string"
+        },
+        "registrantIdType" : {
+          "originalRef" : "AuRegistrantIdTypeConstants",
+          "$ref" : "#/definitions/AuRegistrantIdTypeConstants"
+        },
+        "registrantName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactBankExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "ftldToken" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactBarcelonaExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "intededUse" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactBirthExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "country" : {
+          "type" : "string"
+        },
+        "day" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "postalCode" : {
+          "type" : "string"
+        },
+        "place" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactCaExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "cpr" : {
+          "originalRef" : "CiraCprConstants",
+          "$ref" : "#/definitions/CiraCprConstants"
+        },
+        "agreementVersion" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "originatingIp" : {
+          "type" : "string"
+        },
+        "officialRepresentative" : {
+          "type" : "string"
+        },
+        "trusteePercentage" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : 0,
+          "maximum" : 100,
+          "exclusiveMinimum" : false,
+          "exclusiveMaximum" : false
+        }
+      }
+    },
+    "ContactCatExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "intendedUse" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "aero" : {
+          "originalRef" : "ContactAeroExtensions",
+          "$ref" : "#/definitions/ContactAeroExtensions"
+        },
+        "au" : {
+          "originalRef" : "ContactAuExtensions",
+          "$ref" : "#/definitions/ContactAuExtensions"
+        },
+        "cat" : {
+          "originalRef" : "ContactCatExtensions",
+          "$ref" : "#/definitions/ContactCatExtensions"
+        },
+        "jobs" : {
+          "originalRef" : "ContactJobsExtensions",
+          "$ref" : "#/definitions/ContactJobsExtensions"
+        },
+        "it" : {
+          "originalRef" : "ContactItExtensions",
+          "$ref" : "#/definitions/ContactItExtensions"
+        },
+        "jp" : {
+          "originalRef" : "ContactJpExtensions",
+          "$ref" : "#/definitions/ContactJpExtensions"
+        },
+        "xxx" : {
+          "originalRef" : "ContactXxxExtensions",
+          "$ref" : "#/definitions/ContactXxxExtensions"
+        },
+        "hk" : {
+          "originalRef" : "ContactHkExtensions",
+          "$ref" : "#/definitions/ContactHkExtensions"
+        },
+        "bank" : {
+          "originalRef" : "ContactBankExtensions",
+          "$ref" : "#/definitions/ContactBankExtensions"
+        },
+        "swiss" : {
+          "originalRef" : "ContactSwissExtensions",
+          "$ref" : "#/definitions/ContactSwissExtensions"
+        },
+        "ru" : {
+          "originalRef" : "ContactRuExtensions",
+          "$ref" : "#/definitions/ContactRuExtensions"
+        },
+        "uk" : {
+          "originalRef" : "ContactUkExtensions",
+          "$ref" : "#/definitions/ContactUkExtensions"
+        },
+        "ca" : {
+          "originalRef" : "ContactCaExtensions",
+          "$ref" : "#/definitions/ContactCaExtensions"
+        },
+        "ro" : {
+          "originalRef" : "ContactRoExtensions",
+          "$ref" : "#/definitions/ContactRoExtensions"
+        },
+        "barcelona" : {
+          "originalRef" : "ContactBarcelonaExtensions",
+          "$ref" : "#/definitions/ContactBarcelonaExtensions"
+        },
+        "general" : {
+          "originalRef" : "ContactGeneralExtensions",
+          "$ref" : "#/definitions/ContactGeneralExtensions"
+        },
+        "nz" : {
+          "originalRef" : "ContactNzExtensions",
+          "$ref" : "#/definitions/ContactNzExtensions"
+        },
+        "qualifiedLawyer" : {
+          "originalRef" : "ContactQualifiedLawyerExtensions",
+          "$ref" : "#/definitions/ContactQualifiedLawyerExtensions"
+        },
+        "sport" : {
+          "description" : "The .sport contact extensions",
+          "originalRef" : "ContactCatExtensions",
+          "$ref" : "#/definitions/ContactCatExtensions"
+        }
+      }
+    },
+    "ContactGeneralExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "birth" : {
+          "originalRef" : "ContactBirthExtensions",
+          "$ref" : "#/definitions/ContactBirthExtensions"
+        },
+        "trademark" : {
+          "originalRef" : "ContactTrademarkExtensions",
+          "$ref" : "#/definitions/ContactTrademarkExtensions"
+        },
+        "identification" : {
+          "originalRef" : "ContactIdentificationExtensions",
+          "$ref" : "#/definitions/ContactIdentificationExtensions"
+        },
+        "language" : {
+          "originalRef" : "LanguageConstants",
+          "$ref" : "#/definitions/LanguageConstants"
+        },
+        "companyNumber" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "vatNumber" : {
+          "type" : "string"
+        },
+        "mobilePhone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactHkExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "documentType" : {
+          "originalRef" : "HkDocumentTypeConstants",
+          "$ref" : "#/definitions/HkDocumentTypeConstants"
+        },
+        "others" : {
+          "type" : "string"
+        },
+        "documentNumber" : {
+          "type" : "string"
+        },
+        "documentOrigin" : {
+          "type" : "string"
+        },
+        "above18" : {
+          "type" : "boolean"
+        },
+        "industryType" : {
+          "originalRef" : "HkIndustryTypeConstants",
+          "$ref" : "#/definitions/HkIndustryTypeConstants"
+        }
+      }
+    },
+    "ContactIdentificationExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "Number" : {
+          "type" : "string"
+        },
+        "Authority" : {
+          "type" : "string"
+        },
+        "DateOfIssue" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ValidTill" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "ContactItExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "entityType" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1,
+          "maximum" : 7
+        }
+      }
+    },
+    "ContactJobsExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "adminType" : {
+          "type" : "boolean"
+        },
+        "contactTitle" : {
+          "type" : "string"
+        },
+        "hrMember" : {
+          "type" : "boolean"
+        },
+        "industryClass" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 2,
+          "maximum" : 26
+        },
+        "website" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactJpExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "first" : {
+          "type" : "string"
+        },
+        "last" : {
+          "type" : "string"
+        },
+        "organization" : {
+          "type" : "string"
+        },
+        "adressLine1" : {
+          "type" : "string"
+        },
+        "adressLine2" : {
+          "type" : "string"
+        },
+        "adressLine3" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactNzExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "irpo" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "ContactProtectionConstants" : {
+      "type" : "string",
+      "enum" : [ "SHOW_ALL", "SHOW_NONE" ]
+    },
+    "ContactQualifiedLawyerExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "qualifiedLawyerAccreditationId" : {
+          "type" : "string"
+        },
+        "qualifiedLawyerAccreditationBody" : {
+          "type" : "string"
+        },
+        "qualifiedLawyerAccreditationYear" : {
+          "type" : "string"
+        },
+        "qualifiedLawyerJurisdictionCc" : {
+          "type" : "string"
+        },
+        "qualifiedLawyerJurisdictionSp" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactReference" : {
+      "type" : "object"
+    },
+    "ContactRoExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "personType" : {
+          "originalRef" : "RoPersonTypeConstants",
+          "$ref" : "#/definitions/RoPersonTypeConstants"
+        }
+      }
+    },
+    "ContactRuExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "taxpayerIdentificationNumber" : {
+          "type" : "string"
+        },
+        "territoryLinkedTaxpayerNumber" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactSwissExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "enterpriseId" : {
+          "type" : "string",
+          "pattern" : "^$|^CHE-((\\d{3}\\.\\d{3}\\.\\d{3})|(\\d{9}))$"
+        },
+        "intededUse" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactTrademarkExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "number" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "regdate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "appdate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "office" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "PERSON", "ORG", "ROLE" ]
+    },
+    "ContactUkExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "entityType" : {
+          "originalRef" : "UkTypeConstants",
+          "$ref" : "#/definitions/UkTypeConstants"
+        }
+      }
+    },
+    "ContactXxxExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "membershipID" : {
+          "type" : "string"
+        },
+        "nonResolverDomain" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "CsrHashAlgorithmConstants" : {
+      "type" : "string",
+      "enum" : [ "ECC", "RSA", "DSA" ]
+    },
+    "Customer" : {
+      "type" : "object",
+      "required" : [ "client", "name", "number", "payment" ],
+      "properties" : {
+        "number" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "client" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "group" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the customer.",
+          "minLength" : 0,
+          "maxLength" : 255
+        },
+        "payment" : {
+          "description" : "The payment typ of the customer.",
+          "originalRef" : "PaymentConstants",
+          "$ref" : "#/definitions/PaymentConstants"
+        }
+      }
+    },
+    "DNSSec" : {
+      "type" : "object",
+      "required" : [ "algorithm", "publicKey" ],
+      "properties" : {
+        "algorithm" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The algorithm."
+        },
+        "publicKey" : {
+          "type" : "string",
+          "description" : "The public key.",
+          "pattern" : "^[\\sA-Za-z0-9+\\/]+[=]*$"
+        }
+      }
+    },
+    "DNSSecJob" : {
+      "type" : "object"
+    },
+    "Domain" : {
+      "type" : "object",
+      "required" : [ "name", "payable", "removeCancelation" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the domain."
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date of the domain."
+        },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The payable date of the domain."
+        },
+        "ownerc" : {
+          "description" : "The owner contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "adminc" : {
+          "description" : "The admin contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The zone contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "nicMemberLabel" : {
+          "type" : "string",
+          "description" : "The nic member label."
+        },
+        "registryStatus" : {
+          "description" : "The registry status.",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "nameServers" : {
+          "type" : "array",
+          "description" : "The nameservers.",
+          "items" : {
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
+          }
+        },
+        "nameServerEntries" : {
+          "type" : "array",
+          "description" : "NSentry is only be provided for .DE. If NSentry is used, nameServers is not allowed.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "lastAction" : {
+          "description" : "The last action.",
+          "originalRef" : "DomainActionConstants",
+          "$ref" : "#/definitions/DomainActionConstants"
+        },
+        "trustee" : {
+          "type" : "boolean",
+          "description" : "Enable trustee service for the domain."
+        },
+        "privacy" : {
+          "type" : "boolean",
+          "description" : "Enable privacy service for the domain."
+        },
+        "autoDnsSec" : {
+          "type" : "boolean",
+          "description" : "Enable auto dnssec for the domain."
+        },
+        "authinfo" : {
+          "type" : "string",
+          "description" : "The authinfo."
+        },
+        "domainsafe" : {
+          "type" : "boolean",
+          "description" : "Enable domainsafe."
+        },
+        "dnssec" : {
+          "type" : "boolean",
+          "description" : "Enable dnssec"
+        },
+        "validCertificate" : {
+          "type" : "boolean",
+          "description" : "Domain has an matching certificate."
+        },
+        "parking" : {
+          "description" : "The parking provider.",
+          "originalRef" : "ParkingProviderConstants",
+          "$ref" : "#/definitions/ParkingProviderConstants"
+        },
+        "cancelationStatus" : {
+          "description" : "The cancelation status.",
+          "originalRef" : "CancelationStatusConstants",
+          "$ref" : "#/definitions/CancelationStatusConstants"
+        },
+        "autoRenewStatus" : {
+          "description" : "The autorenew status.",
+          "originalRef" : "AutoRenewStatusConstants",
+          "$ref" : "#/definitions/AutoRenewStatusConstants"
+        },
+        "dnssecData" : {
+          "type" : "array",
+          "description" : "The dnssec data.",
+          "items" : {
+            "originalRef" : "DNSSec",
+            "$ref" : "#/definitions/DNSSec"
+          }
+        },
+        "extensions" : {
+          "description" : "The domain extensions.",
+          "originalRef" : "DomainExtensions",
+          "$ref" : "#/definitions/DomainExtensions"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The logId"
+        },
+        "confirmOrder" : {
+          "type" : "boolean",
+          "description" : "Some TLDs require a confirmation of the “Terms and Conditions of Registration."
+        },
+        "confirmOwnerConsent" : {
+          "type" : "boolean",
+          "description" : "Confirms the consent of the domainowner for the changes. Required for gTLDs and new gTLDs when changing the name, the email address or the organization of the domain owner."
+        },
+        "ignoreWhois" : {
+          "type" : "boolean",
+          "description" : "Ignore whois."
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A custom field."
+        },
+        "includeWWW" : {
+          "type" : "boolean",
+          "description" : "Enable utomatic creation of the www subdomain."
+        },
+        "includeWildcard" : {
+          "type" : "boolean",
+          "description" : "Enable include wildcard."
+        },
+        "registrarStatus" : {
+          "description" : "The registrar status.",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "registrarStatusReason" : {
+          "type" : "string",
+          "description" : "The registrar status reason."
+        },
+        "removeCancelation" : {
+          "type" : "boolean",
+          "description" : "Remove cancelation."
+        },
+        "autodnsSecJob" : {
+          "description" : "AutodnsSecJob",
+          "originalRef" : "DNSSecJob",
+          "$ref" : "#/definitions/DNSSecJob"
+        },
+        "priceClass" : {
+          "type" : "string",
+          "description" : "The priceclass for the registration of the domain."
+        },
+        "priceClassRenew" : {
+          "type" : "string",
+          "description" : "The priceclass for the renew of the domain."
+        },
+        "abuseEmail" : {
+          "type" : "string",
+          "description" : "The abuse email."
+        },
+        "generalRequestEmail" : {
+          "type" : "string",
+          "description" : "The general request mail."
+        },
+        "privacyPlusMail" : {
+          "type" : "string",
+          "description" : "The privacy plus mail."
+        },
+        "privacyPlus" : {
+          "type" : "boolean",
+          "description" : "Enable privacy plus."
+        },
+        "nameServerGroup" : {
+          "type" : "string",
+          "description" : "The nameserver group."
+        },
+        "rddsOptIn" : {
+          "description" : "Enables the whois output to show redacted contacts.",
+          "originalRef" : "RddsOptInConstants",
+          "$ref" : "#/definitions/RddsOptInConstants"
+        },
+        "zone" : {
+          "description" : "The zone to create.",
+          "originalRef" : "Zone",
+          "$ref" : "#/definitions/Zone"
+        }
+      }
+    },
+    "DomainActionConstants" : {
+      "type" : "string",
+      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY" ]
+    },
+    "DomainCancelation" : {
+      "type" : "object",
+      "required" : [ "domain", "registryWhen", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "type" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "DomainCancelationTypeConstants",
+          "$ref" : "#/definitions/DomainCancelationTypeConstants"
+        },
+        "registryWhen" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "gainingRegistrar" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "disconnect" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "notice" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "registryStatus" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        }
+      }
+    },
+    "DomainCancelationTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "DELETE", "TRANSIT", "PREACK" ]
+    },
+    "DomainExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "parkingExtensions" : {
+          "originalRef" : "DomainParkingExtensions",
+          "$ref" : "#/definitions/DomainParkingExtensions"
+        },
+        "generalExtensions" : {
+          "originalRef" : "DomainGeneralExtensions",
+          "$ref" : "#/definitions/DomainGeneralExtensions"
+        }
+      }
+    },
+    "DomainGeneralExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "externalReference" : {
+          "type" : "string"
+        },
+        "notAfter" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "confirmIp" : {
+          "type" : "string"
+        },
+        "priceClass" : {
+          "type" : "string"
+        }
+      }
+    },
+    "DomainParkingExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "parkingCategory" : {
+          "type" : "string"
+        },
+        "parkingCurrency" : {
+          "originalRef" : "ParkingCurrencyConstants",
+          "$ref" : "#/definitions/ParkingCurrencyConstants"
+        },
+        "parkingDomainLanguage" : {
+          "type" : "string"
+        },
+        "parkingFixedPrice" : {
+          "type" : "boolean"
+        },
+        "parkingForSale" : {
+          "type" : "boolean"
+        },
+        "parkingKeyword" : {
+          "type" : "string"
+        },
+        "parkingPrice" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : 0,
+          "exclusiveMinimum" : false
+        },
+        "parkingMinPrice" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : 0,
+          "exclusiveMinimum" : false
+        }
+      }
+    },
+    "DomainRestore" : {
+      "type" : "object",
+      "required" : [ "name", "payable", "removeCancelation" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the domain."
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date of the domain."
+        },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The payable date of the domain."
+        },
+        "ownerc" : {
+          "description" : "The owner contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "adminc" : {
+          "description" : "The admin contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The zone contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "nicMemberLabel" : {
+          "type" : "string",
+          "description" : "The nic member label."
+        },
+        "registryStatus" : {
+          "description" : "The registry status.",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "nameServers" : {
+          "type" : "array",
+          "description" : "The nameservers.",
+          "items" : {
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
+          }
+        },
+        "nameServerEntries" : {
+          "type" : "array",
+          "description" : "NSentry is only be provided for .DE. If NSentry is used, nameServers is not allowed.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "lastAction" : {
+          "description" : "The last action.",
+          "originalRef" : "DomainActionConstants",
+          "$ref" : "#/definitions/DomainActionConstants"
+        },
+        "trustee" : {
+          "type" : "boolean",
+          "description" : "Enable trustee service for the domain."
+        },
+        "privacy" : {
+          "type" : "boolean",
+          "description" : "Enable privacy service for the domain."
+        },
+        "autoDnsSec" : {
+          "type" : "boolean",
+          "description" : "Enable auto dnssec for the domain."
+        },
+        "authinfo" : {
+          "type" : "string",
+          "description" : "The authinfo."
+        },
+        "domainsafe" : {
+          "type" : "boolean",
+          "description" : "Enable domainsafe."
+        },
+        "dnssec" : {
+          "type" : "boolean",
+          "description" : "Enable dnssec"
+        },
+        "validCertificate" : {
+          "type" : "boolean",
+          "description" : "Domain has an matching certificate."
+        },
+        "parking" : {
+          "description" : "The parking provider.",
+          "originalRef" : "ParkingProviderConstants",
+          "$ref" : "#/definitions/ParkingProviderConstants"
+        },
+        "cancelationStatus" : {
+          "description" : "The cancelation status.",
+          "originalRef" : "CancelationStatusConstants",
+          "$ref" : "#/definitions/CancelationStatusConstants"
+        },
+        "autoRenewStatus" : {
+          "description" : "The autorenew status.",
+          "originalRef" : "AutoRenewStatusConstants",
+          "$ref" : "#/definitions/AutoRenewStatusConstants"
+        },
+        "dnssecData" : {
+          "type" : "array",
+          "description" : "The dnssec data.",
+          "items" : {
+            "originalRef" : "DNSSec",
+            "$ref" : "#/definitions/DNSSec"
+          }
+        },
+        "extensions" : {
+          "description" : "The domain extensions.",
+          "originalRef" : "DomainExtensions",
+          "$ref" : "#/definitions/DomainExtensions"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The logId"
+        },
+        "confirmOrder" : {
+          "type" : "boolean",
+          "description" : "Some TLDs require a confirmation of the “Terms and Conditions of Registration."
+        },
+        "confirmOwnerConsent" : {
+          "type" : "boolean",
+          "description" : "Confirms the consent of the domainowner for the changes. Required for gTLDs and new gTLDs when changing the name, the email address or the organization of the domain owner."
+        },
+        "ignoreWhois" : {
+          "type" : "boolean",
+          "description" : "Ignore whois."
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A custom field."
+        },
+        "includeWWW" : {
+          "type" : "boolean",
+          "description" : "Enable utomatic creation of the www subdomain."
+        },
+        "includeWildcard" : {
+          "type" : "boolean",
+          "description" : "Enable include wildcard."
+        },
+        "registrarStatus" : {
+          "description" : "The registrar status.",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "registrarStatusReason" : {
+          "type" : "string",
+          "description" : "The registrar status reason."
+        },
+        "removeCancelation" : {
+          "type" : "boolean",
+          "description" : "Remove cancelation."
+        },
+        "autodnsSecJob" : {
+          "description" : "AutodnsSecJob",
+          "originalRef" : "DNSSecJob",
+          "$ref" : "#/definitions/DNSSecJob"
+        },
+        "priceClass" : {
+          "type" : "string",
+          "description" : "The priceclass for the registration of the domain."
+        },
+        "priceClassRenew" : {
+          "type" : "string",
+          "description" : "The priceclass for the renew of the domain."
+        },
+        "abuseEmail" : {
+          "type" : "string",
+          "description" : "The abuse email."
+        },
+        "generalRequestEmail" : {
+          "type" : "string",
+          "description" : "The general request mail."
+        },
+        "privacyPlusMail" : {
+          "type" : "string",
+          "description" : "The privacy plus mail."
+        },
+        "privacyPlus" : {
+          "type" : "boolean",
+          "description" : "Enable privacy plus."
+        },
+        "nameServerGroup" : {
+          "type" : "string",
+          "description" : "The nameserver group."
+        },
+        "rddsOptIn" : {
+          "description" : "Enables the whois output to show redacted contacts.",
+          "originalRef" : "RddsOptInConstants",
+          "$ref" : "#/definitions/RddsOptInConstants"
+        },
+        "zone" : {
+          "description" : "The zone to create.",
+          "originalRef" : "Zone",
+          "$ref" : "#/definitions/Zone"
+        },
+        "deleted" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "endOfPhase" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "FilterLinkConstants" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR" ]
+    },
+    "FilterOperatorConstants" : {
+      "type" : "string",
+      "enum" : [ "EQUAL", "NOT_EQUAL", "NOT_LIKE", "LIKE", "ILIKE", "GREATER", "GREATER_EQUAL", "LESS", "LESS_EQUAL", "IS_NULL", "IS_NOT_NULL", "IN" ]
+    },
+    "GenderConstants" : {
+      "type" : "string",
+      "enum" : [ "MALE", "FEMALE" ]
+    },
+    "GenericStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
+    },
+    "HkDocumentTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "HKID", "OTHID", "PASSNO", "BIRTHCERT", "OTHIDV", "BR", "CI", "CRS", "HKSARG", "HKORDINANCE", "OTHORG" ]
+    },
+    "HkIndustryTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "_0", "_4160", "_4224", "_4288", "_4352", "_4416", "_8256", "_8320", "_8384", "_8448", "_8512", "_12352", "_12416", "_16448", "_16512", "_16576", "_16640", "_16704", "_16768", "_16832", "_20544", "_20608", "_20672", "_20736", "_20800", "_20864", "_20928", "_24640", "_24704", "_24768", "_28736", "_28800", "_28864", "_28928", "_28992", "_29056", "_29120", "_070800", "_070900", "_080100", "_080200", "_080300", "_080400", "_080500", "_080600", "_080700", "_080800", "_080900", "_081000", "_081100", "_090100", "_090200", "_090300", "_090400", "_090500", "_100100", "_100200", "_100300", "_100400", "_100500", "_110100", "_110200", "_110300", "_110400", "_110500", "_110600", "_120100", "_120200", "_120300", "_120400", "_120500", "_120600", "_120700", "_120800", "_120900", "_130100", "_130200", "_130300", "_130400", "_130500", "_130600", "_130700", "_130800", "_140101", "_140102", "_140103", "_140200", "_140300", "_140400", "_140500", "_140600", "_140700" ]
+    },
+    "Job" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "object" : {
+          "type" : "string",
+          "description" : "The object."
+        },
+        "status" : {
+          "description" : "The status of the job.",
+          "originalRef" : "JobStatusConstants",
+          "$ref" : "#/definitions/JobStatusConstants"
+        },
+        "subStatus" : {
+          "type" : "string",
+          "description" : "The substatus of the job."
+        },
+        "execution" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The next execution date of the job."
+        },
+        "events" : {
+          "type" : "array",
+          "description" : "The events.",
+          "items" : {
+            "originalRef" : "WorkflowEvent",
+            "$ref" : "#/definitions/WorkflowEvent"
+          }
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The job id."
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The job type."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
+        },
+        "domain" : {
+          "description" : "The domain.",
+          "originalRef" : "Domain",
+          "$ref" : "#/definitions/Domain"
+        },
+        "certificate" : {
+          "description" : "The certificate.",
+          "originalRef" : "Certificate",
+          "$ref" : "#/definitions/Certificate"
+        },
+        "contact" : {
+          "description" : "The contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        }
+      }
+    },
+    "JobStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "RUNNING", "SUCCESS", "FAILED", "CANCELED", "SUPPORT", "DEFERRED", "NOT_SET", "WAIT" ]
+    },
+    "JsonResponseData" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "object"
+          }
+        }
+      }
+    },
+    "JsonResponseDataBasicDocument" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "BasicDocument",
+            "$ref" : "#/definitions/BasicDocument"
+          }
+        }
+      }
+    },
+    "JsonResponseDataContact" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
+          }
+        }
+      }
+    },
+    "JsonResponseDataDomain" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        }
+      }
+    },
+    "JsonResponseDataDomainRestore" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainRestore",
+            "$ref" : "#/definitions/DomainRestore"
+          }
+        }
+      }
+    },
+    "JsonResponseDataJob" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Job",
+            "$ref" : "#/definitions/Job"
+          }
+        }
+      }
+    },
+    "JsonResponseDataPollInfo" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "PollInfo",
+            "$ref" : "#/definitions/PollInfo"
+          }
+        }
+      }
+    },
+    "JsonResponseDataUser" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        }
+      }
+    },
+    "JsonResponseDataZone" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        }
+      }
+    },
+    "LanguageConstants" : {
+      "type" : "string",
+      "enum" : [ "CS", "DA", "DE", "EL", "EN", "ES", "ET", "FI", "FR", "HU", "IT", "LT", "LV", "NL", "PL", "PT", "SK", "SL", "SV" ]
+    },
+    "MainIp" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "ttl" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "Message" : {
+      "type" : "object",
+      "properties" : {
+        "text" : {
+          "type" : "string"
+        },
+        "messageCode" : {
+          "type" : "string"
+        },
+        "status" : {
+          "originalRef" : "MessageStatusConstants",
+          "$ref" : "#/definitions/MessageStatusConstants"
+        },
+        "messages" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "objects" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "SimpleObject",
+            "$ref" : "#/definitions/SimpleObject"
+          }
+        }
+      }
+    },
+    "MessageStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "SUCCESS", "ERROR", "NOTIFY", "NOTICE" ]
+    },
+    "NameServer" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "Host name of the nameserver."
+        },
+        "ttl" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The time to live."
+        },
+        "ipAddresses" : {
+          "type" : "array",
+          "description" : "The ip addresses.",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "NameserverActionConstants" : {
+      "type" : "string",
+      "enum" : [ "PRIMARY", "SECONDARY", "COMPLETE", "HIDDEN", "NONE", "AUTO" ]
+    },
+    "OrderTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "ASC", "DESC" ]
+    },
+    "ParkingCurrencyConstants" : {
+      "type" : "string",
+      "enum" : [ "USD", "EUR", "GBP" ]
+    },
+    "ParkingProviderConstants" : {
+      "type" : "string",
+      "enum" : [ "SEDO", "NAMEDRIVE", "PARKINGCREW" ]
+    },
+    "PaymentConstants" : {
+      "type" : "string",
+      "enum" : [ "PRE", "POST", "LIVE" ]
+    },
+    "PollInfo" : {
+      "type" : "object",
+      "properties" : {
+        "summary" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "originalRef" : "PollMessage",
+          "$ref" : "#/definitions/PollMessage"
+        }
+      }
+    },
+    "PollMessage" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "owner" : {
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "job" : {
+          "originalRef" : "Job",
+          "$ref" : "#/definitions/Job"
+        },
+        "stid" : {
+          "type" : "string"
+        },
+        "ctid" : {
+          "type" : "string"
+        },
+        "object" : {
+          "originalRef" : "SimpleObject",
+          "$ref" : "#/definitions/SimpleObject"
+        },
+        "status" : {
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        }
+      }
+    },
+    "Query" : {
+      "type" : "object",
+      "properties" : {
+        "filters" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "originalRef" : "QueryFilter",
+            "$ref" : "#/definitions/QueryFilter"
+          }
+        },
+        "view" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "QueryView",
+          "$ref" : "#/definitions/QueryView"
+        },
+        "orders" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "originalRef" : "QueryOrder",
+            "$ref" : "#/definitions/QueryOrder"
+          }
+        }
+      }
+    },
+    "QueryBuilder" : {
+      "type" : "object"
+    },
+    "QueryFilter" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "operator" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "FilterOperatorConstants",
+          "$ref" : "#/definitions/FilterOperatorConstants"
+        },
+        "link" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "FilterLinkConstants",
+          "$ref" : "#/definitions/FilterLinkConstants"
+        },
+        "filters" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "originalRef" : "QueryFilter",
+            "$ref" : "#/definitions/QueryFilter"
+          }
+        }
+      }
+    },
+    "QueryOrder" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "ins" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "type" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "OrderTypeConstants",
+          "$ref" : "#/definitions/OrderTypeConstants"
+        }
+      }
+    },
+    "QueryView" : {
+      "type" : "object",
+      "properties" : {
+        "limit" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "offset" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "children" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "from" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "to" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "RddsOptInConstants" : {
+      "type" : "string",
+      "enum" : [ "NOT_SET", "OWNERC", "ADMINC", "OWNERC_ADMINC", "TECHC", "OWNERC_TECHC", "ADMINC_TECHC", "ALL" ]
+    },
+    "RecordTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "A", "MX", "CNAME", "NS", "PTR", "HINFO", "TXT", "AAAA", "SRV", "NAPTR", "DS", "SSHFP", "TLSA", "CAA" ]
+    },
+    "Redirect" : {
+      "type" : "object",
+      "required" : [ "mode", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "source" : {
+          "type" : "string",
+          "description" : "The domain to be redirected. Enter the domain with or without \"www\"."
+        },
+        "target" : {
+          "type" : "string",
+          "description" : "The URL of the target domain. Enter the domain without \"http://\""
+        },
+        "type" : {
+          "description" : "Redirect type",
+          "originalRef" : "RedirectTypeConstants",
+          "$ref" : "#/definitions/RedirectTypeConstants"
+        },
+        "mode" : {
+          "description" : "Redirect mode",
+          "originalRef" : "RedirectModeConstants",
+          "$ref" : "#/definitions/RedirectModeConstants"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "The domain, which the redirect belongs."
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "backups" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 3,
+          "minItems" : 0
+        },
+        "sourceIdn" : {
+          "type" : "string",
+          "description" : "The IDN version of the domain to be redirected. Enter the domain with or without \"www\"."
+        },
+        "targetIdn" : {
+          "type" : "string",
+          "description" : "The IDN version of the URL of the target domain. Enter the domain without \"http://\""
+        },
+        "lastSeen" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The last dns connection."
+        }
+      }
+    },
+    "RedirectModeConstants" : {
+      "type" : "string",
+      "enum" : [ "CATCHALL", "FRAME", "HTTP", "SINGLE", "HTTPS" ]
+    },
+    "RedirectTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "DOMAIN", "EMAIL" ]
+    },
+    "RegistryStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "ACTIVE", "HOLD", "LOCK", "HOLD_LOCK", "AUTO", "LOCK_OWNER", "LOCK_UPDATE", "PENDING", "NONE" ]
+    },
+    "ResourceRecord" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "ttl" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "type" : {
+          "originalRef" : "RecordTypeConstants",
+          "$ref" : "#/definitions/RecordTypeConstants"
+        },
+        "pref" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseObject" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "The type of the object."
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "The value of the object."
+        },
+        "summary" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The amound of objects found in list tasks."
+        }
+      }
+    },
+    "ResponseStatus" : {
+      "type" : "object",
+      "properties" : {
+        "resultCode" : {
+          "type" : "string",
+          "description" : "The result code of the response"
+        },
+        "text" : {
+          "type" : "string",
+          "description" : "The text representation of the restult code."
+        },
+        "type" : {
+          "description" : "The status of the response.",
+          "originalRef" : "MessageStatusConstants",
+          "$ref" : "#/definitions/MessageStatusConstants"
+        }
+      }
+    },
+    "RoPersonTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "P", "AP", "NC", "C", "GI", "PI", "O" ]
+    },
+    "ServerSoftwareTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "IIS4", "IIS5", "APACHE2", "APACHESSL", "PLESK", "TOMCAT", "NOT_SET" ]
+    },
+    "SignatureHashAlgorithmConstants" : {
+      "type" : "string",
+      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256" ]
+    },
+    "SimpleObject" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "The type of the object."
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "The value of the object."
+        }
+      }
+    },
+    "Soa" : {
+      "type" : "object",
+      "required" : [ "email" ],
+      "properties" : {
+        "email" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "refresh" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "retry" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "expire" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "ttl" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "minimumTtl" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "level" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "SslContact" : {
+      "type" : "object",
+      "required" : [ "email", "id", "organization", "phone", "title" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "fname" : {
+          "type" : "string",
+          "example" : "John",
+          "description" : "The first name of the contact"
+        },
+        "lname" : {
+          "type" : "string",
+          "example" : "Doe",
+          "description" : "The last name of the contact"
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The phone number of the contact"
+        },
+        "fax" : {
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The fax number of the contact"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "john.doe@domain.com",
+          "description" : "The email of the contact"
+        },
+        "title" : {
+          "type" : "string",
+          "example" : "Dr.",
+          "description" : "The title of the contact"
+        },
+        "organization" : {
+          "type" : "string",
+          "example" : "Company",
+          "description" : "The name of the organization"
+        },
+        "address" : {
+          "type" : "string",
+          "example" : "123 Main Street",
+          "description" : "The address of the contact."
+        },
+        "pcode" : {
+          "type" : "string",
+          "example" : "12345",
+          "description" : "The pcode of the contact"
+        },
+        "city" : {
+          "type" : "string",
+          "example" : "Anytown",
+          "description" : "The city of the contact"
+        },
+        "country" : {
+          "type" : "string",
+          "example" : "DE",
+          "description" : "The country of the contact"
+        },
+        "state" : {
+          "type" : "string",
+          "example" : "BY",
+          "description" : "The local country state of the contact"
+        },
+        "owner" : {
+          "description" : "The owner of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updating using of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Unique identifier of the object"
+        }
+      }
+    },
+    "SubjectAlternativeName" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the san."
+        },
+        "approverEmail" : {
+          "type" : "string",
+          "description" : "The approver email of the san."
+        },
+        "orderId" : {
+          "type" : "string",
+          "description" : "The order id of the san."
+        }
+      }
+    },
+    "TimePeriod" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TimeUnitConstants",
+          "$ref" : "#/definitions/TimeUnitConstants"
+        },
+        "period" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "TimeUnitConstants" : {
+      "type" : "string",
+      "enum" : [ "MILLISECOND", "SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "QUARTER", "YEAR" ]
+    },
+    "UkTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
+    },
+    "User" : {
+      "type" : "object",
+      "required" : [ "context", "user" ],
+      "properties" : {
+        "user" : {
+          "type" : "string",
+          "description" : "The user name."
+        },
+        "context" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The context."
+        },
+        "password" : {
+          "type" : "string",
+          "description" : "The password."
+        },
+        "defaultEmail" : {
+          "type" : "string",
+          "description" : "The default email."
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language."
+        },
+        "status" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The status."
+        },
+        "substatus" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The substatus."
+        },
+        "owner" : {
+          "description" : "The parent.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "acls" : {
+          "description" : "Wrapper for the user acls.",
+          "originalRef" : "UserAcls",
+          "$ref" : "#/definitions/UserAcls"
+        },
+        "profiles" : {
+          "description" : "Wrapper for the user profiles.",
+          "originalRef" : "UserProfiles",
+          "$ref" : "#/definitions/UserProfiles"
+        },
+        "ancestors" : {
+          "type" : "array",
+          "description" : "The ancestors of the user.",
+          "items" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        },
+        "customer" : {
+          "description" : "The customer belonging to the user.",
+          "originalRef" : "Customer",
+          "$ref" : "#/definitions/Customer"
+        }
+      }
+    },
+    "UserAcl" : {
+      "type" : "object",
+      "properties" : {
+        "functionCode" : {
+          "type" : "string"
+        },
+        "userLocked" : {
+          "type" : "boolean"
+        },
+        "childrenLocked" : {
+          "type" : "boolean"
+        },
+        "effective" : {
+          "type" : "boolean"
+        },
+        "child" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        },
+        "childAdd" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        },
+        "childRem" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
+          }
+        },
+        "restriction" : {
+          "originalRef" : "UserAclRestrictionConstants",
+          "$ref" : "#/definitions/UserAclRestrictionConstants"
+        }
+      }
+    },
+    "UserAclRestrictionConstants" : {
+      "type" : "string",
+      "enum" : [ "USER_LOCKED", "CHILDREN_LOCKED", "PARENT_LOCK", "NOT_LOCKED" ]
+    },
+    "UserAcls" : {
+      "type" : "object",
+      "properties" : {
+        "acls" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "UserAcl",
+            "$ref" : "#/definitions/UserAcl"
+          }
+        }
+      }
+    },
+    "UserProfile" : {
+      "type" : "object",
+      "properties" : {
+        "flag" : {
+          "originalRef" : "UserProfileFlagConstants",
+          "$ref" : "#/definitions/UserProfileFlagConstants"
+        },
+        "key" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "UserProfileFlagConstants" : {
+      "type" : "string",
+      "enum" : [ "OPTIONAL", "FIX", "RECURSE", "HIDDEN", "PARENT_FIX" ]
+    },
+    "UserProfiles" : {
+      "type" : "object",
+      "properties" : {
+        "profiles" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "UserProfile",
+            "$ref" : "#/definitions/UserProfile"
+          }
+        }
+      }
+    },
+    "WorkflowEvent" : {
+      "type" : "object",
+      "properties" : {
+        "vertex" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "Zone" : {
+      "type" : "object",
+      "required" : [ "origin" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "Zone name"
+        },
+        "main" : {
+          "description" : "IP address of the zone (A record)",
+          "originalRef" : "MainIp",
+          "$ref" : "#/definitions/MainIp"
+        },
+        "soa" : {
+          "description" : "Only for ns_action: \"primary\"  and \"complete\"",
+          "originalRef" : "Soa",
+          "$ref" : "#/definitions/Soa"
+        },
+        "wwwInclude" : {
+          "type" : "boolean",
+          "description" : "Automatic generation of resource records \"www\""
+        },
+        "dnssec" : {
+          "type" : "boolean",
+          "description" : "Enables dnssec"
+        },
+        "virtualNameServer" : {
+          "type" : "string",
+          "description" : "The virtual name server"
+        },
+        "action" : {
+          "description" : "Additional nameserver check is proceeded",
+          "originalRef" : "NameserverActionConstants",
+          "$ref" : "#/definitions/NameserverActionConstants"
+        },
+        "nameServerGroup" : {
+          "type" : "string",
+          "description" : "The name of the name server group, if the zone is managed by"
+        },
+        "allowTransfer" : {
+          "type" : "boolean",
+          "description" : "Allow AXFR"
+        },
+        "owner" : {
+          "description" : "The owner of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "updater" : {
+          "description" : "The updating user of the object",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The id of the related log-entry."
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A custom field"
+        },
+        "domainsafe" : {
+          "type" : "boolean",
+          "description" : "true if the domain is represented in the domain safe"
+        },
+        "source" : {
+          "type" : "string",
+          "description" : "Nameserver, the zone is copied from via AXFR (for zone_import)"
+        },
+        "grants" : {
+          "type" : "array",
+          "description" : "The grants.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the origin."
+        },
+        "nameServers" : {
+          "type" : "array",
+          "description" : "List of name servers",
+          "items" : {
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
+          }
+        },
+        "freeText" : {
+          "type" : "array",
+          "description" : "The free text records.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "sourceSystemNs" : {
+          "type" : "string",
+          "description" : "The source system nameserver."
+        },
+        "resourceRecords" : {
+          "type" : "array",
+          "description" : "The resource records.",
+          "items" : {
+            "originalRef" : "ResourceRecord",
+            "$ref" : "#/definitions/ResourceRecord"
+          }
+        }
+      }
+    }
+  }
+}
