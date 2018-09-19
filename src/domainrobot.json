@@ -5,8 +5,8 @@
     "version" : "v1",
     "title" : "Domainrobot JSON API"
   },
-  "host" : "api.autodns.com:443",
-  "basePath" : "/api/v1",
+  "host" : "https://api.autodns.com",
+  "basePath" : "/v1",
   "tags" : [ {
     "name" : "Certificate Tasks"
   }, {
