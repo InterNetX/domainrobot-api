@@ -17,6 +17,11 @@ Short information about all APIs offered by InterNetX.
 The "Product Store" is a central service that provides information about the products offered by InterNetX. The product information can be retrieved via a REST API.
 #### URL
 The API can be accessed via the following URL: https://api.autodns.com/productstore/v1/
+### Domainrobot JSON API
+#### About
+Domainrobot JSON API for managing Domains, SSL Certificates, DNS and much more.
+#### URL
+The API can be accessed via the following URL: https://api.autodns.com/v1
 
 ## Changelog
 ### 1.0.0
