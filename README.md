@@ -4,6 +4,7 @@ All the files needed to interact with the InterNetX APIs. The files help to crea
 ## Table of Contents
 1. [API](#api)
    * [Product Store](#product-store)
+   * [Domainrobot JSON API](#domainrobot-json-api)
 2. [Changelog](#changelog)
 3. [Authors](#authors)
 4. [Swagger](#swagger)
