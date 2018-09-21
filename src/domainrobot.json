@@ -1,12 +1,12 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Domainrobot JSON API for managing: Domains, SSL Certificates, DNS and much more.",
+    "description" : "AutoDNS API for managing: Domains, SSL Certificates, DNS and much more",
     "version" : "v1",
-    "title" : "Domainrobot JSON API"
+    "title" : "AutoDNS API"
   },
-  "host" : "https://api.autodns.com",
-  "basePath" : "/v1",
+  "host" : "api.autodns.com:443",
+  "basePath" : "/api/v1",
   "tags" : [ {
     "name" : "Certificate Tasks"
   }, {
@@ -625,38 +625,6 @@
           "schema" : {
             "originalRef" : "QueryBuilder",
             "$ref" : "#/definitions/QueryBuilder"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
-            }
-          }
-        }
-      }
-    },
-    "/domain/import" : {
-      "post" : {
-        "tags" : [ "Domain Tasks" ],
-        "summary" : "Import Domain",
-        "description" : "Import a domain. The operation is asynchronous and creates a job.",
-        "operationId" : "domainImport",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "domain",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "Domain",
-            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
@@ -1618,8 +1586,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -2493,27 +2461,32 @@
         "country" : {
           "type" : "string",
           "example" : "DE",
-          "description" : "The country of the contact"
+          "description" : "The country of the contact",
+          "x-custom-type" : "country"
         },
         "state" : {
           "type" : "string",
           "example" : "BY",
-          "description" : "The local country state of the contact"
+          "description" : "The local country state of the contact",
+          "x-custom-type" : "state"
         },
         "phone" : {
           "type" : "string",
           "example" : "+49-123-12345",
-          "description" : "The phone number of the contact"
+          "description" : "The phone number of the contact",
+          "x-custom-type" : "phone"
         },
         "fax" : {
           "type" : "string",
           "example" : "+49-123-12345",
-          "description" : "The fax number of the contact"
+          "description" : "The fax number of the contact",
+          "x-custom-type" : "phone"
         },
         "email" : {
           "type" : "string",
           "example" : "john.doe@domain.com",
-          "description" : "The email of the contact"
+          "description" : "The email of the contact",
+          "x-custom-type" : "email"
         },
         "protection" : {
           "description" : "The protection of the contact",
@@ -2557,7 +2530,7 @@
           "$ref" : "#/definitions/GenericStatusConstants"
         },
         "extensions" : {
-          "description" : "The verification status of the contact",
+          "description" : "The contact extensions.",
           "originalRef" : "ContactExtensions",
           "$ref" : "#/definitions/ContactExtensions"
         }
@@ -2567,10 +2540,12 @@
       "type" : "object",
       "properties" : {
         "ensAuthId" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Aero Authentication ID."
         },
         "ensKey" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Aero ENS key."
         }
       }
     },
@@ -2578,34 +2553,40 @@
       "type" : "object",
       "properties" : {
         "eligibilityId" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The corresponding ID number for the eligibility name if applicable, if in doubt just use the same details as your Registrant ID."
         },
         "eligibilityIdType" : {
+          "description" : "The type of Eligibility ID.",
           "originalRef" : "AuEligibilityIdTypeConstants",
           "$ref" : "#/definitions/AuEligibilityIdTypeConstants"
         },
         "eligibilityName" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "\tThis field is usually optional and whether it is required is determined by your policy reason for the domain registration, if in doubt just use the same details as your Registrant Name."
         },
         "eligibilityType" : {
+          "description" : "The type of entity that the registrant is.",
           "originalRef" : "AuEligibilityTypeConstants",
           "$ref" : "#/definitions/AuEligibilityTypeConstants"
         },
         "policyReason" : {
           "type" : "integer",
           "format" : "int32",
-          "minimum" : 1,
-          "maximum" : 106
+          "description" : "Reason for eligibility."
         },
         "registrantId" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Australian Business Number or Registered Business Number."
         },
         "registrantIdType" : {
+          "description" : "Concerns the Registrant ID which you have selected in the Registrant ID form field.",
           "originalRef" : "AuRegistrantIdTypeConstants",
           "$ref" : "#/definitions/AuRegistrantIdTypeConstants"
         },
         "registrantName" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The registrants name."
         }
       }
     },
@@ -2613,7 +2594,8 @@
       "type" : "object",
       "properties" : {
         "ftldToken" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The FTLD token."
         }
       }
     },
@@ -2621,7 +2603,8 @@
       "type" : "object",
       "properties" : {
         "intededUse" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The statement of intended use for the domain name."
         }
       }
     },
@@ -2629,17 +2612,22 @@
       "type" : "object",
       "properties" : {
         "country" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The country.",
+          "x-custom-type" : "country"
         },
         "day" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "The day."
         },
         "postalCode" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The postalCode."
         },
         "place" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The place."
         }
       }
     },
@@ -2647,26 +2635,27 @@
       "type" : "object",
       "properties" : {
         "cpr" : {
+          "description" : "The cira cpr.",
           "originalRef" : "CiraCprConstants",
           "$ref" : "#/definitions/CiraCprConstants"
         },
         "agreementVersion" : {
           "type" : "number",
-          "format" : "double"
+          "format" : "double",
+          "description" : "The agreement version."
         },
         "originatingIp" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The originating ip."
         },
         "officialRepresentative" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The official representative."
         },
         "trusteePercentage" : {
           "type" : "number",
           "format" : "double",
-          "minimum" : 0,
-          "maximum" : 100,
-          "exclusiveMinimum" : false,
-          "exclusiveMaximum" : false
+          "description" : "The trustee percentage."
         }
       }
     },
@@ -2674,7 +2663,8 @@
       "type" : "object",
       "properties" : {
         "intendedUse" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The statement of intended use for the domain name."
         }
       }
     },
@@ -2682,81 +2672,99 @@
       "type" : "object",
       "properties" : {
         "aero" : {
+          "description" : "The .aero contact extensions.",
           "originalRef" : "ContactAeroExtensions",
           "$ref" : "#/definitions/ContactAeroExtensions"
         },
         "au" : {
+          "description" : "The .au contact extensions.",
           "originalRef" : "ContactAuExtensions",
           "$ref" : "#/definitions/ContactAuExtensions"
         },
         "cat" : {
+          "description" : "The .cat contact extensions.",
           "originalRef" : "ContactCatExtensions",
           "$ref" : "#/definitions/ContactCatExtensions"
         },
         "jobs" : {
+          "description" : "The .jobs contact extensions.",
           "originalRef" : "ContactJobsExtensions",
           "$ref" : "#/definitions/ContactJobsExtensions"
         },
         "it" : {
+          "description" : "The .it contact extensions.",
           "originalRef" : "ContactItExtensions",
           "$ref" : "#/definitions/ContactItExtensions"
         },
         "jp" : {
+          "description" : "The .jp contact extensions.",
           "originalRef" : "ContactJpExtensions",
           "$ref" : "#/definitions/ContactJpExtensions"
         },
         "xxx" : {
+          "description" : "The .xxx contact extensions.",
           "originalRef" : "ContactXxxExtensions",
           "$ref" : "#/definitions/ContactXxxExtensions"
         },
         "hk" : {
+          "description" : "The .hk contact extensions.",
           "originalRef" : "ContactHkExtensions",
           "$ref" : "#/definitions/ContactHkExtensions"
         },
         "bank" : {
+          "description" : "The .bank contact extensions.",
           "originalRef" : "ContactBankExtensions",
           "$ref" : "#/definitions/ContactBankExtensions"
         },
         "swiss" : {
+          "description" : "The .swiss contact extensions.",
           "originalRef" : "ContactSwissExtensions",
           "$ref" : "#/definitions/ContactSwissExtensions"
         },
         "ru" : {
+          "description" : "The .ru contact extensions.",
           "originalRef" : "ContactRuExtensions",
           "$ref" : "#/definitions/ContactRuExtensions"
         },
         "uk" : {
+          "description" : "The .uk contact extensions.",
           "originalRef" : "ContactUkExtensions",
           "$ref" : "#/definitions/ContactUkExtensions"
         },
         "ca" : {
+          "description" : "The .ca contact extensions.",
           "originalRef" : "ContactCaExtensions",
           "$ref" : "#/definitions/ContactCaExtensions"
         },
         "ro" : {
+          "description" : "The .ro contact extensions.",
           "originalRef" : "ContactRoExtensions",
           "$ref" : "#/definitions/ContactRoExtensions"
         },
         "barcelona" : {
+          "description" : "The .barcelona contact extensions.",
           "originalRef" : "ContactBarcelonaExtensions",
           "$ref" : "#/definitions/ContactBarcelonaExtensions"
         },
         "general" : {
+          "description" : "The general contact extensions.",
           "originalRef" : "ContactGeneralExtensions",
           "$ref" : "#/definitions/ContactGeneralExtensions"
         },
         "nz" : {
+          "description" : "The .nz contact extensions",
           "originalRef" : "ContactNzExtensions",
           "$ref" : "#/definitions/ContactNzExtensions"
         },
         "qualifiedLawyer" : {
+          "description" : "The qualified lawyer contact extensions.",
           "originalRef" : "ContactQualifiedLawyerExtensions",
           "$ref" : "#/definitions/ContactQualifiedLawyerExtensions"
         },
         "sport" : {
-          "description" : "The .sport contact extensions",
-          "originalRef" : "ContactCatExtensions",
-          "$ref" : "#/definitions/ContactCatExtensions"
+          "description" : "The .sport contact extensions.",
+          "originalRef" : "ContactSportExtensions",
+          "$ref" : "#/definitions/ContactSportExtensions"
         }
       }
     },
@@ -2764,33 +2772,42 @@
       "type" : "object",
       "properties" : {
         "birth" : {
+          "description" : "The birth extensions.",
           "originalRef" : "ContactBirthExtensions",
           "$ref" : "#/definitions/ContactBirthExtensions"
         },
         "trademark" : {
+          "description" : "The trademark extensions.",
           "originalRef" : "ContactTrademarkExtensions",
           "$ref" : "#/definitions/ContactTrademarkExtensions"
         },
         "identification" : {
+          "description" : "The identification extensions.",
           "originalRef" : "ContactIdentificationExtensions",
           "$ref" : "#/definitions/ContactIdentificationExtensions"
         },
         "language" : {
+          "description" : "The language.",
           "originalRef" : "LanguageConstants",
           "$ref" : "#/definitions/LanguageConstants"
         },
         "companyNumber" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The company number."
         },
         "gender" : {
+          "description" : "The gender.",
           "originalRef" : "GenderConstants",
           "$ref" : "#/definitions/GenderConstants"
         },
         "vatNumber" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The vatnumber."
         },
         "mobilePhone" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The mobile phonenumber.",
+          "x-custom-type" : "phone"
         }
       }
     },
@@ -2798,22 +2815,28 @@
       "type" : "object",
       "properties" : {
         "documentType" : {
+          "description" : "The document types.",
           "originalRef" : "HkDocumentTypeConstants",
           "$ref" : "#/definitions/HkDocumentTypeConstants"
         },
         "others" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Additional descriptions for OTHIDV and OTHORG."
         },
         "documentNumber" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Document number."
         },
         "documentOrigin" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Country of licensure."
         },
         "above18" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Is the person 18 years of age or older. For Person only."
         },
         "industryType" : {
+          "description" : "The industry types.",
           "originalRef" : "HkIndustryTypeConstants",
           "$ref" : "#/definitions/HkIndustryTypeConstants"
         }
@@ -2822,19 +2845,23 @@
     "ContactIdentificationExtensions" : {
       "type" : "object",
       "properties" : {
-        "Number" : {
-          "type" : "string"
-        },
-        "Authority" : {
-          "type" : "string"
-        },
-        "DateOfIssue" : {
+        "number" : {
           "type" : "string",
-          "format" : "date-time"
+          "description" : "The number."
         },
-        "ValidTill" : {
+        "authority" : {
           "type" : "string",
-          "format" : "date-time"
+          "description" : "The authority."
+        },
+        "dateOfIssue" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date of issue."
+        },
+        "validTill" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The valid till date."
         }
       }
     },
@@ -2844,8 +2871,7 @@
         "entityType" : {
           "type" : "integer",
           "format" : "int32",
-          "minimum" : 1,
-          "maximum" : 7
+          "description" : "The number of the matching entity."
         }
       }
     },
@@ -2853,22 +2879,25 @@
       "type" : "object",
       "properties" : {
         "adminType" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Contact is the administrative contact with the permission to act as an independent agent / recruiter on behalf of the listed registrant."
         },
         "contactTitle" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Title of the domain contact in the organization."
         },
         "hrMember" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Choose whether the contact is is a member of the Human Resource Organization"
         },
         "industryClass" : {
           "type" : "integer",
           "format" : "int32",
-          "minimum" : 2,
-          "maximum" : 26
+          "description" : "The Industry class."
         },
         "website" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The Website."
         }
       }
     },
@@ -2876,22 +2905,28 @@
       "type" : "object",
       "properties" : {
         "first" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The first name."
         },
         "last" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The last name."
         },
         "organization" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The organization."
         },
         "adressLine1" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The first line of the address."
         },
         "adressLine2" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The second line of the address."
         },
         "adressLine3" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The third line of the address."
         }
       }
     },
@@ -2899,7 +2934,8 @@
       "type" : "object",
       "properties" : {
         "irpo" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "The irpo."
         }
       }
     },
@@ -2911,19 +2947,25 @@
       "type" : "object",
       "properties" : {
         "qualifiedLawyerAccreditationId" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The qualified lawyer accreditation ID is a character string issued by the accreditation body. Accreditation IDs uniquely identify the registrant within the context of the accreditation body. An accreditation ID is required."
         },
         "qualifiedLawyerAccreditationBody" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The qualified lawyer accreditation body is the entity that issued the accreditation ID to the registrant. Within the qualified lawyer extension, a character string is used to represent an accreditation body. The accreditation body is required."
         },
         "qualifiedLawyerAccreditationYear" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "A qualified lawyer accreditation year is the year he/she was initially certified by the accreditation body. It is represented by a four-digit year including the century. Mandatory.",
+          "x-custom-type" : "year"
         },
         "qualifiedLawyerJurisdictionCc" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The qualified lawyer accreditation jurisdiction country is the country in which the accreditation body certifies the registrant. ISO two-­‐letter country codes are used to represent the accreditation jurisdiction country. The accreditation jurisdiction country is required."
         },
         "qualifiedLawyerJurisdictionSp" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The qualified lawyer accreditation jurisdiction state/province is the specific region, within the accreditation jurisdiction country, in which the accreditation body certifies the registrant. A character string represents the region. The accreditation jurisdiction is required when the accrediting body limits the certification to this area."
         }
       }
     },
@@ -2934,6 +2976,7 @@
       "type" : "object",
       "properties" : {
         "personType" : {
+          "description" : "The entity person type.",
           "originalRef" : "RoPersonTypeConstants",
           "$ref" : "#/definitions/RoPersonTypeConstants"
         }
@@ -2943,10 +2986,21 @@
       "type" : "object",
       "properties" : {
         "taxpayerIdentificationNumber" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Taxpayer Identification Number (code). Mandatory for organisations which belong to the Russian Federation."
         },
         "territoryLinkedTaxpayerNumber" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Territory-linked Taxpayer Number (kpp). Mandatory for organisations which belong to the Russian Federation."
+        }
+      }
+    },
+    "ContactSportExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "intendedUse" : {
+          "type" : "string",
+          "description" : "The intended use."
         }
       }
     },
@@ -2955,10 +3009,11 @@
       "properties" : {
         "enterpriseId" : {
           "type" : "string",
-          "pattern" : "^$|^CHE-((\\d{3}\\.\\d{3}\\.\\d{3})|(\\d{9}))$"
+          "description" : "The enterprise ID, in the specific context of .swiss based on current rules, is the Swiss UID/IDE/IDI."
         },
         "intededUse" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The statement of intended use for the domain name."
         }
       }
     },
@@ -2966,24 +3021,31 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The name."
         },
         "number" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The number."
         },
         "country" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The country.",
+          "x-custom-type" : "country"
         },
         "regdate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "The registration date."
         },
         "appdate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "The application date."
         },
         "office" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The office."
         }
       }
     },
@@ -2995,6 +3057,7 @@
       "type" : "object",
       "properties" : {
         "entityType" : {
+          "description" : "The entity type.",
           "originalRef" : "UkTypeConstants",
           "$ref" : "#/definitions/UkTypeConstants"
         }
@@ -3004,10 +3067,12 @@
       "type" : "object",
       "properties" : {
         "membershipID" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Membership ID (token) for the .XXX community."
         },
         "nonResolverDomain" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "XXX community membership available or not."
         }
       }
     },
@@ -4390,10 +4455,6 @@
       "type" : "string",
       "enum" : [ "NOT_SET", "OWNERC", "ADMINC", "OWNERC_ADMINC", "TECHC", "OWNERC_TECHC", "ADMINC_TECHC", "ALL" ]
     },
-    "RecordTypeConstants" : {
-      "type" : "string",
-      "enum" : [ "A", "MX", "CNAME", "NS", "PTR", "HINFO", "TXT", "AAAA", "SRV", "NAPTR", "DS", "SSHFP", "TLSA", "CAA" ]
-    },
     "Redirect" : {
       "type" : "object",
       "required" : [ "mode", "type" ],
@@ -4460,11 +4521,6 @@
         "targetIdn" : {
           "type" : "string",
           "description" : "The IDN version of the URL of the target domain. Enter the domain without \"http://\""
-        },
-        "lastSeen" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The last dns connection."
         }
       }
     },
@@ -4491,8 +4547,7 @@
           "format" : "int64"
         },
         "type" : {
-          "originalRef" : "RecordTypeConstants",
-          "$ref" : "#/definitions/RecordTypeConstants"
+          "type" : "string"
         },
         "pref" : {
           "type" : "integer",
@@ -4631,17 +4686,20 @@
         "phone" : {
           "type" : "string",
           "example" : "+49-123-12345",
-          "description" : "The phone number of the contact"
+          "description" : "The phone number of the contact",
+          "x-custom-type" : "phone"
         },
         "fax" : {
           "type" : "string",
           "example" : "+49-123-12345",
-          "description" : "The fax number of the contact"
+          "description" : "The fax number of the contact",
+          "x-custom-type" : "phone"
         },
         "email" : {
           "type" : "string",
           "example" : "john.doe@domain.com",
-          "description" : "The email of the contact"
+          "description" : "The email of the contact",
+          "x-custom-type" : "email"
         },
         "title" : {
           "type" : "string",
@@ -4661,7 +4719,8 @@
         "pcode" : {
           "type" : "string",
           "example" : "12345",
-          "description" : "The pcode of the contact"
+          "description" : "The pcode of the contact",
+          "x-custom-type" : "pcode"
         },
         "city" : {
           "type" : "string",
@@ -4671,7 +4730,8 @@
         "country" : {
           "type" : "string",
           "example" : "DE",
-          "description" : "The country of the contact"
+          "description" : "The country of the contact",
+          "x-custom-type" : "country"
         },
         "state" : {
           "type" : "string",
