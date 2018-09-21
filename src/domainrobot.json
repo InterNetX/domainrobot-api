@@ -1,12 +1,12 @@
 {
   "swagger" : "2.0",
-  "info" : {
-    "description" : "AutoDNS API for managing: Domains, SSL Certificates, DNS and much more",
+ "info" : {
+    "description" : "Domainrobot JSON API for managing: Domains, SSL Certificates, DNS and much more.",
     "version" : "v1",
-    "title" : "AutoDNS API"
+    "title" : "Domainrobot JSON API"
   },
-  "host" : "api.autodns.com:443",
-  "basePath" : "/api/v1",
+  "host" : "https://api.autodns.com",
+  "basePath" : "/v1",
   "tags" : [ {
     "name" : "Certificate Tasks"
   }, {
