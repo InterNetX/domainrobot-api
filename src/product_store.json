@@ -737,7 +737,8 @@
           }
         },
         "dnssecRecord": {
-          "type": "boolean"
+          "type": "integer",
+          "format": "int32"
         },
         "restoreArgpPeriod": {
           "$ref": "#/definitions/TimePeriod"
