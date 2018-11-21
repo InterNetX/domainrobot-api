@@ -33,10 +33,7 @@
           "200": {
             "description": "An array of products",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SslProduct"
-              }
+              "$ref": "#/definitions/SslProductsResponse"
             }
           }
         }
@@ -85,7 +82,7 @@
           "200": {
             "description": "Product found.",
             "schema": {
-              "$ref": "#/definitions/SslProduct"
+              "$ref": "#/definitions/SslProductResponse"
             }
           },
           "404": {
@@ -190,10 +187,7 @@
           "200": {
             "description": "An array of products",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/TldProduct"
-              }
+              "$ref": "#/definitions/TldProductsResponse"
             }
           }
         }
@@ -321,7 +315,7 @@
           "200": {
             "description": "Product found.",
             "schema": {
-              "$ref": "#/definitions/TldProduct"
+              "$ref": "#/definitions/TldProductResponse"
             }
           },
           "404": {
@@ -335,6 +329,25 @@
     }
   },
   "definitions": {
+    "SslProductResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/SslProduct"
+        }
+      }
+    },
+    "SslProductsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SslProduct"
+          }
+        }
+      }
+    },
     "SslProduct": {
       "type": "object",
       "properties": {
@@ -445,6 +458,9 @@
         },
         "public": {
           "type": "boolean"
+        },
+        "caaRecordValue": {
+          "type": "string"
         }
       }
     },
@@ -465,9 +481,11 @@
         "SYMANTEC",
         "SYMANTEC_STARTER",
         "GLOBALSIGN",
+        "DIGICERT_DV",
         "COMODO",
         "MANUAL_CERTIFICATE",
-        "MANUAL"
+        "MANUAL",
+        "INTEGRATIONPROVIDER"
       ]
     },
     "SslProductCertificateType": {
@@ -627,6 +645,12 @@
           }
         }
       }
+    },
+    "TldProductResponse": {
+      "$ref": "./ssl_product/TldProductResponse.yaml"
+    },
+    "TldProductsResponse": {
+      "$ref": "./ssl_product/TldProductsResponse.yaml"
     },
     "TldProduct": {
       "type": "object",
@@ -795,6 +819,12 @@
         "trustee": {
           "type": "boolean"
         },
+        "transfer_authinfo": {
+          "type": "boolean"
+        },
+        "ownerchange_authinfo": {
+          "type": "boolean"
+        },
         "errorCodes": {
           "type": "array",
           "items": {
@@ -845,6 +875,16 @@
           "items": {
             "$ref": "#/definitions/TldDataController"
           }
+        },
+        "preregInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PreregInformation"
+          }
+        },
+        "rankingLevel": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -952,6 +992,39 @@
           "items": {
             "$ref": "#/definitions/TldProduct"
           }
+        }
+      }
+    },
+    "PreregInformation": {
+      "type": "object",
+      "properties": {
+        "phase": {
+          "type": "string"
+        },
+        "confirmationStart": {
+          "type": "string",
+          "format": "date"
+        },
+        "confirmationEnd": {
+          "type": "string",
+          "format": "date"
+        },
+        "periodStart": {
+          "type": "string",
+          "format": "date"
+        },
+        "periodEnd": {
+          "type": "string",
+          "format": "date"
+        },
+        "category": {
+          "type": "string"
+        },
+        "registrationType": {
+          "type": "string"
+        },
+        "minPeriod": {
+          "$ref": "#/definitions/TimePeriod"
         }
       }
     },
