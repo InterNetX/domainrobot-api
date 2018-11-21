@@ -647,10 +647,23 @@
       }
     },
     "TldProductResponse": {
-      "$ref": "./ssl_product/TldProductResponse.yaml"
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/TldProduct"
+        }
+      }
     },
     "TldProductsResponse": {
-      "$ref": "./ssl_product/TldProductsResponse.yaml"
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TldProduct"
+          }
+        }
+      }
     },
     "TldProduct": {
       "type": "object",
