@@ -921,12 +921,13 @@
       "type": "string",
       "enum": [
         "ASIA",
-        "AFRICA,",
+        "AFRICA",
         "NORTH_AMERICA",
         "SOUTH_AMERICA",
         "ANTARCTICA",
         "EUROPE",
-        "OCEANIA"
+        "OCEANIA",
+        "GLOBAL"
       ]
     },
     "Charset": {
