@@ -833,10 +833,10 @@
         "trustee": {
           "type": "boolean"
         },
-        "transfer_authinfo": {
+        "transferAuthinfo": {
           "type": "boolean"
         },
-        "ownerchange_authinfo": {
+        "ownerchangeAuthinfo": {
           "type": "boolean"
         },
         "errorCodes": {
