@@ -456,6 +456,12 @@
             "$ref": "#/definitions/SslDataController"
           }
         },
+        "blacklistedTasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "public": {
           "type": "boolean"
         },
@@ -1080,7 +1086,13 @@
         "w",
         "m",
         "q",
-        "y"
+        "y",
+        "year",
+        "day",
+        "hour",
+        "YEAR",
+        "DAY",
+        "HOUR"
       ]
     },
     "ErrorResponse": {
