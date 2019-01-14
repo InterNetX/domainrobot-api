@@ -5,7 +5,7 @@
     "version" : "v1",
     "title" : "Domainrobot JSON API"
   },
-  "host" : "https://api.autodns.com",
+  "host" : "api.autodns.com",
   "basePath" : "/v1",
   "tags" : [ {
     "name" : "Certificate Tasks"
@@ -15,6 +15,8 @@
     "name" : "Document Tasks"
   }, {
     "name" : "Domain Tasks"
+  }, {
+    "name" : "Guest account tasks"
   }, {
     "name" : "Job Tasks"
   }, {
@@ -30,6 +32,7 @@
   }, {
     "name" : "Zone Tasks"
   } ],
+  "schemes" : [ "https" ],
   "paths" : {
     "/certificate" : {
       "post" : {
@@ -79,20 +82,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Certificate",
-            "originalRef" : "Certificate"
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -146,20 +149,20 @@
           "description" : "certificateData",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/CertificateData",
-            "originalRef" : "CertificateData"
+            "originalRef" : "CertificateData",
+            "$ref" : "#/definitions/CertificateData"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -213,20 +216,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -285,12 +288,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -348,20 +351,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Certificate",
-            "originalRef" : "Certificate"
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -418,12 +421,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -483,20 +486,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Certificate",
-            "originalRef" : "Certificate"
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -556,20 +559,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Certificate",
-            "originalRef" : "Certificate"
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -629,20 +632,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Certificate",
-            "originalRef" : "Certificate"
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -695,20 +698,20 @@
           "name" : "contact",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Contact",
-            "originalRef" : "Contact"
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             }
           }
         }
@@ -762,20 +765,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Query",
-            "originalRef" : "Query"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             }
           }
         }
@@ -834,12 +837,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             }
           }
         }
@@ -897,20 +900,20 @@
           "description" : "contact",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Contact",
-            "originalRef" : "Contact"
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataContact",
-              "originalRef" : "JsonResponseDataContact"
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
             }
           }
         }
@@ -967,12 +970,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -1030,12 +1033,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataBasicDocument",
-              "originalRef" : "JsonResponseDataBasicDocument"
+              "originalRef" : "JsonResponseDataBasicDocument",
+              "$ref" : "#/definitions/JsonResponseDataBasicDocument"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataBasicDocument",
-              "originalRef" : "JsonResponseDataBasicDocument"
+              "originalRef" : "JsonResponseDataBasicDocument",
+              "$ref" : "#/definitions/JsonResponseDataBasicDocument"
             }
           }
         }
@@ -1089,20 +1092,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1156,20 +1159,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1223,20 +1226,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -1290,20 +1293,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -1357,20 +1360,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1424,20 +1427,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomainRestore",
-              "originalRef" : "JsonResponseDataDomainRestore"
+              "originalRef" : "JsonResponseDataDomainRestore",
+              "$ref" : "#/definitions/JsonResponseDataDomainRestore"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomainRestore",
-              "originalRef" : "JsonResponseDataDomainRestore"
+              "originalRef" : "JsonResponseDataDomainRestore",
+              "$ref" : "#/definitions/JsonResponseDataDomainRestore"
             }
           }
         }
@@ -1495,12 +1498,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -1557,20 +1560,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1624,20 +1627,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1693,12 +1696,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -1752,20 +1755,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -1824,20 +1827,20 @@
           "description" : "certificate",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1896,20 +1899,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -1968,20 +1971,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomain",
-              "originalRef" : "JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -2039,12 +2042,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomainCancelation",
-              "originalRef" : "JsonResponseDataDomainCancelation"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataDomainCancelation",
-              "originalRef" : "JsonResponseDataDomainCancelation"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             }
           }
         }
@@ -2096,20 +2099,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/DomainCancelation",
-            "originalRef" : "DomainCancelation"
+            "originalRef" : "DomainCancelation",
+            "$ref" : "#/definitions/DomainCancelation"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -2166,20 +2169,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseData",
-              "originalRef" : "JsonResponseData"
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -2235,12 +2238,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -2294,20 +2297,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2361,20 +2364,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2433,12 +2436,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2497,12 +2500,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectJob",
-              "originalRef" : "JsonResponseDataObjectJob"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2561,12 +2564,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -2625,12 +2628,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -2689,12 +2692,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataVoid",
-              "originalRef" : "JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -2748,8 +2751,8 @@
           "description" : "user",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/User",
-            "originalRef" : "User"
+            "originalRef" : "LoginData",
+            "$ref" : "#/definitions/LoginData"
           }
         }, {
           "name" : "acl",
@@ -2780,12 +2783,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser",
-              "originalRef" : "JsonResponseDataUser"
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser",
-              "originalRef" : "JsonResponseDataUser"
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
             }
           }
         }
@@ -2838,12 +2841,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -2896,12 +2899,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataPollMessage",
-              "originalRef" : "JsonResponseDataPollMessage"
+              "originalRef" : "JsonResponseDataPollMessage",
+              "$ref" : "#/definitions/JsonResponseDataPollMessage"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataPollMessage",
-              "originalRef" : "JsonResponseDataPollMessage"
+              "originalRef" : "JsonResponseDataPollMessage",
+              "$ref" : "#/definitions/JsonResponseDataPollMessage"
             }
           }
         }
@@ -2959,12 +2962,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -3018,20 +3021,20 @@
           "description" : "redirect",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Redirect",
-            "originalRef" : "Redirect"
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             }
           }
         }
@@ -3085,20 +3088,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             }
           }
         }
@@ -3156,12 +3159,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             }
           }
         }
@@ -3218,20 +3221,20 @@
           "description" : "redirect",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Redirect",
-            "originalRef" : "Redirect"
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataRedirect",
-              "originalRef" : "JsonResponseDataRedirect"
+              "originalRef" : "JsonResponseDataRedirect",
+              "$ref" : "#/definitions/JsonResponseDataRedirect"
             }
           }
         }
@@ -3287,12 +3290,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -3345,20 +3348,20 @@
           "name" : "sslcontact",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/SslContact",
-            "originalRef" : "SslContact"
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             }
           }
         }
@@ -3412,20 +3415,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Query",
-            "originalRef" : "Query"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             }
           }
         }
@@ -3484,12 +3487,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             }
           }
         }
@@ -3547,20 +3550,20 @@
           "description" : "sslcontact",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/SslContact",
-            "originalRef" : "SslContact"
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataSslContact",
-              "originalRef" : "JsonResponseDataSslContact"
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             }
           }
         }
@@ -3617,12 +3620,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -3676,20 +3679,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransferOut",
-              "originalRef" : "JsonResponseDataTransferOut"
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransferOut",
-              "originalRef" : "JsonResponseDataTransferOut"
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
             }
           }
         }
@@ -3743,20 +3746,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransferOut",
-              "originalRef" : "JsonResponseDataTransferOut"
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransferOut",
-              "originalRef" : "JsonResponseDataTransferOut"
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
             }
           }
         }
@@ -3814,12 +3817,142 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransfer",
-              "originalRef" : "JsonResponseDataTransfer"
+              "originalRef" : "JsonResponseDataTransfer",
+              "$ref" : "#/definitions/JsonResponseDataTransfer"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataTransfer",
-              "originalRef" : "JsonResponseDataTransfer"
+              "originalRef" : "JsonResponseDataTransfer",
+              "$ref" : "#/definitions/JsonResponseDataTransfer"
+            }
+          }
+        }
+      }
+    },
+    "/user/_guest" : {
+      "post" : {
+        "tags" : [ "Guest account tasks" ],
+        "summary" : "create guest account",
+        "description" : "creates a guest account.",
+        "operationId" : "guestCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "user",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/user/_guestverify/{token}" : {
+      "get" : {
+        "tags" : [ "Guest account tasks" ],
+        "summary" : "verify guest account",
+        "description" : "applies a verification code for a guest account.",
+        "operationId" : "guestApplyVerify",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
             }
           }
         }
@@ -3873,20 +4006,20 @@
           "description" : "zone",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Zone",
-            "originalRef" : "Zone"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -3940,20 +4073,20 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/QueryBuilder",
-            "originalRef" : "QueryBuilder"
+            "originalRef" : "QueryBuilder",
+            "$ref" : "#/definitions/QueryBuilder"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -4016,12 +4149,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -4083,20 +4216,20 @@
           "description" : "zone",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Zone",
-            "originalRef" : "Zone"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -4157,12 +4290,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData",
-              "originalRef" : "JsonResponseDataJsonNoData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -4225,12 +4358,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataString",
-              "originalRef" : "JsonResponseDataString"
+              "originalRef" : "JsonResponseDataString",
+              "$ref" : "#/definitions/JsonResponseDataString"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataString",
-              "originalRef" : "JsonResponseDataString"
+              "originalRef" : "JsonResponseDataString",
+              "$ref" : "#/definitions/JsonResponseDataString"
             }
           }
         }
@@ -4294,20 +4427,20 @@
           "description" : "zone",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Zone",
-            "originalRef" : "Zone"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -4371,20 +4504,20 @@
           "description" : "zone",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Zone",
-            "originalRef" : "Zone"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             },
             "responseSchema" : {
-              "$ref" : "#/definitions/JsonResponseDataZone",
-              "originalRef" : "JsonResponseDataZone"
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
             }
           }
         }
@@ -4418,7 +4551,7 @@
     },
     "BasicCustomer" : {
       "type" : "object",
-      "required" : [ "client", "name", "number", "payment" ],
+      "required" : [ "addressLines", "city", "client", "country", "name", "number", "payment", "pcode" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -4442,10 +4575,112 @@
           "minLength" : 0,
           "maxLength" : 255
         },
+        "organization" : {
+          "type" : "string",
+          "description" : "The name of the organization.",
+          "minLength" : 0,
+          "maxLength" : 70
+        },
+        "vatNumber" : {
+          "type" : "string",
+          "description" : "The value added tax number."
+        },
+        "gender" : {
+          "description" : "The gender of the person.",
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The title of the customer"
+        },
+        "addressLines" : {
+          "type" : "array",
+          "description" : "The address of the customer",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        },
+        "city" : {
+          "type" : "string",
+          "description" : "The city of the customer."
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "The state of the customer."
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "The country of the customer."
+        },
+        "phone" : {
+          "description" : "The phone number.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "fax" : {
+          "description" : "The fax number.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "emails" : {
+          "type" : "array",
+          "description" : "The email addresses.",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        },
+        "billingEmails" : {
+          "type" : "array",
+          "description" : "The billing recipients.",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "payment" : {
           "description" : "The payment typ of the customer.",
-          "$ref" : "#/definitions/PaymentConstants",
-          "originalRef" : "PaymentConstants"
+          "originalRef" : "PaymentConstants",
+          "$ref" : "#/definitions/PaymentConstants"
+        },
+        "invoiceLanguage" : {
+          "type" : "string",
+          "description" : "The language to use for the invoice."
+        },
+        "contracts" : {
+          "type" : "array",
+          "description" : "The customers contracts.",
+          "items" : {
+            "originalRef" : "CustomerContract",
+            "$ref" : "#/definitions/CustomerContract"
+          }
+        },
+        "billingUsers" : {
+          "type" : "array",
+          "description" : "The billing users.",
+          "items" : {
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
+          }
+        },
+        "fname" : {
+          "type" : "string",
+          "description" : "The first name.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "lname" : {
+          "type" : "string",
+          "description" : "The last name.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "pcode" : {
+          "type" : "string",
+          "description" : "The postal code of the city."
         }
       }
     },
@@ -4503,13 +4738,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -4524,7 +4759,8 @@
         },
         "user" : {
           "type" : "string",
-          "description" : "The user name."
+          "description" : "The user name.",
+          "pattern" : "^[^_].*"
         }
       }
     },
@@ -4564,8 +4800,8 @@
       "properties" : {
         "method" : {
           "description" : "The authentication method.",
-          "$ref" : "#/definitions/AuthMethodConstants",
-          "originalRef" : "AuthMethodConstants"
+          "originalRef" : "AuthMethodConstants",
+          "$ref" : "#/definitions/AuthMethodConstants"
         },
         "dns" : {
           "type" : "string",
@@ -4608,13 +4844,18 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The ID of the certificate"
         },
         "partnerOrderId" : {
           "type" : "string",
@@ -4626,13 +4867,13 @@
         },
         "adminContact" : {
           "description" : "The administrative contact",
-          "$ref" : "#/definitions/SslContact",
-          "originalRef" : "SslContact"
+          "originalRef" : "SslContact",
+          "$ref" : "#/definitions/SslContact"
         },
         "technicalContact" : {
           "description" : "The technical contact",
-          "$ref" : "#/definitions/SslContact",
-          "originalRef" : "SslContact"
+          "originalRef" : "SslContact",
+          "$ref" : "#/definitions/SslContact"
         },
         "name" : {
           "type" : "string",
@@ -4640,13 +4881,13 @@
         },
         "lifetime" : {
           "description" : "The certificate term in months",
-          "$ref" : "#/definitions/TimePeriod",
-          "originalRef" : "TimePeriod"
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
         },
         "software" : {
           "description" : "The webserver software in use, relevant values: 'II5' for Mircosoft, 'APACHE2' for Linux",
-          "$ref" : "#/definitions/ServerSoftwareTypeConstants",
-          "originalRef" : "ServerSoftwareTypeConstants"
+          "originalRef" : "ServerSoftwareTypeConstants",
+          "$ref" : "#/definitions/ServerSoftwareTypeConstants"
         },
         "comment" : {
           "type" : "string",
@@ -4676,7 +4917,7 @@
           "type" : "string",
           "description" : "The type of the certificate"
         },
-        "sha" : {
+        "signatureHashAlgorithm" : {
           "type" : "string",
           "description" : "The signature hash algorithm which was used"
         },
@@ -4689,24 +4930,24 @@
           "type" : "array",
           "description" : "Subject Alternative Names (SANs)",
           "items" : {
-            "$ref" : "#/definitions/SubjectAlternativeName",
-            "originalRef" : "SubjectAlternativeName"
+            "originalRef" : "SubjectAlternativeName",
+            "$ref" : "#/definitions/SubjectAlternativeName"
           }
         },
         "histories" : {
           "type" : "array",
           "description" : "The history of the certificate (old certificate versions)",
           "items" : {
-            "$ref" : "#/definitions/CertificateHistory",
-            "originalRef" : "CertificateHistory"
+            "originalRef" : "CertificateHistory",
+            "$ref" : "#/definitions/CertificateHistory"
           }
         },
         "certificationAuthority" : {
           "type" : "array",
           "description" : "The authentication of the certificate",
           "items" : {
-            "$ref" : "#/definitions/CaCertificate",
-            "originalRef" : "CaCertificate"
+            "originalRef" : "CaCertificate",
+            "$ref" : "#/definitions/CaCertificate"
           }
         },
         "password" : {
@@ -4728,8 +4969,8 @@
         },
         "authentication" : {
           "description" : "The authentication of the certificate",
-          "$ref" : "#/definitions/CertAuthentication",
-          "originalRef" : "CertAuthentication"
+          "originalRef" : "CertAuthentication",
+          "$ref" : "#/definitions/CertAuthentication"
         },
         "certificateTransparency" : {
           "type" : "boolean",
@@ -4737,8 +4978,8 @@
         },
         "certificateTransparencyPrivacy" : {
           "description" : "The privacy settings for certificate transparency. Default is \"Redacted\".",
-          "$ref" : "#/definitions/CertificateTransparencyPrivacyConstants",
-          "originalRef" : "CertificateTransparencyPrivacyConstants"
+          "originalRef" : "CertificateTransparencyPrivacyConstants",
+          "$ref" : "#/definitions/CertificateTransparencyPrivacyConstants"
         },
         "domain" : {
           "type" : "string",
@@ -4776,8 +5017,8 @@
           "type" : "array",
           "description" : "The certificate history.",
           "items" : {
-            "$ref" : "#/definitions/CertificateHistory",
-            "originalRef" : "CertificateHistory"
+            "originalRef" : "CertificateHistory",
+            "$ref" : "#/definitions/CertificateHistory"
           }
         },
         "keySize" : {
@@ -4821,19 +5062,19 @@
           "type" : "array",
           "description" : "The authentication data.",
           "items" : {
-            "$ref" : "#/definitions/CertAuthentication",
-            "originalRef" : "CertAuthentication"
+            "originalRef" : "CertAuthentication",
+            "$ref" : "#/definitions/CertAuthentication"
           }
         },
         "algorithm" : {
           "description" : "The csr algorithm.",
-          "$ref" : "#/definitions/CsrHashAlgorithmConstants",
-          "originalRef" : "CsrHashAlgorithmConstants"
+          "originalRef" : "CsrHashAlgorithmConstants",
+          "$ref" : "#/definitions/CsrHashAlgorithmConstants"
         },
         "signatureHashAlgorithm" : {
           "description" : "The signature hash algorithm.",
-          "$ref" : "#/definitions/SignatureHashAlgorithmConstants",
-          "originalRef" : "SignatureHashAlgorithmConstants"
+          "originalRef" : "SignatureHashAlgorithmConstants",
+          "$ref" : "#/definitions/SignatureHashAlgorithmConstants"
         },
         "idn" : {
           "type" : "string",
@@ -4893,13 +5134,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "alias" : {
           "type" : "string",
@@ -4908,8 +5149,8 @@
         },
         "type" : {
           "description" : "The type of the contact",
-          "$ref" : "#/definitions/ContactTypeConstants",
-          "originalRef" : "ContactTypeConstants"
+          "originalRef" : "ContactTypeConstants",
+          "$ref" : "#/definitions/ContactTypeConstants"
         },
         "organization" : {
           "type" : "string",
@@ -4946,8 +5187,8 @@
         },
         "protection" : {
           "description" : "The protection of the contact",
-          "$ref" : "#/definitions/ContactProtectionConstants",
-          "originalRef" : "ContactProtectionConstants"
+          "originalRef" : "ContactProtectionConstants",
+          "$ref" : "#/definitions/ContactProtectionConstants"
         },
         "sip" : {
           "type" : "string",
@@ -4974,8 +5215,8 @@
         },
         "verification" : {
           "description" : "The verification status of the contact",
-          "$ref" : "#/definitions/GenericStatusConstants",
-          "originalRef" : "GenericStatusConstants"
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
         },
         "fname" : {
           "type" : "string",
@@ -5017,14 +5258,14 @@
           "type" : "array",
           "description" : "The nic references of the contact",
           "items" : {
-            "$ref" : "#/definitions/ContactReference",
-            "originalRef" : "ContactReference"
+            "originalRef" : "ContactReference",
+            "$ref" : "#/definitions/ContactReference"
           }
         },
         "extensions" : {
           "description" : "The contact extensions.",
-          "$ref" : "#/definitions/ContactExtensions",
-          "originalRef" : "ContactExtensions"
+          "originalRef" : "ContactExtensions",
+          "$ref" : "#/definitions/ContactExtensions"
         }
       }
     },
@@ -5050,8 +5291,8 @@
         },
         "eligibilityIdType" : {
           "description" : "The type of Eligibility ID.",
-          "$ref" : "#/definitions/AuEligibilityIdTypeConstants",
-          "originalRef" : "AuEligibilityIdTypeConstants"
+          "originalRef" : "AuEligibilityIdTypeConstants",
+          "$ref" : "#/definitions/AuEligibilityIdTypeConstants"
         },
         "eligibilityName" : {
           "type" : "string",
@@ -5059,8 +5300,8 @@
         },
         "eligibilityType" : {
           "description" : "The type of entity that the registrant is.",
-          "$ref" : "#/definitions/AuEligibilityTypeConstants",
-          "originalRef" : "AuEligibilityTypeConstants"
+          "originalRef" : "AuEligibilityTypeConstants",
+          "$ref" : "#/definitions/AuEligibilityTypeConstants"
         },
         "policyReason" : {
           "type" : "integer",
@@ -5073,8 +5314,8 @@
         },
         "registrantIdType" : {
           "description" : "Concerns the Registrant ID which you have selected in the Registrant ID form field.",
-          "$ref" : "#/definitions/AuRegistrantIdTypeConstants",
-          "originalRef" : "AuRegistrantIdTypeConstants"
+          "originalRef" : "AuRegistrantIdTypeConstants",
+          "$ref" : "#/definitions/AuRegistrantIdTypeConstants"
         },
         "registrantName" : {
           "type" : "string",
@@ -5130,8 +5371,8 @@
       "properties" : {
         "cpr" : {
           "description" : "The cira cpr.",
-          "$ref" : "#/definitions/CiraCprConstants",
-          "originalRef" : "CiraCprConstants"
+          "originalRef" : "CiraCprConstants",
+          "$ref" : "#/definitions/CiraCprConstants"
         },
         "agreementVersion" : {
           "type" : "number",
@@ -5168,98 +5409,98 @@
       "properties" : {
         "aero" : {
           "description" : "The .aero contact extensions.",
-          "$ref" : "#/definitions/ContactAeroExtensions",
-          "originalRef" : "ContactAeroExtensions"
+          "originalRef" : "ContactAeroExtensions",
+          "$ref" : "#/definitions/ContactAeroExtensions"
         },
         "au" : {
           "description" : "The .au contact extensions.",
-          "$ref" : "#/definitions/ContactAuExtensions",
-          "originalRef" : "ContactAuExtensions"
+          "originalRef" : "ContactAuExtensions",
+          "$ref" : "#/definitions/ContactAuExtensions"
         },
         "cat" : {
           "description" : "The .cat contact extensions.",
-          "$ref" : "#/definitions/ContactCatExtensions",
-          "originalRef" : "ContactCatExtensions"
+          "originalRef" : "ContactCatExtensions",
+          "$ref" : "#/definitions/ContactCatExtensions"
         },
         "jobs" : {
           "description" : "The .jobs contact extensions.",
-          "$ref" : "#/definitions/ContactJobsExtensions",
-          "originalRef" : "ContactJobsExtensions"
+          "originalRef" : "ContactJobsExtensions",
+          "$ref" : "#/definitions/ContactJobsExtensions"
         },
         "it" : {
           "description" : "The .it contact extensions.",
-          "$ref" : "#/definitions/ContactItExtensions",
-          "originalRef" : "ContactItExtensions"
+          "originalRef" : "ContactItExtensions",
+          "$ref" : "#/definitions/ContactItExtensions"
         },
         "jp" : {
           "description" : "The .jp contact extensions.",
-          "$ref" : "#/definitions/ContactJpExtensions",
-          "originalRef" : "ContactJpExtensions"
+          "originalRef" : "ContactJpExtensions",
+          "$ref" : "#/definitions/ContactJpExtensions"
         },
         "xxx" : {
           "description" : "The .xxx contact extensions.",
-          "$ref" : "#/definitions/ContactXxxExtensions",
-          "originalRef" : "ContactXxxExtensions"
+          "originalRef" : "ContactXxxExtensions",
+          "$ref" : "#/definitions/ContactXxxExtensions"
         },
         "hk" : {
           "description" : "The .hk contact extensions.",
-          "$ref" : "#/definitions/ContactHkExtensions",
-          "originalRef" : "ContactHkExtensions"
+          "originalRef" : "ContactHkExtensions",
+          "$ref" : "#/definitions/ContactHkExtensions"
         },
         "bank" : {
           "description" : "The .bank contact extensions.",
-          "$ref" : "#/definitions/ContactBankExtensions",
-          "originalRef" : "ContactBankExtensions"
+          "originalRef" : "ContactBankExtensions",
+          "$ref" : "#/definitions/ContactBankExtensions"
         },
         "swiss" : {
           "description" : "The .swiss contact extensions.",
-          "$ref" : "#/definitions/ContactSwissExtensions",
-          "originalRef" : "ContactSwissExtensions"
+          "originalRef" : "ContactSwissExtensions",
+          "$ref" : "#/definitions/ContactSwissExtensions"
         },
         "ru" : {
           "description" : "The .ru contact extensions.",
-          "$ref" : "#/definitions/ContactRuExtensions",
-          "originalRef" : "ContactRuExtensions"
+          "originalRef" : "ContactRuExtensions",
+          "$ref" : "#/definitions/ContactRuExtensions"
         },
         "uk" : {
           "description" : "The .uk contact extensions.",
-          "$ref" : "#/definitions/ContactUkExtensions",
-          "originalRef" : "ContactUkExtensions"
+          "originalRef" : "ContactUkExtensions",
+          "$ref" : "#/definitions/ContactUkExtensions"
         },
         "ca" : {
           "description" : "The .ca contact extensions.",
-          "$ref" : "#/definitions/ContactCaExtensions",
-          "originalRef" : "ContactCaExtensions"
+          "originalRef" : "ContactCaExtensions",
+          "$ref" : "#/definitions/ContactCaExtensions"
         },
         "ro" : {
           "description" : "The .ro contact extensions.",
-          "$ref" : "#/definitions/ContactRoExtensions",
-          "originalRef" : "ContactRoExtensions"
+          "originalRef" : "ContactRoExtensions",
+          "$ref" : "#/definitions/ContactRoExtensions"
         },
         "barcelona" : {
           "description" : "The .barcelona contact extensions.",
-          "$ref" : "#/definitions/ContactBarcelonaExtensions",
-          "originalRef" : "ContactBarcelonaExtensions"
+          "originalRef" : "ContactBarcelonaExtensions",
+          "$ref" : "#/definitions/ContactBarcelonaExtensions"
         },
         "general" : {
           "description" : "The general contact extensions.",
-          "$ref" : "#/definitions/ContactGeneralExtensions",
-          "originalRef" : "ContactGeneralExtensions"
+          "originalRef" : "ContactGeneralExtensions",
+          "$ref" : "#/definitions/ContactGeneralExtensions"
         },
         "nz" : {
           "description" : "The .nz contact extensions",
-          "$ref" : "#/definitions/ContactNzExtensions",
-          "originalRef" : "ContactNzExtensions"
+          "originalRef" : "ContactNzExtensions",
+          "$ref" : "#/definitions/ContactNzExtensions"
         },
         "sport" : {
           "description" : "The .sport contact extensions.",
-          "$ref" : "#/definitions/ContactSportExtensions",
-          "originalRef" : "ContactSportExtensions"
+          "originalRef" : "ContactSportExtensions",
+          "$ref" : "#/definitions/ContactSportExtensions"
         },
         "luxe" : {
           "description" : "The .luxe contact extensions.",
-          "$ref" : "#/definitions/ContactLuxeExtensions",
-          "originalRef" : "ContactLuxeExtensions"
+          "originalRef" : "ContactLuxeExtensions",
+          "$ref" : "#/definitions/ContactLuxeExtensions"
         }
       }
     },
@@ -5268,23 +5509,23 @@
       "properties" : {
         "birth" : {
           "description" : "The birth extensions.",
-          "$ref" : "#/definitions/ContactBirthExtensions",
-          "originalRef" : "ContactBirthExtensions"
+          "originalRef" : "ContactBirthExtensions",
+          "$ref" : "#/definitions/ContactBirthExtensions"
         },
         "trademark" : {
           "description" : "The trademark extensions.",
-          "$ref" : "#/definitions/ContactTrademarkExtensions",
-          "originalRef" : "ContactTrademarkExtensions"
+          "originalRef" : "ContactTrademarkExtensions",
+          "$ref" : "#/definitions/ContactTrademarkExtensions"
         },
         "identification" : {
           "description" : "The identification extensions.",
-          "$ref" : "#/definitions/ContactIdentificationExtensions",
-          "originalRef" : "ContactIdentificationExtensions"
+          "originalRef" : "ContactIdentificationExtensions",
+          "$ref" : "#/definitions/ContactIdentificationExtensions"
         },
         "language" : {
+          "type" : "string",
           "description" : "The language.",
-          "$ref" : "#/definitions/Locale",
-          "originalRef" : "Locale"
+          "x-custom-type" : "language"
         },
         "companyNumber" : {
           "type" : "string",
@@ -5292,8 +5533,8 @@
         },
         "gender" : {
           "description" : "The gender.",
-          "$ref" : "#/definitions/GenderConstants",
-          "originalRef" : "GenderConstants"
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
         },
         "vatNumber" : {
           "type" : "string",
@@ -5311,8 +5552,8 @@
       "properties" : {
         "documentType" : {
           "description" : "The document types.",
-          "$ref" : "#/definitions/HkDocumentTypeConstants",
-          "originalRef" : "HkDocumentTypeConstants"
+          "originalRef" : "HkDocumentTypeConstants",
+          "$ref" : "#/definitions/HkDocumentTypeConstants"
         },
         "others" : {
           "type" : "string",
@@ -5333,8 +5574,8 @@
         },
         "industryType" : {
           "description" : "The industry types.",
-          "$ref" : "#/definitions/HkIndustryTypeConstants",
-          "originalRef" : "HkIndustryTypeConstants"
+          "originalRef" : "HkIndustryTypeConstants",
+          "$ref" : "#/definitions/HkIndustryTypeConstants"
         }
       }
     },
@@ -5452,15 +5693,45 @@
       "enum" : [ "SHOW_ALL", "SHOW_NONE" ]
     },
     "ContactReference" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "nic" : {
+          "description" : "The nic",
+          "originalRef" : "NicMember",
+          "$ref" : "#/definitions/NicMember"
+        },
+        "status" : {
+          "description" : "The status",
+          "originalRef" : "ObjectStatus",
+          "$ref" : "#/definitions/ObjectStatus"
+        },
+        "type" : {
+          "description" : "The contact reference type",
+          "originalRef" : "ContactReferenceType",
+          "$ref" : "#/definitions/ContactReferenceType"
+        },
+        "role" : {
+          "description" : "The role as contact reference type",
+          "originalRef" : "ContactReferenceType",
+          "$ref" : "#/definitions/ContactReferenceType"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The nic reference"
+        }
+      }
+    },
+    "ContactReferenceType" : {
+      "type" : "string",
+      "enum" : [ "ALL", "OWNERC", "ADMINC", "TECHC", "ZONEC", "BILLINGC" ]
     },
     "ContactRoExtensions" : {
       "type" : "object",
       "properties" : {
         "personType" : {
           "description" : "The entity person type.",
-          "$ref" : "#/definitions/RoPersonTypeConstants",
-          "originalRef" : "RoPersonTypeConstants"
+          "originalRef" : "RoPersonTypeConstants",
+          "$ref" : "#/definitions/RoPersonTypeConstants"
         }
       }
     },
@@ -5542,8 +5813,8 @@
       "properties" : {
         "entityType" : {
           "description" : "The entity type.",
-          "$ref" : "#/definitions/UkTypeConstants",
-          "originalRef" : "UkTypeConstants"
+          "originalRef" : "UkTypeConstants",
+          "$ref" : "#/definitions/UkTypeConstants"
         }
       }
     },
@@ -5564,8 +5835,34 @@
       "type" : "string",
       "enum" : [ "ECC", "RSA", "DSA" ]
     },
-    "Currency" : {
-      "type" : "object"
+    "CustomerContract" : {
+      "type" : "object",
+      "required" : [ "contract" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "contract" : {
+          "description" : "The contract.",
+          "originalRef" : "GenericLabelEntity",
+          "$ref" : "#/definitions/GenericLabelEntity"
+        },
+        "notice" : {
+          "type" : "string",
+          "description" : "The notices."
+        },
+        "ticketNumber" : {
+          "type" : "string",
+          "description" : "The ticketing number if available."
+        }
+      }
     },
     "DNSCheck" : {
       "type" : "string",
@@ -5606,13 +5903,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -5630,15 +5927,15 @@
         },
         "registryStatus" : {
           "description" : "The registry status.",
-          "$ref" : "#/definitions/RegistryStatusConstants",
-          "originalRef" : "RegistryStatusConstants"
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
         },
         "nameServers" : {
           "type" : "array",
           "description" : "The nameservers.",
           "items" : {
-            "$ref" : "#/definitions/NameServer",
-            "originalRef" : "NameServer"
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
           }
         },
         "nameServerEntries" : {
@@ -5650,8 +5947,8 @@
         },
         "period" : {
           "description" : "The renew period in years.",
-          "$ref" : "#/definitions/TimePeriod",
-          "originalRef" : "TimePeriod"
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
         },
         "trustee" : {
           "type" : "boolean",
@@ -5671,13 +5968,13 @@
         },
         "parking" : {
           "description" : "The parking provider.",
-          "$ref" : "#/definitions/ParkingProviderConstants",
-          "originalRef" : "ParkingProviderConstants"
+          "originalRef" : "ParkingProviderConstants",
+          "$ref" : "#/definitions/ParkingProviderConstants"
         },
         "extensions" : {
           "description" : "The domain extensions.",
-          "$ref" : "#/definitions/DomainExtensions",
-          "originalRef" : "DomainExtensions"
+          "originalRef" : "DomainExtensions",
+          "$ref" : "#/definitions/DomainExtensions"
         },
         "logId" : {
           "type" : "integer",
@@ -5686,8 +5983,8 @@
         },
         "nsCheck" : {
           "description" : "An additional nameserver check will be carried out.",
-          "$ref" : "#/definitions/DNSCheck",
-          "originalRef" : "DNSCheck"
+          "originalRef" : "DNSCheck",
+          "$ref" : "#/definitions/DNSCheck"
         },
         "confirmOrder" : {
           "type" : "boolean",
@@ -5715,8 +6012,8 @@
         },
         "registrarStatus" : {
           "description" : "The registrar status.",
-          "$ref" : "#/definitions/RegistryStatusConstants",
-          "originalRef" : "RegistryStatusConstants"
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
         },
         "registrarStatusReason" : {
           "type" : "string",
@@ -5728,8 +6025,8 @@
         },
         "autodnsSecJob" : {
           "description" : "AutodnsSecJob",
-          "$ref" : "#/definitions/DNSSecJob",
-          "originalRef" : "DNSSecJob"
+          "originalRef" : "DNSSecJob",
+          "$ref" : "#/definitions/DNSSecJob"
         },
         "priceClass" : {
           "type" : "string",
@@ -5761,28 +6058,28 @@
         },
         "rddsOptIn" : {
           "description" : "Enables the whois output to show redacted contacts.",
-          "$ref" : "#/definitions/RddsOptInConstants",
-          "originalRef" : "RddsOptInConstants"
+          "originalRef" : "RddsOptInConstants",
+          "$ref" : "#/definitions/RddsOptInConstants"
         },
         "ownerc" : {
           "description" : "The owner contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "adminc" : {
           "description" : "The administrative contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "techc" : {
           "description" : "The technical contact reference.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "zonec" : {
           "description" : "The dns contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "expire" : {
           "type" : "string",
@@ -5796,8 +6093,8 @@
         },
         "action" : {
           "description" : "The last action.",
-          "$ref" : "#/definitions/DomainActionConstants",
-          "originalRef" : "DomainActionConstants"
+          "originalRef" : "DomainActionConstants",
+          "$ref" : "#/definitions/DomainActionConstants"
         },
         "autoDnsSec" : {
           "type" : "boolean",
@@ -5813,26 +6110,26 @@
         },
         "cancelationStatus" : {
           "description" : "The cancelation status.",
-          "$ref" : "#/definitions/CancelationStatusConstants",
-          "originalRef" : "CancelationStatusConstants"
+          "originalRef" : "CancelationStatusConstants",
+          "$ref" : "#/definitions/CancelationStatusConstants"
         },
         "autoRenewStatus" : {
           "description" : "The autorenew status.",
-          "$ref" : "#/definitions/AutoRenewStatusConstants",
-          "originalRef" : "AutoRenewStatusConstants"
+          "originalRef" : "AutoRenewStatusConstants",
+          "$ref" : "#/definitions/AutoRenewStatusConstants"
         },
         "dnssecData" : {
           "type" : "array",
           "description" : "The dnssec data.",
           "items" : {
-            "$ref" : "#/definitions/DNSSec",
-            "originalRef" : "DNSSec"
+            "originalRef" : "DNSSec",
+            "$ref" : "#/definitions/DNSSec"
           }
         },
         "zone" : {
           "description" : "The zone to create.",
-          "$ref" : "#/definitions/Zone",
-          "originalRef" : "Zone"
+          "originalRef" : "Zone",
+          "$ref" : "#/definitions/Zone"
         }
       }
     },
@@ -5856,23 +6153,22 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
-          "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/Domain",
-          "originalRef" : "Domain"
+          "type" : "string",
+          "description" : "Lorem Ipsum"
         },
         "execution" : {
           "description" : "The execution type.",
-          "$ref" : "#/definitions/ExecutionTypeConstants",
-          "originalRef" : "ExecutionTypeConstants"
+          "originalRef" : "ExecutionTypeConstants",
+          "$ref" : "#/definitions/ExecutionTypeConstants"
         },
         "registryWhen" : {
           "type" : "string",
@@ -5898,13 +6194,13 @@
         },
         "registryStatus" : {
           "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/RegistryStatusConstants",
-          "originalRef" : "RegistryStatusConstants"
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
         },
         "type" : {
           "description" : "The cancelation type. TRANSIT is only possible for certain TLDs.",
-          "$ref" : "#/definitions/CancelationTypeConstants",
-          "originalRef" : "CancelationTypeConstants"
+          "originalRef" : "CancelationTypeConstants",
+          "$ref" : "#/definitions/CancelationTypeConstants"
         }
       }
     },
@@ -5912,12 +6208,12 @@
       "type" : "object",
       "properties" : {
         "parkingExtensions" : {
-          "$ref" : "#/definitions/DomainParkingExtensions",
-          "originalRef" : "DomainParkingExtensions"
+          "originalRef" : "DomainParkingExtensions",
+          "$ref" : "#/definitions/DomainParkingExtensions"
         },
         "tmchClaimsNoticeExtensions" : {
-          "$ref" : "#/definitions/DomainTmchClaimNoticeExtensions",
-          "originalRef" : "DomainTmchClaimNoticeExtensions"
+          "originalRef" : "DomainTmchClaimNoticeExtensions",
+          "$ref" : "#/definitions/DomainTmchClaimNoticeExtensions"
         }
       }
     },
@@ -5929,14 +6225,15 @@
           "description" : "Lorem Ipsum"
         },
         "currency" : {
+          "type" : "string",
+          "example" : "EUR",
           "description" : "The currency of the sale",
-          "$ref" : "#/definitions/Currency",
-          "originalRef" : "Currency"
+          "x-custom-type" : "currency"
         },
         "domainLanguage" : {
           "description" : "The parking",
-          "$ref" : "#/definitions/Locale",
-          "originalRef" : "Locale"
+          "originalRef" : "Locale",
+          "$ref" : "#/definitions/Locale"
         },
         "forSale" : {
           "type" : "boolean",
@@ -5978,13 +6275,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -6002,15 +6299,15 @@
         },
         "registryStatus" : {
           "description" : "The registry status.",
-          "$ref" : "#/definitions/RegistryStatusConstants",
-          "originalRef" : "RegistryStatusConstants"
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
         },
         "nameServers" : {
           "type" : "array",
           "description" : "The nameservers.",
           "items" : {
-            "$ref" : "#/definitions/NameServer",
-            "originalRef" : "NameServer"
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
           }
         },
         "nameServerEntries" : {
@@ -6022,8 +6319,8 @@
         },
         "period" : {
           "description" : "The renew period in years.",
-          "$ref" : "#/definitions/TimePeriod",
-          "originalRef" : "TimePeriod"
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
         },
         "trustee" : {
           "type" : "boolean",
@@ -6043,13 +6340,13 @@
         },
         "parking" : {
           "description" : "The parking provider.",
-          "$ref" : "#/definitions/ParkingProviderConstants",
-          "originalRef" : "ParkingProviderConstants"
+          "originalRef" : "ParkingProviderConstants",
+          "$ref" : "#/definitions/ParkingProviderConstants"
         },
         "extensions" : {
           "description" : "The domain extensions.",
-          "$ref" : "#/definitions/DomainExtensions",
-          "originalRef" : "DomainExtensions"
+          "originalRef" : "DomainExtensions",
+          "$ref" : "#/definitions/DomainExtensions"
         },
         "logId" : {
           "type" : "integer",
@@ -6058,8 +6355,8 @@
         },
         "nsCheck" : {
           "description" : "An additional nameserver check will be carried out.",
-          "$ref" : "#/definitions/DNSCheck",
-          "originalRef" : "DNSCheck"
+          "originalRef" : "DNSCheck",
+          "$ref" : "#/definitions/DNSCheck"
         },
         "confirmOrder" : {
           "type" : "boolean",
@@ -6087,8 +6384,8 @@
         },
         "registrarStatus" : {
           "description" : "The registrar status.",
-          "$ref" : "#/definitions/RegistryStatusConstants",
-          "originalRef" : "RegistryStatusConstants"
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
         },
         "registrarStatusReason" : {
           "type" : "string",
@@ -6100,8 +6397,8 @@
         },
         "autodnsSecJob" : {
           "description" : "AutodnsSecJob",
-          "$ref" : "#/definitions/DNSSecJob",
-          "originalRef" : "DNSSecJob"
+          "originalRef" : "DNSSecJob",
+          "$ref" : "#/definitions/DNSSecJob"
         },
         "priceClass" : {
           "type" : "string",
@@ -6133,8 +6430,8 @@
         },
         "rddsOptIn" : {
           "description" : "Enables the whois output to show redacted contacts.",
-          "$ref" : "#/definitions/RddsOptInConstants",
-          "originalRef" : "RddsOptInConstants"
+          "originalRef" : "RddsOptInConstants",
+          "$ref" : "#/definitions/RddsOptInConstants"
         },
         "deleted" : {
           "type" : "string",
@@ -6148,23 +6445,23 @@
         },
         "ownerc" : {
           "description" : "The owner contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "adminc" : {
           "description" : "The administrative contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "techc" : {
           "description" : "The technical contact reference.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "zonec" : {
           "description" : "The dns contact.",
-          "$ref" : "#/definitions/Contact",
-          "originalRef" : "Contact"
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
         },
         "expire" : {
           "type" : "string",
@@ -6178,8 +6475,8 @@
         },
         "action" : {
           "description" : "The last action.",
-          "$ref" : "#/definitions/DomainActionConstants",
-          "originalRef" : "DomainActionConstants"
+          "originalRef" : "DomainActionConstants",
+          "$ref" : "#/definitions/DomainActionConstants"
         },
         "autoDnsSec" : {
           "type" : "boolean",
@@ -6195,26 +6492,26 @@
         },
         "cancelationStatus" : {
           "description" : "The cancelation status.",
-          "$ref" : "#/definitions/CancelationStatusConstants",
-          "originalRef" : "CancelationStatusConstants"
+          "originalRef" : "CancelationStatusConstants",
+          "$ref" : "#/definitions/CancelationStatusConstants"
         },
         "autoRenewStatus" : {
           "description" : "The autorenew status.",
-          "$ref" : "#/definitions/AutoRenewStatusConstants",
-          "originalRef" : "AutoRenewStatusConstants"
+          "originalRef" : "AutoRenewStatusConstants",
+          "$ref" : "#/definitions/AutoRenewStatusConstants"
         },
         "dnssecData" : {
           "type" : "array",
           "description" : "The dnssec data.",
           "items" : {
-            "$ref" : "#/definitions/DNSSec",
-            "originalRef" : "DNSSec"
+            "originalRef" : "DNSSec",
+            "$ref" : "#/definitions/DNSSec"
           }
         },
         "zone" : {
           "description" : "The zone to create.",
-          "$ref" : "#/definitions/Zone",
-          "originalRef" : "Zone"
+          "originalRef" : "Zone",
+          "$ref" : "#/definitions/Zone"
         }
       }
     },
@@ -6237,8 +6534,8 @@
         },
         "confirmIp" : {
           "description" : "The confirm ip",
-          "$ref" : "#/definitions/InetAddress",
-          "originalRef" : "InetAddress"
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
         }
       }
     },
@@ -6252,6 +6549,34 @@
     "GenderConstants" : {
       "type" : "string",
       "enum" : [ "MALE", "FEMALE" ]
+    },
+    "GenericLabelEntity" : {
+      "type" : "object",
+      "required" : [ "label" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "Lorem Ipum"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the contract."
+        },
+        "packageLabel" : {
+          "type" : "string",
+          "description" : "The related package label of the contract"
+        }
+      }
     },
     "GenericObject" : {
       "type" : "object",
@@ -6296,18 +6621,18 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
           "description" : "The status of the job.",
-          "$ref" : "#/definitions/JobStatusConstants",
-          "originalRef" : "JobStatusConstants"
+          "originalRef" : "JobStatusConstants",
+          "$ref" : "#/definitions/JobStatusConstants"
         },
         "subStatus" : {
           "type" : "string",
@@ -6317,6 +6642,11 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The next execution date of the job."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The job id."
         }
       }
     },
@@ -6342,19 +6672,19 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
@@ -6380,26 +6710,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/BasicDocument",
-            "originalRef" : "BasicDocument"
+            "originalRef" : "BasicDocument",
+            "$ref" : "#/definitions/BasicDocument"
           }
         }
       }
@@ -6419,26 +6749,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Contact",
-            "originalRef" : "Contact"
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
           }
         }
       }
@@ -6458,26 +6788,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Domain",
-            "originalRef" : "Domain"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         }
       }
@@ -6497,26 +6827,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/DomainCancelation",
-            "originalRef" : "DomainCancelation"
+            "originalRef" : "DomainCancelation",
+            "$ref" : "#/definitions/DomainCancelation"
           }
         }
       }
@@ -6536,26 +6866,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/DomainRestore",
-            "originalRef" : "DomainRestore"
+            "originalRef" : "DomainRestore",
+            "$ref" : "#/definitions/DomainRestore"
           }
         }
       }
@@ -6575,26 +6905,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/JsonNoData",
-            "originalRef" : "JsonNoData"
+            "originalRef" : "JsonNoData",
+            "$ref" : "#/definitions/JsonNoData"
           }
         }
       }
@@ -6614,26 +6944,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/ObjectJob",
-            "originalRef" : "ObjectJob"
+            "originalRef" : "ObjectJob",
+            "$ref" : "#/definitions/ObjectJob"
           }
         }
       }
@@ -6653,26 +6983,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/PollMessage",
-            "originalRef" : "PollMessage"
+            "originalRef" : "PollMessage",
+            "$ref" : "#/definitions/PollMessage"
           }
         }
       }
@@ -6692,26 +7022,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Redirect",
-            "originalRef" : "Redirect"
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
           }
         }
       }
@@ -6731,26 +7061,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/SslContact",
-            "originalRef" : "SslContact"
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
           }
         }
       }
@@ -6770,19 +7100,19 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
@@ -6808,26 +7138,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Transfer",
-            "originalRef" : "Transfer"
+            "originalRef" : "Transfer",
+            "$ref" : "#/definitions/Transfer"
           }
         }
       }
@@ -6847,26 +7177,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/TransferOut",
-            "originalRef" : "TransferOut"
+            "originalRef" : "TransferOut",
+            "$ref" : "#/definitions/TransferOut"
           }
         }
       }
@@ -6886,26 +7216,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/User",
-            "originalRef" : "User"
+            "originalRef" : "User",
+            "$ref" : "#/definitions/User"
           }
         }
       }
@@ -6925,26 +7255,26 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Void",
-            "originalRef" : "Void"
+            "originalRef" : "Void",
+            "$ref" : "#/definitions/Void"
           }
         }
       }
@@ -6964,32 +7294,56 @@
           "type" : "array",
           "description" : "The messages belonging to the response.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "status" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus",
-          "originalRef" : "ResponseStatus"
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
         },
         "object" : {
           "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         },
         "data" : {
           "type" : "array",
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
-            "$ref" : "#/definitions/Zone",
-            "originalRef" : "Zone"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         }
       }
     },
     "Locale" : {
       "type" : "object"
+    },
+    "LoginData" : {
+      "type" : "object",
+      "required" : [ "context", "user" ],
+      "properties" : {
+        "context" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The context."
+        },
+        "password" : {
+          "type" : "string",
+          "description" : "The password."
+        },
+        "token" : {
+          "type" : "string",
+          "description" : "The one time password in case of 2fa authentication."
+        },
+        "user" : {
+          "type" : "string",
+          "description" : "The user name.",
+          "pattern" : "^[^_].*"
+        }
+      }
     },
     "MainIp" : {
       "type" : "object",
@@ -7018,16 +7372,16 @@
           "type" : "array",
           "description" : "The messages.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "objects" : {
           "type" : "array",
           "description" : "The objects.",
           "items" : {
-            "$ref" : "#/definitions/GenericObject",
-            "originalRef" : "GenericObject"
+            "originalRef" : "GenericObject",
+            "$ref" : "#/definitions/GenericObject"
           }
         },
         "code" : {
@@ -7037,13 +7391,10 @@
         "status" : {
           "example" : "ERROR",
           "description" : "The status of the message code.",
-          "$ref" : "#/definitions/StatusType",
-          "originalRef" : "StatusType"
+          "originalRef" : "StatusType",
+          "$ref" : "#/definitions/StatusType"
         }
       }
-    },
-    "Name" : {
-      "type" : "object"
     },
     "NameServer" : {
       "type" : "object",
@@ -7071,6 +7422,19 @@
       "type" : "string",
       "enum" : [ "PRIMARY", "SECONDARY", "COMPLETE", "HIDDEN", "NONE", "AUTO" ]
     },
+    "NicMember" : {
+      "type" : "object",
+      "properties" : {
+        "label" : {
+          "type" : "string",
+          "description" : "The label"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name"
+        }
+      }
+    },
     "NotifyMessage" : {
       "type" : "object",
       "properties" : {
@@ -7086,15 +7450,19 @@
       "properties" : {
         "job" : {
           "description" : "The related job.",
-          "$ref" : "#/definitions/Job",
-          "originalRef" : "Job"
+          "originalRef" : "Job",
+          "$ref" : "#/definitions/Job"
         },
         "object" : {
           "description" : "The object of the job or notify.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         }
       }
+    },
+    "ObjectStatus" : {
+      "type" : "string",
+      "enum" : [ "SPOOL", "REQUEST", "PENDING_NOTIFY", "PENDING", "FAILED", "SUCCESS", "PENDING_DOMAIN", "CONNECT" ]
     },
     "Operator" : {
       "type" : "string",
@@ -7112,6 +7480,9 @@
       "type" : "string",
       "enum" : [ "PRE", "POST", "LIVE" ]
     },
+    "Phone" : {
+      "type" : "object"
+    },
     "PollMessage" : {
       "type" : "object",
       "properties" : {
@@ -7122,8 +7493,8 @@
         },
         "owner" : {
           "description" : "The owner of the message.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "job" : {
           "type" : "string",
@@ -7132,8 +7503,8 @@
         },
         "notify" : {
           "description" : "The notification data. Available if the message is a notification message",
-          "$ref" : "#/definitions/NotifyMessage",
-          "originalRef" : "NotifyMessage"
+          "originalRef" : "NotifyMessage",
+          "$ref" : "#/definitions/NotifyMessage"
         },
         "stid" : {
           "type" : "string",
@@ -7147,19 +7518,19 @@
           "type" : "array",
           "description" : "The general localized messages.",
           "items" : {
-            "$ref" : "#/definitions/Message",
-            "originalRef" : "Message"
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
           }
         },
         "flags" : {
           "description" : "Optional message flags.",
-          "$ref" : "#/definitions/Flags",
-          "originalRef" : "Flags"
+          "originalRef" : "Flags",
+          "$ref" : "#/definitions/Flags"
         },
         "object" : {
           "description" : "The object of the job or notify.",
-          "$ref" : "#/definitions/ResponseObject",
-          "originalRef" : "ResponseObject"
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
         }
       }
     },
@@ -7170,21 +7541,21 @@
           "type" : "array",
           "description" : "Lorem Ipsum",
           "items" : {
-            "$ref" : "#/definitions/QueryFilter",
-            "originalRef" : "QueryFilter"
+            "originalRef" : "QueryFilter",
+            "$ref" : "#/definitions/QueryFilter"
           }
         },
         "view" : {
           "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/QueryView",
-          "originalRef" : "QueryView"
+          "originalRef" : "QueryView",
+          "$ref" : "#/definitions/QueryView"
         },
         "orders" : {
           "type" : "array",
           "description" : "Lorem Ipsum",
           "items" : {
-            "$ref" : "#/definitions/QueryOrder",
-            "originalRef" : "QueryOrder"
+            "originalRef" : "QueryOrder",
+            "$ref" : "#/definitions/QueryOrder"
           }
         }
       }
@@ -7205,20 +7576,20 @@
         },
         "operator" : {
           "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/Operator",
-          "originalRef" : "Operator"
+          "originalRef" : "Operator",
+          "$ref" : "#/definitions/Operator"
         },
         "link" : {
           "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/ConditionType",
-          "originalRef" : "ConditionType"
+          "originalRef" : "ConditionType",
+          "$ref" : "#/definitions/ConditionType"
         },
         "filters" : {
           "type" : "array",
           "description" : "Lorem Ipsum",
           "items" : {
-            "$ref" : "#/definitions/QueryFilter",
-            "originalRef" : "QueryFilter"
+            "originalRef" : "QueryFilter",
+            "$ref" : "#/definitions/QueryFilter"
           }
         }
       }
@@ -7239,8 +7610,8 @@
         },
         "type" : {
           "description" : "Lorem Ipsum",
-          "$ref" : "#/definitions/OrderType",
-          "originalRef" : "OrderType"
+          "originalRef" : "OrderType",
+          "$ref" : "#/definitions/OrderType"
         }
       }
     },
@@ -7282,9 +7653,8 @@
       "required" : [ "name" ],
       "properties" : {
         "name" : {
-          "description" : "The name of the record.",
-          "$ref" : "#/definitions/Name",
-          "originalRef" : "Name"
+          "type" : "string",
+          "description" : "The name of the record."
         },
         "ttl" : {
           "type" : "integer",
@@ -7324,13 +7694,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "source" : {
           "type" : "string",
@@ -7342,13 +7712,13 @@
         },
         "type" : {
           "description" : "Redirect type",
-          "$ref" : "#/definitions/RedirectTypeConstants",
-          "originalRef" : "RedirectTypeConstants"
+          "originalRef" : "RedirectTypeConstants",
+          "$ref" : "#/definitions/RedirectTypeConstants"
         },
         "mode" : {
           "description" : "Redirect mode",
-          "$ref" : "#/definitions/RedirectModeConstants",
-          "originalRef" : "RedirectModeConstants"
+          "originalRef" : "RedirectModeConstants",
+          "$ref" : "#/definitions/RedirectModeConstants"
         },
         "domain" : {
           "type" : "string",
@@ -7429,8 +7799,8 @@
         },
         "type" : {
           "description" : "The status of the response.",
-          "$ref" : "#/definitions/StatusType",
-          "originalRef" : "StatusType"
+          "originalRef" : "StatusType",
+          "$ref" : "#/definitions/StatusType"
         }
       }
     },
@@ -7473,11 +7843,6 @@
         "email" : {
           "type" : "string",
           "description" : "The email address of the responsible of the zone"
-        },
-        "minimumTtl" : {
-          "type" : "integer",
-          "format" : "int64",
-          "description" : "The default ttl to use if no such ttl is set. Actually not supported"
         }
       }
     },
@@ -7565,13 +7930,13 @@
         },
         "owner" : {
           "description" : "The owner of the object",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating using of the object",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -7607,8 +7972,8 @@
         "unit" : {
           "example" : "YEAR",
           "description" : "The unit of the period",
-          "$ref" : "#/definitions/TimeUnitConstants",
-          "originalRef" : "TimeUnitConstants"
+          "originalRef" : "TimeUnitConstants",
+          "$ref" : "#/definitions/TimeUnitConstants"
         },
         "period" : {
           "type" : "integer",
@@ -7638,13 +8003,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "type" : "string",
@@ -7706,8 +8071,8 @@
         },
         "status" : {
           "description" : "The transfer status.",
-          "$ref" : "#/definitions/TransferStatusConstants",
-          "originalRef" : "TransferStatusConstants"
+          "originalRef" : "TransferStatusConstants",
+          "$ref" : "#/definitions/TransferStatusConstants"
         }
       }
     },
@@ -7731,13 +8096,13 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "type" : "string",
@@ -7803,8 +8168,8 @@
         },
         "type" : {
           "description" : "The type of the transfer.",
-          "$ref" : "#/definitions/TransferAnswer",
-          "originalRef" : "TransferAnswer"
+          "originalRef" : "TransferAnswer",
+          "$ref" : "#/definitions/TransferAnswer"
         },
         "nackReason" : {
           "type" : "integer",
@@ -7830,6 +8195,10 @@
           "format" : "int32",
           "description" : "The context."
         },
+        "password" : {
+          "type" : "string",
+          "description" : "The password."
+        },
         "defaultEmail" : {
           "type" : "string",
           "description" : "The default email."
@@ -7844,37 +8213,43 @@
           "format" : "int32",
           "description" : "The substatus."
         },
+        "details" : {
+          "description" : "The user details.",
+          "originalRef" : "UserDetails",
+          "$ref" : "#/definitions/UserDetails"
+        },
         "acls" : {
           "description" : "Wrapper for the user acls.",
-          "$ref" : "#/definitions/UserAcls",
-          "originalRef" : "UserAcls"
+          "originalRef" : "UserAcls",
+          "$ref" : "#/definitions/UserAcls"
         },
         "profiles" : {
           "description" : "Wrapper for the user profiles.",
-          "$ref" : "#/definitions/UserProfiles",
-          "originalRef" : "UserProfiles"
+          "originalRef" : "UserProfiles",
+          "$ref" : "#/definitions/UserProfiles"
         },
         "ancestors" : {
           "type" : "array",
           "description" : "The ancestors of the user.",
           "items" : {
-            "$ref" : "#/definitions/BasicUser",
-            "originalRef" : "BasicUser"
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "customer" : {
           "description" : "The customer belonging to the user.",
-          "$ref" : "#/definitions/BasicCustomer",
-          "originalRef" : "BasicCustomer"
+          "originalRef" : "BasicCustomer",
+          "$ref" : "#/definitions/BasicCustomer"
         },
         "owner" : {
           "description" : "The parent.",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "user" : {
           "type" : "string",
-          "description" : "The user name."
+          "description" : "The user name.",
+          "pattern" : "^[^_].*"
         },
         "language" : {
           "type" : "string",
@@ -7894,8 +8269,8 @@
           "description" : "The none locked children",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/BasicUser",
-            "originalRef" : "BasicUser"
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "childrenLocked" : {
@@ -7914,22 +8289,22 @@
           "type" : "array",
           "description" : "Children to remove from the exception list",
           "items" : {
-            "$ref" : "#/definitions/BasicUser",
-            "originalRef" : "BasicUser"
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "childrenAdd" : {
           "type" : "array",
           "description" : "Children to add to the exception list",
           "items" : {
-            "$ref" : "#/definitions/BasicUser",
-            "originalRef" : "BasicUser"
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "restriction" : {
           "description" : "The human readable restriction mode",
-          "$ref" : "#/definitions/ACLRestriction",
-          "originalRef" : "ACLRestriction"
+          "originalRef" : "ACLRestriction",
+          "$ref" : "#/definitions/ACLRestriction"
         }
       }
     },
@@ -7939,18 +8314,35 @@
       "properties" : {
         "user" : {
           "description" : "The user which has been effected",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "acls" : {
           "type" : "array",
           "description" : "The acls of the user.",
           "items" : {
-            "$ref" : "#/definitions/UserAcl",
-            "originalRef" : "UserAcl"
+            "originalRef" : "UserAcl",
+            "$ref" : "#/definitions/UserAcl"
           },
           "maxItems" : 2147483647,
           "minItems" : 1
+        }
+      }
+    },
+    "UserDetails" : {
+      "type" : "object",
+      "properties" : {
+        "organization" : {
+          "type" : "string",
+          "description" : "The organization."
+        },
+        "fname" : {
+          "type" : "string",
+          "description" : "The first name."
+        },
+        "lname" : {
+          "type" : "string",
+          "description" : "The last name."
         }
       }
     },
@@ -7961,8 +8353,8 @@
         "flag" : {
           "example" : "FIX",
           "description" : "The mode of the entry",
-          "$ref" : "#/definitions/UserProfileFlag",
-          "originalRef" : "UserProfileFlag"
+          "originalRef" : "UserProfileFlag",
+          "$ref" : "#/definitions/UserProfileFlag"
         },
         "key" : {
           "type" : "string",
@@ -7986,8 +8378,8 @@
         "profiles" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/UserProfile",
-            "originalRef" : "UserProfile"
+            "originalRef" : "UserProfile",
+            "$ref" : "#/definitions/UserProfile"
           }
         }
       }
@@ -8033,8 +8425,8 @@
         },
         "soa" : {
           "description" : "Only for ns_action: \"primary\"  and \"complete\"",
-          "$ref" : "#/definitions/Soa",
-          "originalRef" : "Soa"
+          "originalRef" : "Soa",
+          "$ref" : "#/definitions/Soa"
         },
         "dnssec" : {
           "type" : "boolean",
@@ -8050,13 +8442,13 @@
         },
         "owner" : {
           "description" : "The owner of the object",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object",
-          "$ref" : "#/definitions/BasicUser",
-          "originalRef" : "BasicUser"
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "logId" : {
           "type" : "integer",
@@ -8079,14 +8471,14 @@
           "type" : "array",
           "description" : "List of name servers",
           "items" : {
-            "$ref" : "#/definitions/NameServer",
-            "originalRef" : "NameServer"
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
           }
         },
         "main" : {
           "description" : "IP address of the zone (A record)",
-          "$ref" : "#/definitions/MainIp",
-          "originalRef" : "MainIp"
+          "originalRef" : "MainIp",
+          "$ref" : "#/definitions/MainIp"
         },
         "wwwInclude" : {
           "type" : "boolean",
@@ -8105,8 +8497,8 @@
         },
         "action" : {
           "description" : "Additional nameserver check is proceeded",
-          "$ref" : "#/definitions/NameserverActionConstants",
-          "originalRef" : "NameserverActionConstants"
+          "originalRef" : "NameserverActionConstants",
+          "$ref" : "#/definitions/NameserverActionConstants"
         },
         "grants" : {
           "type" : "array",
@@ -8119,8 +8511,8 @@
           "type" : "array",
           "description" : "The resource records.",
           "items" : {
-            "$ref" : "#/definitions/Record",
-            "originalRef" : "Record"
+            "originalRef" : "Record",
+            "$ref" : "#/definitions/Record"
           },
           "maxItems" : 10000,
           "minItems" : 0
