@@ -163,6 +163,13 @@
             "type": "boolean"
           },
           {
+            "name": "thidlevel",
+            "in": "query",
+            "description": "Filter for thirdlevel tlds.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "authinfo",
             "in": "query",
             "description": "Filter for tlds which support authinfo.",
@@ -258,6 +265,13 @@
             "name": "premium",
             "in": "query",
             "description": "Filter for tlds which have premium domains.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "thidlevel",
+            "in": "query",
+            "description": "Filter for thirdlevel tlds.",
             "required": false,
             "type": "boolean"
           },
@@ -767,6 +781,9 @@
         "taskRenew": {
           "type": "boolean"
         },
+        "thirdLevel": {
+          "type": "boolean"
+        },        
         "taskTransfer": {
           "type": "boolean"
         },
