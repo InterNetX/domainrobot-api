@@ -121,6 +121,13 @@
             "type": "string"
           },
           {
+            "name": "tldCategory",
+            "in": "query",
+            "description": "The category for this tld.",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "tldLanguageOfOffice",
             "in": "query",
             "description": "The official language of the tld as two letter representation, for example FR for french language. Only useful for CCTLDs.",
@@ -149,6 +156,13 @@
             "type": "boolean"
           },
           {
+            "name": "thirdlevel",
+            "in": "query",
+            "description": "Filter for thirdlevel tlds.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "trustee",
             "in": "query",
             "description": "Filter for tlds which support trustee.",
@@ -159,13 +173,6 @@
             "name": "premium",
             "in": "query",
             "description": "Filter for tlds which have premium domains.",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "thidlevel",
-            "in": "query",
-            "description": "Filter for thirdlevel tlds.",
             "required": false,
             "type": "boolean"
           },
@@ -227,6 +234,13 @@
             "type": "string"
           },
           {
+            "name": "tldCategory",
+            "in": "query",
+            "description": "The category for this tld.",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "tldLanguageOfOffice",
             "in": "query",
             "description": "The official language of the tld as two letter representation, for example FR for french language. Only useful for CCTLDs.",
@@ -255,6 +269,13 @@
             "type": "boolean"
           },
           {
+            "name": "thirdlevel",
+            "in": "query",
+            "description": "Filter for thirdlevel tlds.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "trustee",
             "in": "query",
             "description": "Filter for tlds which support trustee.",
@@ -265,13 +286,6 @@
             "name": "premium",
             "in": "query",
             "description": "Filter for tlds which have premium domains.",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "thidlevel",
-            "in": "query",
-            "description": "Filter for thirdlevel tlds.",
             "required": false,
             "type": "boolean"
           },
@@ -781,9 +795,6 @@
         "taskRenew": {
           "type": "boolean"
         },
-        "thirdLevel": {
-          "type": "boolean"
-        },        
         "taskTransfer": {
           "type": "boolean"
         },
@@ -856,6 +867,9 @@
         "trustee": {
           "type": "boolean"
         },
+        "thirdLevel": {
+          "type": "boolean"
+        },
         "transferAuthinfo": {
           "type": "boolean"
         },
@@ -873,6 +887,9 @@
         },
         "tldContinent": {
           "$ref": "#/definitions/TldContinent"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
         },
         "confluencePageDe": {
           "type": "string"
@@ -952,6 +969,18 @@
         "EUROPE",
         "OCEANIA",
         "GLOBAL"
+      ]
+    },
+    "Category": {
+      "type": "string",
+      "enum": [
+        "BUSINESS",
+        "COMMUNITY",
+        "ECOMMERCE",
+        "FOOD",
+        "GEO_TRAVEL",
+        "SPORT_FUN",
+        "WEB_TECH"
       ]
     },
     "Charset": {
@@ -1106,10 +1135,7 @@
         "y",
         "year",
         "day",
-        "hour",
-        "YEAR",
-        "DAY",
-        "HOUR"
+        "hour"
       ]
     },
     "ErrorResponse": {
