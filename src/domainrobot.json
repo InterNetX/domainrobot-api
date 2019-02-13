@@ -216,8 +216,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -1226,8 +1226,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -1360,8 +1360,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -1427,8 +1427,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -2297,8 +2297,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -2364,8 +2364,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -2564,12 +2564,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -2628,12 +2628,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -2692,12 +2692,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -3088,8 +3088,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -3679,8 +3679,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -3746,8 +3746,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -3876,8 +3876,8 @@
           "description" : "user",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -4073,8 +4073,8 @@
           "description" : "query",
           "required" : false,
           "schema" : {
-            "originalRef" : "QueryBuilder",
-            "$ref" : "#/definitions/QueryBuilder"
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
           }
         } ],
         "responses" : {
@@ -4649,6 +4649,10 @@
         "invoiceLanguage" : {
           "type" : "string",
           "description" : "The language to use for the invoice."
+        },
+        "taxable" : {
+          "type" : "boolean",
+          "description" : "The taxable flag of the customer."
         },
         "contracts" : {
           "type" : "array",
@@ -5884,8 +5888,72 @@
         }
       }
     },
+    "DNSSecEntity" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The domain."
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the name."
+        },
+        "lastRollover" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The lastRollover."
+        },
+        "dsRecordRemoved" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The dsRecordRemoved."
+        },
+        "dnsSecs" : {
+          "type" : "array",
+          "description" : "The dnsSecs.",
+          "items" : {
+            "originalRef" : "DNSSec",
+            "$ref" : "#/definitions/DNSSec"
+          }
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The logId."
+        }
+      }
+    },
     "DNSSecJob" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "dnssec" : {
+          "description" : "The dnssec.",
+          "originalRef" : "DNSSecEntity",
+          "$ref" : "#/definitions/DNSSecEntity"
+        }
+      }
     },
     "Domain" : {
       "type" : "object",
@@ -6165,11 +6233,6 @@
           "type" : "string",
           "description" : "Lorem Ipsum"
         },
-        "execution" : {
-          "description" : "The execution type.",
-          "originalRef" : "ExecutionTypeConstants",
-          "$ref" : "#/definitions/ExecutionTypeConstants"
-        },
         "registryWhen" : {
           "type" : "string",
           "format" : "date-time",
@@ -6201,6 +6264,11 @@
           "description" : "The cancelation type. TRANSIT is only possible for certain TLDs.",
           "originalRef" : "CancelationTypeConstants",
           "$ref" : "#/definitions/CancelationTypeConstants"
+        },
+        "execution" : {
+          "description" : "The execution type.",
+          "originalRef" : "ExecutionTypeConstants",
+          "$ref" : "#/definitions/ExecutionTypeConstants"
         }
       }
     },
@@ -6231,9 +6299,8 @@
           "x-custom-type" : "currency"
         },
         "domainLanguage" : {
-          "description" : "The parking",
-          "originalRef" : "Locale",
-          "$ref" : "#/definitions/Locale"
+          "type" : "string",
+          "description" : "The parking"
         },
         "forSale" : {
           "type" : "boolean",
@@ -6533,18 +6600,14 @@
           "description" : "The date of confirmation"
         },
         "confirmIp" : {
-          "description" : "The confirm ip",
-          "originalRef" : "InetAddress",
-          "$ref" : "#/definitions/InetAddress"
+          "type" : "string",
+          "description" : "The confirm ip"
         }
       }
     },
     "ExecutionTypeConstants" : {
       "type" : "string",
       "enum" : [ "DATE", "EXPIRE", "NOW" ]
-    },
-    "Flags" : {
-      "type" : "object"
     },
     "GenderConstants" : {
       "type" : "string",
@@ -6603,9 +6666,6 @@
       "type" : "string",
       "enum" : [ "_0", "_4160", "_4224", "_4288", "_4352", "_4416", "_8256", "_8320", "_8384", "_8448", "_8512", "_12352", "_12416", "_16448", "_16512", "_16576", "_16640", "_16704", "_16768", "_16832", "_20544", "_20608", "_20672", "_20736", "_20800", "_20864", "_20928", "_24640", "_24704", "_24768", "_28736", "_28800", "_28864", "_28928", "_28992", "_29056", "_29120", "_070800", "_070900", "_080100", "_080200", "_080300", "_080400", "_080500", "_080600", "_080700", "_080800", "_080900", "_081000", "_081100", "_090100", "_090200", "_090300", "_090400", "_090500", "_100100", "_100200", "_100300", "_100400", "_100500", "_110100", "_110200", "_110300", "_110400", "_110500", "_110600", "_120100", "_120200", "_120300", "_120400", "_120500", "_120600", "_120700", "_120800", "_120900", "_130100", "_130200", "_130300", "_130400", "_130500", "_130600", "_130700", "_130800", "_140101", "_140102", "_140103", "_140200", "_140300", "_140400", "_140500", "_140600", "_140700" ]
     },
-    "InetAddress" : {
-      "type" : "object"
-    },
     "Job" : {
       "type" : "object",
       "properties" : {
@@ -6642,6 +6702,22 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The next execution date of the job."
+        },
+        "events" : {
+          "type" : "array",
+          "description" : "The events.",
+          "items" : {
+            "originalRef" : "WorkflowEvent",
+            "$ref" : "#/definitions/WorkflowEvent"
+          }
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -7318,9 +7394,6 @@
         }
       }
     },
-    "Locale" : {
-      "type" : "object"
-    },
     "LoginData" : {
       "type" : "object",
       "required" : [ "context", "user" ],
@@ -7523,9 +7596,8 @@
           }
         },
         "flags" : {
-          "description" : "Optional message flags.",
-          "originalRef" : "Flags",
-          "$ref" : "#/definitions/Flags"
+          "type" : "string",
+          "description" : "Optional message flags."
         },
         "object" : {
           "description" : "The object of the job or notify.",
@@ -7559,9 +7631,6 @@
           }
         }
       }
-    },
-    "QueryBuilder" : {
-      "type" : "object"
     },
     "QueryFilter" : {
       "type" : "object",
