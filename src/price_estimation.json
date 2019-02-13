@@ -17,7 +17,7 @@
     "https"
   ],
   "paths": {
-    "/estimation": {
+    "/estimation/{domain}": {
       "get": {
         "tags": [
           "estimation"
@@ -30,7 +30,7 @@
         "parameters": [
           {
             "name": "domain",
-            "in": "query",
+            "in": "path",
             "description": "The domain name for the estimation",
             "required": true,
             "type": "string"
