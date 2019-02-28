@@ -8374,11 +8374,6 @@
           "originalRef" : "BasicCustomer",
           "$ref" : "#/definitions/BasicCustomer"
         },
-        "owner" : {
-          "description" : "The parent.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
@@ -8387,6 +8382,11 @@
         "language" : {
           "type" : "string",
           "description" : "The language."
+        },
+        "parent" : {
+          "description" : "The parent.",
+          "originalRef" : "User",
+          "$ref" : "#/definitions/User"
         }
       }
     },
