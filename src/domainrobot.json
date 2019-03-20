@@ -18,6 +18,10 @@
   }, {
     "name" : "Guest account tasks"
   }, {
+    "name" : "Id4me agent tasks"
+  }, {
+    "name" : "Id4me identity tasks"
+  }, {
     "name" : "Job Tasks"
   }, {
     "name" : "Poll Tasks"
@@ -219,17 +223,26 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=comment",
+          "enum" : [ "{comment", "type", "certificate_type}" ]
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
             }
           }
         }
@@ -288,12 +301,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
             }
           }
         }
@@ -567,12 +580,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -768,6 +781,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=email",
+          "enum" : [ "{email", "sip", "remarks", "domainsafe", "comment}" ]
         } ],
         "responses" : {
           "200" : {
@@ -1229,6 +1251,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=expire",
+          "enum" : [ "{expire}" ]
         } ],
         "responses" : {
           "200" : {
@@ -1363,17 +1394,26 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=expire",
+          "enum" : [ "{expire}" ]
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             }
           }
         }
@@ -1430,6 +1470,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=expire",
+          "enum" : [ "{expire}" ]
         } ],
         "responses" : {
           "200" : {
@@ -2107,12 +2156,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             }
           }
         }
@@ -2249,6 +2298,650 @@
         }
       }
     },
+    "/id4MeAgent" : {
+      "post" : {
+        "tags" : [ "Id4me agent tasks" ],
+        "summary" : "Creates a new id4me agent",
+        "description" : "Creates a new id4me agent",
+        "operationId" : "createId4MeAgent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "agent",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Id4MeAgent",
+            "$ref" : "#/definitions/Id4MeAgent"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeAgent",
+              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeAgent",
+              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Id4me agent tasks" ],
+        "summary" : "Updates an existing id4me agent",
+        "description" : "Updates an existing id4me agent",
+        "operationId" : "updateId4MeAgent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "agent",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Id4MeAgent",
+            "$ref" : "#/definitions/Id4MeAgent"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeAgent",
+              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeAgent",
+              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeAgent/_search" : {
+      "post" : {
+        "tags" : [ "Id4me agent tasks" ],
+        "summary" : "Id4me agent list task",
+        "description" : "Inquire a list of id4Me agents with certain details.",
+        "operationId" : "id4MeAgentList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeAgent/{name}" : {
+      "get" : {
+        "tags" : [ "Id4me agent tasks" ],
+        "summary" : "Get an id4me agent",
+        "description" : "Fetch the data for the specified name.",
+        "operationId" : "id4MeAgentInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Id4me agent tasks" ],
+        "summary" : "Deletes an existing id4me agent",
+        "description" : "Deletes an existing id4me agent",
+        "operationId" : "deleteId4MeAgent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeIdentity" : {
+      "post" : {
+        "tags" : [ "Id4me identity tasks" ],
+        "summary" : "Creates a new id4me identity",
+        "description" : "Creates a new id4me identity",
+        "operationId" : "createId4MeIdentity",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "identity",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Id4MeIdentity",
+            "$ref" : "#/definitions/Id4MeIdentity"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeIdentity/_search" : {
+      "post" : {
+        "tags" : [ "Id4me identity tasks" ],
+        "summary" : "Id4me identity list task",
+        "description" : "Inquire a list of id4me identities with certain details.",
+        "operationId" : "id4MeIdentityList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeIdentity/{name}" : {
+      "get" : {
+        "tags" : [ "Id4me identity tasks" ],
+        "summary" : "Get an id4me identity",
+        "description" : "Fetch the data for the specified name.",
+        "operationId" : "id4MeIdentityInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Id4me identity tasks" ],
+        "summary" : "Deletes an existing id4me identity",
+        "description" : "Deletes an existing id4me identity",
+        "operationId" : "deleteId4MeIdentity",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/id4MeIdentity/{name}/_confirm" : {
+      "put" : {
+        "tags" : [ "Id4me identity tasks" ],
+        "summary" : "Confirms an existing id4me identity",
+        "description" : "Confirms an existing id4me identity",
+        "operationId" : "confirmId4MeIdentity",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataId4MeIdentity",
+              "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      }
+    },
     "/job/_search" : {
       "post" : {
         "tags" : [ "Job Tasks" ],
@@ -2300,6 +2993,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=type",
+          "enum" : [ "{type", "owner", "updater}" ]
         } ],
         "responses" : {
           "200" : {
@@ -2367,6 +3069,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=type",
+          "enum" : [ "{type", "owner", "updater}" ]
         } ],
         "responses" : {
           "200" : {
@@ -3091,6 +3802,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=title",
+          "enum" : [ "{title}" ]
         } ],
         "responses" : {
           "200" : {
@@ -3418,6 +4138,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=email",
+          "enum" : [ "{phone", "email", "title", "address", "postal_code", "city", "country", "state", "updater}" ]
         } ],
         "responses" : {
           "200" : {
@@ -3682,6 +4411,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=end",
+          "enum" : [ "{transaction", "gaining_registrar", "loosing_registrar", "start", "reminder", "end}" ]
         } ],
         "responses" : {
           "200" : {
@@ -4076,6 +4814,15 @@
             "originalRef" : "Query",
             "$ref" : "#/definitions/Query"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=primary",
+          "enum" : [ "{primary", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "comment}" ]
         } ],
         "responses" : {
           "200" : {
@@ -5192,6 +5939,9 @@
     "ConditionType" : {
       "type" : "string",
       "enum" : [ "AND", "OR" ]
+    },
+    "Configuration" : {
+      "type" : "object"
     },
     "Contact" : {
       "type" : "object",
@@ -6746,6 +7496,133 @@
       "type" : "string",
       "enum" : [ "_0", "_4160", "_4224", "_4288", "_4352", "_4416", "_8256", "_8320", "_8384", "_8448", "_8512", "_12352", "_12416", "_16448", "_16512", "_16576", "_16640", "_16704", "_16768", "_16832", "_20544", "_20608", "_20672", "_20736", "_20800", "_20864", "_20928", "_24640", "_24704", "_24768", "_28736", "_28800", "_28864", "_28928", "_28992", "_29056", "_29120", "_070800", "_070900", "_080100", "_080200", "_080300", "_080400", "_080500", "_080600", "_080700", "_080800", "_080900", "_081000", "_081100", "_090100", "_090200", "_090300", "_090400", "_090500", "_100100", "_100200", "_100300", "_100400", "_100500", "_110100", "_110200", "_110300", "_110400", "_110500", "_110600", "_120100", "_120200", "_120300", "_120400", "_120500", "_120600", "_120700", "_120800", "_120900", "_130100", "_130200", "_130300", "_130400", "_130500", "_130600", "_130700", "_130800", "_140101", "_140102", "_140103", "_140200", "_140300", "_140400", "_140500", "_140600", "_140700" ]
     },
+    "Id4MeAgent" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "externalReference" : {
+          "type" : "string",
+          "description" : "External reference"
+        },
+        "certificate" : {
+          "description" : "Virtual host with certificate data",
+          "originalRef" : "VhostCertificate",
+          "$ref" : "#/definitions/VhostCertificate"
+        },
+        "layoutAddon" : {
+          "description" : "Layout properties",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Fully qualified domain name"
+        },
+        "status" : {
+          "example" : "PENDING",
+          "description" : "Agent status",
+          "originalRef" : "Id4MeAgentStatus",
+          "$ref" : "#/definitions/Id4MeAgentStatus"
+        },
+        "records" : {
+          "type" : "array",
+          "description" : "List of dns text records",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "Id4MeAgentStatus" : {
+      "type" : "string",
+      "enum" : [ "PENDING", "PENDING_SSL", "PENDING_SSL_VERIFY", "SUCCESS", "FAILED" ]
+    },
+    "Id4MeIdentity" : {
+      "type" : "object",
+      "required" : [ "agent" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "agent" : {
+          "description" : "The ID4ME agent",
+          "originalRef" : "Id4MeAgent",
+          "$ref" : "#/definitions/Id4MeAgent"
+        },
+        "verifyExpire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Expiration of verification"
+        },
+        "addons" : {
+          "description" : "Additional information",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
+        },
+        "magicLink" : {
+          "type" : "string",
+          "description" : "The generated magic link"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Fully qualified domain name"
+        },
+        "status" : {
+          "example" : "VERIFY",
+          "description" : "status",
+          "originalRef" : "IdentityStatus",
+          "$ref" : "#/definitions/IdentityStatus"
+        },
+        "record" : {
+          "type" : "array",
+          "description" : "DNS text records",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "IdentityStatus" : {
+      "type" : "string",
+      "enum" : [ "VERIFY", "SUCCESS" ]
+    },
     "Job" : {
       "type" : "object",
       "properties" : {
@@ -6782,6 +7659,22 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The next execution date of the job."
+        },
+        "events" : {
+          "type" : "array",
+          "description" : "The events.",
+          "items" : {
+            "originalRef" : "WorkflowEvent",
+            "$ref" : "#/definitions/WorkflowEvent"
+          }
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -6870,6 +7763,45 @@
           "items" : {
             "originalRef" : "BasicDocument",
             "$ref" : "#/definitions/BasicDocument"
+          }
+        }
+      }
+    },
+    "JsonResponseDataCertificate" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
           }
         }
       }
@@ -7026,6 +7958,84 @@
           "items" : {
             "originalRef" : "DomainRestore",
             "$ref" : "#/definitions/DomainRestore"
+          }
+        }
+      }
+    },
+    "JsonResponseDataId4MeAgent" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Id4MeAgent",
+            "$ref" : "#/definitions/Id4MeAgent"
+          }
+        }
+      }
+    },
+    "JsonResponseDataId4MeIdentity" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Id4MeIdentity",
+            "$ref" : "#/definitions/Id4MeIdentity"
           }
         }
       }
@@ -8358,8 +9368,8 @@
         },
         "profiles" : {
           "description" : "Wrapper for the user profiles.",
-          "originalRef" : "UserProfiles",
-          "$ref" : "#/definitions/UserProfiles"
+          "originalRef" : "UserProfileViews",
+          "$ref" : "#/definitions/UserProfileViews"
         },
         "ancestors" : {
           "type" : "array",
@@ -8498,6 +9508,10 @@
           "type" : "string",
           "example" : "12345",
           "description" : "The value of the key"
+        },
+        "readonly" : {
+          "type" : "boolean",
+          "description" : "The read only entry"
         }
       }
     },
@@ -8505,7 +9519,7 @@
       "type" : "string",
       "enum" : [ "OPTIONAL", "FIX", "RECURSE", "HIDDEN", "PARENT_FIX" ]
     },
-    "UserProfiles" : {
+    "UserProfileViews" : {
       "type" : "object",
       "properties" : {
         "profiles" : {
@@ -8514,6 +9528,31 @@
             "originalRef" : "UserProfile",
             "$ref" : "#/definitions/UserProfile"
           }
+        }
+      }
+    },
+    "VhostCertificate" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -8531,6 +9570,50 @@
         "type" : {
           "type" : "string",
           "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "WorkflowSpool" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "status" : {
+          "description" : "The status of the job.",
+          "originalRef" : "JobStatusConstants",
+          "$ref" : "#/definitions/JobStatusConstants"
+        },
+        "subStatus" : {
+          "type" : "string",
+          "description" : "The substatus of the job."
+        },
+        "execution" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The next execution date of the job."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The job id."
         }
       }
     },
