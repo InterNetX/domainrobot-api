@@ -8791,7 +8791,7 @@
       "type" : "string",
       "enum" : [ "NOT_SET", "OWNERC", "ADMINC", "OWNERC_ADMINC", "TECHC", "OWNERC_TECHC", "ADMINC_TECHC", "ALL" ]
     },
-    "Record" : {
+    "ResourceRecord" : {
       "type" : "object",
       "required" : [ "name" ],
       "properties" : {
@@ -9727,8 +9727,8 @@
           "type" : "array",
           "description" : "The resource records.",
           "items" : {
-            "originalRef" : "Record",
-            "$ref" : "#/definitions/Record"
+            "originalRef" : "ResourceRecord",
+            "$ref" : "#/definitions/ResourceRecord"
           },
           "maxItems" : 10000,
           "minItems" : 0
@@ -9742,16 +9742,16 @@
           "type" : "array",
           "description" : "the records to add.",
           "items" : {
-            "originalRef" : "Record",
-            "$ref" : "#/definitions/Record"
+            "originalRef" : "ResourceRecord",
+            "$ref" : "#/definitions/ResourceRecord"
           }
         },
         "rems" : {
           "type" : "array",
           "description" : "the records to remove.",
           "items" : {
-            "originalRef" : "Record",
-            "$ref" : "#/definitions/Record"
+            "originalRef" : "ResourceRecord",
+            "$ref" : "#/definitions/ResourceRecord"
           }
         }
       }
