@@ -2301,7 +2301,7 @@
     "/id4MeAgent" : {
       "post" : {
         "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Creates a new id4me agent",
+        "summary" : "Creates a new id4me agent. Not available yet ... coming soon!",
         "description" : "Creates a new id4me agent",
         "operationId" : "createId4MeAgent",
         "produces" : [ "application/json" ],
@@ -2366,7 +2366,7 @@
       },
       "put" : {
         "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Updates an existing id4me agent",
+        "summary" : "Updates an existing id4me agent. Not available yet ... coming soon!",
         "description" : "Updates an existing id4me agent",
         "operationId" : "updateId4MeAgent",
         "produces" : [ "application/json" ],
@@ -2433,7 +2433,7 @@
     "/id4MeAgent/_search" : {
       "post" : {
         "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me agent list task",
+        "summary" : "Id4me agent list task. Not available yet ... coming soon!",
         "description" : "Inquire a list of id4Me agents with certain details.",
         "operationId" : "id4MeAgentList",
         "produces" : [ "application/json" ],
@@ -2500,7 +2500,7 @@
     "/id4MeAgent/{name}" : {
       "get" : {
         "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Get an id4me agent",
+        "summary" : "Get an id4me agent. Not available yet ... coming soon!",
         "description" : "Fetch the data for the specified name.",
         "operationId" : "id4MeAgentInfo",
         "produces" : [ "application/json" ],
@@ -2561,7 +2561,7 @@
       },
       "delete" : {
         "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Deletes an existing id4me agent",
+        "summary" : "Deletes an existing id4me agent. Not available yet ... coming soon!",
         "description" : "Deletes an existing id4me agent",
         "operationId" : "deleteId4MeAgent",
         "produces" : [ "application/json" ],
@@ -2624,7 +2624,7 @@
     "/id4MeIdentity" : {
       "post" : {
         "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Creates a new id4me identity",
+        "summary" : "Creates a new id4me identity. Not available yet ... coming soon!",
         "description" : "Creates a new id4me identity",
         "operationId" : "createId4MeIdentity",
         "produces" : [ "application/json" ],
@@ -2691,7 +2691,7 @@
     "/id4MeIdentity/_search" : {
       "post" : {
         "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me identity list task",
+        "summary" : "Id4me identity list task. Not available yet ... coming soon!",
         "description" : "Inquire a list of id4me identities with certain details.",
         "operationId" : "id4MeIdentityList",
         "produces" : [ "application/json" ],
@@ -2758,7 +2758,7 @@
     "/id4MeIdentity/{name}" : {
       "get" : {
         "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Get an id4me identity",
+        "summary" : "Get an id4me identity. Not available yet ... coming soon!",
         "description" : "Fetch the data for the specified name.",
         "operationId" : "id4MeIdentityInfo",
         "produces" : [ "application/json" ],
@@ -2819,7 +2819,7 @@
       },
       "delete" : {
         "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Deletes an existing id4me identity",
+        "summary" : "Deletes an existing id4me identity. Not available yet ... coming soon!",
         "description" : "Deletes an existing id4me identity",
         "operationId" : "deleteId4MeIdentity",
         "produces" : [ "application/json" ],
@@ -2882,7 +2882,7 @@
     "/id4MeIdentity/{name}/_confirm" : {
       "put" : {
         "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Confirms an existing id4me identity",
+        "summary" : "Confirms an existing id4me identity. Not available yet ... coming soon!",
         "description" : "Confirms an existing id4me identity",
         "operationId" : "confirmId4MeIdentity",
         "produces" : [ "application/json" ],
@@ -5368,6 +5368,41 @@
       "type" : "string",
       "enum" : [ "TRUE", "FALSE", "ONCE" ]
     },
+    "BackupMx" : {
+      "type" : "object",
+      "required" : [ "domain" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "owner" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        }
+      }
+    },
     "BasicCustomer" : {
       "type" : "object",
       "required" : [ "addressLines", "city", "client", "country", "name", "number", "payment", "pcode" ],
@@ -6959,6 +6994,16 @@
           "originalRef" : "RddsOptInConstants",
           "$ref" : "#/definitions/RddsOptInConstants"
         },
+        "servicesAdd" : {
+          "description" : "Adds pending services like BackupMX and MailProxy.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
+        "servicesRem" : {
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
         "ownerc" : {
           "description" : "The owner contact.",
           "originalRef" : "Contact",
@@ -7112,6 +7157,31 @@
         "tmchClaimsNoticeExtensions" : {
           "originalRef" : "DomainTmchClaimNoticeExtensions",
           "$ref" : "#/definitions/DomainTmchClaimNoticeExtensions"
+        }
+      }
+    },
+    "DomainMonitoring" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -7330,12 +7400,22 @@
           "originalRef" : "RddsOptInConstants",
           "$ref" : "#/definitions/RddsOptInConstants"
         },
+        "servicesAdd" : {
+          "description" : "Adds pending services like BackupMX and MailProxy.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
+        "servicesRem" : {
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
         "deleted" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The date at deletion of the domain"
         },
-        "endOfPhase" : {
+        "restorePhaseEnd" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The end of current restore phase"
@@ -7409,6 +7489,43 @@
           "description" : "The zone to create.",
           "originalRef" : "Zone",
           "$ref" : "#/definitions/Zone"
+        }
+      }
+    },
+    "DomainServices" : {
+      "type" : "object",
+      "properties" : {
+        "backupMx" : {
+          "type" : "array",
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "items" : {
+            "originalRef" : "BackupMx",
+            "$ref" : "#/definitions/BackupMx"
+          }
+        },
+        "mailProxy" : {
+          "type" : "array",
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "items" : {
+            "originalRef" : "MailProxy",
+            "$ref" : "#/definitions/MailProxy"
+          }
+        },
+        "redirect" : {
+          "type" : "array",
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "items" : {
+            "originalRef" : "Redirect",
+            "$ref" : "#/definitions/Redirect"
+          }
+        },
+        "domainMonitoring" : {
+          "type" : "array",
+          "description" : "Removes pending services like BackupMX and MailProxy.",
+          "items" : {
+            "originalRef" : "DomainMonitoring",
+            "$ref" : "#/definitions/DomainMonitoring"
+          }
         }
       }
     },
@@ -7488,6 +7605,9 @@
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
     },
+    "GreylistingPolicy" : {
+      "type" : "object"
+    },
     "HkDocumentTypeConstants" : {
       "type" : "string",
       "enum" : [ "HKID", "OTHID", "PASSNO", "BIRTHCERT", "OTHIDV", "BR", "CI", "CRS", "HKSARG", "HKORDINANCE", "OTHORG" ]
@@ -7559,7 +7679,7 @@
     },
     "Id4MeIdentity" : {
       "type" : "object",
-      "required" : [ "agent" ],
+      "required" : [ "agent", "language" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -7609,6 +7729,10 @@
           "description" : "status",
           "originalRef" : "IdentityStatus",
           "$ref" : "#/definitions/IdentityStatus"
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language."
         },
         "record" : {
           "type" : "array",
@@ -8492,6 +8616,109 @@
         }
       }
     },
+    "MailList" : {
+      "type" : "object",
+      "properties" : {
+        "emails" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "MailProxy" : {
+      "type" : "object",
+      "required" : [ "domain", "target" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "domain" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "owner" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "target" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "admin" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "protection" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "ProtectionConstants",
+          "$ref" : "#/definitions/ProtectionConstants"
+        },
+        "greylisting" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "GreylistingPolicy",
+          "$ref" : "#/definitions/GreylistingPolicy"
+        },
+        "virus" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailProxyPolicy",
+          "$ref" : "#/definitions/MailProxyPolicy"
+        },
+        "bannedFiles" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailProxyPolicy",
+          "$ref" : "#/definitions/MailProxyPolicy"
+        },
+        "header" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailProxyPolicy",
+          "$ref" : "#/definitions/MailProxyPolicy"
+        },
+        "spam" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "SpamPolicy",
+          "$ref" : "#/definitions/SpamPolicy"
+        },
+        "whitelist" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailList",
+          "$ref" : "#/definitions/MailList"
+        },
+        "blacklist" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailList",
+          "$ref" : "#/definitions/MailList"
+        },
+        "excludelist" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MailList",
+          "$ref" : "#/definitions/MailList"
+        }
+      }
+    },
+    "MailProxyPolicy" : {
+      "type" : "object"
+    },
     "MainIp" : {
       "type" : "object",
       "properties" : {
@@ -8680,6 +8907,10 @@
         }
       }
     },
+    "ProtectionConstants" : {
+      "type" : "string",
+      "enum" : [ "HIGH", "MEDIUM", "LOW", "OFF", "CUSTOM" ]
+    },
     "Query" : {
       "type" : "object",
       "properties" : {
@@ -8791,36 +9022,6 @@
       "type" : "string",
       "enum" : [ "NOT_SET", "OWNERC", "ADMINC", "OWNERC_ADMINC", "TECHC", "OWNERC_TECHC", "ADMINC_TECHC", "ALL" ]
     },
-    "ResourceRecord" : {
-      "type" : "object",
-      "required" : [ "name" ],
-      "properties" : {
-        "name" : {
-          "type" : "string",
-          "description" : "The name of the record."
-        },
-        "ttl" : {
-          "type" : "integer",
-          "format" : "int64",
-          "description" : "The time to live of the record."
-        },
-        "type" : {
-          "type" : "string",
-          "example" : "A, MX, CNAME, TXT, SRV, PTR, AAAA, NS, CAA, PROCEED_MUC, TLSA, NAPTR, SSHFP, LOC, RP, HINFO, PROCEED, ALIAS, DNSKEY, NSEC, DS",
-          "description" : "The type of the record."
-        },
-        "value" : {
-          "type" : "string",
-          "description" : "The value of the record."
-        },
-        "pref" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The pref value of the record.",
-          "maximum" : 65535
-        }
-      }
-    },
     "Redirect" : {
       "type" : "object",
       "required" : [ "mode", "type" ],
@@ -8907,6 +9108,36 @@
       "type" : "string",
       "enum" : [ "ACTIVE", "HOLD", "LOCK", "HOLD_LOCK", "AUTO", "LOCK_OWNER", "LOCK_UPDATE", "PENDING", "NONE" ]
     },
+    "ResourceRecord" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the record."
+        },
+        "ttl" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The time to live of the record."
+        },
+        "type" : {
+          "type" : "string",
+          "example" : "A, MX, CNAME, TXT, SRV, PTR, AAAA, NS, CAA, PROCEED_MUC, TLSA, NAPTR, SSHFP, LOC, RP, HINFO, PROCEED, ALIAS, DNSKEY, NSEC, DS",
+          "description" : "The type of the record."
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "The value of the record."
+        },
+        "pref" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The pref value of the record.",
+          "maximum" : 65535
+        }
+      }
+    },
     "ResponseObject" : {
       "type" : "object",
       "properties" : {
@@ -8988,6 +9219,9 @@
           "description" : "The email address of the responsible of the zone"
         }
       }
+    },
+    "SpamPolicy" : {
+      "type" : "object"
     },
     "SslContact" : {
       "type" : "object",
