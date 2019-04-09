@@ -34,10 +34,182 @@
   }, {
     "name" : "Transfer Request Tasks"
   }, {
+    "name" : "User 2fa tasks"
+  }, {
     "name" : "Zone Tasks"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
+    "/OTPAuth" : {
+      "get" : {
+        "tags" : [ "User 2fa tasks" ],
+        "summary" : "Gets the token-configuration of an user.",
+        "description" : "",
+        "operationId" : "otpAuthInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "User 2fa tasks" ],
+        "summary" : "Creates a temporary 'login' token.",
+        "description" : "",
+        "operationId" : "otpAuthCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "User 2fa tasks" ],
+        "summary" : "Deletes the token-configuration of an user.",
+        "description" : "The auth type of the user is set back to password.",
+        "operationId" : "otpAuthDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
     "/certificate" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
@@ -2034,6 +2206,78 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataDomain",
               "$ref" : "#/definitions/JsonResponseDataDomain"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/_statusUpdate" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Update Domain Status",
+        "description" : "Update the registry status for an existing domain.",
+        "operationId" : "domainStatusUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "registryStatus",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "RegistryStatusConstants",
+            "$ref" : "#/definitions/RegistryStatusConstants"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
             }
           }
         }
@@ -4566,6 +4810,120 @@
         }
       }
     },
+    "/user/_2fa" : {
+      "put" : {
+        "tags" : [ "User 2fa tasks" ],
+        "summary" : "Generates the 'support' tokens.",
+        "description" : "",
+        "operationId" : "user2faAktivate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "User 2fa tasks" ],
+        "summary" : "Deletes the token-configuration of an user.",
+        "description" : "The auth type of the user is set back to password.",
+        "operationId" : "user2faDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
     "/user/_guest" : {
       "post" : {
         "tags" : [ "Guest account tasks" ],
@@ -5372,11 +5730,6 @@
       "type" : "object",
       "required" : [ "domain" ],
       "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
-        },
         "domain" : {
           "type" : "string",
           "description" : "Lorem Ipsum"
@@ -5715,6 +6068,11 @@
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
+        "extension" : {
+          "description" : "The certificate extensions for comodo.",
+          "originalRef" : "ExtendedValidationExtension",
+          "$ref" : "#/definitions/ExtendedValidationExtension"
+        },
         "id" : {
           "type" : "integer",
           "format" : "int32",
@@ -5773,16 +6131,19 @@
           "description" : "The ordered product"
         },
         "codeSigningType" : {
-          "type" : "string",
-          "description" : "The type of code signing"
+          "description" : "The type of code signing",
+          "originalRef" : "CodeSigningType",
+          "$ref" : "#/definitions/CodeSigningType"
         },
         "certificateType" : {
-          "type" : "string",
-          "description" : "The type of the certificate"
+          "description" : "The type of the certificate",
+          "originalRef" : "CertificateType",
+          "$ref" : "#/definitions/CertificateType"
         },
         "signatureHashAlgorithm" : {
-          "type" : "string",
-          "description" : "The signature hash algorithm which was used"
+          "description" : "The signature hash algorithm which was used",
+          "originalRef" : "SignatureHashAlgorithmConstants",
+          "$ref" : "#/definitions/SignatureHashAlgorithmConstants"
         },
         "expire" : {
           "type" : "string",
@@ -5967,9 +6328,17 @@
       "type" : "string",
       "enum" : [ "PUBLIC", "REDACTED" ]
     },
+    "CertificateType" : {
+      "type" : "string",
+      "enum" : [ "FQDN", "MAIL", "CODE" ]
+    },
     "CiraCprConstants" : {
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
+    },
+    "CodeSigningType" : {
+      "type" : "string",
+      "enum" : [ "JAVASOFT", "MS_AUTHENTICODE", "VBA", "ADOBE_AIR", "APPLE" ]
     },
     "ConditionType" : {
       "type" : "string",
@@ -6696,6 +7065,10 @@
           "description" : "XXX community membership available or not."
         }
       }
+    },
+    "CryptoFormatConstants" : {
+      "type" : "string",
+      "enum" : [ "SHA1", "SHA256", "SHA512" ]
     },
     "CsrHashAlgorithmConstants" : {
       "type" : "string",
@@ -7556,6 +7929,23 @@
       "type" : "string",
       "enum" : [ "DATE", "EXPIRE", "NOW" ]
     },
+    "ExtendedValidationExtension" : {
+      "type" : "object",
+      "properties" : {
+        "joiCountryName" : {
+          "type" : "string",
+          "description" : "Country of judicial formation"
+        },
+        "companyNumber" : {
+          "type" : "string",
+          "description" : "The company number"
+        },
+        "businessCategory" : {
+          "type" : "string",
+          "description" : "Additional validation data required for certain Comodo products."
+        }
+      }
+    },
     "GenderConstants" : {
       "type" : "string",
       "enum" : [ "MALE", "FEMALE" ]
@@ -8203,6 +8593,45 @@
         }
       }
     },
+    "JsonResponseDataOTPAuth" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "OTPAuth",
+            "$ref" : "#/definitions/OTPAuth"
+          }
+        }
+      }
+    },
     "JsonResponseDataObjectJob" : {
       "type" : "object",
       "properties" : {
@@ -8632,11 +9061,6 @@
       "type" : "object",
       "required" : [ "domain", "target" ],
       "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
-        },
         "domain" : {
           "type" : "string",
           "description" : "Lorem Ipsum"
@@ -8819,6 +9243,71 @@
         }
       }
     },
+    "OTPAuth" : {
+      "type" : "object",
+      "required" : [ "algorithm", "digits", "protocolType", "timeout" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "protocolType" : {
+          "description" : "The type of protocol",
+          "originalRef" : "ProtocolTypeConstants",
+          "$ref" : "#/definitions/ProtocolTypeConstants"
+        },
+        "algorithm" : {
+          "description" : "Crypto algorithm",
+          "originalRef" : "CryptoFormatConstants",
+          "$ref" : "#/definitions/CryptoFormatConstants"
+        },
+        "timeout" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Timeout in seconds",
+          "minimum" : 5,
+          "maximum" : 90
+        },
+        "digits" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The length of the token"
+        },
+        "secret" : {
+          "type" : "string",
+          "description" : "Base32 encoded shared secret."
+        },
+        "tokens" : {
+          "type" : "array",
+          "description" : "The generated support 'tokens'.",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "qrCode" : {
+          "description" : "The generated qr code png.",
+          "originalRef" : "BasicDocument",
+          "$ref" : "#/definitions/BasicDocument"
+        }
+      }
+    },
     "ObjectJob" : {
       "type" : "object",
       "properties" : {
@@ -8910,6 +9399,10 @@
     "ProtectionConstants" : {
       "type" : "string",
       "enum" : [ "HIGH", "MEDIUM", "LOW", "OFF", "CUSTOM" ]
+    },
+    "ProtocolTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "TOTP", "HOTP" ]
     },
     "Query" : {
       "type" : "object",
@@ -9567,6 +10060,16 @@
       "type" : "object",
       "required" : [ "context", "user" ],
       "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The user created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The user updated date."
+        },
         "context" : {
           "type" : "integer",
           "format" : "int32",
