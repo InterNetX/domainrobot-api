@@ -495,6 +495,36 @@
         },
         "caaRecordValue": {
           "type": "string"
+        },
+        "requiredFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "serverSoftware": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "codesigningTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "certificateTransparency": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signatureHashAlgorithms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -942,6 +972,15 @@
         "rankingLevel": {
           "type": "integer",
           "format": "int32"
+        },
+        "tldTasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TldTask"
+          }
+        },
+        "tldDns": {
+          "$ref": "#/definitions/TldDns"
         }
       }
     },
@@ -1094,6 +1133,86 @@
           "type": "string"
         },
         "minPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        }
+      }
+    },
+    "TldTask": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "chargeable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TldDns": {
+      "type": "object",
+      "properties": {
+        "dnssecMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dnssecMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dnssecAlgorithms": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nserverMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nserverMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv4Min": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv4Max": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv6Min": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ipv6Max": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nsentryMin": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nsentryMax": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "TldPeriod": {
+      "type": "object",
+      "properties": {
+        "restoreArgpPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "restoreRgpPeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "cancelationPeriod": {
           "$ref": "#/definitions/TimePeriod"
         }
       }
