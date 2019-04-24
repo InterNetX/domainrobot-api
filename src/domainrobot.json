@@ -36,14 +36,18 @@
   }, {
     "name" : "User 2fa tasks"
   }, {
+    "name" : "User verification confirm"
+  }, {
     "name" : "Zone Tasks"
+  }, {
+    "name" : "whois tasks"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
     "/OTPAuth" : {
       "get" : {
         "tags" : [ "User 2fa tasks" ],
-        "summary" : "Gets the token-configuration of an user.",
+        "summary" : "Gets the token-configuration of the logged in user.",
         "description" : "",
         "operationId" : "otpAuthInfo",
         "produces" : [ "application/json" ],
@@ -99,7 +103,7 @@
       },
       "post" : {
         "tags" : [ "User 2fa tasks" ],
-        "summary" : "Creates a temporary 'login' token.",
+        "summary" : "Creates a temporary token for the logged in user. The response contains the qr code as a base64 image.",
         "description" : "",
         "operationId" : "otpAuthCreate",
         "produces" : [ "application/json" ],
@@ -149,62 +153,6 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataOTPAuth",
               "$ref" : "#/definitions/JsonResponseDataOTPAuth"
-            }
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "User 2fa tasks" ],
-        "summary" : "Deletes the token-configuration of an user.",
-        "description" : "The auth type of the user is set back to password.",
-        "operationId" : "otpAuthDelete",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-PIN",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -1448,6 +1396,64 @@
         }
       }
     },
+    "/domain/_services" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Update Domain Services",
+        "description" : "Update the services of a domain.",
+        "operationId" : "domainServicesUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseData",
+              "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
     "/domain/_transfer" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
@@ -2278,6 +2284,64 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseData",
               "$ref" : "#/definitions/JsonResponseData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/_whois" : {
+      "get" : {
+        "tags" : [ "whois tasks" ],
+        "summary" : "whois tasks",
+        "description" : "Fetches the whois data of a domain from registry with optional data parsing.",
+        "operationId" : "DomainWhois",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -4813,7 +4877,7 @@
     "/user/_2fa" : {
       "put" : {
         "tags" : [ "User 2fa tasks" ],
-        "summary" : "Generates the 'support' tokens.",
+        "summary" : "Activates the 2fa authentication for the logged in user. The response contains the rescue tokens",
         "description" : "",
         "operationId" : "user2faAktivate",
         "produces" : [ "application/json" ],
@@ -4857,19 +4921,19 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataOTPAuth",
+              "$ref" : "#/definitions/JsonResponseDataOTPAuth"
             }
           }
         }
       },
       "delete" : {
         "tags" : [ "User 2fa tasks" ],
-        "summary" : "Deletes the token-configuration of an user.",
+        "summary" : "Deactivates the 2fa of the logged in user",
         "description" : "The auth type of the user is set back to password.",
         "operationId" : "user2faDelete",
         "produces" : [ "application/json" ],
@@ -4997,6 +5061,69 @@
         "summary" : "verify guest account",
         "description" : "applies a verification code for a guest account.",
         "operationId" : "guestApplyVerify",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/_verify/{token}" : {
+      "get" : {
+        "tags" : [ "User verification confirm" ],
+        "summary" : "verify guest account",
+        "description" : "applies a verification code for a guest account.",
+        "operationId" : "userConfirmVerification",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-PIN",
@@ -5706,6 +5833,62 @@
       "type" : "string",
       "enum" : [ "USER_LOCKED", "CHILDREN_LOCKED", "PARENT_LOCK", "NOT_LOCKED" ]
     },
+    "Account" : {
+      "type" : "object",
+      "required" : [ "customer" ],
+      "properties" : {
+        "customer" : {
+          "description" : "The customer itself",
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "currentAccountBalance" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The real account balance"
+        },
+        "runningTotal" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The current total, the amount of all finished and unfinished transactions"
+        },
+        "creditLimit" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The credit limit of the account."
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "The currency of the account",
+          "x-custom-type" : "currency"
+        },
+        "minRunningTotalNotification" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The minimum running total amount if a notification should be send"
+        },
+        "minRunningTotalNotificationEmail" : {
+          "type" : "string",
+          "description" : "The recipient of the notification limit email"
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date of the acccount creation"
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date of the las update."
+        },
+        "view" : {
+          "description" : "The selected exchange for the account",
+          "originalRef" : "CurrencyRate",
+          "$ref" : "#/definitions/CurrencyRate"
+        }
+      }
+    },
     "AuEligibilityIdTypeConstants" : {
       "type" : "string",
       "enum" : [ "ACN", "ABN", "VIC_BN", "NSW_BN", "SA", "BN", "NT_BN", "WA_BN", "TAS_BN", "ACT_BN", "QLD_BN", "TM", "OTHER" ]
@@ -5721,6 +5904,10 @@
     "AuthMethodConstants" : {
       "type" : "string",
       "enum" : [ "DNS", "EMAIL", "FILE", "ORG" ]
+    },
+    "AuthType" : {
+      "type" : "string",
+      "enum" : [ "PASSWORD", "PASSWORD_TOKEN", "ALIAS" ]
     },
     "AutoRenewStatusConstants" : {
       "type" : "string",
@@ -5853,6 +6040,10 @@
           "originalRef" : "PaymentConstants",
           "$ref" : "#/definitions/PaymentConstants"
         },
+        "paymentMode" : {
+          "type" : "string",
+          "description" : "The payment mode of the customer."
+        },
         "paymentCurrency" : {
           "description" : "The payment currency of the customer.",
           "originalRef" : "Currency",
@@ -5882,6 +6073,16 @@
             "$ref" : "#/definitions/BasicUser"
           }
         },
+        "account" : {
+          "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
+          "originalRef" : "Account",
+          "$ref" : "#/definitions/Account"
+        },
+        "clearAccount" : {
+          "description" : "The period after the post payment account will be cleared to zero",
+          "originalRef" : "ClearAccountPeriod",
+          "$ref" : "#/definitions/ClearAccountPeriod"
+        },
         "fname" : {
           "type" : "string",
           "description" : "The first name.",
@@ -5897,6 +6098,11 @@
         "pcode" : {
           "type" : "string",
           "description" : "The postal code of the city."
+        },
+        "sepa" : {
+          "description" : "The customers sepa mandate if payament aws post with sepa.",
+          "originalRef" : "SEPAMandate",
+          "$ref" : "#/definitions/SEPAMandate"
         }
       }
     },
@@ -5979,6 +6185,10 @@
           "pattern" : "^[^_].*"
         }
       }
+    },
+    "BusinessCategory" : {
+      "type" : "string",
+      "enum" : [ "PRIVATE_ORGANIZATION", "GOVERNMENT_ENTITY", "BUSINESS_ENTITY" ]
     },
     "CaCertificate" : {
       "type" : "object",
@@ -6335,6 +6545,10 @@
     "CiraCprConstants" : {
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
+    },
+    "ClearAccountPeriod" : {
+      "type" : "string",
+      "enum" : [ "DAY", "MONTH", "BILL", "NONE" ]
     },
     "CodeSigningType" : {
       "type" : "string",
@@ -7076,6 +7290,22 @@
     },
     "Currency" : {
       "type" : "object"
+    },
+    "CurrencyRate" : {
+      "type" : "object",
+      "properties" : {
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "The currency of the exchange",
+          "x-custom-type" : "currency"
+        },
+        "rate" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "the rate of the exchange"
+        }
+      }
     },
     "CustomerContract" : {
       "type" : "object",
@@ -7941,14 +8171,37 @@
           "description" : "The company number"
         },
         "businessCategory" : {
-          "type" : "string",
-          "description" : "Additional validation data required for certain Comodo products."
+          "description" : "Additional validation data required for certain Comodo products.",
+          "originalRef" : "BusinessCategory",
+          "$ref" : "#/definitions/BusinessCategory"
         }
       }
     },
     "GenderConstants" : {
       "type" : "string",
       "enum" : [ "MALE", "FEMALE" ]
+    },
+    "GenericCustomer" : {
+      "type" : "object",
+      "required" : [ "client", "number" ],
+      "properties" : {
+        "number" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "client" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "group" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        }
+      }
     },
     "GenericLabelEntity" : {
       "type" : "object",
@@ -8136,6 +8389,9 @@
     "IdentityStatus" : {
       "type" : "string",
       "enum" : [ "VERIFY", "SUCCESS" ]
+    },
+    "InetAddress" : {
+      "type" : "object"
     },
     "Job" : {
       "type" : "object",
@@ -9675,6 +9931,69 @@
       "type" : "string",
       "enum" : [ "P", "AP", "NC", "C", "GI", "PI", "O" ]
     },
+    "SEPAMandate" : {
+      "type" : "object",
+      "required" : [ "confirmChecked", "confirmIp", "confirmSignature" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "The sepa mandate reference"
+        },
+        "confirmSignature" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date of the confirm signature"
+        },
+        "confirmIp" : {
+          "description" : "The address of the confirm signature",
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "confirmUseragent" : {
+          "type" : "string",
+          "description" : "The user agent of the confirm signature"
+        },
+        "confirmChecked" : {
+          "type" : "boolean",
+          "description" : "Flag for indicating if the confirm data has been checked"
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date after the mandate will be expired"
+        },
+        "histories" : {
+          "type" : "array",
+          "description" : "A list of historized sepa mandates",
+          "items" : {
+            "originalRef" : "SEPAMandate",
+            "$ref" : "#/definitions/SEPAMandate"
+          }
+        },
+        "accountHolder" : {
+          "type" : "string",
+          "description" : "The holder of the bank account"
+        },
+        "iban" : {
+          "type" : "string",
+          "description" : "The bank iban"
+        },
+        "bic" : {
+          "type" : "string",
+          "description" : "The bank bic"
+        }
+      }
+    },
     "ServerSoftwareTypeConstants" : {
       "type" : "string",
       "enum" : [ "IIS4", "IIS5", "APACHE2", "APACHESSL", "PLESK", "TOMCAT", "NOT_SET" ]
@@ -10092,6 +10411,11 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The substatus."
+        },
+        "authType" : {
+          "description" : "The users authorization method.",
+          "originalRef" : "AuthType",
+          "$ref" : "#/definitions/AuthType"
         },
         "details" : {
           "description" : "The user details.",
