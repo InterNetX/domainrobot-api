@@ -981,6 +981,18 @@
         },
         "tldDns": {
           "$ref": "#/definitions/TldDns"
+        },
+        "tldPeriod": {
+          "$ref": "#/definitions/TldPeriod"
+        },
+        "isManual": {
+          "type": "boolean"
+        },
+        "requiredFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
