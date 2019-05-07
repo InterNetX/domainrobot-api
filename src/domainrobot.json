@@ -14,6 +14,8 @@
   }, {
     "name" : "Document Tasks"
   }, {
+    "name" : "Domain Search"
+  }, {
     "name" : "Domain Tasks"
   }, {
     "name" : "Guest account tasks"
@@ -2601,6 +2603,64 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/domainsearch/_search" : {
+      "post" : {
+        "tags" : [ "Domain Search" ],
+        "summary" : "Powerful search api for free domains, premium domains and alternate domain names.",
+        "description" : "Configurable search results",
+        "operationId" : "domainSearch",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainEnvelope",
+              "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainEnvelope",
+              "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
             }
           }
         }
@@ -7307,6 +7367,169 @@
         }
       }
     },
+    "Customer" : {
+      "type" : "object",
+      "required" : [ "addressLines", "city", "client", "country", "name", "number", "payment", "pcode" ],
+      "properties" : {
+        "number" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "client" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "group" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the customer.",
+          "minLength" : 0,
+          "maxLength" : 255
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "The name of the organization.",
+          "minLength" : 0,
+          "maxLength" : 70
+        },
+        "vatNumber" : {
+          "type" : "string",
+          "description" : "The value added tax number."
+        },
+        "gender" : {
+          "description" : "The gender of the person.",
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The title of the customer"
+        },
+        "addressLines" : {
+          "type" : "array",
+          "description" : "The address of the customer",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        },
+        "city" : {
+          "type" : "string",
+          "description" : "The city of the customer."
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "The state of the customer."
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "The country of the customer."
+        },
+        "phone" : {
+          "description" : "The phone number.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "fax" : {
+          "description" : "The fax number.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "emails" : {
+          "type" : "array",
+          "description" : "The email addresses.",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        },
+        "billingEmails" : {
+          "type" : "array",
+          "description" : "The billing recipients.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "payment" : {
+          "description" : "The payment typ of the customer.",
+          "originalRef" : "PaymentConstants",
+          "$ref" : "#/definitions/PaymentConstants"
+        },
+        "paymentMode" : {
+          "type" : "string",
+          "description" : "The payment mode of the customer."
+        },
+        "paymentCurrency" : {
+          "description" : "The payment currency of the customer.",
+          "originalRef" : "Currency",
+          "$ref" : "#/definitions/Currency"
+        },
+        "invoiceLanguage" : {
+          "type" : "string",
+          "description" : "The language to use for the invoice."
+        },
+        "taxable" : {
+          "type" : "boolean",
+          "description" : "The taxable flag of the customer."
+        },
+        "contracts" : {
+          "type" : "array",
+          "description" : "The customers contracts.",
+          "items" : {
+            "originalRef" : "CustomerContract",
+            "$ref" : "#/definitions/CustomerContract"
+          }
+        },
+        "billingUsers" : {
+          "type" : "array",
+          "description" : "The billing users.",
+          "items" : {
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
+          }
+        },
+        "account" : {
+          "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
+          "originalRef" : "Account",
+          "$ref" : "#/definitions/Account"
+        },
+        "clearAccount" : {
+          "description" : "The period after the post payment account will be cleared to zero",
+          "originalRef" : "ClearAccountPeriod",
+          "$ref" : "#/definitions/ClearAccountPeriod"
+        },
+        "fname" : {
+          "type" : "string",
+          "description" : "The first name.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "lname" : {
+          "type" : "string",
+          "description" : "The last name.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "pcode" : {
+          "type" : "string",
+          "description" : "The postal code of the city."
+        },
+        "sepa" : {
+          "description" : "The customers sepa mandate if payament aws post with sepa.",
+          "originalRef" : "SEPAMandate",
+          "$ref" : "#/definitions/SEPAMandate"
+        }
+      }
+    },
     "CustomerContract" : {
       "type" : "object",
       "required" : [ "contract" ],
@@ -7750,6 +7973,46 @@
         }
       }
     },
+    "DomainEnvelope" : {
+      "type" : "object",
+      "properties" : {
+        "domain" : {
+          "type" : "string",
+          "description" : "IDN domain"
+        },
+        "aceDomain" : {
+          "type" : "string",
+          "description" : "Ace domain"
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Requested tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "status" : {
+          "description" : "Domain studio status",
+          "originalRef" : "DomainStudioDomainStatus",
+          "$ref" : "#/definitions/DomainStudioDomainStatus"
+        },
+        "price" : {
+          "description" : "Price",
+          "originalRef" : "Price",
+          "$ref" : "#/definitions/Price"
+        },
+        "estimate" : {
+          "description" : "Estimated price",
+          "originalRef" : "Price",
+          "$ref" : "#/definitions/Price"
+        },
+        "source" : {
+          "description" : "Source",
+          "originalRef" : "DomainStudioDomainSource",
+          "$ref" : "#/definitions/DomainStudioDomainSource"
+        }
+      }
+    },
     "DomainExtensions" : {
       "type" : "object",
       "properties" : {
@@ -8132,6 +8395,14 @@
         }
       }
     },
+    "DomainStudioDomainSource" : {
+      "type" : "string",
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO" ]
+    },
+    "DomainStudioDomainStatus" : {
+      "type" : "string",
+      "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR" ]
+    },
     "DomainTmchClaimNoticeExtensions" : {
       "type" : "object",
       "properties" : {
@@ -8152,6 +8423,114 @@
         "confirmIp" : {
           "type" : "string",
           "description" : "The confirm ip"
+        }
+      }
+    },
+    "ExchangedPrice" : {
+      "type" : "object",
+      "required" : [ "currency" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipum"
+        },
+        "type" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "PriceTypeConstants",
+          "$ref" : "#/definitions/PriceTypeConstants"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Lorem Ipsum",
+          "x-custom-type" : "currency"
+        },
+        "priority" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "PriorityConstants",
+          "$ref" : "#/definitions/PriorityConstants"
+        },
+        "customer" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "Customer",
+          "$ref" : "#/definitions/Customer"
+        },
+        "period" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "discountable" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipum"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipum"
+        },
+        "refund" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipum"
+        },
+        "priceConditions" : {
+          "type" : "array",
+          "description" : "Lorem Ipum",
+          "items" : {
+            "originalRef" : "PriceServiceEntity",
+            "$ref" : "#/definitions/PriceServiceEntity"
+          }
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipum"
+        },
+        "normalPrice" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "ExchangedPrice",
+          "$ref" : "#/definitions/ExchangedPrice"
+        },
+        "valid" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipum"
+        },
+        "vatRate" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipsum"
+        },
+        "vatAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipsum"
+        },
+        "rate" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipsum"
         }
       }
     },
@@ -8689,6 +9068,45 @@
           "items" : {
             "originalRef" : "DomainCancelation",
             "$ref" : "#/definitions/DomainCancelation"
+          }
+        }
+      }
+    },
+    "JsonResponseDataDomainEnvelope" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainEnvelope",
+            "$ref" : "#/definitions/DomainEnvelope"
           }
         }
       }
@@ -9652,6 +10070,122 @@
         }
       }
     },
+    "Price" : {
+      "type" : "object",
+      "required" : [ "currency" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipum"
+        },
+        "type" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "PriceTypeConstants",
+          "$ref" : "#/definitions/PriceTypeConstants"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Lorem Ipsum",
+          "x-custom-type" : "currency"
+        },
+        "priority" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "PriorityConstants",
+          "$ref" : "#/definitions/PriorityConstants"
+        },
+        "customer" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "Customer",
+          "$ref" : "#/definitions/Customer"
+        },
+        "period" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "discountable" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipum"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipum"
+        },
+        "refund" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipum"
+        },
+        "priceConditions" : {
+          "type" : "array",
+          "description" : "Lorem Ipum",
+          "items" : {
+            "originalRef" : "PriceServiceEntity",
+            "$ref" : "#/definitions/PriceServiceEntity"
+          }
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipum"
+        },
+        "normalPrice" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "ExchangedPrice",
+          "$ref" : "#/definitions/ExchangedPrice"
+        },
+        "valid" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipum"
+        }
+      }
+    },
+    "PriceServiceEntity" : {
+      "type" : "object",
+      "properties" : {
+        "configuration" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
+        },
+        "condition" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "ServiceEntity",
+          "$ref" : "#/definitions/ServiceEntity"
+        }
+      }
+    },
+    "PriceTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "GROSS", "NET" ]
+    },
+    "PriorityConstants" : {
+      "type" : "string",
+      "enum" : [ "DEFAULT", "OFFER", "PROTECTED", "PROMO" ]
+    },
     "ProtectionConstants" : {
       "type" : "string",
       "enum" : [ "HIGH", "MEDIUM", "LOW", "OFF", "CUSTOM" ]
@@ -9997,6 +10531,26 @@
     "ServerSoftwareTypeConstants" : {
       "type" : "string",
       "enum" : [ "IIS4", "IIS5", "APACHE2", "APACHESSL", "PLESK", "TOMCAT", "NOT_SET" ]
+    },
+    "ServiceEntity" : {
+      "type" : "object",
+      "required" : [ "label" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "Lorem Ipum"
+        }
+      }
     },
     "SignatureHashAlgorithmConstants" : {
       "type" : "string",
