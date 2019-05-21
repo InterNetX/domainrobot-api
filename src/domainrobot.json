@@ -835,6 +835,9 @@
           "schema" : {
             "originalRef" : "Contact",
             "$ref" : "#/definitions/Contact"
+          },
+          "x-examples" : {
+            "application/json" : "{\n  \"alias\": \"John-Doe-1\",\n  \"type\": \"PERSON\",\n  \"organization\": \"Company\",\n  \"title\": \"Dr.\",\n  \"city\": \"Anytown\",\n  \"country\": \"DE\",\n  \"state\": \"BY\",\n  \"email\": \"john.doe@domain.com\",\n  \"fname\": \"John\",\n  \"lname\": \"Doe\",\n  \"address\": [\n    \"addbfdgfdgfdress\"\n  ],\n  \"pcode\": \"12345\",\n  \"phone\": \"+49-123-12345\",\n  \"fax\": \"+49-123-12345\"\n}"
           }
         } ],
         "responses" : {
@@ -1440,6 +1443,15 @@
           "in" : "header",
           "required" : false,
           "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "services",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainServicesUpdate",
+            "$ref" : "#/definitions/DomainServicesUpdate"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -2608,7 +2620,7 @@
         }
       }
     },
-    "/domainsearch/_search" : {
+    "/domainstudio" : {
       "post" : {
         "tags" : [ "Domain Search" ],
         "summary" : "Powerful search api for free domains, premium domains and alternate domain names.",
@@ -5388,7 +5400,7 @@
       "post" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Create Zone",
-        "description" : "Create a zone.",
+        "description" : "Add or remove records for any zone with the given name.",
         "operationId" : "zoneStream",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5437,8 +5449,8 @@
           "description" : "zoneStream",
           "required" : false,
           "schema" : {
-            "originalRef" : "Zone",
-            "$ref" : "#/definitions/Zone"
+            "originalRef" : "ZoneStream",
+            "$ref" : "#/definitions/ZoneStream"
           }
         } ],
         "responses" : {
@@ -5815,7 +5827,7 @@
         "tags" : [ "Zone Tasks" ],
         "summary" : "Import Zone",
         "description" : "Import the specified zone.",
-        "operationId" : "zoneTransfer",
+        "operationId" : "zoneImport",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-PIN",
@@ -5868,8 +5880,8 @@
           "description" : "zone",
           "required" : false,
           "schema" : {
-            "originalRef" : "ZoneStream",
-            "$ref" : "#/definitions/ZoneStream"
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
           }
         } ],
         "responses" : {
@@ -5979,25 +5991,29 @@
       "properties" : {
         "domain" : {
           "type" : "string",
-          "description" : "Lorem Ipsum"
+          "description" : "The domain of the mail exchange to backup"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the domain."
         },
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "description" : "The date of the creation"
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "description" : "The date of the last updated"
         },
         "owner" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The owner of the entry",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The last updater of the entry",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         }
@@ -6608,7 +6624,7 @@
     },
     "ClearAccountPeriod" : {
       "type" : "string",
-      "enum" : [ "DAY", "MONTH", "BILL", "NONE" ]
+      "enum" : [ "DAY", "MONTH", "BILL", "WEEK", "NONE" ]
     },
     "CodeSigningType" : {
       "type" : "string",
@@ -7980,9 +7996,10 @@
           "type" : "string",
           "description" : "IDN domain"
         },
-        "aceDomain" : {
+        "idn" : {
           "type" : "string",
-          "description" : "Ace domain"
+          "example" : "müller.org",
+          "description" : "The unicode domain name"
         },
         "tlds" : {
           "type" : "array",
@@ -7996,12 +8013,15 @@
           "originalRef" : "DomainStudioDomainStatus",
           "$ref" : "#/definitions/DomainStudioDomainStatus"
         },
-        "price" : {
-          "description" : "Price",
-          "originalRef" : "Price",
-          "$ref" : "#/definitions/Price"
+        "prices" : {
+          "type" : "array",
+          "description" : "The subject products",
+          "items" : {
+            "originalRef" : "SimplePrice",
+            "$ref" : "#/definitions/SimplePrice"
+          }
         },
-        "estimate" : {
+        "estimation" : {
           "description" : "Estimated price",
           "originalRef" : "Price",
           "$ref" : "#/definitions/Price"
@@ -8010,6 +8030,14 @@
           "description" : "Source",
           "originalRef" : "DomainStudioDomainSource",
           "$ref" : "#/definitions/DomainStudioDomainSource"
+        },
+        "isPremium" : {
+          "type" : "boolean",
+          "description" : "Premium domain"
+        },
+        "provider" : {
+          "type" : "string",
+          "description" : "Provider"
         }
       }
     },
@@ -8395,13 +8423,40 @@
         }
       }
     },
+    "DomainServicesUpdate" : {
+      "type" : "object",
+      "properties" : {
+        "domains" : {
+          "type" : "array",
+          "description" : "The name of the domain.",
+          "items" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        },
+        "servicesAdd" : {
+          "description" : "The services to add.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
+        "servicesRem" : {
+          "description" : "The services to remove.",
+          "originalRef" : "DomainServices",
+          "$ref" : "#/definitions/DomainServices"
+        },
+        "dnsProvisioning" : {
+          "type" : "boolean",
+          "description" : "If the dns should be provisioned if available"
+        }
+      }
+    },
     "DomainStudioDomainSource" : {
       "type" : "string",
       "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
-      "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR" ]
+      "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR", "TIMEOUT" ]
     },
     "DomainTmchClaimNoticeExtensions" : {
       "type" : "object",
@@ -8817,13 +8872,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -9737,25 +9792,29 @@
       "properties" : {
         "domain" : {
           "type" : "string",
-          "description" : "Lorem Ipsum"
+          "description" : "The domain of the mail exchange to backup"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the domain."
         },
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "description" : "The date of the creation"
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "description" : "The date of the last updated"
         },
         "owner" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The owner of the entry",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The last updater of the entry",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
@@ -10402,12 +10461,12 @@
         "ttl" : {
           "type" : "integer",
           "format" : "int64",
-          "description" : "The time to live of the record."
+          "description" : "TTL of the record (Optionally if not set then Default SOA TTL is used)"
         },
         "type" : {
           "type" : "string",
           "example" : "A, MX, CNAME, TXT, SRV, PTR, AAAA, NS, CAA, PROCEED_MUC, TLSA, NAPTR, SSHFP, LOC, RP, HINFO, PROCEED, ALIAS, DNSKEY, NSEC, DS",
-          "description" : "The type of the record."
+          "description" : "The type of the record, e.g. A"
         },
         "value" : {
           "type" : "string",
@@ -10416,7 +10475,7 @@
         "pref" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The pref value of the record.",
+          "description" : "Preference of the record, need for some record types e.g. MX",
           "maximum" : 65535
         }
       }
@@ -10555,6 +10614,20 @@
     "SignatureHashAlgorithmConstants" : {
       "type" : "string",
       "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256" ]
+    },
+    "SimplePrice" : {
+      "type" : "object",
+      "properties" : {
+        "price" : {
+          "description" : "The price",
+          "originalRef" : "Price",
+          "$ref" : "#/definitions/Price"
+        },
+        "businessCase" : {
+          "type" : "string",
+          "description" : "The business case"
+        }
+      }
     },
     "Soa" : {
       "type" : "object",
