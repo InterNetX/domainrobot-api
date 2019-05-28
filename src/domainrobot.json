@@ -8,6 +8,8 @@
   "host" : "api.autodns.com",
   "basePath" : "/v1",
   "tags" : [ {
+    "name" : "BackupMx Tasks"
+  }, {
     "name" : "Certificate Tasks"
   }, {
     "name" : "Contact Tasks"
@@ -26,6 +28,8 @@
   }, {
     "name" : "Job Tasks"
   }, {
+    "name" : "MailProxy Tasks"
+  }, {
     "name" : "Poll Tasks"
   }, {
     "name" : "Redirect Tasks"
@@ -41,6 +45,8 @@
     "name" : "User verification confirm"
   }, {
     "name" : "Zone Tasks"
+  }, {
+    "name" : "backupMx Tasks"
   }, {
     "name" : "whois tasks"
   } ],
@@ -155,6 +161,280 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataOTPAuth",
               "$ref" : "#/definitions/JsonResponseDataOTPAuth"
+            }
+          }
+        }
+      }
+    },
+    "/backupMx" : {
+      "post" : {
+        "tags" : [ "backupMx Tasks" ],
+        "summary" : "Create BackupMx",
+        "description" : "Create a new backup mx.",
+        "operationId" : "backupMxCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "backupMx",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BackupMx",
+            "$ref" : "#/definitions/BackupMx"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/backupMx/_search" : {
+      "post" : {
+        "tags" : [ "BackupMx Tasks" ],
+        "summary" : "List BackupMx",
+        "description" : "Inquire a list of backup mx's with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "backupMxList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataBackupMx",
+              "$ref" : "#/definitions/JsonResponseDataBackupMx"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataBackupMx",
+              "$ref" : "#/definitions/JsonResponseDataBackupMx"
+            }
+          }
+        }
+      }
+    },
+    "/backupMx/{domain}" : {
+      "get" : {
+        "tags" : [ "BackupMx Tasks" ],
+        "summary" : "Get BackupMx",
+        "description" : "Inquire the data for the specified backup mx.",
+        "operationId" : "backupMxInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataBackupMx",
+              "$ref" : "#/definitions/JsonResponseDataBackupMx"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataBackupMx",
+              "$ref" : "#/definitions/JsonResponseDataBackupMx"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "BackupMx Tasks" ],
+        "summary" : "Delete BackupMx",
+        "description" : "Delete an existing backup mx.",
+        "operationId" : "backupMxDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -1452,17 +1732,25 @@
             "originalRef" : "DomainServicesUpdate",
             "$ref" : "#/definitions/DomainServicesUpdate"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -1991,14 +2279,10 @@
           "required" : false,
           "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "domain",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "Domain",
-            "$ref" : "#/definitions/Domain"
-          }
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -2076,12 +2360,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -2662,6 +2946,15 @@
           "in" : "header",
           "required" : false,
           "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "search",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainEnvelopeSearchRequest",
+            "$ref" : "#/definitions/DomainEnvelopeSearchRequest"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -3943,6 +4236,359 @@
         }
       }
     },
+    "/mailProxy" : {
+      "post" : {
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "Create MailProxy",
+        "description" : "Create a new mail proxy.",
+        "operationId" : "mailProxyCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "mailProxy",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "MailProxy",
+            "$ref" : "#/definitions/MailProxy"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/mailProxy/_search" : {
+      "post" : {
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "List MailProxy",
+        "description" : "Inquire a list of mail proxies with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "mailProxyList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=target",
+          "enum" : [ "{target}" ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataMailProxy",
+              "$ref" : "#/definitions/JsonResponseDataMailProxy"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataMailProxy",
+              "$ref" : "#/definitions/JsonResponseDataMailProxy"
+            }
+          }
+        }
+      }
+    },
+    "/mailProxy/{domain}" : {
+      "get" : {
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "Get MailProxy",
+        "description" : "Inquire the data for the specified mail proxy.",
+        "operationId" : "mailProxyInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataMailProxy",
+              "$ref" : "#/definitions/JsonResponseDataMailProxy"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataMailProxy",
+              "$ref" : "#/definitions/JsonResponseDataMailProxy"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "Update MailProxy",
+        "description" : "Update an existing mail proxy.",
+        "operationId" : "mailProxyUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "mailProxy",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "MailProxy",
+            "$ref" : "#/definitions/MailProxy"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "Delete MailProxy",
+        "description" : "Delete an existing mail proxy.",
+        "operationId" : "mailProxyDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
     "/poll" : {
       "get" : {
         "tags" : [ "Poll Tasks" ],
@@ -4115,6 +4761,14 @@
             "originalRef" : "Redirect",
             "$ref" : "#/definitions/Redirect"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
         } ],
         "responses" : {
           "200" : {
@@ -4385,6 +5039,14 @@
           "in" : "path",
           "required" : true,
           "type" : "string"
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
         } ],
         "responses" : {
           "200" : {
@@ -8041,6 +8703,95 @@
         }
       }
     },
+    "DomainEnvelopeSearchRequest" : {
+      "type" : "object",
+      "properties" : {
+        "searchToken" : {
+          "type" : "string",
+          "description" : "Domain search token"
+        },
+        "selectedTlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "promoTlds" : {
+          "type" : "array",
+          "description" : "Promo tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "topTlds" : {
+          "type" : "array",
+          "description" : "Top tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "excludedDomains" : {
+          "type" : "array",
+          "description" : "Excluded domains",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "Search language"
+        },
+        "maxSuggestedDomains" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum fetched suggested domains"
+        },
+        "maxPremiumDomans" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum fetched premium domains"
+        },
+        "maxGeoDomains" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum fetched geo domains"
+        },
+        "maxSldLength" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum sld length for suggested domains"
+        },
+        "optionUseDashes" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with dash"
+        },
+        "optionUseNumbers" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with numbers"
+        },
+        "optionUseIdn" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with idn"
+        },
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "The currency for every price lookup"
+        }
+      }
+    },
+    "DomainEnvelopeSearchService" : {
+      "type" : "string",
+      "enum" : [ "WHOIS", "PRICE", "ESTIMATION" ]
+    },
     "DomainExtensions" : {
       "type" : "object",
       "properties" : {
@@ -8443,10 +9194,6 @@
           "description" : "The services to remove.",
           "originalRef" : "DomainServices",
           "$ref" : "#/definitions/DomainServices"
-        },
-        "dnsProvisioning" : {
-          "type" : "boolean",
-          "description" : "If the dns should be provisioned if available"
         }
       }
     },
@@ -8872,13 +9619,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -8928,6 +9675,45 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "type" : "object"
+          }
+        }
+      }
+    },
+    "JsonResponseDataBackupMx" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "BackupMx",
+            "$ref" : "#/definitions/BackupMx"
           }
         }
       }
@@ -9318,6 +10104,45 @@
           "items" : {
             "originalRef" : "JsonNoData",
             "$ref" : "#/definitions/JsonNoData"
+          }
+        }
+      }
+    },
+    "JsonResponseDataMailProxy" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "MailProxy",
+            "$ref" : "#/definitions/MailProxy"
           }
         }
       }
