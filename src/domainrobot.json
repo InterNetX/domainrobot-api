@@ -223,6 +223,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -422,6 +426,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -631,9 +639,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=comment",
+            "enum" : [ "{comment", "type", "certificate_type}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=comment",
-          "enum" : [ "{comment", "type", "certificate_type}" ]
+          "x-example" : "?keys[]=comment"
         } ],
         "responses" : {
           "200" : {
@@ -1192,9 +1204,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=email",
+            "enum" : [ "{email", "sip", "remarks", "domainsafe", "comment}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=email",
-          "enum" : [ "{email", "sip", "remarks", "domainsafe", "comment}" ]
+          "x-example" : "?keys[]=email"
         } ],
         "responses" : {
           "200" : {
@@ -1662,9 +1678,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=expire",
+            "enum" : [ "{expire}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=expire",
-          "enum" : [ "{expire}" ]
+          "x-example" : "?keys[]=expire"
         } ],
         "responses" : {
           "200" : {
@@ -1738,6 +1758,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -1880,9 +1904,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=expire",
+            "enum" : [ "{expire}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=expire",
-          "enum" : [ "{expire}" ]
+          "x-example" : "?keys[]=expire"
         } ],
         "responses" : {
           "200" : {
@@ -1956,9 +1984,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=expire",
+            "enum" : [ "{expire}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=expire",
-          "enum" : [ "{expire}" ]
+          "x-example" : "?keys[]=expire"
         } ],
         "responses" : {
           "200" : {
@@ -3672,9 +3704,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=type",
+            "enum" : [ "{type", "owner", "updater}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=type",
-          "enum" : [ "{type", "owner", "updater}" ]
+          "x-example" : "?keys[]=type"
         } ],
         "responses" : {
           "200" : {
@@ -3748,9 +3784,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=type",
+            "enum" : [ "{type", "owner", "updater}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=type",
-          "enum" : [ "{type", "owner", "updater}" ]
+          "x-example" : "?keys[]=type"
         } ],
         "responses" : {
           "200" : {
@@ -4293,6 +4333,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -4368,9 +4412,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=target",
+            "enum" : [ "{target}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=target",
-          "enum" : [ "{target}" ]
+          "x-example" : "?keys[]=target"
         } ],
         "responses" : {
           "200" : {
@@ -4571,6 +4619,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -4767,6 +4819,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -4842,9 +4898,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=title",
+            "enum" : [ "{title}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=title",
-          "enum" : [ "{title}" ]
+          "x-example" : "?keys[]=title"
         } ],
         "responses" : {
           "200" : {
@@ -5045,6 +5105,10 @@
           "description" : "If the dns should be provisioned if available.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
         } ],
@@ -5186,9 +5250,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=email",
+            "enum" : [ "{phone", "email", "title", "address", "postal_code", "city", "country", "state", "updater}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=email",
-          "enum" : [ "{phone", "email", "title", "address", "postal_code", "city", "country", "state", "updater}" ]
+          "x-example" : "?keys[]=email"
         } ],
         "responses" : {
           "200" : {
@@ -5459,9 +5527,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=end",
+            "enum" : [ "{transaction", "gaining_registrar", "loosing_registrar", "start", "reminder", "end}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=end",
-          "enum" : [ "{transaction", "gaining_registrar", "loosing_registrar", "start", "reminder", "end}" ]
+          "x-example" : "?keys[]=end"
         } ],
         "responses" : {
           "200" : {
@@ -6039,9 +6111,13 @@
           "description" : "The query parameter to fetch additional details.",
           "required" : false,
           "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=primary",
+            "enum" : [ "{primary", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "comment}" ]
+          },
           "collectionFormat" : "multi",
-          "x-example" : "?keys[]=primary",
-          "enum" : [ "{primary", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "comment}" ]
+          "x-example" : "?keys[]=primary"
         } ],
         "responses" : {
           "200" : {
@@ -10918,9 +10994,9 @@
           "$ref" : "#/definitions/BasicUser"
         },
         "job" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The job data. Available if the message is a job message"
+          "description" : "The job data. Available if the message is a job message",
+          "originalRef" : "WorkflowSpool",
+          "$ref" : "#/definitions/WorkflowSpool"
         },
         "notify" : {
           "description" : "The notification data. Available if the message is a notification message",
@@ -10946,6 +11022,11 @@
         "flags" : {
           "type" : "string",
           "description" : "Optional message flags."
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
         },
         "object" : {
           "description" : "The object of the job or notify.",
@@ -12178,6 +12259,12 @@
           "description" : "The updating user of the object",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
+        },
+        "Rowid" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the zone"
         },
         "logId" : {
           "type" : "integer",
