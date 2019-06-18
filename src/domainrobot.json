@@ -26,6 +26,10 @@
   }, {
     "name" : "Id4me identity tasks"
   }, {
+    "name" : "Invoice Tasks"
+  }, {
+    "name" : "InvoiceInfo tasks"
+  }, {
     "name" : "Job Tasks"
   }, {
     "name" : "MailProxy Tasks"
@@ -37,6 +41,8 @@
     "name" : "Session Tasks"
   }, {
     "name" : "SslContact Tasks"
+  }, {
+    "name" : "Subscription Tasks"
   }, {
     "name" : "Transfer Request Tasks"
   }, {
@@ -2381,7 +2387,7 @@
         }, {
           "in" : "body",
           "name" : "body",
-          "description" : "certificate",
+          "description" : "domain",
           "required" : false,
           "schema" : {
             "originalRef" : "Domain",
@@ -2597,23 +2603,23 @@
         }, {
           "in" : "body",
           "name" : "body",
-          "description" : "registryStatus",
+          "description" : "domain",
           "required" : false,
           "schema" : {
-            "originalRef" : "RegistryStatusConstants",
-            "$ref" : "#/definitions/RegistryStatusConstants"
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -3642,6 +3648,137 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataId4MeIdentity",
               "$ref" : "#/definitions/JsonResponseDataId4MeIdentity"
+            }
+          }
+        }
+      }
+    },
+    "/invoice/_search" : {
+      "post" : {
+        "tags" : [ "Invoice Tasks" ],
+        "summary" : "List Invoice",
+        "description" : "Inquire a list of invoices with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "InvoiceList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataInvoice",
+              "$ref" : "#/definitions/JsonResponseDataInvoice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataInvoice",
+              "$ref" : "#/definitions/JsonResponseDataInvoice"
+            }
+          }
+        }
+      }
+    },
+    "/invoice/{id}" : {
+      "get" : {
+        "tags" : [ "InvoiceInfo tasks" ],
+        "summary" : "Get Invoice",
+        "description" : "Inquire the data for the specified Invoice.",
+        "operationId" : "InvoiceInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataInvoice",
+              "$ref" : "#/definitions/JsonResponseDataInvoice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataInvoice",
+              "$ref" : "#/definitions/JsonResponseDataInvoice"
             }
           }
         }
@@ -5470,6 +5607,72 @@
         }
       }
     },
+    "/subscription" : {
+      "post" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "Create Subscription",
+        "description" : "Create a new subscription contract.",
+        "operationId" : "subscriptionCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "subscription",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            }
+          }
+        }
+      }
+    },
     "/transferout/_search" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
@@ -6699,6 +6902,10 @@
         }
       }
     },
+    "AccountingDocumentTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "INVOICE", "CREDIT", "REFUND", "CANCELED", "CHARGE" ]
+    },
     "AuEligibilityIdTypeConstants" : {
       "type" : "string",
       "enum" : [ "ACN", "ABN", "VIC_BN", "NSW_BN", "SA", "BN", "NT_BN", "WA_BN", "TAS_BN", "ACT_BN", "QLD_BN", "TM", "OTHER" ]
@@ -6961,6 +7168,10 @@
           "description" : "Lorem Ipsum"
         },
         "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "link" : {
           "type" : "string",
           "description" : "Lorem Ipsum"
         },
@@ -8400,6 +8611,55 @@
         }
       }
     },
+    "Document" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "mimeType" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "data" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "link" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
     "Domain" : {
       "type" : "object",
       "required" : [ "name", "payable", "removeCancelation" ],
@@ -8732,50 +8992,27 @@
       "properties" : {
         "domain" : {
           "type" : "string",
-          "description" : "IDN domain"
+          "description" : "The domain"
         },
         "idn" : {
           "type" : "string",
           "example" : "müller.org",
           "description" : "The unicode domain name"
         },
-        "tlds" : {
-          "type" : "array",
-          "description" : "Requested tlds",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "status" : {
-          "description" : "Domain studio status",
-          "originalRef" : "DomainStudioDomainStatus",
-          "$ref" : "#/definitions/DomainStudioDomainStatus"
-        },
-        "prices" : {
-          "type" : "array",
-          "description" : "The subject products",
-          "items" : {
-            "originalRef" : "SimplePrice",
-            "$ref" : "#/definitions/SimplePrice"
-          }
-        },
-        "estimation" : {
-          "description" : "Estimated price",
-          "originalRef" : "Price",
-          "$ref" : "#/definitions/Price"
-        },
         "source" : {
           "description" : "Source",
           "originalRef" : "DomainStudioDomainSource",
           "$ref" : "#/definitions/DomainStudioDomainSource"
         },
-        "isPremium" : {
-          "type" : "boolean",
-          "description" : "Premium domain"
+        "services" : {
+          "description" : "Source",
+          "originalRef" : "DomainStudioService",
+          "$ref" : "#/definitions/DomainStudioService"
         },
-        "provider" : {
-          "type" : "string",
-          "description" : "Provider"
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The processing time for this domain."
         }
       }
     },
@@ -8786,81 +9023,18 @@
           "type" : "string",
           "description" : "Domain search token"
         },
-        "selectedTlds" : {
-          "type" : "array",
-          "description" : "Selected tlds",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "promoTlds" : {
-          "type" : "array",
-          "description" : "Promo tlds",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "topTlds" : {
-          "type" : "array",
-          "description" : "Top tlds",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "excludedDomains" : {
-          "type" : "array",
-          "description" : "Excluded domains",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "language" : {
-          "type" : "string",
-          "description" : "Search language"
-        },
-        "maxSuggestedDomains" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Maximum fetched suggested domains"
-        },
-        "maxPremiumDomans" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Maximum fetched premium domains"
-        },
-        "maxGeoDomains" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Maximum fetched geo domains"
-        },
-        "maxSldLength" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Maximum sld length for suggested domains"
-        },
-        "optionUseDashes" : {
-          "type" : "boolean",
-          "description" : "Suggested domains with dash"
-        },
-        "optionUseNumbers" : {
-          "type" : "boolean",
-          "description" : "Suggested domains with numbers"
-        },
-        "optionUseIdn" : {
-          "type" : "boolean",
-          "description" : "Suggested domains with idn"
-        },
-        "services" : {
-          "type" : "array",
-          "description" : "The services to fetch extra data from",
-          "items" : {
-            "originalRef" : "DomainEnvelopeSearchService",
-            "$ref" : "#/definitions/DomainEnvelopeSearchService"
-          }
-        },
         "currency" : {
           "type" : "string",
           "description" : "The currency for every price lookup"
+        },
+        "debug" : {
+          "type" : "boolean",
+          "description" : "Activates debugging"
+        },
+        "sources" : {
+          "description" : "Wrapper for the configuration for each source",
+          "originalRef" : "DomainStudioSources",
+          "$ref" : "#/definitions/DomainStudioSources"
         }
       }
     },
@@ -9275,11 +9449,206 @@
     },
     "DomainStudioDomainSource" : {
       "type" : "string",
-      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO" ]
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
       "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR", "TIMEOUT" ]
+    },
+    "DomainStudioService" : {
+      "type" : "object",
+      "properties" : {
+        "whois" : {
+          "description" : "The data for the whois service",
+          "originalRef" : "WhoisServiceData",
+          "$ref" : "#/definitions/WhoisServiceData"
+        },
+        "price" : {
+          "description" : "The data for the price service",
+          "originalRef" : "PriceServiceData",
+          "$ref" : "#/definitions/PriceServiceData"
+        },
+        "estimation" : {
+          "description" : "The data for the estimation service",
+          "originalRef" : "EstimationServiceData",
+          "$ref" : "#/definitions/EstimationServiceData"
+        }
+      }
+    },
+    "DomainStudioServiceStatus" : {
+      "type" : "string",
+      "enum" : [ "RUNNING", "SUCCESS", "FAILED" ]
+    },
+    "DomainStudioSourceGeo" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum amount of fetched geo domains."
+        }
+      }
+    },
+    "DomainStudioSourceInitial" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "DomainStudioSourcePremium" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "promoTlds" : {
+          "type" : "array",
+          "description" : "Promo tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "topTlds" : {
+          "type" : "array",
+          "description" : "Top tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum amount of fetched premium and market domains."
+        }
+      }
+    },
+    "DomainStudioSourceSimilar" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum amount of generated similar domains."
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "DomainStudioSourceSuggestion" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "Suggestion language"
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum fetched suggested domains"
+        },
+        "maxSldLength" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum sld length for suggested domains"
+        },
+        "useDash" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with dash"
+        },
+        "useNumber" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with numbers"
+        },
+        "useIdn" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with idn"
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "DomainStudioSources" : {
+      "type" : "object",
+      "properties" : {
+        "initial" : {
+          "description" : "The configuration for the initial source",
+          "originalRef" : "DomainStudioSourceInitial",
+          "$ref" : "#/definitions/DomainStudioSourceInitial"
+        },
+        "suggestion" : {
+          "description" : "The configuration for the suggestion source",
+          "originalRef" : "DomainStudioSourceSuggestion",
+          "$ref" : "#/definitions/DomainStudioSourceSuggestion"
+        },
+        "premium" : {
+          "description" : "The configuration for the premium source",
+          "originalRef" : "DomainStudioSourcePremium",
+          "$ref" : "#/definitions/DomainStudioSourcePremium"
+        },
+        "geo" : {
+          "description" : "The configuration for the geo source",
+          "originalRef" : "DomainStudioSourceGeo",
+          "$ref" : "#/definitions/DomainStudioSourceGeo"
+        },
+        "similar" : {
+          "description" : "The configuration for the similar source",
+          "originalRef" : "DomainStudioSourceSimilar",
+          "$ref" : "#/definitions/DomainStudioSourceSimilar"
+        }
+      }
     },
     "DomainTmchClaimNoticeExtensions" : {
       "type" : "object",
@@ -9301,6 +9670,41 @@
         "confirmIp" : {
           "type" : "string",
           "description" : "The confirm ip"
+        }
+      }
+    },
+    "EstimationData" : {
+      "type" : "object",
+      "properties" : {
+        "currency" : {
+          "description" : "The currency",
+          "originalRef" : "Currency",
+          "$ref" : "#/definitions/Currency"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The amount"
+        }
+      }
+    },
+    "EstimationServiceData" : {
+      "type" : "object",
+      "properties" : {
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The debug time"
+        },
+        "status" : {
+          "description" : "The status",
+          "originalRef" : "DomainStudioServiceStatus",
+          "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "data" : {
+          "description" : "The service data",
+          "originalRef" : "EstimationData",
+          "$ref" : "#/definitions/EstimationData"
         }
       }
     },
@@ -9650,6 +10054,115 @@
     "InetAddress" : {
       "type" : "object"
     },
+    "Invoice" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Lorem Ipsum"
+        },
+        "number" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "customer" : {
+          "description" : "Lorem Ipum",
+          "originalRef" : "Customer",
+          "$ref" : "#/definitions/Customer"
+        },
+        "payment" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "PaymentConstants",
+          "$ref" : "#/definitions/PaymentConstants"
+        },
+        "paymentMode" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "paymentTransaction" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "sepaMandateReference" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "sepaMandateCollection" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipsum"
+        },
+        "vatAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Lorem Ipsum"
+        },
+        "status" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "InvoiceStatusConstants",
+          "$ref" : "#/definitions/InvoiceStatusConstants"
+        },
+        "type" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "AccountingDocumentTypeConstants",
+          "$ref" : "#/definitions/AccountingDocumentTypeConstants"
+        },
+        "failed" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Lorem Ipsum",
+          "x-custom-type" : "currency"
+        },
+        "paid" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "document" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "Document",
+          "$ref" : "#/definitions/Document"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "InvoiceStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "CREATED", "SIGNED", "SENT", "RESEND", "FINISHED", "LIVECONFIRMED", "LIVEPENDING", "POSTPENDING", "POSTCONFIRMED" ]
+    },
     "Job" : {
       "type" : "object",
       "properties" : {
@@ -9695,13 +10208,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -10145,6 +10658,45 @@
         }
       }
     },
+    "JsonResponseDataInvoice" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Invoice",
+            "$ref" : "#/definitions/Invoice"
+          }
+        }
+      }
+    },
     "JsonResponseDataJsonNoData" : {
       "type" : "object",
       "properties" : {
@@ -10452,6 +11004,45 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "type" : "string"
+          }
+        }
+      }
+    },
+    "JsonResponseDataSubscription" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
           }
         }
       }
@@ -11128,6 +11719,39 @@
         }
       }
     },
+    "PriceData" : {
+      "type" : "object",
+      "properties" : {
+        "prices" : {
+          "type" : "array",
+          "description" : "The subject products",
+          "items" : {
+            "originalRef" : "SimplePrice",
+            "$ref" : "#/definitions/SimplePrice"
+          }
+        }
+      }
+    },
+    "PriceServiceData" : {
+      "type" : "object",
+      "properties" : {
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The debug time"
+        },
+        "status" : {
+          "description" : "The status",
+          "originalRef" : "DomainStudioServiceStatus",
+          "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "data" : {
+          "description" : "The subject products",
+          "originalRef" : "PriceData",
+          "$ref" : "#/definitions/PriceData"
+        }
+      }
+    },
     "PriceServiceEntity" : {
       "type" : "object",
       "properties" : {
@@ -11688,6 +12312,48 @@
         }
       }
     },
+    "Subscription" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "object" : {
+          "type" : "string",
+          "description" : "The name of the subscription, e.g. the contract number"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "The human readable name of the subscription, e.g. the name of a package"
+        },
+        "period" : {
+          "description" : "The period used by the subscription, e.g. 1 month",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "articleLabel" : {
+          "type" : "string",
+          "description" : "The article label of the subscription, e.g. backup_mx"
+        }
+      }
+    },
     "TimePeriod" : {
       "type" : "object",
       "properties" : {
@@ -12152,6 +12818,36 @@
     },
     "Void" : {
       "type" : "object"
+    },
+    "WhoisServiceData" : {
+      "type" : "object",
+      "properties" : {
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The debug time"
+        },
+        "status" : {
+          "description" : "The status",
+          "originalRef" : "DomainStudioServiceStatus",
+          "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "data" : {
+          "description" : "The service data",
+          "originalRef" : "WhoisStatus",
+          "$ref" : "#/definitions/WhoisStatus"
+        }
+      }
+    },
+    "WhoisStatus" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "description" : "The whois status",
+          "originalRef" : "DomainStudioDomainStatus",
+          "$ref" : "#/definitions/DomainStudioDomainStatus"
+        }
+      }
     },
     "WorkflowEvent" : {
       "type" : "object",
