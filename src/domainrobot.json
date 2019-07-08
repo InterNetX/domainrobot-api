@@ -5673,6 +5673,140 @@
         }
       }
     },
+    "/subscription/{contractId}" : {
+      "put" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "update Subscription",
+        "description" : "update a subscription contract.",
+        "operationId" : "subscriptionUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "subscription",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            }
+          }
+        }
+      }
+    },
+    "/subscription/{contractId}/_upgrade" : {
+      "put" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "upgrade Subscription",
+        "description" : "upgrade a subscription contract.",
+        "operationId" : "subscriptionUpgrade",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "subscription",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            }
+          }
+        }
+      }
+    },
     "/transferout/_search" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
@@ -6340,7 +6474,7 @@
     "/zone/{name}/_stream" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Create Zone",
+        "summary" : "Zone Stream",
         "description" : "Add or remove records for any zone with the given name.",
         "operationId" : "zoneStream",
         "produces" : [ "application/json" ],
@@ -9449,7 +9583,7 @@
     },
     "DomainStudioDomainSource" : {
       "type" : "string",
-      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR" ]
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
@@ -9564,13 +9698,6 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The maximum amount of generated similar domains."
-        },
-        "tlds" : {
-          "type" : "array",
-          "description" : "Selected tlds",
-          "items" : {
-            "type" : "string"
-          }
         }
       }
     },
@@ -9647,6 +9774,11 @@
           "description" : "The configuration for the similar source",
           "originalRef" : "DomainStudioSourceSimilar",
           "$ref" : "#/definitions/DomainStudioSourceSimilar"
+        },
+        "recommended" : {
+          "description" : "The configuration for the recommended source",
+          "originalRef" : "DomainStudioSourceSimilar",
+          "$ref" : "#/definitions/DomainStudioSourceSimilar"
         }
       }
     },
@@ -9700,6 +9832,10 @@
           "description" : "The status",
           "originalRef" : "DomainStudioServiceStatus",
           "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "A message with more information, if the status is FAILED."
         },
         "data" : {
           "description" : "The service data",
@@ -9909,9 +10045,6 @@
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
     },
-    "GreylistingPolicy" : {
-      "type" : "object"
-    },
     "HkDocumentTypeConstants" : {
       "type" : "string",
       "enum" : [ "HKID", "OTHID", "PASSNO", "BIRTHCERT", "OTHIDV", "BR", "CI", "CRS", "HKSARG", "HKORDINANCE", "OTHORG" ]
@@ -10023,6 +10156,11 @@
         "magicLink" : {
           "type" : "string",
           "description" : "The generated magic link"
+        },
+        "initialClaims" : {
+          "description" : "The initial claims",
+          "originalRef" : "initial_claims",
+          "$ref" : "#/definitions/initial_claims"
         },
         "name" : {
           "type" : "string",
@@ -10208,13 +10346,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -11271,7 +11409,7 @@
       "properties" : {
         "emails" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
+          "description" : "A list of email addresses",
           "items" : {
             "type" : "string"
           }
@@ -11312,61 +11450,57 @@
         },
         "target" : {
           "type" : "string",
-          "description" : "Lorem Ipsum"
+          "description" : "The hostname of the target mailserver"
         },
         "admin" : {
           "type" : "string",
-          "description" : "Lorem Ipsum"
+          "description" : "email address of the administrator"
         },
         "protection" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The protection level",
           "originalRef" : "ProtectionConstants",
           "$ref" : "#/definitions/ProtectionConstants"
         },
         "greylisting" : {
-          "description" : "Lorem Ipsum",
-          "originalRef" : "GreylistingPolicy",
-          "$ref" : "#/definitions/GreylistingPolicy"
+          "type" : "boolean",
+          "description" : "The grey listing policy"
         },
         "virus" : {
-          "description" : "Lorem Ipsum",
-          "originalRef" : "MailProxyPolicy",
-          "$ref" : "#/definitions/MailProxyPolicy"
+          "type" : "string",
+          "description" : "The virus options to use",
+          "enum" : [ "DISABLED", "QUARANTINE", "DISCARD", "ACCEPT" ]
         },
         "bannedFiles" : {
-          "description" : "Lorem Ipsum",
-          "originalRef" : "MailProxyPolicy",
-          "$ref" : "#/definitions/MailProxyPolicy"
+          "type" : "string",
+          "description" : "The banned files options to use",
+          "enum" : [ "DISABLED", "QUARANTINE", "DISCARD", "ACCEPT" ]
         },
         "header" : {
-          "description" : "Lorem Ipsum",
-          "originalRef" : "MailProxyPolicy",
-          "$ref" : "#/definitions/MailProxyPolicy"
+          "type" : "string",
+          "description" : "The mail header options to use",
+          "enum" : [ "DISABLED", "QUARANTINE", "DISCARD", "ACCEPT" ]
         },
         "spam" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The spam policy options",
           "originalRef" : "SpamPolicy",
           "$ref" : "#/definitions/SpamPolicy"
         },
         "whitelist" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The white listed email addresses",
           "originalRef" : "MailList",
           "$ref" : "#/definitions/MailList"
         },
         "blacklist" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The black listed email addresses",
           "originalRef" : "MailList",
           "$ref" : "#/definitions/MailList"
         },
         "excludelist" : {
-          "description" : "Lorem Ipsum",
+          "description" : "The exculded listed email addresses",
           "originalRef" : "MailList",
           "$ref" : "#/definitions/MailList"
         }
       }
-    },
-    "MailProxyPolicy" : {
-      "type" : "object"
     },
     "MainIp" : {
       "type" : "object",
@@ -11418,6 +11552,9 @@
           "$ref" : "#/definitions/StatusType"
         }
       }
+    },
+    "Name" : {
+      "type" : "object"
     },
     "NameServer" : {
       "type" : "object",
@@ -11570,6 +11707,37 @@
     },
     "Phone" : {
       "type" : "object"
+    },
+    "PhysicalNameServerGroup" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The custom label for the group"
+        },
+        "articleLabel" : {
+          "type" : "string",
+          "description" : "The article label of the name server group, will be used for each created zone using these group"
+        },
+        "dnssec" : {
+          "type" : "boolean",
+          "description" : "If the group supports dnssec"
+        },
+        "statistic" : {
+          "type" : "boolean",
+          "description" : "If the group contains statistical data for a zone"
+        }
+      }
     },
     "PollMessage" : {
       "type" : "object",
@@ -11744,6 +11912,10 @@
           "description" : "The status",
           "originalRef" : "DomainStudioServiceStatus",
           "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "A message with more information, if the status is FAILED."
         },
         "data" : {
           "description" : "The subject products",
@@ -12190,7 +12362,35 @@
       }
     },
     "SpamPolicy" : {
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "modifySubject" : {
+          "type" : "boolean"
+        },
+        "tagHeader" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : -999.9,
+          "maximum" : 999.9
+        },
+        "spam" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : -999.9,
+          "maximum" : 999.9
+        },
+        "kill" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : -999.9,
+          "maximum" : 999.9
+        },
+        "quarantineDigestInterval" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1440
+        }
+      }
     },
     "SslContact" : {
       "type" : "object",
@@ -12348,9 +12548,25 @@
           "originalRef" : "TimePeriod",
           "$ref" : "#/definitions/TimePeriod"
         },
+        "articleTypeLabel" : {
+          "type" : "string",
+          "description" : "The article type label of the subscription, e.g. domain"
+        },
         "articleLabel" : {
           "type" : "string",
           "description" : "The article label of the subscription, e.g. backup_mx"
+        },
+        "item" : {
+          "type" : "array",
+          "description" : "The items of the subscription",
+          "items" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
+          }
+        },
+        "businessCase" : {
+          "type" : "string",
+          "description" : "The businessCase of the subscription, e.g. create"
         }
       }
     },
@@ -12574,6 +12790,9 @@
       "type" : "string",
       "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
     },
+    "UrlEntity" : {
+      "type" : "object"
+    },
     "User" : {
       "type" : "object",
       "required" : [ "context", "user" ],
@@ -12621,6 +12840,11 @@
           "originalRef" : "UserDetails",
           "$ref" : "#/definitions/UserDetails"
         },
+        "lock" : {
+          "description" : "The lock status of the user.",
+          "originalRef" : "UserLock",
+          "$ref" : "#/definitions/UserLock"
+        },
         "acls" : {
           "description" : "Wrapper for the user acls.",
           "originalRef" : "UserAcls",
@@ -12643,6 +12867,22 @@
           "description" : "The customer belonging to the user.",
           "originalRef" : "BasicCustomer",
           "$ref" : "#/definitions/BasicCustomer"
+        },
+        "nameServerGroups" : {
+          "type" : "array",
+          "description" : "The available name server groups",
+          "items" : {
+            "originalRef" : "VirtualNameServerGroup",
+            "$ref" : "#/definitions/VirtualNameServerGroup"
+          }
+        },
+        "subscription" : {
+          "type" : "array",
+          "description" : "Wrapper for the subscriptions.",
+          "items" : {
+            "originalRef" : "Subscription",
+            "$ref" : "#/definitions/Subscription"
+          }
         },
         "user" : {
           "type" : "string",
@@ -12749,6 +12989,10 @@
         }
       }
     },
+    "UserLock" : {
+      "type" : "string",
+      "enum" : [ "NONE", "CUSTOMER", "EXPIRED", "USER" ]
+    },
     "UserProfile" : {
       "type" : "object",
       "required" : [ "flag", "key", "value" ],
@@ -12816,6 +13060,99 @@
         }
       }
     },
+    "VirtualNameServer" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "active" : {
+          "type" : "boolean",
+          "description" : "Flag to show if the nameserver is active"
+        },
+        "name" : {
+          "description" : "Host name of the nameserver.",
+          "originalRef" : "Name",
+          "$ref" : "#/definitions/Name"
+        },
+        "mainAddress" : {
+          "description" : "The mainAddress",
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "ipAddresses" : {
+          "type" : "array",
+          "description" : "The ip addresses.",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "VirtualNameServerGroup" : {
+      "type" : "object",
+      "required" : [ "systemNameServerGroup" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The custom label for the group"
+        },
+        "useDefaultIps" : {
+          "type" : "boolean",
+          "description" : "The useDefaultIps"
+        },
+        "nameServers" : {
+          "type" : "array",
+          "description" : "The name servers of the group.",
+          "items" : {
+            "originalRef" : "VirtualNameServer",
+            "$ref" : "#/definitions/VirtualNameServer"
+          }
+        },
+        "systemNameServerGroup" : {
+          "description" : "The custom label for the group",
+          "originalRef" : "PhysicalNameServerGroup",
+          "$ref" : "#/definitions/PhysicalNameServerGroup"
+        }
+      }
+    },
     "Void" : {
       "type" : "object"
     },
@@ -12831,6 +13168,10 @@
           "description" : "The status",
           "originalRef" : "DomainStudioServiceStatus",
           "$ref" : "#/definitions/DomainStudioServiceStatus"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "A message with more information, if the status is FAILED."
         },
         "data" : {
           "description" : "The service data",
@@ -13049,6 +13390,125 @@
             "originalRef" : "ResourceRecord",
             "$ref" : "#/definitions/ResourceRecord"
           }
+        }
+      }
+    },
+    "address_claim" : {
+      "type" : "object",
+      "properties" : {
+        "formatted" : {
+          "type" : "string",
+          "description" : "Full mailing address, formatted for display or use on a mailing label. This field MAY contain multiple lines, separated by newlines. Newlines can be represented either as a carriage return/line feed pair (\"\\r\\n\") or as a single line feed character (\"\\n\")"
+        },
+        "street_address" : {
+          "type" : "string",
+          "description" : "Full street address component, which MAY include house number, street name, Post Office Box, and multi-line extended street address information. This field MAY contain multiple lines, separated by newlines. Newlines can be represented either as a carriage return/line feed pair (\"\\r\\n\") or as a single line feed character (\"\\n\")"
+        },
+        "locality" : {
+          "type" : "string",
+          "description" : "City or locality component"
+        },
+        "region" : {
+          "type" : "string",
+          "description" : "State, province, prefecture, or region component"
+        },
+        "postal_code" : {
+          "type" : "string",
+          "description" : "Zip code or postal code component"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "Country name component"
+        }
+      }
+    },
+    "initial_claims" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences."
+        },
+        "given_name" : {
+          "type" : "string",
+          "description" : "Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters."
+        },
+        "family_name" : {
+          "type" : "string",
+          "description" : "Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters"
+        },
+        "middle_name" : {
+          "type" : "string",
+          "description" : "Middle name(s) of the End-User. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used."
+        },
+        "nickname" : {
+          "type" : "string",
+          "description" : "Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael."
+        },
+        "preferred_username" : {
+          "type" : "string",
+          "description" : "Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe. This value MAY be any valid JSON string including special characters such as @, /, or whitespace"
+        },
+        "profile" : {
+          "description" : "URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.",
+          "originalRef" : "UrlEntity",
+          "$ref" : "#/definitions/UrlEntity"
+        },
+        "picture" : {
+          "description" : "URL of the End-User's profile picture.",
+          "originalRef" : "UrlEntity",
+          "$ref" : "#/definitions/UrlEntity"
+        },
+        "website" : {
+          "description" : "URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with.",
+          "originalRef" : "UrlEntity",
+          "$ref" : "#/definitions/UrlEntity"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "john.doe@domain.com",
+          "description" : "End-user's preferred email address"
+        },
+        "email_verified" : {
+          "type" : "boolean",
+          "description" : "True if the End-User's e-mail address has been verified; otherwise false."
+        },
+        "gender" : {
+          "description" : "URL of the End-User's profile picture.",
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "birthdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2019-12-30",
+          "description" : "End-user's birth date, ISO 8601:2004 (YYYY-MM-DD)"
+        },
+        "zoneinfo" : {
+          "type" : "string",
+          "description" : "End-User's zoneinfo."
+        },
+        "locale" : {
+          "type" : "string",
+          "description" : "The locale."
+        },
+        "phone_number" : {
+          "description" : "End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. .",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "phone_number_verified" : {
+          "type" : "boolean",
+          "description" : "True if the End-User's phne number has been verified; otherwise false."
+        },
+        "address" : {
+          "description" : "End-user's address",
+          "originalRef" : "address_claim",
+          "$ref" : "#/definitions/address_claim"
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "End-user's organization"
         }
       }
     }
