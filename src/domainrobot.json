@@ -6258,14 +6258,15 @@
               "$ref" : "#/definitions/JsonResponseDataUser"
             }
           }
-        }
+        },
+        "deprecated" : true
       }
     },
     "/user/_verify/{token}" : {
       "get" : {
         "tags" : [ "User verification confirm" ],
-        "summary" : "verify guest account",
-        "description" : "applies a verification code for a guest account.",
+        "summary" : "verify user action",
+        "description" : "applies a verification code for an user action.",
         "operationId" : "userConfirmVerification",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -7537,7 +7538,7 @@
         },
         "certificationAuthority" : {
           "type" : "array",
-          "description" : "The authentication of the certificate",
+          "description" : "The certificate authority chain",
           "items" : {
             "originalRef" : "CaCertificate",
             "$ref" : "#/definitions/CaCertificate"
@@ -13319,6 +13320,10 @@
         "source" : {
           "type" : "string",
           "description" : "Nameserver, the zone is copied from via AXFR (for zone_import)"
+        },
+        "sourceVirtualHostname" : {
+          "type" : "string",
+          "description" : "System name server to look up the zone to copy"
         },
         "nameServers" : {
           "type" : "array",
