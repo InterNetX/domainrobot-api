@@ -14,6 +14,8 @@
   }, {
     "name" : "Contact Tasks"
   }, {
+    "name" : "ContactVerification Tasks"
+  }, {
     "name" : "Document Tasks"
   }, {
     "name" : "Domain Search"
@@ -54,7 +56,7 @@
   }, {
     "name" : "backupMx Tasks"
   }, {
-    "name" : "whois tasks"
+    "name" : "contactVerification history Tasks"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
@@ -577,12 +579,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificateData",
+              "$ref" : "#/definitions/JsonResponseDataCertificateData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataCertificateData",
+              "$ref" : "#/definitions/JsonResponseDataCertificateData"
             }
           }
         }
@@ -927,12 +929,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -1073,12 +1075,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -1228,6 +1230,404 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataContact",
               "$ref" : "#/definitions/JsonResponseDataContact"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/_search" : {
+      "post" : {
+        "tags" : [ "ContactVerification Tasks" ],
+        "summary" : "List ContactVerification",
+        "description" : "Inquire a list of contactVerifications with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "verificationList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/history/_search" : {
+      "post" : {
+        "tags" : [ "contactVerification history Tasks" ],
+        "summary" : "List history contactVerifications",
+        "description" : "Inquire a list of history verifications with certain details.",
+        "operationId" : "verificationHistoryList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/{handle_id}" : {
+      "post" : {
+        "tags" : [ "ContactVerification Tasks" ],
+        "summary" : "Create ContactVerification",
+        "description" : "Create a new contact verification.",
+        "operationId" : "verificationCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "HandleVerification",
+            "$ref" : "#/definitions/HandleVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/{reference}" : {
+      "get" : {
+        "tags" : [ "ContactVerification Tasks" ],
+        "summary" : "Get ContactVerification",
+        "description" : "Inquire the data for the specified verification.",
+        "operationId" : "verificationInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/{reference}/_confirm" : {
+      "put" : {
+        "tags" : [ "ContactVerification Tasks" ],
+        "summary" : "confirm ContactVerification",
+        "description" : "confirm an existing verification.",
+        "operationId" : "verificationConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "HandleVerification",
+            "$ref" : "#/definitions/HandleVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/{reference}/_resendEmail" : {
+      "put" : {
+        "tags" : [ "ContactVerification Tasks" ],
+        "summary" : "resendEmail ContactVerification",
+        "description" : "confirm an existing verification.",
+        "operationId" : "verificationResendEmail",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "HandleVerification",
+            "$ref" : "#/definitions/HandleVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataHandleVerification",
+              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
             }
           }
         }
@@ -1549,12 +1949,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -1616,12 +2016,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -1842,12 +2242,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2135,12 +2535,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2189,25 +2589,21 @@
           "required" : false,
           "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "domain",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "Domain",
-            "$ref" : "#/definitions/Domain"
-          }
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -2413,7 +2809,7 @@
       "put" : {
         "tags" : [ "Domain Tasks" ],
         "summary" : "Renew Domain",
-        "description" : "Renew an existing domain.",
+        "description" : "Renews an existing domain.  The operation is asynchronous and creates a job.",
         "operationId" : "domainRenew",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -2470,12 +2866,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2534,20 +2930,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "originalRef" : "Domain",
-            "$ref" : "#/definitions/Domain"
+            "originalRef" : "DomainRestore",
+            "$ref" : "#/definitions/DomainRestore"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -2620,64 +3016,6 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/domain/{name}/_whois" : {
-      "get" : {
-        "tags" : [ "whois tasks" ],
-        "summary" : "whois tasks",
-        "description" : "Fetches the whois data of a domain from registry with optional data parsing.",
-        "operationId" : "DomainWhois",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-PIN",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataDomain",
-              "$ref" : "#/definitions/JsonResponseDataDomain"
             }
           }
         }
@@ -2862,20 +3200,20 @@
           "description" : "domain",
           "required" : false,
           "schema" : {
-            "originalRef" : "Domain",
-            "$ref" : "#/definitions/Domain"
+            "originalRef" : "DomainCancelation",
+            "$ref" : "#/definitions/DomainCancelation"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseData",
-              "$ref" : "#/definitions/JsonResponseData"
+              "originalRef" : "JsonResponseDataDomainCancelation",
+              "$ref" : "#/definitions/JsonResponseDataDomainCancelation"
             }
           }
         }
@@ -4334,6 +4672,18 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "subscription",
+          "in" : "query",
+          "description" : "Specifies whether the subscriptions are returned in the response. Returns extra data if parameter is set. Example : ?subscription",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "nameServerGroup",
+          "in" : "query",
+          "description" : "Specifies whether the nameserver groups are returned in the response. Returns extra data if parameter is set. Example : ?nameServerGroup",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "timeout",
           "in" : "query",
           "description" : "Defines the timeout of the session in minutes. Default is 10 minutes. Example : timeout=60",
@@ -5738,6 +6088,68 @@
             }
           }
         }
+      },
+      "delete" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "Delete Subscription",
+        "description" : "Delete a subscription contract.",
+        "operationId" : "subscriptionDelte",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataSubscription",
+              "$ref" : "#/definitions/JsonResponseDataSubscription"
+            }
+          }
+        }
       }
     },
     "/subscription/{contractId}/_upgrade" : {
@@ -6187,12 +6599,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataVoid",
-              "$ref" : "#/definitions/JsonResponseDataVoid"
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -6544,7 +6956,7 @@
         }
       }
     },
-    "/zone/{name}/{nameserver}" : {
+    "/zone/{name}/{systemNameServer}" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Get Zone",
@@ -6592,7 +7004,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6658,7 +7070,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6733,7 +7145,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6753,7 +7165,7 @@
         }
       }
     },
-    "/zone/{name}/{nameserver}/_axfr" : {
+    "/zone/{name}/{systemNameServer}/_axfr" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Get Axfr",
@@ -6801,7 +7213,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6821,7 +7233,7 @@
         }
       }
     },
-    "/zone/{name}/{nameserver}/_comment" : {
+    "/zone/{name}/{systemNameServer}/_comment" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Update Zone Comment",
@@ -6869,7 +7281,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6898,7 +7310,97 @@
         }
       }
     },
-    "/zone/{name}/{nameserver}/_import" : {
+    "/zone/{name}/{systemNameServer}/_copy" : {
+      "put" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Update Zone",
+        "description" : "Copies an existing zone.",
+        "operationId" : "zoneCopy",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "Defines addtional option for copy of the zone",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=replace",
+            "enum" : [ "{replace", "forceOwner}" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=replace"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{systemNameServer}/_import" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Import Zone",
@@ -6946,7 +7448,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "nameserver",
+          "name" : "systemNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -6970,6 +7472,96 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataZone",
               "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{systemNameServer}/_migrate" : {
+      "put" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Update Zone",
+        "description" : "Copies an existing zone and updates the domain with the new name servers.",
+        "operationId" : "zoneMigrate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Zone",
+            "$ref" : "#/definitions/Zone"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "Defines addtional option for copy of the zone",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=replace",
+            "enum" : [ "{replace", "forceOwner}" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=replace"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataObjectJob",
+              "$ref" : "#/definitions/JsonResponseDataObjectJob"
             }
           }
         }
@@ -8110,6 +8702,11 @@
           "description" : "The .luxe contact extensions.",
           "originalRef" : "ContactLuxeExtensions",
           "$ref" : "#/definitions/ContactLuxeExtensions"
+        },
+        "madrid" : {
+          "description" : "The .madrid contact extensions.",
+          "originalRef" : "ContactMadridExtensions",
+          "$ref" : "#/definitions/ContactMadridExtensions"
         }
       }
     },
@@ -8288,6 +8885,15 @@
         }
       }
     },
+    "ContactMadridExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "intendedUse" : {
+          "type" : "string",
+          "description" : "The statement of intended use for the domain name."
+        }
+      }
+    },
     "ContactNzExtensions" : {
       "type" : "object",
       "properties" : {
@@ -8424,6 +9030,64 @@
           "description" : "The entity type.",
           "originalRef" : "UkTypeConstants",
           "$ref" : "#/definitions/UkTypeConstants"
+        }
+      }
+    },
+    "ContactVerificationDomain" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "the domain of the Verification"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "the idn domain"
+        },
+        "status" : {
+          "description" : "the status of the domain Verification",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "deactivation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the deactivation of the domain Verification"
+        }
+      }
+    },
+    "ContactVerificationMessage" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "mail" : {
+          "description" : "the email of the VerificationMessage",
+          "originalRef" : "Message",
+          "$ref" : "#/definitions/Message"
+        },
+        "status" : {
+          "description" : "the status of the VerificationMessage",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
         }
       }
     },
@@ -9014,7 +9678,7 @@
           "originalRef" : "DomainActionConstants",
           "$ref" : "#/definitions/DomainActionConstants"
         },
-        "autoDnsSec" : {
+        "autoDnssec" : {
           "type" : "boolean",
           "description" : "Enable auto dnssec for the domain."
         },
@@ -9145,9 +9809,8 @@
           "$ref" : "#/definitions/DomainStudioService"
         },
         "debugTime" : {
-          "type" : "integer",
-          "format" : "int64",
-          "description" : "The processing time for this domain."
+          "type" : "boolean",
+          "description" : "Defines if the user already owns this domain."
         }
       }
     },
@@ -9165,6 +9828,10 @@
         "debug" : {
           "type" : "boolean",
           "description" : "Activates debugging"
+        },
+        "checkPortfolio" : {
+          "type" : "boolean",
+          "description" : "Activates the check for each domain whether the user already owns it."
         },
         "sources" : {
           "description" : "Wrapper for the configuration for each source",
@@ -9485,7 +10152,7 @@
           "originalRef" : "DomainActionConstants",
           "$ref" : "#/definitions/DomainActionConstants"
         },
-        "autoDnsSec" : {
+        "autoDnssec" : {
           "type" : "boolean",
           "description" : "Enable auto dnssec for the domain."
         },
@@ -9588,7 +10255,7 @@
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
-      "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR", "TIMEOUT" ]
+      "enum" : [ "FREE", "ASSIGNED", "MARKET", "PREMIUM", "INVALID", "ERROR", "TIMEOUT", "RESERVED", "PREMIUM_CLAIM", "CLAIM" ]
     },
     "DomainStudioService" : {
       "type" : "object",
@@ -9612,7 +10279,7 @@
     },
     "DomainStudioServiceStatus" : {
       "type" : "string",
-      "enum" : [ "RUNNING", "SUCCESS", "FAILED" ]
+      "enum" : [ "RUNNING", "SUCCESS", "FAILED", "TIMEOUT" ]
     },
     "DomainStudioSourceGeo" : {
       "type" : "object",
@@ -10046,6 +10713,85 @@
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
     },
+    "HandleVerification" : {
+      "type" : "object",
+      "required" : [ "confirmIp", "handle" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "the reference of the Verification"
+        },
+        "messageSend" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the messageSend date of the Verification"
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the confirmed date of the Verification"
+        },
+        "confirmIp" : {
+          "description" : "the confirmIp of the Verification",
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "failed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the failed date of the Verification"
+        },
+        "domain" : {
+          "type" : "array",
+          "description" : "the domains of the Verification",
+          "items" : {
+            "originalRef" : "ContactVerificationDomain",
+            "$ref" : "#/definitions/ContactVerificationDomain"
+          }
+        },
+        "verificationMail" : {
+          "type" : "array",
+          "description" : "the messages of the Verification",
+          "items" : {
+            "originalRef" : "ContactVerificationMessage",
+            "$ref" : "#/definitions/ContactVerificationMessage"
+          }
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "the comment of the Verification"
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "the action of the Verification"
+        },
+        "handle" : {
+          "description" : "the contact of the Verification",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        }
+      }
+    },
     "HkDocumentTypeConstants" : {
       "type" : "string",
       "enum" : [ "HKID", "OTHID", "PASSNO", "BIRTHCERT", "OTHIDV", "BR", "CI", "CRS", "HKSARG", "HKORDINANCE", "OTHORG" ]
@@ -10160,8 +10906,12 @@
         },
         "initialClaims" : {
           "description" : "The initial claims",
-          "originalRef" : "initial_claims",
-          "$ref" : "#/definitions/initial_claims"
+          "originalRef" : "claims",
+          "$ref" : "#/definitions/claims"
+        },
+        "showClaims" : {
+          "type" : "boolean",
+          "description" : "Enables showing claims."
         },
         "name" : {
           "type" : "string",
@@ -10524,6 +11274,45 @@
         }
       }
     },
+    "JsonResponseDataCertificateData" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "CertificateData",
+            "$ref" : "#/definitions/CertificateData"
+          }
+        }
+      }
+    },
     "JsonResponseDataContact" : {
       "type" : "object",
       "properties" : {
@@ -10715,6 +11504,45 @@
           "items" : {
             "originalRef" : "DomainRestore",
             "$ref" : "#/definitions/DomainRestore"
+          }
+        }
+      }
+    },
+    "JsonResponseDataHandleVerification" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "HandleVerification",
+            "$ref" : "#/definitions/HandleVerification"
           }
         }
       }
@@ -11795,99 +12623,6 @@
         }
       }
     },
-    "Price" : {
-      "type" : "object",
-      "required" : [ "currency" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updating user of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "amount" : {
-          "type" : "number",
-          "format" : "double",
-          "description" : "Lorem Ipum"
-        },
-        "type" : {
-          "description" : "Lorem Ipum",
-          "originalRef" : "PriceTypeConstants",
-          "$ref" : "#/definitions/PriceTypeConstants"
-        },
-        "currency" : {
-          "type" : "string",
-          "example" : "EUR",
-          "description" : "Lorem Ipsum",
-          "x-custom-type" : "currency"
-        },
-        "priority" : {
-          "description" : "Lorem Ipum",
-          "originalRef" : "PriorityConstants",
-          "$ref" : "#/definitions/PriorityConstants"
-        },
-        "customer" : {
-          "description" : "Lorem Ipum",
-          "originalRef" : "Customer",
-          "$ref" : "#/definitions/Customer"
-        },
-        "period" : {
-          "description" : "Lorem Ipum",
-          "originalRef" : "TimePeriod",
-          "$ref" : "#/definitions/TimePeriod"
-        },
-        "discountable" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipum"
-        },
-        "logId" : {
-          "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipum"
-        },
-        "refund" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipum"
-        },
-        "priceConditions" : {
-          "type" : "array",
-          "description" : "Lorem Ipum",
-          "items" : {
-            "originalRef" : "PriceServiceEntity",
-            "$ref" : "#/definitions/PriceServiceEntity"
-          }
-        },
-        "comment" : {
-          "type" : "string",
-          "description" : "Lorem Ipum"
-        },
-        "normalPrice" : {
-          "description" : "Lorem Ipum",
-          "originalRef" : "ExchangedPrice",
-          "$ref" : "#/definitions/ExchangedPrice"
-        },
-        "valid" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipum"
-        }
-      }
-    },
     "PriceData" : {
       "type" : "object",
       "properties" : {
@@ -11929,9 +12664,11 @@
       "type" : "object",
       "properties" : {
         "configuration" : {
+          "type" : "object",
           "description" : "Lorem Ipum",
-          "originalRef" : "Configuration",
-          "$ref" : "#/definitions/Configuration"
+          "additionalProperties" : {
+            "type" : "object"
+          }
         },
         "condition" : {
           "description" : "Lorem Ipum",
@@ -12323,12 +13060,17 @@
       "properties" : {
         "price" : {
           "description" : "The price",
-          "originalRef" : "Price",
-          "$ref" : "#/definitions/Price"
+          "originalRef" : "ExchangedPrice",
+          "$ref" : "#/definitions/ExchangedPrice"
         },
         "businessCase" : {
           "type" : "string",
           "description" : "The business case"
+        },
+        "period" : {
+          "description" : "The period for the price",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
         }
       }
     },
@@ -13427,7 +14169,7 @@
         }
       }
     },
-    "initial_claims" : {
+    "claims" : {
       "type" : "object",
       "properties" : {
         "name" : {
