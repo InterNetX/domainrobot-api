@@ -50,6 +50,8 @@
   }, {
     "name" : "User 2fa tasks"
   }, {
+    "name" : "User Tasks"
+  }, {
     "name" : "User verification confirm"
   }, {
     "name" : "Zone Tasks"
@@ -2728,6 +2730,69 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/_autoDnssecKeyRollover" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Invokes an autodnssec key rollover for the requested domain.",
+        "description" : "Invokes an autodnssec key rollover. Note the autodnssec feature must be enabled for the domain",
+        "operationId" : "autoDnssecKeyRollover",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -6004,20 +6069,20 @@
           "name" : "subscription",
           "required" : false,
           "schema" : {
-            "originalRef" : "Subscription",
-            "$ref" : "#/definitions/Subscription"
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             }
           }
         }
@@ -6071,20 +6136,20 @@
           "description" : "subscription",
           "required" : false,
           "schema" : {
-            "originalRef" : "Subscription",
-            "$ref" : "#/definitions/Subscription"
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             }
           }
         }
@@ -6141,12 +6206,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             }
           }
         }
@@ -6200,20 +6265,20 @@
           "description" : "subscription",
           "required" : false,
           "schema" : {
-            "originalRef" : "Subscription",
-            "$ref" : "#/definitions/Subscription"
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataSubscription",
-              "$ref" : "#/definitions/JsonResponseDataSubscription"
+              "originalRef" : "JsonResponseDataPeriodicBillingEvent",
+              "$ref" : "#/definitions/JsonResponseDataPeriodicBillingEvent"
             }
           }
         }
@@ -6672,6 +6737,64 @@
           }
         },
         "deprecated" : true
+      }
+    },
+    "/user/_newPassword" : {
+      "put" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "New Password",
+        "description" : "This route is for setting a new password for a user.",
+        "operationId" : "newPassword",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
       }
     },
     "/user/_verify/{token}" : {
@@ -7937,6 +8060,48 @@
           "pattern" : "^[^_].*"
         }
       }
+    },
+    "BillingObjectLimit" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "articleLabel" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "limitSelf" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "limitChildren" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "articleTypeLabel" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "count" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The current count if available"
+        }
+      }
+    },
+    "BillingStatus" : {
+      "type" : "string",
+      "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED" ]
     },
     "BusinessCategory" : {
       "type" : "string",
@@ -9343,72 +9508,8 @@
         }
       }
     },
-    "DNSSecEntity" : {
-      "type" : "object",
-      "required" : [ "name" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "name" : {
-          "type" : "string",
-          "description" : "The domain."
-        },
-        "idn" : {
-          "type" : "string",
-          "description" : "The idn version of the name."
-        },
-        "lastRollover" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The lastRollover."
-        },
-        "dsRecordRemoved" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The dsRecordRemoved."
-        },
-        "dnsSecs" : {
-          "type" : "array",
-          "description" : "The dnsSecs.",
-          "items" : {
-            "originalRef" : "DNSSec",
-            "$ref" : "#/definitions/DNSSec"
-          }
-        },
-        "logId" : {
-          "type" : "integer",
-          "format" : "int64",
-          "description" : "The logId."
-        }
-      }
-    },
     "DNSSecJob" : {
-      "type" : "object",
-      "properties" : {
-        "dnssec" : {
-          "description" : "The dnssec.",
-          "originalRef" : "DNSSecEntity",
-          "$ref" : "#/definitions/DNSSecEntity"
-        }
-      }
+      "type" : "object"
     },
     "Document" : {
       "type" : "object",
@@ -9680,11 +9781,11 @@
         },
         "autoDnssec" : {
           "type" : "boolean",
-          "description" : "Enable auto dnssec for the domain."
+          "description" : "Enables or disables automatic DNSSEC for certain name servers (e.g. NodeSecure)."
         },
         "dnssec" : {
           "type" : "boolean",
-          "description" : "Enable dnssec"
+          "description" : "Indicates whether DNSSEC is enabled for the domain or not."
         },
         "validCertificate" : {
           "type" : "boolean",
@@ -9702,7 +9803,7 @@
         },
         "dnssecData" : {
           "type" : "array",
-          "description" : "The dnssec data.",
+          "description" : "Submits the key material to the registry. If the list is empty, the key material is deleted at the registry. If the key is omitted during an update, the data is retained.",
           "items" : {
             "originalRef" : "DNSSec",
             "$ref" : "#/definitions/DNSSec"
@@ -9859,6 +9960,7 @@
     },
     "DomainMonitoring" : {
       "type" : "object",
+      "required" : [ "name" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -9879,6 +9981,71 @@
           "description" : "The updating user of the object.",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "domain.de",
+          "description" : "The name of the domain."
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the domain."
+        },
+        "notificationMobiles" : {
+          "type" : "array",
+          "description" : "The notification mobile phone numbers.",
+          "items" : {
+            "originalRef" : "Phone",
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "ocval" : {
+          "type" : "boolean",
+          "description" : "The ocval"
+        },
+        "cancelation" : {
+          "type" : "boolean",
+          "description" : "The cancelation"
+        },
+        "removed" : {
+          "type" : "boolean",
+          "description" : "The removed"
+        },
+        "monitoringSetups" : {
+          "type" : "array",
+          "description" : "The monitoringSetups",
+          "items" : {
+            "originalRef" : "DomainMonitoringSetup",
+            "$ref" : "#/definitions/DomainMonitoringSetup"
+          }
+        },
+        "notificationEmails" : {
+          "type" : "array",
+          "description" : "The notification email-addresses.",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 1
+        }
+      }
+    },
+    "DomainMonitoringSetup" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "data" : {
+          "type" : "string",
+          "description" : "The data"
         }
       }
     },
@@ -10154,11 +10321,11 @@
         },
         "autoDnssec" : {
           "type" : "boolean",
-          "description" : "Enable auto dnssec for the domain."
+          "description" : "Enables or disables automatic DNSSEC for certain name servers (e.g. NodeSecure)."
         },
         "dnssec" : {
           "type" : "boolean",
-          "description" : "Enable dnssec"
+          "description" : "Indicates whether DNSSEC is enabled for the domain or not."
         },
         "validCertificate" : {
           "type" : "boolean",
@@ -10176,7 +10343,7 @@
         },
         "dnssecData" : {
           "type" : "array",
-          "description" : "The dnssec data.",
+          "description" : "Submits the key material to the registry. If the list is empty, the key material is deleted at the registry. If the key is omitted during an update, the data is retained.",
           "items" : {
             "originalRef" : "DNSSec",
             "$ref" : "#/definitions/DNSSec"
@@ -11820,6 +11987,45 @@
         }
       }
     },
+    "JsonResponseDataPeriodicBillingEvent" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
+          }
+        }
+      }
+    },
     "JsonResponseDataPollMessage" : {
       "type" : "object",
       "properties" : {
@@ -11971,45 +12177,6 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "type" : "string"
-          }
-        }
-      }
-    },
-    "JsonResponseDataSubscription" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction id for the response."
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The client transaction id for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "originalRef" : "Message",
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "originalRef" : "ResponseStatus",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The object of the response.",
-          "originalRef" : "ResponseObject",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
-          "items" : {
-            "originalRef" : "Subscription",
-            "$ref" : "#/definitions/Subscription"
           }
         }
       }
@@ -12533,6 +12700,69 @@
     "PaymentConstants" : {
       "type" : "string",
       "enum" : [ "PRE", "POST", "LIVE" ]
+    },
+    "PeriodicBillingEvent" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "status" : {
+          "description" : "The actual status of the entry, active means ok.",
+          "originalRef" : "BillingStatus",
+          "$ref" : "#/definitions/BillingStatus"
+        },
+        "object" : {
+          "type" : "string",
+          "description" : "The name of the subscription, e.g. the contract number"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "The human readable name of the subscription, e.g. the name of a package"
+        },
+        "period" : {
+          "description" : "The period used by the subscription, e.g. 1 month",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "articleTypeLabel" : {
+          "type" : "string",
+          "description" : "The article type label of the subscription, e.g. domain"
+        },
+        "articleLabel" : {
+          "type" : "string",
+          "description" : "The article label of the subscription, e.g. backup_mx"
+        },
+        "item" : {
+          "type" : "array",
+          "description" : "The items of the subscription",
+          "items" : {
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
+          }
+        },
+        "businessCase" : {
+          "type" : "string",
+          "description" : "The businessCase of the subscription, e.g. create"
+        }
+      }
     },
     "Phone" : {
       "type" : "object"
@@ -13278,6 +13508,11 @@
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
+        "status" : {
+          "description" : "The actual status of the entry, active means ok.",
+          "originalRef" : "BillingStatus",
+          "$ref" : "#/definitions/BillingStatus"
+        },
         "object" : {
           "type" : "string",
           "description" : "The name of the subscription, e.g. the contract number"
@@ -13303,8 +13538,24 @@
           "type" : "array",
           "description" : "The items of the subscription",
           "items" : {
-            "originalRef" : "Subscription",
-            "$ref" : "#/definitions/Subscription"
+            "originalRef" : "PeriodicBillingEvent",
+            "$ref" : "#/definitions/PeriodicBillingEvent"
+          }
+        },
+        "limits" : {
+          "type" : "array",
+          "description" : "The limits of the package.",
+          "items" : {
+            "originalRef" : "BillingObjectLimit",
+            "$ref" : "#/definitions/BillingObjectLimit"
+          }
+        },
+        "acls" : {
+          "type" : "array",
+          "description" : "The acls of the package",
+          "items" : {
+            "originalRef" : "UserAcl",
+            "$ref" : "#/definitions/UserAcl"
           }
         },
         "businessCase" : {
