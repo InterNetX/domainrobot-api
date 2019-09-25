@@ -6797,6 +6797,64 @@
         }
       }
     },
+    "/user/_newPasswordVerify" : {
+      "get" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "New Password verify",
+        "description" : "This route is for verifying the passwort change request",
+        "operationId" : "newPasswordVerify",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
     "/user/_verify/{token}" : {
       "get" : {
         "tags" : [ "User verification confirm" ],
@@ -7755,6 +7813,34 @@
     "AccountingDocumentTypeConstants" : {
       "type" : "string",
       "enum" : [ "INVOICE", "CREDIT", "REFUND", "CANCELED", "CHARGE" ]
+    },
+    "Application" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the application."
+        },
+        "functionCodes" : {
+          "type" : "array",
+          "description" : "The function codes for the application.",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
     },
     "AuEligibilityIdTypeConstants" : {
       "type" : "string",
@@ -13870,12 +13956,20 @@
             "$ref" : "#/definitions/VirtualNameServerGroup"
           }
         },
-        "subscription" : {
+        "subscriptions" : {
           "type" : "array",
           "description" : "Wrapper for the subscriptions.",
           "items" : {
             "originalRef" : "Subscription",
             "$ref" : "#/definitions/Subscription"
+          }
+        },
+        "applications" : {
+          "type" : "array",
+          "description" : "Holds the used applications.",
+          "items" : {
+            "originalRef" : "Application",
+            "$ref" : "#/definitions/Application"
           }
         },
         "user" : {
@@ -13972,6 +14066,15 @@
         "organization" : {
           "type" : "string",
           "description" : "The organization."
+        },
+        "passwordResetMobile" : {
+          "description" : "The mobile phone number.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "passwordResetEmail" : {
+          "type" : "string",
+          "description" : "The mobile phone number."
         },
         "fname" : {
           "type" : "string",
