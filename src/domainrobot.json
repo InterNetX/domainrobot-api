@@ -48,6 +48,8 @@
   }, {
     "name" : "Transfer Request Tasks"
   }, {
+    "name" : "TrustedApplication Tasks"
+  }, {
     "name" : "User 2fa tasks"
   }, {
     "name" : "User Tasks"
@@ -6494,6 +6496,337 @@
         }
       }
     },
+    "/trustedapp" : {
+      "post" : {
+        "tags" : [ "TrustedApplication Tasks" ],
+        "summary" : "Create TrustedApp",
+        "description" : "Create a new trusted application.",
+        "operationId" : "trustedAppCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "trustedApplication",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TrustedApplication",
+            "$ref" : "#/definitions/TrustedApplication"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            }
+          }
+        }
+      }
+    },
+    "/trustedapp/_search" : {
+      "post" : {
+        "tags" : [ "TrustedApplication Tasks" ],
+        "summary" : "List TrustedApp",
+        "description" : "Inquire a list of certificates with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "trustedAppList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            }
+          }
+        }
+      }
+    },
+    "/trustedapp/{id}" : {
+      "get" : {
+        "tags" : [ "TrustedApplication Tasks" ],
+        "summary" : "Get TrustedApp",
+        "description" : "Fetch the data for the specified trusted application.",
+        "operationId" : "trustedAppInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTrustedApplication",
+              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "TrustedApplication Tasks" ],
+        "summary" : "Update TrustedApp",
+        "description" : "Update an existing trusted application.",
+        "operationId" : "trustedAppUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "trustedApplication",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TrustedApplication",
+            "$ref" : "#/definitions/TrustedApplication"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "TrustedApplication Tasks" ],
+        "summary" : "Delete TrustedApp",
+        "description" : "Delete an existing trusted application.",
+        "operationId" : "trustedAppDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-PIN",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
     "/user/_2fa" : {
       "put" : {
         "tags" : [ "User 2fa tasks" ],
@@ -8227,6 +8560,10 @@
     "CertAuthentication" : {
       "type" : "object",
       "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The domain name the authentication data belongs to."
+        },
         "method" : {
           "description" : "The authentication method.",
           "originalRef" : "AuthMethodConstants",
@@ -8997,6 +9334,10 @@
           "type" : "string",
           "description" : "The vatnumber."
         },
+        "citizenship" : {
+          "type" : "string",
+          "description" : "The citizenship."
+        },
         "mobilePhone" : {
           "type" : "string",
           "description" : "The mobile phonenumber.",
@@ -9580,12 +9921,24 @@
     },
     "DNSSec" : {
       "type" : "object",
-      "required" : [ "algorithm", "publicKey" ],
+      "required" : [ "algorithm", "flags", "protocol", "publicKey" ],
       "properties" : {
         "algorithm" : {
           "type" : "integer",
           "format" : "int32",
           "description" : "The algorithm."
+        },
+        "flags" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The flags.",
+          "minimum" : 256,
+          "maximum" : 257
+        },
+        "protocol" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The protocol."
         },
         "publicKey" : {
           "type" : "string",
@@ -11305,6 +11658,49 @@
       "type" : "string",
       "enum" : [ "CREATED", "SIGNED", "SENT", "RESEND", "FINISHED", "LIVECONFIRMED", "LIVEPENDING", "POSTPENDING", "POSTCONFIRMED" ]
     },
+    "IpRestriction" : {
+      "type" : "object",
+      "required" : [ "address", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "type" : {
+          "description" : "The restriction level",
+          "originalRef" : "IpRestrictionTypeConstants",
+          "$ref" : "#/definitions/IpRestrictionTypeConstants"
+        },
+        "address" : {
+          "type" : "string",
+          "example" : "192.33.1.4/24",
+          "description" : "A net address or ip address"
+        }
+      }
+    },
+    "IpRestrictionTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "CLONE", "USER", "CONTEXT" ]
+    },
+    "IpRestrictions" : {
+      "type" : "object",
+      "properties" : {
+        "acls" : {
+          "type" : "array",
+          "description" : "A list of ip restrictions",
+          "items" : {
+            "originalRef" : "IpRestriction",
+            "$ref" : "#/definitions/IpRestriction"
+          }
+        }
+      }
+    },
     "Job" : {
       "type" : "object",
       "properties" : {
@@ -12341,6 +12737,45 @@
           "items" : {
             "originalRef" : "TransferOut",
             "$ref" : "#/definitions/TransferOut"
+          }
+        }
+      }
+    },
+    "JsonResponseDataTrustedApplication" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "TrustedApplication",
+            "$ref" : "#/definitions/TrustedApplication"
           }
         }
       }
@@ -13866,6 +14301,78 @@
       "type" : "string",
       "enum" : [ "NOT_SET", "START", "FAILED", "NACK", "ACK", "FOA1_SENT", "AUTOUPDATE_SUCCESS", "AUTOUPDATE_FAILED" ]
     },
+    "TrustedApplication" : {
+      "type" : "object",
+      "required" : [ "application", "uuid" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "user" : {
+          "description" : "The user the trusted application belongs to.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "uuid" : {
+          "type" : "string",
+          "example" : "cb3e0fa4-2404-1ad",
+          "description" : "The unique identifier for the trusted application."
+        },
+        "application" : {
+          "description" : "The kind of application.",
+          "originalRef" : "Application",
+          "$ref" : "#/definitions/Application"
+        },
+        "functions" : {
+          "description" : "The wrapper of the allowed functions for the trusted application.",
+          "originalRef" : "TrustedApplicationFunctions",
+          "$ref" : "#/definitions/TrustedApplicationFunctions"
+        },
+        "restrictions" : {
+          "description" : "The wrapper of the ip restrictions for the trusted application.",
+          "originalRef" : "IpRestrictions",
+          "$ref" : "#/definitions/IpRestrictions"
+        },
+        "device" : {
+          "type" : "string",
+          "description" : "The device, which uses the trusted app."
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A comment for the trusted application."
+        }
+      }
+    },
+    "TrustedApplicationFunctions" : {
+      "type" : "object",
+      "properties" : {
+        "functionCodes" : {
+          "type" : "array",
+          "description" : "The allowed functions for the trusted application.",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "UkTypeConstants" : {
       "type" : "string",
       "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
@@ -14068,9 +14575,10 @@
           "description" : "The organization."
         },
         "passwordResetMobile" : {
+          "type" : "string",
+          "example" : "+49-123-12345",
           "description" : "The mobile phone number.",
-          "originalRef" : "Phone",
-          "$ref" : "#/definitions/Phone"
+          "x-custom-type" : "phone"
         },
         "passwordResetEmail" : {
           "type" : "string",
