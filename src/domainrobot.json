@@ -931,7 +931,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Create Domain Authinfo2s",
         "description" : "Create an authinfo2 for the specified domains.",
-        "operationId" : "domainAuthinfo2Create",
+        "operationId" : "domainAuthinfo2Creates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1003,7 +1003,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Buy Domain",
         "description" : "Buy a domains.",
-        "operationId" : "domainBuy",
+        "operationId" : "domainBuys",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1433,7 +1433,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Delete DomainCancelations",
         "description" : "Delete an existing cancelation for the specified domain.",
-        "operationId" : "domainCancelationDelete",
+        "operationId" : "domainCancelationDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -2139,7 +2139,7 @@
         "tags" : [ "Zone Bulk Tasks" ],
         "summary" : "Update Zones",
         "description" : "Update existings zone.",
-        "operationId" : "zonePatch",
+        "operationId" : "zonePatchs",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
