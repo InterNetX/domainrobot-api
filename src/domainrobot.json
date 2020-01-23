@@ -22,9 +22,11 @@
   }, {
     "name" : "Domain Bulk Tasks"
   }, {
-    "name" : "Domain Search"
-  }, {
     "name" : "Domain Tasks"
+  }, {
+    "name" : "DomainPrereg Bulk Tasks"
+  }, {
+    "name" : "DomainStudio"
   }, {
     "name" : "Guest account tasks"
   }, {
@@ -41,6 +43,10 @@
     "name" : "MailProxy Tasks"
   }, {
     "name" : "MailProxy bulk Tasks"
+  }, {
+    "name" : "ObjectUserAssignment bulk Tasks"
+  }, {
+    "name" : "ObjectUserAssignment tasks"
   }, {
     "name" : "Poll Tasks"
   }, {
@@ -67,8 +73,6 @@
     "name" : "Zone Bulk Tasks"
   }, {
     "name" : "Zone Tasks"
-  }, {
-    "name" : "backupMx Tasks"
   }, {
     "name" : "contactVerification history Tasks"
   } ],
@@ -200,7 +204,7 @@
     },
     "/backupMx" : {
       "post" : {
-        "tags" : [ "backupMx Tasks" ],
+        "tags" : [ "BackupMx Tasks" ],
         "summary" : "Create BackupMx",
         "description" : "Create a new backup mx.",
         "operationId" : "backupMxCreate",
@@ -717,7 +721,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Update Domains",
         "description" : "Update existings domain.",
-        "operationId" : "domainPatch",
+        "operationId" : "domainPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -789,7 +793,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Create Domain Authinfo1s",
         "description" : "Create an authinfo1 for the specified domains.",
-        "operationId" : "domainAuthinfoCreate",
+        "operationId" : "domainAuthinfoCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -859,7 +863,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Delete Domain Authinfo1s",
         "description" : "Delete an authinfo1 for the specified domains.",
-        "operationId" : "domainAuthinfoDelete",
+        "operationId" : "domainAuthinfoDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -931,7 +935,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Create Domain Authinfo2s",
         "description" : "Create an authinfo2 for the specified domains.",
-        "operationId" : "domainAuthinfo2Create",
+        "operationId" : "domainAuthinfo2Creates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1003,7 +1007,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Buy Domain",
         "description" : "Buy a domains.",
-        "operationId" : "domainBuy",
+        "operationId" : "domainBuys",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1073,7 +1077,7 @@
     "/bulk/domain/_comment" : {
       "put" : {
         "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Update Domain Comment",
+        "summary" : "Update Domain Comments",
         "description" : "Update an existing domain.",
         "operationId" : "domainUpdateComments",
         "produces" : [ "application/json" ],
@@ -1433,7 +1437,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Delete DomainCancelations",
         "description" : "Delete an existing cancelation for the specified domain.",
-        "operationId" : "domainCancelationDelete",
+        "operationId" : "domainCancelationDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1503,7 +1507,7 @@
         "tags" : [ "Domain Bulk Tasks" ],
         "summary" : "Update Domains Cancelations ",
         "description" : "Update existings domain cancelations.",
-        "operationId" : "domainCancelationPatch",
+        "operationId" : "domainCancelationPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1565,6 +1569,218 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataListJsonResponseDataDomainCancelation",
               "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainCancelation"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/domain/prereg" : {
+      "post" : {
+        "tags" : [ "DomainPrereg Bulk Tasks" ],
+        "summary" : "Create DomainPreregs",
+        "description" : "Create domainPreregs.",
+        "operationId" : "domainPreregCreates",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkDomainPreregPostRequest",
+            "$ref" : "#/definitions/BulkDomainPreregPostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "DomainPrereg Bulk Tasks" ],
+        "summary" : "delete DomainPreregs",
+        "description" : "delete existings domainPreregs.",
+        "operationId" : "domainPreregDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkDomainPreregDeleteRequest",
+            "$ref" : "#/definitions/BulkDomainPreregDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "DomainPrereg Bulk Tasks" ],
+        "summary" : "Update DomainPreregs",
+        "description" : "Update existings domainPreregs.",
+        "operationId" : "domainPreregPatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkDomainPreregPatchRequest",
+            "$ref" : "#/definitions/BulkDomainPreregPatchRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
             }
           }
         }
@@ -1715,7 +1931,7 @@
         "tags" : [ "MailProxy bulk Tasks" ],
         "summary" : "Update MailProxy",
         "description" : "Update an existing mailProxy.",
-        "operationId" : "mailProxyPatch",
+        "operationId" : "mailProxyPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -1777,6 +1993,78 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataListJsonResponseDataMailProxy",
               "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataMailProxy"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/objectUserAssignment" : {
+      "patch" : {
+        "tags" : [ "ObjectUserAssignment bulk Tasks" ],
+        "summary" : "Update owner objects",
+        "description" : "Reassgins objects to a new owner..",
+        "operationId" : "objectUserAssignment",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "objects",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkObjectUserAssignmentPatchRequest",
+            "$ref" : "#/definitions/BulkObjectUserAssignmentPatchRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataObjectUserAssignment"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataObjectUserAssignment"
             }
           }
         }
@@ -1927,7 +2215,7 @@
         "tags" : [ "Redirect bulk Tasks" ],
         "summary" : "Update Redirect",
         "description" : "Update an existing redirect.",
-        "operationId" : "redirectPatch",
+        "operationId" : "redirectPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -2139,7 +2427,7 @@
         "tags" : [ "Zone Bulk Tasks" ],
         "summary" : "Update Zones",
         "description" : "Update existings zone.",
-        "operationId" : "zonePatch",
+        "operationId" : "zoneBulkPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Pin",
@@ -2358,46 +2646,6 @@
         "operationId" : "certificateCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "in" : "body",
           "name" : "body",
           "description" : "certificate",
@@ -2430,46 +2678,6 @@
         "operationId" : "certificatePrepareOrder",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "in" : "body",
           "name" : "body",
           "description" : "certificateData",
@@ -2494,6 +2702,38 @@
         }
       }
     },
+    "/certificate/_realtime" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Create or renew Certificate in realtime",
+        "description" : "Order or renew a certificate in realtime. Only supported by a few certificate products!",
+        "operationId" : "certificateRealtime",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "certificate",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Certificate",
+            "$ref" : "#/definitions/Certificate"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataCertificate",
+              "$ref" : "#/definitions/JsonResponseDataCertificate"
+            }
+          }
+        }
+      }
+    },
     "/certificate/_search" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
@@ -2502,46 +2742,6 @@
         "operationId" : "certificateList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -2587,46 +2787,6 @@
         "operationId" : "certificateinfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -2654,46 +2814,6 @@
         "operationId" : "certificateReissue",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -2730,46 +2850,6 @@
         "operationId" : "certificateDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -2799,46 +2879,6 @@
         "operationId" : "certificateCommentUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -2877,46 +2917,6 @@
         "operationId" : "certificateRenew",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -2955,46 +2955,6 @@
         "operationId" : "certificateRevoke",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -3826,9 +3786,9 @@
     },
     "/contact/{id}/_comment" : {
       "put" : {
-        "tags" : [ "Certificate Tasks" ],
-        "summary" : "Update Certificate Comment",
-        "description" : "Update a comment for an existing certificate.",
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Update contact Comment",
+        "description" : "Update a comment for an existing contact.",
         "operationId" : "contcatCommentUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -3906,7 +3866,7 @@
       "get" : {
         "tags" : [ "Document Tasks" ],
         "summary" : "Get Document",
-        "description" : "Fetch the document for the given alias. The alias can be an ID, UUID or a script name like pricelist.xml.",
+        "description" : "Fetch the document for the given alias. The alias can be an ID, UUID or a alias name like price_list.xml. For more information on Pricelist download look at our helpcenter.",
         "operationId" : "documentInfoWithAlias",
         "produces" : [ "*/*" ],
         "parameters" : [ {
@@ -5527,7 +5487,7 @@
     },
     "/domainstudio" : {
       "post" : {
-        "tags" : [ "Domain Search" ],
+        "tags" : [ "DomainStudio" ],
         "summary" : "Powerful search api for free domains, premium domains and alternate domain names.",
         "description" : "Configurable search results",
         "operationId" : "domainSearch",
@@ -6654,7 +6614,7 @@
           "in" : "path",
           "required" : true,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -6723,7 +6683,7 @@
           "in" : "path",
           "required" : true,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -6740,7 +6700,7 @@
         }
       }
     },
-    "/job/{id}/cancel" : {
+    "/job/{id}/_cancel" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
         "summary" : "Cancel Job",
@@ -6792,7 +6752,7 @@
           "in" : "path",
           "required" : true,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -6806,10 +6766,11 @@
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
-        }
+        },
+        "x-allowed-types" : "Certificate"
       }
     },
-    "/job/{id}/confirm" : {
+    "/job/{id}/_confirm" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
         "summary" : "Confirm Job",
@@ -6861,7 +6822,77 @@
           "in" : "path",
           "required" : true,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        },
+        "x-allowed-types" : "Certificate"
+      }
+    },
+    "/job/{id}/_failed" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Fail Job",
+        "description" : "End the specified job and set the status to failed.",
+        "operationId" : "jobFailed",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -6878,7 +6909,7 @@
         }
       }
     },
-    "/job/{id}/reject" : {
+    "/job/{id}/_reject" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
         "summary" : "Reject Job",
@@ -6930,7 +6961,354 @@
           "in" : "path",
           "required" : true,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/_resendApproverEmail" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Reject Job",
+        "description" : "Invokes a resend of the verification mail.",
+        "operationId" : "resendApproverEmail",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        },
+        "x-allowed-types" : "Certificate"
+      }
+    },
+    "/job/{id}/_resendPhoneAuthorization" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Reject Job",
+        "description" : "Invokes a new phone authorization call.",
+        "operationId" : "resendPhoneAuthorization",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        },
+        "x-allowed-types" : "Certificate"
+      }
+    },
+    "/job/{id}/_restart" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Restart Job",
+        "description" : "Restart the specified job.",
+        "operationId" : "jobRestart",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/_retry" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Retry Job",
+        "description" : "Retry the specified job.",
+        "operationId" : "jobRetry",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/job/{id}/_succeded" : {
+      "put" : {
+        "tags" : [ "Job Tasks" ],
+        "summary" : "Success Job",
+        "description" : "End the specified job and set the status to success.",
+        "operationId" : "jobSucceded",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -7503,6 +7881,150 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/object/_assignment" : {
+      "put" : {
+        "tags" : [ "ObjectUserAssignment tasks" ],
+        "summary" : "update object owner",
+        "description" : "Reassgins an object to a new owner.",
+        "operationId" : "ObjectUserAssignment",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "object",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "ObjectUserAssignment",
+            "$ref" : "#/definitions/ObjectUserAssignment"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
+            }
+          }
+        }
+      }
+    },
+    "/object/_assignment/all" : {
+      "put" : {
+        "tags" : [ "ObjectUserAssignment tasks" ],
+        "summary" : "assign all objects from source user to target user ",
+        "description" : "Reassgins all objects from old owner to a new owner.",
+        "operationId" : "ObjectUserAssignmentAll",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "object",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "ObjectUserAssignment",
+            "$ref" : "#/definitions/ObjectUserAssignment"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
             }
           }
         }
@@ -8812,14 +9334,88 @@
           "required" : false,
           "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "query",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "Query",
-            "$ref" : "#/definitions/Query"
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "_type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTransferOut",
+              "$ref" : "#/definitions/JsonResponseDataTransferOut"
+            }
           }
+        }
+      }
+    },
+    "/transferout/{domain}/{type}" : {
+      "put" : {
+        "tags" : [ "Transfer Request Tasks" ],
+        "summary" : "answer transferOut",
+        "description" : "ack or nack the transfer request.",
+        "operationId" : "transferOutAnswerOld",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "domain",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -8980,7 +9576,7 @@
       "post" : {
         "tags" : [ "TrustedApplication Tasks" ],
         "summary" : "List TrustedApp",
-        "description" : "Inquire a list of certificates with certain details. The data to be displayed can be extended per url paremeter.",
+        "description" : "Inquire a list of trusted app with certain details. The data to be displayed can be extended per url paremeter.",
         "operationId" : "trustedAppList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -9538,7 +10134,7 @@
         "deprecated" : true
       }
     },
-    "/user/_newPassword" : {
+    "/user/_newPassword?token={token}" : {
       "put" : {
         "tags" : [ "User Tasks" ],
         "summary" : "New Password",
@@ -9585,6 +10181,20 @@
           "in" : "header",
           "required" : false,
           "type" : "string"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "user",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "NewPassword",
+            "$ref" : "#/definitions/NewPassword"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -9601,7 +10211,7 @@
         }
       }
     },
-    "/user/_newPasswordVerify" : {
+    "/user/_newPasswordVerify?token={token}" : {
       "get" : {
         "tags" : [ "User Tasks" ],
         "summary" : "New Password verify",
@@ -9647,6 +10257,11 @@
           "name" : "X-Domainrobot-Bulk-Limit",
           "in" : "header",
           "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
           "type" : "string"
         } ],
         "responses" : {
@@ -11341,6 +11956,65 @@
         }
       }
     },
+    "BulkDomainPreregDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "originalRef" : "Query",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkDomainPreregPatchRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "originalRef" : "DomainPrereg",
+          "$ref" : "#/definitions/DomainPrereg"
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "originalRef" : "Query",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkDomainPreregPostRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "originalRef" : "DomainPrereg",
+          "$ref" : "#/definitions/DomainPrereg"
+        }
+      }
+    },
     "BulkMailProxyDeleteRequest" : {
       "type" : "object",
       "properties" : {
@@ -11397,6 +12071,24 @@
           "description" : "The template for objects to process",
           "originalRef" : "MailProxy",
           "$ref" : "#/definitions/MailProxy"
+        }
+      }
+    },
+    "BulkObjectUserAssignmentPatchRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "ObjectUserAssignment",
+            "$ref" : "#/definitions/ObjectUserAssignment"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "originalRef" : "ObjectUserAssignment",
+          "$ref" : "#/definitions/ObjectUserAssignment"
         }
       }
     },
@@ -11793,7 +12485,7 @@
         "password" : {
           "type" : "string",
           "description" : "The password that is to be used for the certificate download. Only for S/MIME!",
-          "pattern" : "^[-a-zA-Z0-9 ]{8,32}$"
+          "pattern" : "^[-a-zA-Z0-9]{8,32}$"
         },
         "firstname" : {
           "type" : "string",
@@ -11802,6 +12494,10 @@
         "lastname" : {
           "type" : "string",
           "description" : "Last Name. Only for S/MIME!"
+        },
+        "technicalContactEmail" : {
+          "type" : "string",
+          "description" : "The technical contact email address. Only used in realtime orders!"
         },
         "organizationUnitName" : {
           "type" : "string",
@@ -12473,9 +13169,9 @@
       "type" : "object",
       "properties" : {
         "entityType" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The number of the matching entity."
+          "description" : "The number of the matching entity.",
+          "originalRef" : "ItEntityTypeConstants",
+          "$ref" : "#/definitions/ItEntityTypeConstants"
         }
       }
     },
@@ -12763,6 +13459,10 @@
         }
       }
     },
+    "ContentTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "PDF", "JPG" ]
+    },
     "CreditCardVendor" : {
       "type" : "string",
       "enum" : [ "MC", "VISA", "AMEX", "DIC", "DISC", "CB" ]
@@ -12791,6 +13491,20 @@
           "type" : "number",
           "format" : "double",
           "description" : "the rate of the exchange"
+        }
+      }
+    },
+    "Custom" : {
+      "type" : "object",
+      "required" : [ "key", "value" ],
+      "properties" : {
+        "key" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
         }
       }
     },
@@ -13074,6 +13788,10 @@
           "description" : "Lorem Ipsum"
         }
       }
+    },
+    "DocumentTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "TM_LICENSEE_DECL", "TM_ASSIGNEE_DECL", "TM_OTHER", "DECL_PROOF_OF_USE_ONE_SAMPLE", "PROOF_OF_USE_OTHER", "COPY_OF_COURT_ORDER", "TMCH_AGENT_AUTHORISATION_FORM", "TM_OTHER_COPY_OF_TM_CERTIFICATE", "TM_OTHER_COPY_OF_RENEWAL_REQUEST", "TM_OTHER_COPY_OF_TREATY_OR_STATUTE", "TM_OTHER_COPY_OF_CERTIFICATE" ]
     },
     "Domain" : {
       "type" : "object",
@@ -13609,6 +14327,199 @@
           "description" : "The minimum of price"
         }
       }
+    },
+    "DomainPrereg" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "ownerc" : {
+          "description" : "The owner contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "adminc" : {
+          "description" : "The administrative contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact reference.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The dns contact.",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the domain."
+        },
+        "authinfo" : {
+          "type" : "string",
+          "description" : "The authinfo."
+        },
+        "nameServers" : {
+          "type" : "array",
+          "description" : "The nameservers.",
+          "items" : {
+            "originalRef" : "NameServer",
+            "$ref" : "#/definitions/NameServer"
+          }
+        },
+        "nameServerEntries" : {
+          "type" : "array",
+          "description" : "The nameserver entries.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "status" : {
+          "description" : "The preregistration status of the domain.",
+          "originalRef" : "DomainPreregStatusConstants",
+          "$ref" : "#/definitions/DomainPreregStatusConstants"
+        },
+        "extension" : {
+          "description" : "The preregistration extensions.",
+          "originalRef" : "DomainPreregAddon",
+          "$ref" : "#/definitions/DomainPreregAddon"
+        },
+        "orderReference" : {
+          "type" : "string",
+          "description" : "The unique order reference."
+        },
+        "tmchMark" : {
+          "description" : "The tmchmark.",
+          "originalRef" : "TmchMark",
+          "$ref" : "#/definitions/TmchMark"
+        },
+        "preregConfig" : {
+          "description" : "The preregistration configuration.",
+          "originalRef" : "PreregConfig",
+          "$ref" : "#/definitions/PreregConfig"
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn version of the name."
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The confirmation date."
+        },
+        "trustee" : {
+          "type" : "boolean",
+          "description" : "Trustee active or not."
+        },
+        "domainCreated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The domain created date."
+        },
+        "domainExpire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The domain expire date."
+        },
+        "registryStatus" : {
+          "description" : "The registry status.",
+          "originalRef" : "RegistryStatusConstants",
+          "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "recommended" : {
+          "type" : "boolean",
+          "description" : "Recommended"
+        }
+      }
+    },
+    "DomainPreregAddon" : {
+      "type" : "object",
+      "properties" : {
+        "irpAppCapacit" : {
+          "type" : "string",
+          "description" : "The Irp App Capacity."
+        },
+        "irpAppDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The Irp App Date."
+        },
+        "irpCcLocality" : {
+          "type" : "string",
+          "description" : "The Irp Cc Locality."
+        },
+        "irpName" : {
+          "type" : "string",
+          "description" : "The Irp Name."
+        },
+        "irpNumber" : {
+          "type" : "string",
+          "description" : "The Irp Number."
+        },
+        "irpPvrc" : {
+          "type" : "string",
+          "description" : "The Irp Pvrc."
+        },
+        "irpRegDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The Irp Reg Date."
+        },
+        "mode" : {
+          "type" : "string",
+          "description" : "The addon update mode."
+        },
+        "confirmOrder" : {
+          "type" : "boolean",
+          "description" : "Confirm order."
+        },
+        "externalReference" : {
+          "type" : "string",
+          "description" : "The external reference."
+        },
+        "notAfter" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The not after date."
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The confirmed date."
+        },
+        "confirmIp" : {
+          "type" : "string",
+          "description" : "The confirm ip."
+        },
+        "priceClass" : {
+          "type" : "string",
+          "description" : "The price class."
+        }
+      }
+    },
+    "DomainPreregStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "PENDING", "PENDING_SENT", "PENDING_DOCUMENT_SENT", "PENDING_PROGRESS", "PENDING_UPDATE", "PENDING_SENT_UPDATE", "TIMEOUT", "ACCEPT", "DECLINE", "INVALID_NAME", "FAILED", "CANCEL", "AUTO_CANCEL", "ACTIVE", "SENT", "OPEN", "TMCH_CLAIM", "TMCH_CLAIM_CONFIRMED", "TMCH_CLAIM_REJECTED", "TMCH_CLAIM_EXPIRED", "TMCH_CLAIM_PENDING", "TMCH_CLAIM_FAILED", "FAILED_REF" ]
     },
     "DomainRestore" : {
       "type" : "object",
@@ -14795,6 +15706,10 @@
         }
       }
     },
+    "ItEntityTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "ITALIAN_AND_FOREIGN_NATURAL_PERSONS", "ITALIAN_COMPANIES_ONE_MAN_COMPANIES", "ITALIAN_FREELANCE_WORKERS_PROFESSIONALS", "ITALIAN_NON_PROFIT_ORGANIZATIONS", "ITALIAN_PUBLIC_ORGANIZATIONS", "ITALIAN_OTHER_SUBJECTS", "FOREIGN_NON_NATURAL_PERSONS" ]
+    },
     "Job" : {
       "type" : "object",
       "properties" : {
@@ -15212,6 +16127,45 @@
         }
       }
     },
+    "JsonResponseDataDomainPrereg" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataDomainRestore" : {
       "type" : "object",
       "properties" : {
@@ -15572,6 +16526,48 @@
         }
       }
     },
+    "JsonResponseDataListJsonResponseDataDomainPrereg" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataListJsonResponseDataMailProxy" : {
       "type" : "object",
       "properties" : {
@@ -15605,6 +16601,48 @@
             "items" : {
               "originalRef" : "JsonResponseDataMailProxy",
               "$ref" : "#/definitions/JsonResponseDataMailProxy"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataListJsonResponseDataObjectUserAssignment" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "originalRef" : "JsonResponseDataObjectUserAssignment",
+              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
             }
           }
         },
@@ -15807,6 +16845,45 @@
           "items" : {
             "originalRef" : "ObjectJob",
             "$ref" : "#/definitions/ObjectJob"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataObjectUserAssignment" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "ObjectUserAssignment",
+            "$ref" : "#/definitions/ObjectUserAssignment"
           }
         },
         "ctid" : {
@@ -16416,6 +17493,10 @@
         }
       }
     },
+    "MessageTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "INITIAL", "FIRST_REMINDER", "SECOND_REMINDER", "LAST_REMINDER" ]
+    },
     "Modifier" : {
       "type" : "object",
       "required" : [ "type" ],
@@ -16467,6 +17548,56 @@
     "NameserverActionConstants" : {
       "type" : "string",
       "enum" : [ "PRIMARY", "SECONDARY", "COMPLETE", "HIDDEN", "NONE", "AUTO" ]
+    },
+    "NewPassword" : {
+      "type" : "object",
+      "properties" : {
+        "user" : {
+          "type" : "string",
+          "example" : "hello@world.com",
+          "description" : "The user"
+        },
+        "context" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 4,
+          "description" : "The context of the user"
+        },
+        "tan" : {
+          "type" : "string",
+          "example" : "123456",
+          "description" : "The tan"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "wd23os",
+          "description" : "The password"
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "The disguised email to which the TAN is to be sent."
+        },
+        "mobile" : {
+          "type" : "string",
+          "description" : "The disguised mobilephone number to which the TAN is to be sent."
+        },
+        "tanMethods" : {
+          "type" : "array",
+          "example" : "METHOD_EMAIL, METHOD_MOBILE, METHOD_2FA",
+          "description" : "The tan methods available for the user",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "token" : {
+          "type" : "string",
+          "description" : "The token"
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "The selected method"
+        }
+      }
     },
     "NicMember" : {
       "type" : "object",
@@ -16556,6 +17687,10 @@
         }
       }
     },
+    "ObjectAssignmentMode" : {
+      "type" : "string",
+      "enum" : [ "ASSIGN", "DELETE" ]
+    },
     "ObjectJob" : {
       "type" : "object",
       "properties" : {
@@ -16574,6 +17709,42 @@
     "ObjectStatus" : {
       "type" : "string",
       "enum" : [ "SPOOL", "REQUEST", "PENDING_NOTIFY", "PENDING", "FAILED", "SUCCESS", "PENDING_DOMAIN", "CONNECT" ]
+    },
+    "ObjectUserAssignment" : {
+      "type" : "object",
+      "required" : [ "name", "owner", "type" ],
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "The type of the object."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The object name.",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "cancelation" : {
+          "description" : "The cancelation mode.",
+          "originalRef" : "ObjectAssignmentMode",
+          "$ref" : "#/definitions/ObjectAssignmentMode"
+        },
+        "source" : {
+          "description" : "The source owner.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "target" : {
+          "description" : "The target owner.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        }
+      }
     },
     "Operator" : {
       "type" : "string",
@@ -16740,6 +17911,91 @@
           "description" : "The object of the job or notify.",
           "originalRef" : "ResponseObject",
           "$ref" : "#/definitions/ResponseObject"
+        }
+      }
+    },
+    "PreregConfig" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "phase" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "confirmationStart" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "confirmationEnd" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "periodStart" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "periodEnd" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "nicMemberLabel" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "niccomStart" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "niccomEnd" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "autoupdateDns" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "category" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "uiFields" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "registrationType" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "RegistrationTypeConstants",
+          "$ref" : "#/definitions/RegistrationTypeConstants"
+        },
+        "messageType" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "MessageTypeConstants",
+          "$ref" : "#/definitions/MessageTypeConstants"
+        },
+        "minPeriod" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
         }
       }
     },
@@ -17006,9 +18262,17 @@
       "type" : "string",
       "enum" : [ "DOMAIN", "EMAIL" ]
     },
+    "RegistrationTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "FCFS", "APPLICATION", "OTHER" ]
+    },
     "RegistryStatusConstants" : {
       "type" : "string",
       "enum" : [ "ACTIVE", "HOLD", "LOCK", "HOLD_LOCK", "AUTO", "LOCK_OWNER", "LOCK_UPDATE", "PENDING", "NONE" ]
+    },
+    "RenewStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "CANCELED", "ONCE" ]
     },
     "ResourceRecord" : {
       "type" : "object",
@@ -17178,8 +18442,29 @@
     "SimplePrice" : {
       "type" : "object",
       "properties" : {
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The gross amount of the calculation"
+        },
+        "netAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The net amount of the calculation"
+        },
+        "vatAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The calculated vat amount"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "The billing currency",
+          "x-custom-type" : "currency"
+        },
         "price" : {
-          "description" : "The price",
+          "description" : "The price. Note the currency can be differ from the billing currency",
           "originalRef" : "ExchangedPrice",
           "$ref" : "#/definitions/ExchangedPrice"
         },
@@ -17188,9 +18473,23 @@
           "description" : "The business case"
         },
         "period" : {
-          "description" : "The period for the price",
+          "description" : "The period for the price calculation",
           "originalRef" : "TimePeriod",
           "$ref" : "#/definitions/TimePeriod"
+        },
+        "customs" : {
+          "type" : "array",
+          "description" : "Custom values,such as price class",
+          "uniqueItems" : true,
+          "items" : {
+            "originalRef" : "Custom",
+            "$ref" : "#/definitions/Custom"
+          }
+        },
+        "view" : {
+          "description" : "The currency rate for the view currency",
+          "originalRef" : "CurrencyRate",
+          "$ref" : "#/definitions/CurrencyRate"
         }
       }
     },
@@ -17478,6 +18777,324 @@
     "TimeUnitConstants" : {
       "type" : "string",
       "enum" : [ "MILLISECOND", "SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "QUARTER", "YEAR" ]
+    },
+    "TmchContact" : {
+      "type" : "object",
+      "required" : [ "email", "entitlement" ],
+      "properties" : {
+        "entitlement" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMarkHolderConstants",
+          "$ref" : "#/definitions/TmchMarkHolderConstants"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "street" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "city" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "postalCode" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "phone" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "fax" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "TmchMark" : {
+      "type" : "object",
+      "required" : [ "claimsNotify", "description", "name", "payable", "period", "reference", "smdInclusion", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Lorem Ipsum"
+        },
+        "type" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMarkTypeConstants",
+          "$ref" : "#/definitions/TmchMarkTypeConstants"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "holder" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchContact",
+          "$ref" : "#/definitions/TmchContact"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "period" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TimePeriod",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "documents" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "originalRef" : "TmchMarkDocument",
+            "$ref" : "#/definitions/TmchMarkDocument"
+          }
+        },
+        "labels" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "comments" : {
+          "type" : "array",
+          "description" : "Lorem Ipsum",
+          "items" : {
+            "originalRef" : "TmchMarkComment",
+            "$ref" : "#/definitions/TmchMarkComment"
+          }
+        },
+        "renew" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "RenewStatusConstants",
+          "$ref" : "#/definitions/RenewStatusConstants"
+        },
+        "status" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMarkStatusConstants",
+          "$ref" : "#/definitions/TmchMarkStatusConstants"
+        },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "internalComment" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "sent" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "smdInclusion" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "claimsNotify" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "smdFile" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "orderComplete" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "claimsNotifyExtended" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
+        },
+        "extension" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMarkAddon",
+          "$ref" : "#/definitions/TmchMarkAddon"
+        }
+      }
+    },
+    "TmchMarkAddon" : {
+      "type" : "object",
+      "properties" : {
+        "courtName" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "protection" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "courtProtectionCountry" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "courtReference" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "treatyTitle" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "treatyExecution" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "trademarkRegistration" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "trademarkClassification" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "trademarkExpire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Lorem Ipsum"
+        },
+        "trademarkNumber" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "trademarkJurisdiction" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "parentReference" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "TmchMarkComment" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "status" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMarkStatusConstants",
+          "$ref" : "#/definitions/TmchMarkStatusConstants"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "user" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        }
+      }
+    },
+    "TmchMarkDocument" : {
+      "type" : "object",
+      "required" : [ "content", "contentType", "mark", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "mark" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "TmchMark",
+          "$ref" : "#/definitions/TmchMark"
+        },
+        "type" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "DocumentTypeConstants",
+          "$ref" : "#/definitions/DocumentTypeConstants"
+        },
+        "contentName" : {
+          "type" : "string",
+          "description" : "Lorem Ipsum"
+        },
+        "contentType" : {
+          "description" : "Lorem Ipsum",
+          "originalRef" : "ContentTypeConstants",
+          "$ref" : "#/definitions/ContentTypeConstants"
+        },
+        "content" : {
+          "type" : "string",
+          "format" : "binary",
+          "description" : "Lorem Ipsum"
+        }
+      }
+    },
+    "TmchMarkHolderConstants" : {
+      "type" : "string",
+      "enum" : [ "OWNER", "LICENSEE", "ASSIGNEE" ]
+    },
+    "TmchMarkStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "OPEN", "PAYMENT", "PENDING", "INCORRECT", "VERIFIED", "SENT", "ACTIVE", "DEACTIVATED", "CANCELED", "RENEW", "FAILED", "EXTERNAL", "PENDING_TRANSFER", "PENDING_RENEW", "PENDING_DELETE", "PENDING_PAYMENT", "PENDING_TRANSFER_PAYMENT", "PENDING_RENEW_PAYMENT" ]
+    },
+    "TmchMarkTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "TRADEMARK", "TREATY_OR_STATUTE", "COURT", "DNL_ABUSED" ]
     },
     "Transfer" : {
       "type" : "object",
@@ -17856,6 +19473,11 @@
             "$ref" : "#/definitions/TrustedApplication"
           }
         },
+        "restrictions" : {
+          "description" : "The wrapper of the ip restrictions for the user.",
+          "originalRef" : "IpRestrictions",
+          "$ref" : "#/definitions/IpRestrictions"
+        },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
@@ -17869,6 +19491,10 @@
           "description" : "The parent.",
           "originalRef" : "User",
           "$ref" : "#/definitions/User"
+        },
+        "directCustomer" : {
+          "type" : "boolean",
+          "description" : "Lorem Ipsum"
         }
       }
     },
