@@ -86,7 +86,17 @@
         "operationId" : "otpAuthInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -147,7 +157,17 @@
         "operationId" : "otpAuthCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -210,7 +230,17 @@
         "operationId" : "backupMxCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -294,7 +324,17 @@
         "operationId" : "backupMxList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -366,7 +406,17 @@
         "operationId" : "backupMxInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -432,7 +482,17 @@
         "operationId" : "backupMxDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -512,7 +572,17 @@
         "operationId" : "backupMxCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -582,7 +652,17 @@
         "operationId" : "backupMxDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -654,7 +734,17 @@
         "operationId" : "domainCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -724,7 +814,17 @@
         "operationId" : "domainPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -796,7 +896,17 @@
         "operationId" : "domainAuthinfoCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -866,7 +976,17 @@
         "operationId" : "domainAuthinfoDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -938,7 +1058,17 @@
         "operationId" : "domainAuthinfo2Creates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1010,7 +1140,17 @@
         "operationId" : "domainBuys",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1082,7 +1222,17 @@
         "operationId" : "domainUpdateComments",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1154,7 +1304,17 @@
         "operationId" : "domainRenews",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1226,7 +1386,17 @@
         "operationId" : "domainRestores",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1298,7 +1468,17 @@
         "operationId" : "domainTransfers",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1370,7 +1550,17 @@
         "operationId" : "domainCancelationCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1440,7 +1630,17 @@
         "operationId" : "domainCancelationDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1510,7 +1710,17 @@
         "operationId" : "domainCancelationPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1582,7 +1792,17 @@
         "operationId" : "domainPreregCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1652,7 +1872,17 @@
         "operationId" : "domainPreregDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1722,7 +1952,17 @@
         "operationId" : "domainPreregPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1794,7 +2034,17 @@
         "operationId" : "mailProxyCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1864,7 +2114,17 @@
         "operationId" : "mailProxyDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -1934,7 +2194,17 @@
         "operationId" : "mailProxyPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2006,7 +2276,17 @@
         "operationId" : "objectUserAssignment",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2078,7 +2358,17 @@
         "operationId" : "redirectCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2148,7 +2438,17 @@
         "operationId" : "redirectDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2218,7 +2518,17 @@
         "operationId" : "redirectPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2290,7 +2600,17 @@
         "operationId" : "zoneCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2360,7 +2680,17 @@
         "operationId" : "zoneDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2430,7 +2760,17 @@
         "operationId" : "zoneBulkPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2502,7 +2842,17 @@
         "operationId" : "zoneUpdateComments",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2574,7 +2924,17 @@
         "operationId" : "zoneImports",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -2993,7 +3353,17 @@
         "operationId" : "contactCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3067,7 +3437,17 @@
         "operationId" : "contactList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3152,7 +3532,17 @@
         "operationId" : "verificationList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3224,7 +3614,17 @@
         "operationId" : "verificationHistoryList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3296,7 +3696,17 @@
         "operationId" : "verificationCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3368,7 +3778,17 @@
         "operationId" : "verificationInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3436,7 +3856,17 @@
         "operationId" : "verificationConfirm",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3508,7 +3938,17 @@
         "operationId" : "verificationResendEmail",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3580,7 +4020,17 @@
         "operationId" : "contactInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3647,7 +4097,17 @@
         "operationId" : "contactUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3723,7 +4183,17 @@
         "operationId" : "contactDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3792,7 +4262,17 @@
         "operationId" : "contcatCommentUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3870,7 +4350,17 @@
         "operationId" : "documentInfoWithAlias",
         "produces" : [ "*/*" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -3938,7 +4428,17 @@
         "operationId" : "domainCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4010,7 +4510,17 @@
         "operationId" : "domainBuy",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4082,7 +4592,17 @@
         "operationId" : "domainList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4167,7 +4687,17 @@
         "operationId" : "domainServicesUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4251,7 +4781,17 @@
         "operationId" : "domainTransfer",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4323,7 +4863,17 @@
         "operationId" : "domainCancelationList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4408,7 +4958,17 @@
         "operationId" : "domainRestoreList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4493,7 +5053,17 @@
         "operationId" : "domainInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4559,7 +5129,17 @@
         "operationId" : "domainUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4636,7 +5216,17 @@
         "operationId" : "domainAuthinfo1Create",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4702,7 +5292,17 @@
         "operationId" : "domainAuthinfo1Delete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4770,7 +5370,17 @@
         "operationId" : "domainAuthinfo2Create",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4838,7 +5448,17 @@
         "operationId" : "autoDnssecKeyRollover",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4906,7 +5526,17 @@
         "operationId" : "domainCommentUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -4983,7 +5613,17 @@
         "operationId" : "domainRenew",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5060,7 +5700,17 @@
         "operationId" : "domainRestore",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5137,7 +5787,17 @@
         "operationId" : "domainStatusUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5214,7 +5874,17 @@
         "operationId" : "domainCancelationInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5280,7 +5950,17 @@
         "operationId" : "domainCancelationCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5350,7 +6030,17 @@
         "operationId" : "domainCancelationUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5425,7 +6115,17 @@
         "operationId" : "domainCancelationDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5493,7 +6193,17 @@
         "operationId" : "domainSearch",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5565,7 +6275,17 @@
         "operationId" : "createId4MeAgent",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5635,7 +6355,17 @@
         "operationId" : "updateId4MeAgent",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5707,7 +6437,17 @@
         "operationId" : "id4MeAgentList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5779,7 +6519,17 @@
         "operationId" : "id4MeAgentInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5845,7 +6595,17 @@
         "operationId" : "deleteId4MeAgent",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5913,7 +6673,17 @@
         "operationId" : "createId4MeIdentity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -5985,7 +6755,17 @@
         "operationId" : "id4MeIdentityList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6057,7 +6837,17 @@
         "operationId" : "id4MeIdentityInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6123,7 +6913,17 @@
         "operationId" : "deleteId4MeIdentity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6191,7 +6991,17 @@
         "operationId" : "confirmId4MeIdentity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6259,7 +7069,17 @@
         "operationId" : "InvoiceList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6331,7 +7151,17 @@
         "operationId" : "InvoiceInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6400,7 +7230,17 @@
         "operationId" : "jobList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6485,7 +7325,17 @@
         "operationId" : "jobHistoryList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6570,7 +7420,17 @@
         "operationId" : "jobHistoryInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6639,7 +7499,17 @@
         "operationId" : "jobInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6708,7 +7578,17 @@
         "operationId" : "jobCancel",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6778,7 +7658,17 @@
         "operationId" : "jobConfirm",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6848,7 +7738,17 @@
         "operationId" : "jobFailed",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6917,7 +7817,17 @@
         "operationId" : "jobReject",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -6986,7 +7896,17 @@
         "operationId" : "resendApproverEmail",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7056,7 +7976,17 @@
         "operationId" : "resendPhoneAuthorization",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7126,7 +8056,17 @@
         "operationId" : "jobRestart",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7195,7 +8135,17 @@
         "operationId" : "jobRetry",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7264,7 +8214,17 @@
         "operationId" : "jobSucceded",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7333,7 +8293,17 @@
         "operationId" : "login",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7441,7 +8411,17 @@
         "operationId" : "logout",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7504,7 +8484,17 @@
         "operationId" : "mailProxyCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7588,7 +8578,17 @@
         "operationId" : "mailProxyList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7673,7 +8673,17 @@
         "operationId" : "mailProxyInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7739,7 +8749,17 @@
         "operationId" : "mailProxyUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7814,7 +8834,17 @@
         "operationId" : "mailProxyDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7894,7 +8924,17 @@
         "operationId" : "ObjectUserAssignment",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -7966,7 +9006,17 @@
         "operationId" : "ObjectUserAssignmentAll",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8038,7 +9088,17 @@
         "operationId" : "pollInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8101,7 +9161,17 @@
         "operationId" : "pollConfirm",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8169,7 +9239,17 @@
         "operationId" : "redirectCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8253,7 +9333,17 @@
         "operationId" : "redirectList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8338,7 +9428,17 @@
         "operationId" : "redirectInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8404,7 +9504,17 @@
         "operationId" : "redirectUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8479,7 +9589,17 @@
         "operationId" : "redirectDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8559,7 +9679,17 @@
         "operationId" : "sslContactCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8630,7 +9760,17 @@
         "operationId" : "sslContactList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8715,7 +9855,17 @@
         "operationId" : "sslContactInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8782,7 +9932,17 @@
         "operationId" : "sslContactUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8858,7 +10018,17 @@
         "operationId" : "sslContactDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8927,7 +10097,17 @@
         "operationId" : "subscriptionCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -8998,7 +10178,17 @@
         "operationId" : "subscriptionUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9068,7 +10258,17 @@
         "operationId" : "subscriptionDelte",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9137,7 +10337,17 @@
         "operationId" : "subscriptionUpgrade",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9209,7 +10419,17 @@
         "operationId" : "transferOutList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9294,7 +10514,17 @@
         "operationId" : "transferOutAnswer",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9367,7 +10597,17 @@
         "operationId" : "transferOutAnswerOld",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9440,7 +10680,17 @@
         "operationId" : "transferOutInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9508,7 +10758,17 @@
         "operationId" : "trustedAppCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9580,7 +10840,17 @@
         "operationId" : "trustedAppList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9652,7 +10922,17 @@
         "operationId" : "trustedAppInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9719,7 +10999,17 @@
         "operationId" : "trustedAppUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9808,7 +11098,17 @@
         "operationId" : "trustedAppDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9877,7 +11177,17 @@
         "operationId" : "user2faAktivate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -9938,7 +11248,17 @@
         "operationId" : "user2faDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10001,7 +11321,17 @@
         "operationId" : "guestCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10073,7 +11403,17 @@
         "operationId" : "guestApplyVerify",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10142,7 +11482,17 @@
         "operationId" : "newPassword",
         "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10219,7 +11569,17 @@
         "operationId" : "newPasswordVerify",
         "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10287,7 +11647,17 @@
         "operationId" : "userConfirmVerification",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10355,7 +11725,17 @@
         "operationId" : "zoneCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10427,7 +11807,17 @@
         "operationId" : "zoneList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10512,7 +11902,17 @@
         "operationId" : "zoneStream",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10602,7 +12002,17 @@
         "operationId" : "zoneInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10673,7 +12083,17 @@
         "operationId" : "zoneUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10753,7 +12173,17 @@
         "operationId" : "zoneDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10824,7 +12254,17 @@
         "operationId" : "zonePatch",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10906,7 +12346,17 @@
         "operationId" : "zoneAxfr",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -10979,7 +12429,17 @@
         "operationId" : "zoneUpdateComment",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -11061,7 +12521,17 @@
         "operationId" : "zoneCopy",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -11156,7 +12626,17 @@
         "operationId" : "zoneImport",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -11238,7 +12718,17 @@
         "operationId" : "zoneMigrate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "X-Domainrobot-Pin",
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
           "in" : "header",
           "required" : false,
           "type" : "string"
@@ -11483,19 +12973,16 @@
       "properties" : {
         "number" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "client" : {
           "type" : "string",
-          "description" : "Lorem Ipsum",
           "minLength" : 1,
           "maxLength" : 2147483647
         },
         "group" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "name" : {
           "type" : "string",
@@ -11544,9 +13031,10 @@
           "description" : "The country of the customer."
         },
         "phone" : {
-          "description" : "The phone number.",
-          "originalRef" : "Phone",
-          "$ref" : "#/definitions/Phone"
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The phone number of the customer",
+          "x-custom-type" : "phone"
         },
         "fax" : {
           "description" : "The fax number.",
@@ -11661,37 +13149,29 @@
         },
         "id" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "comment" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "type" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "mimeType" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "data" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "size" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "name" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "link" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "uuid" : {
           "type" : "string",
@@ -11743,22 +13223,18 @@
           "description" : "The updated date."
         },
         "articleLabel" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "limitSelf" : {
           "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
+          "format" : "int32"
         },
         "limitChildren" : {
           "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
+          "format" : "int32"
         },
         "articleTypeLabel" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "count" : {
           "type" : "integer",
@@ -12619,6 +14095,10 @@
         "checkCaa" : {
           "type" : "boolean",
           "description" : "Activates the caa record check."
+        },
+        "businessCase" : {
+          "type" : "string",
+          "description" : "Describes the business case (CREATE, RENEW, REISSUE, DELETE) for which preparation is to be performed."
         }
       }
     },
@@ -13514,19 +14994,16 @@
       "properties" : {
         "number" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "client" : {
           "type" : "string",
-          "description" : "Lorem Ipsum",
           "minLength" : 1,
           "maxLength" : 2147483647
         },
         "group" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "name" : {
           "type" : "string",
@@ -13575,9 +15052,10 @@
           "description" : "The country of the customer."
         },
         "phone" : {
-          "description" : "The phone number.",
-          "originalRef" : "Phone",
-          "$ref" : "#/definitions/Phone"
+          "type" : "string",
+          "example" : "+49-123-12345",
+          "description" : "The phone number of the customer",
+          "x-custom-type" : "phone"
         },
         "fax" : {
           "description" : "The fax number.",
@@ -13755,37 +15233,29 @@
         },
         "id" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "comment" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "type" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "mimeType" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "data" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "size" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "name" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "link" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         }
       }
     },
@@ -14078,8 +15548,7 @@
           "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "registryWhen" : {
           "type" : "string",
@@ -14087,12 +15556,10 @@
           "description" : "The date of the execution. Only necessary when ExecutionType equals DATE."
         },
         "gainingRegistrar" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "disconnect" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "notice" : {
           "type" : "string",
@@ -14100,11 +15567,9 @@
         },
         "logId" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "registryStatus" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "RegistryStatusConstants",
           "$ref" : "#/definitions/RegistryStatusConstants"
         },
@@ -14291,8 +15756,7 @@
       "type" : "object",
       "properties" : {
         "parkingCategory" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "currency" : {
           "type" : "string",
@@ -14849,7 +16313,7 @@
     },
     "DomainStudioDomainSource" : {
       "type" : "string",
-      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED" ]
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED", "CUSTOM" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
@@ -14878,6 +16342,26 @@
     "DomainStudioServiceStatus" : {
       "type" : "string",
       "enum" : [ "RUNNING", "SUCCESS", "FAILED", "TIMEOUT" ]
+    },
+    "DomainStudioSourceCustom" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "Custom list of domains",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
     },
     "DomainStudioSourceGeo" : {
       "type" : "object",
@@ -15045,6 +16529,11 @@
           "description" : "The configuration for the recommended source",
           "originalRef" : "DomainStudioSourceSimilar",
           "$ref" : "#/definitions/DomainStudioSourceSimilar"
+        },
+        "custom" : {
+          "description" : "The configuration for the custom source",
+          "originalRef" : "DomainStudioSourceCustom",
+          "$ref" : "#/definitions/DomainStudioSourceCustom"
         }
       }
     },
@@ -15250,19 +16739,16 @@
       "properties" : {
         "number" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "client" : {
           "type" : "string",
-          "description" : "Lorem Ipsum",
           "minLength" : 1,
           "maxLength" : 2147483647
         },
         "group" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         }
       }
     },
@@ -15755,13 +17241,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -17447,8 +18933,7 @@
       "properties" : {
         "address" : {
           "type" : "string",
-          "example" : "127.0.0.1",
-          "description" : "Lorem Ipsum"
+          "example" : "127.0.0.1"
         },
         "ttl" : {
           "type" : "integer",
@@ -17612,6 +19097,51 @@
         }
       }
     },
+    "NiccomLog" : {
+      "type" : "object",
+      "properties" : {
+        "jobId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The jobId of the niccom log."
+        },
+        "vertexId" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The vertexId of the niccom log."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the niccom log."
+        },
+        "task" : {
+          "type" : "string",
+          "description" : "The task of the niccom log."
+        },
+        "nicTransactionId" : {
+          "type" : "string",
+          "description" : "The nicTransactionId of the niccom log."
+        },
+        "source" : {
+          "description" : "The source of the niccom log.",
+          "originalRef" : "NiccomSourceConstants",
+          "$ref" : "#/definitions/NiccomSourceConstants"
+        },
+        "text" : {
+          "type" : "string",
+          "description" : "The text of the niccom log."
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date of the niccom log."
+        }
+      }
+    },
+    "NiccomSourceConstants" : {
+      "type" : "string",
+      "enum" : [ "NIC_REQUEST", "NIC_RESPONSE", "NIC_NOTIFY", "A3_REQUEST", "A3_RESPONSE" ]
+    },
     "NotifyMessage" : {
       "type" : "object",
       "properties" : {
@@ -17700,9 +19230,12 @@
           "$ref" : "#/definitions/Job"
         },
         "object" : {
+          "type" : "array",
           "description" : "The object of the job or notify.",
-          "originalRef" : "ResponseObject",
-          "$ref" : "#/definitions/ResponseObject"
+          "items" : {
+            "originalRef" : "NiccomLog",
+            "$ref" : "#/definitions/NiccomLog"
+          }
         }
       }
     },
@@ -17929,71 +19462,56 @@
           "description" : "The updated date."
         },
         "name" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "phase" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "confirmationStart" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "confirmationEnd" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "periodStart" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "periodEnd" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "nicMemberLabel" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "niccomStart" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "niccomEnd" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "autoupdateDns" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "category" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "uiFields" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "registrationType" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "RegistrationTypeConstants",
           "$ref" : "#/definitions/RegistrationTypeConstants"
         },
         "messageType" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "MessageTypeConstants",
           "$ref" : "#/definitions/MessageTypeConstants"
         },
         "minPeriod" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TimePeriod",
           "$ref" : "#/definitions/TimePeriod"
         }
@@ -18074,20 +19592,17 @@
       "properties" : {
         "filters" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "originalRef" : "QueryFilter",
             "$ref" : "#/definitions/QueryFilter"
           }
         },
         "view" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "QueryView",
           "$ref" : "#/definitions/QueryView"
         },
         "orders" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "originalRef" : "QueryOrder",
             "$ref" : "#/definitions/QueryOrder"
@@ -18099,26 +19614,21 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "value" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "operator" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "Operator",
           "$ref" : "#/definitions/Operator"
         },
         "link" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "ConditionType",
           "$ref" : "#/definitions/ConditionType"
         },
         "filters" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "originalRef" : "QueryFilter",
             "$ref" : "#/definitions/QueryFilter"
@@ -18130,18 +19640,15 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "ins" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "type" : "string"
           }
         },
         "type" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "OrderType",
           "$ref" : "#/definitions/OrderType"
         }
@@ -18152,27 +19659,22 @@
       "properties" : {
         "limit" : {
           "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
+          "format" : "int32"
         },
         "offset" : {
           "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
+          "format" : "int32"
         },
         "children" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "from" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "to" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         }
       }
     },
@@ -18301,6 +19803,10 @@
           "format" : "int32",
           "description" : "Preference of the record, need for some record types e.g. MX",
           "maximum" : 65535
+        },
+        "raw" : {
+          "type" : "string",
+          "description" : "The bind notation of the record. Only used by the zone stream task!"
         }
       }
     },
@@ -18514,8 +20020,7 @@
         },
         "ttl" : {
           "type" : "integer",
-          "format" : "int64",
-          "description" : "Lorem Ipsum"
+          "format" : "int64"
         },
         "email" : {
           "type" : "string",
@@ -18783,49 +20288,38 @@
       "required" : [ "email", "entitlement" ],
       "properties" : {
         "entitlement" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMarkHolderConstants",
           "$ref" : "#/definitions/TmchMarkHolderConstants"
         },
         "name" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "organization" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "street" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "city" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "postalCode" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "state" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "country" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "email" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "phone" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "fax" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         }
       }
     },
@@ -18855,39 +20349,31 @@
         },
         "id" : {
           "type" : "integer",
-          "format" : "int32",
-          "description" : "Lorem Ipsum"
+          "format" : "int32"
         },
         "type" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMarkTypeConstants",
           "$ref" : "#/definitions/TmchMarkTypeConstants"
         },
         "name" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "reference" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "holder" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchContact",
           "$ref" : "#/definitions/TmchContact"
         },
         "description" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "period" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TimePeriod",
           "$ref" : "#/definitions/TimePeriod"
         },
         "documents" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "originalRef" : "TmchMarkDocument",
             "$ref" : "#/definitions/TmchMarkDocument"
@@ -18895,64 +20381,51 @@
         },
         "labels" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "type" : "string"
           }
         },
         "comments" : {
           "type" : "array",
-          "description" : "Lorem Ipsum",
           "items" : {
             "originalRef" : "TmchMarkComment",
             "$ref" : "#/definitions/TmchMarkComment"
           }
         },
         "renew" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "RenewStatusConstants",
           "$ref" : "#/definitions/RenewStatusConstants"
         },
         "status" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMarkStatusConstants",
           "$ref" : "#/definitions/TmchMarkStatusConstants"
         },
         "payable" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "internalComment" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "sent" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "smdInclusion" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "claimsNotify" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "smdFile" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "orderComplete" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "claimsNotifyExtended" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         },
         "extension" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMarkAddon",
           "$ref" : "#/definitions/TmchMarkAddon"
         }
@@ -18962,56 +20435,44 @@
       "type" : "object",
       "properties" : {
         "courtName" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "protection" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "courtProtectionCountry" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "courtReference" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "treatyTitle" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "treatyExecution" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "trademarkRegistration" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "trademarkClassification" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "trademarkExpire" : {
           "type" : "string",
-          "format" : "date-time",
-          "description" : "Lorem Ipsum"
+          "format" : "date-time"
         },
         "trademarkNumber" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "trademarkJurisdiction" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "parentReference" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         }
       }
     },
@@ -19029,16 +20490,13 @@
           "description" : "The updated date."
         },
         "status" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMarkStatusConstants",
           "$ref" : "#/definitions/TmchMarkStatusConstants"
         },
         "comment" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "user" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         }
@@ -19059,28 +20517,23 @@
           "description" : "The updated date."
         },
         "mark" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "TmchMark",
           "$ref" : "#/definitions/TmchMark"
         },
         "type" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "DocumentTypeConstants",
           "$ref" : "#/definitions/DocumentTypeConstants"
         },
         "contentName" : {
-          "type" : "string",
-          "description" : "Lorem Ipsum"
+          "type" : "string"
         },
         "contentType" : {
-          "description" : "Lorem Ipsum",
           "originalRef" : "ContentTypeConstants",
           "$ref" : "#/definitions/ContentTypeConstants"
         },
         "content" : {
           "type" : "string",
-          "format" : "binary",
-          "description" : "Lorem Ipsum"
+          "format" : "binary"
         }
       }
     },
@@ -19493,8 +20946,7 @@
           "$ref" : "#/definitions/User"
         },
         "directCustomer" : {
-          "type" : "boolean",
-          "description" : "Lorem Ipsum"
+          "type" : "boolean"
         }
       }
     },
