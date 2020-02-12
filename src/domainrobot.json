@@ -26,6 +26,8 @@
   }, {
     "name" : "DomainPrereg Bulk Tasks"
   }, {
+    "name" : "DomainSafe Tasks"
+  }, {
     "name" : "DomainStudio"
   }, {
     "name" : "Guest account tasks"
@@ -1279,6 +1281,168 @@
           "schema" : {
             "originalRef" : "BulkDomainCommentRequest",
             "$ref" : "#/definitions/BulkDomainCommentRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomain"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomain"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/domain/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Adds the domain to the domain safe",
+        "description" : "Adds the domains to the domain safe",
+        "operationId" : "domainAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkDomainSafeDomainRequest",
+            "$ref" : "#/definitions/BulkDomainSafeDomainRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomain"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataDomain",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomain"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Deletes the domain from the domain safe",
+        "description" : "Deletes the domains from the domain safe",
+        "operationId" : "domainDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkDomainSafeDomainRequest",
+            "$ref" : "#/definitions/BulkDomainSafeDomainRequest"
           }
         } ],
         "responses" : {
@@ -4342,6 +4506,162 @@
         }
       }
     },
+    "/contact/{id}/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Adds the contact to the domain safe",
+        "description" : "Adds the contact to the domain safe",
+        "operationId" : "domainAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Deletes the contact from the domain safe",
+        "description" : "Deletes the contact from the domain safe",
+        "operationId" : "domainDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
     "/document/{alias}" : {
       "get" : {
         "tags" : [ "Document Tasks" ],
@@ -5605,6 +5925,160 @@
         }
       }
     },
+    "/domain/{name}/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Adds the domain to the domain safe",
+        "description" : "Adds the domain to the domain safe",
+        "operationId" : "domainAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Deletes the domain from the domain safe",
+        "description" : "Deletes the domain from the domain safe",
+        "operationId" : "domainDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
     "/domain/{name}/_renew" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
@@ -6180,6 +6654,324 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeContact" : {
+      "post" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Create safeContact",
+        "description" : "Create a new SafeContact.",
+        "operationId" : "safeContactCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "safeContact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainSafeAccount",
+            "$ref" : "#/definitions/DomainSafeAccount"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeContact/_search" : {
+      "post" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "List safeContact",
+        "description" : "Inquire a list of safeContacts with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "safeContactList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeContact/user" : {
+      "post" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Create safeUser",
+        "description" : "Create a new safeUser.",
+        "operationId" : "safeUserCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "domainSafeUser",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainSafeUser",
+            "$ref" : "#/definitions/DomainSafeUser"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Update safeUser",
+        "description" : "Update an existing safeUser.",
+        "operationId" : "safeContactUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domainSafeUser",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainSafeUser",
+            "$ref" : "#/definitions/DomainSafeUser"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeContact/user/{user}/{context}" : {
+      "delete" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Delete safeUser",
+        "description" : "Delete an existing safeUser.",
+        "operationId" : "safeUserDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeUser",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeUser"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeContact/{id}" : {
+      "get" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Get safeContact",
+        "description" : "Fetch the data for the specified safeContact.",
+        "operationId" : "safeContactInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Update safeContact",
+        "description" : "Update an existing safeContact.",
+        "operationId" : "safeContactUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domainSafeContact",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainSafeAccount",
+            "$ref" : "#/definitions/DomainSafeAccount"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeAccount",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeAccount"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeObject" : {
+      "post" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Create safeObject",
+        "description" : "Create a new SafeObject.",
+        "operationId" : "safeObjectCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "safeObject",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainSafeObject",
+            "$ref" : "#/definitions/DomainSafeObject"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeObject/_search" : {
+      "post" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "List safeObject",
+        "description" : "Inquire a list of safeObjects with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "safeObjectList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            }
+          }
+        }
+      }
+    },
+    "/domainSafeObject/{object}/{type}" : {
+      "delete" : {
+        "tags" : [ "DomainSafe Tasks" ],
+        "summary" : "Delete safeObject",
+        "description" : "Delete an existing safeObject.",
+        "operationId" : "safeObjectDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "safeObject",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainSafeObject",
+              "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
             }
           }
         }
@@ -11894,6 +12686,180 @@
         }
       }
     },
+    "/zone/history/_search" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "List ZoneHistory",
+        "description" : "Inquire a list of zones history entries with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "zoneHistoryList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to fetch additional details.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=primary",
+            "enum" : [ "{primary", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "comment}" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=primary"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/history/{logId}" : {
+      "get" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Get ZoneHistoryLog",
+        "description" : "Fetch the data for the specified log.",
+        "operationId" : "zoneHistoryInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "logId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataZone",
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
     "/zone/{name}/_stream" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
@@ -12613,6 +13579,170 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataZone",
               "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/zone/{name}/{systemNameServer}/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Adds the zone to the domain safe",
+        "description" : "Adds the zone to the domain safe",
+        "operationId" : "domainAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Deletes the zone from the domain safe",
+        "description" : "Deletes the zone from the domain safe",
+        "operationId" : "domainDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJsonNoData",
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -13488,6 +14618,24 @@
           "description" : "The template for objects to process",
           "originalRef" : "DomainPrereg",
           "$ref" : "#/definitions/DomainPrereg"
+        }
+      }
+    },
+    "BulkDomainSafeDomainRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "originalRef" : "Query",
+          "$ref" : "#/definitions/Query"
         }
       }
     },
@@ -16251,6 +17399,110 @@
         }
       }
     },
+    "DomainSafeAccount" : {
+      "type" : "object",
+      "required" : [ "mobile", "pin" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the object."
+        },
+        "mobile" : {
+          "description" : "The mobile of the object.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "pin" : {
+          "type" : "string",
+          "description" : "The pin of the object."
+        },
+        "revalidationNumber" : {
+          "description" : "The revalidationNumber of the object.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "safeuser" : {
+          "type" : "array",
+          "description" : "The safeUser of the object.",
+          "items" : {
+            "originalRef" : "DomainSafeUser",
+            "$ref" : "#/definitions/DomainSafeUser"
+          }
+        }
+      }
+    },
+    "DomainSafeObject" : {
+      "type" : "object",
+      "required" : [ "name", "type" ],
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "The type of the object."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the object."
+        },
+        "idn" : {
+          "type" : "string",
+          "description" : "The idn of the object."
+        },
+        "owner" : {
+          "description" : "The owner of the object",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        }
+      }
+    },
+    "DomainSafeUser" : {
+      "type" : "object",
+      "required" : [ "context", "user" ],
+      "properties" : {
+        "context" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The context."
+        },
+        "user" : {
+          "type" : "string",
+          "description" : "The user name."
+        },
+        "pin" : {
+          "type" : "string",
+          "description" : "The pin."
+        }
+      }
+    },
     "DomainServices" : {
       "type" : "object",
       "properties" : {
@@ -16433,6 +17685,24 @@
         }
       }
     },
+    "DomainStudioSourceRecommended" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum amount of generated similar domains."
+        }
+      }
+    },
     "DomainStudioSourceSimilar" : {
       "type" : "object",
       "properties" : {
@@ -16448,6 +17718,13 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The maximum amount of generated similar domains."
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     },
@@ -16527,8 +17804,8 @@
         },
         "recommended" : {
           "description" : "The configuration for the recommended source",
-          "originalRef" : "DomainStudioSourceSimilar",
-          "$ref" : "#/definitions/DomainStudioSourceSimilar"
+          "originalRef" : "DomainStudioSourceRecommended",
+          "$ref" : "#/definitions/DomainStudioSourceRecommended"
         },
         "custom" : {
           "description" : "The configuration for the custom source",
@@ -17241,13 +18518,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -17683,6 +18960,123 @@
           "items" : {
             "originalRef" : "DomainRestore",
             "$ref" : "#/definitions/DomainRestore"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataDomainSafeAccount" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainSafeAccount",
+            "$ref" : "#/definitions/DomainSafeAccount"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataDomainSafeObject" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainSafeObject",
+            "$ref" : "#/definitions/DomainSafeObject"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataDomainSafeUser" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "DomainSafeUser",
+            "$ref" : "#/definitions/DomainSafeUser"
           }
         },
         "ctid" : {
