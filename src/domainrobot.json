@@ -16,8 +16,6 @@
   }, {
     "name" : "Contact Tasks"
   }, {
-    "name" : "ContactVerification Tasks"
-  }, {
     "name" : "Document Tasks"
   }, {
     "name" : "Domain Bulk Tasks"
@@ -25,6 +23,8 @@
     "name" : "Domain Tasks"
   }, {
     "name" : "DomainPrereg Bulk Tasks"
+  }, {
+    "name" : "DomainPrereg Tasks"
   }, {
     "name" : "DomainSafe Tasks"
   }, {
@@ -41,6 +41,8 @@
     "name" : "InvoiceInfo tasks"
   }, {
     "name" : "Job Tasks"
+  }, {
+    "name" : "Mail Tasks"
   }, {
     "name" : "MailProxy Tasks"
   }, {
@@ -62,21 +64,21 @@
   }, {
     "name" : "Subscription Tasks"
   }, {
+    "name" : "Tmch Tasks"
+  }, {
     "name" : "Transfer Request Tasks"
   }, {
     "name" : "TrustedApplication Tasks"
+  }, {
+    "name" : "User"
   }, {
     "name" : "User 2fa tasks"
   }, {
     "name" : "User Tasks"
   }, {
-    "name" : "User verification confirm"
-  }, {
     "name" : "Zone Bulk Tasks"
   }, {
     "name" : "Zone Tasks"
-  }, {
-    "name" : "contactVerification history Tasks"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
@@ -3688,10 +3690,175 @@
         }
       }
     },
+    "/contact/verification" : {
+      "get" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Gets a contact verification",
+        "description" : "Gets the data for the specified verification.",
+        "operationId" : "verificationInfoWithReference",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "reference",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/_confirm" : {
+      "put" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Confirms a contact verification with a given hash",
+        "description" : "confirms an existing verification.",
+        "operationId" : "verificationConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "reference",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "ContactVerification",
+            "$ref" : "#/definitions/ContactVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      }
+    },
     "/contact/verification/_search" : {
       "post" : {
-        "tags" : [ "ContactVerification Tasks" ],
-        "summary" : "List ContactVerification",
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Lists contact verifications",
         "description" : "Inquire a list of contactVerifications with certain details. The data to be displayed can be extended per url paremeter.",
         "operationId" : "verificationList",
         "produces" : [ "application/json" ],
@@ -3759,12 +3926,90 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/verification/history" : {
+      "get" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Gets a contact historized verification",
+        "description" : "Gets the data for the specified verification.",
+        "operationId" : "verificationHistoryInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "reference",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
             }
           }
         }
@@ -3772,7 +4017,7 @@
     },
     "/contact/verification/history/_search" : {
       "post" : {
-        "tags" : [ "contactVerification history Tasks" ],
+        "tags" : [ "Contact Tasks" ],
         "summary" : "List history contactVerifications",
         "description" : "Inquire a list of history verifications with certain details.",
         "operationId" : "verificationHistoryList",
@@ -3841,336 +4086,12 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
             },
             "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/{handle_id}" : {
-      "post" : {
-        "tags" : [ "ContactVerification Tasks" ],
-        "summary" : "Create ContactVerification",
-        "description" : "Create a new contact verification.",
-        "operationId" : "verificationCreate",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "contactVerification",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "HandleVerification",
-            "$ref" : "#/definitions/HandleVerification"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/{reference}" : {
-      "get" : {
-        "tags" : [ "ContactVerification Tasks" ],
-        "summary" : "Get ContactVerification",
-        "description" : "Inquire the data for the specified verification.",
-        "operationId" : "verificationInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "reference",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/{reference}/_confirm" : {
-      "put" : {
-        "tags" : [ "ContactVerification Tasks" ],
-        "summary" : "confirm ContactVerification",
-        "description" : "confirm an existing verification.",
-        "operationId" : "verificationConfirm",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "contactVerification",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "HandleVerification",
-            "$ref" : "#/definitions/HandleVerification"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/{reference}/_resendEmail" : {
-      "put" : {
-        "tags" : [ "ContactVerification Tasks" ],
-        "summary" : "resendEmail ContactVerification",
-        "description" : "confirm an existing verification.",
-        "operationId" : "verificationResendEmail",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "contactVerification",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "HandleVerification",
-            "$ref" : "#/definitions/HandleVerification"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataHandleVerification",
-              "$ref" : "#/definitions/JsonResponseDataHandleVerification"
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
             }
           }
         }
@@ -4657,6 +4578,250 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/contact/{id}/verification" : {
+      "get" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Gets a contact verification",
+        "description" : "Gets the data for the specified verification.",
+        "operationId" : "verificationInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Creates a contact verification entry",
+        "description" : "Creates a new contact verification.",
+        "operationId" : "verificationCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "ContactVerification",
+            "$ref" : "#/definitions/ContactVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      }
+    },
+    "/contact/{id}/verification/_resendEmail" : {
+      "put" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Resends the email of the contact verification",
+        "description" : "Resends the email for an existing verification.",
+        "operationId" : "verificationResendEmail",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
             }
           }
         }
@@ -6972,6 +7137,187 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataDomainSafeObject",
               "$ref" : "#/definitions/JsonResponseDataDomainSafeObject"
+            }
+          }
+        }
+      }
+    },
+    "/domainprereg" : {
+      "post" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "Create DomainPrereg",
+        "description" : "Create a new domain preregistration.",
+        "operationId" : "domainPreregCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domainPrereg",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/domainprereg/_search" : {
+      "post" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "List DomainPrereg",
+        "description" : "Inquire a list of domain preregistrations with certain details. The data to be displayed can be extended per url paremeter.",
+        "operationId" : "domainPreregList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            }
+          }
+        }
+      }
+    },
+    "/domainprereg/{reference}" : {
+      "get" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "Get DomainPrereg",
+        "description" : "Fetch the data for the specified domain preregistration.",
+        "operationId" : "domainPreregInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "Update DomainPrereg",
+        "description" : "Update an existing domain preregistration.",
+        "operationId" : "domainPreregUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domainPrereg",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainPrereg",
+            "$ref" : "#/definitions/DomainPrereg"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "Delete DomainPrereg",
+        "description" : "Delete an existing domain preregistration.",
+        "operationId" : "domainPreregDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/domainprereg/{reference}/_confirm" : {
+      "put" : {
+        "tags" : [ "DomainPrereg Tasks" ],
+        "summary" : "Confirm DomainPrereg",
+        "description" : "Confirm an existing domain preregistration.",
+        "operationId" : "confirmPrereg",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainPrereg",
+              "$ref" : "#/definitions/JsonResponseDataDomainPrereg"
             }
           }
         }
@@ -9708,6 +10054,85 @@
         }
       }
     },
+    "/mailServiceMessage/{id}" : {
+      "get" : {
+        "tags" : [ "Mail Tasks" ],
+        "summary" : "Get the mail message",
+        "description" : "Fetch the data for the mail entry.",
+        "operationId" : "mailInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataMailServiceMessage",
+              "$ref" : "#/definitions/JsonResponseDataMailServiceMessage"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataMailServiceMessage",
+              "$ref" : "#/definitions/JsonResponseDataMailServiceMessage"
+            }
+          }
+        }
+      }
+    },
     "/object/_assignment" : {
       "put" : {
         "tags" : [ "ObjectUserAssignment tasks" ],
@@ -11203,6 +11628,194 @@
         }
       }
     },
+    "/tmchMark" : {
+      "post" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "Create TmchMark",
+        "description" : "Create a new TmchMark.",
+        "operationId" : "tmchCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "tmchMark",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TmchMark",
+            "$ref" : "#/definitions/TmchMark"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/_import" : {
+      "post" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "Import TmchMark",
+        "description" : "Import an existing TmchMark.",
+        "operationId" : "tmchImport",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "tmchMark",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TmchMark",
+            "$ref" : "#/definitions/TmchMark"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/_search" : {
+      "post" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "List TmchMark",
+        "description" : "Inquire a list of TmchMark with certain details.",
+        "operationId" : "tmchList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTmchMark",
+              "$ref" : "#/definitions/JsonResponseDataTmchMark"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTmchMark",
+              "$ref" : "#/definitions/JsonResponseDataTmchMark"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/_transfer" : {
+      "post" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "Transfer TmchMark",
+        "description" : "Transfer an existing TmchMark.",
+        "operationId" : "tmchTransfer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "tmchMark",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TmchMark",
+            "$ref" : "#/definitions/TmchMark"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/{reference}" : {
+      "get" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "Get TmchMark",
+        "description" : "Get the TmchMark entry for the given reference.",
+        "operationId" : "tmchInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "reference",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Tmch Tasks" ],
+        "summary" : "Delete TmchMark",
+        "description" : "Delete the TmchMark entry for the given reference.",
+        "operationId" : "tmchDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "reference",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
     "/transferout/_search" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
@@ -12431,9 +13044,87 @@
         }
       }
     },
+    "/user/_sso/{token}" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Verify sso action",
+        "description" : "applies a verification code for a signle sign on.",
+        "operationId" : "userSSOVerification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataUser",
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            }
+          }
+        }
+      }
+    },
     "/user/_verify/{token}" : {
       "get" : {
-        "tags" : [ "User verification confirm" ],
+        "tags" : [ "User" ],
         "summary" : "verify user action",
         "description" : "applies a verification code for an user action.",
         "operationId" : "userConfirmVerification",
@@ -16016,6 +16707,85 @@
         }
       }
     },
+    "ContactVerification" : {
+      "type" : "object",
+      "required" : [ "confirmIp", "contact" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "the unique reference of the Verification"
+        },
+        "messageSend" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the messageSend date of the Verification"
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the confirmed date of the Verification"
+        },
+        "confirmIp" : {
+          "description" : "the confirmIp of the Verification",
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "failed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the failed date of the Verification"
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "the domains of the Verification",
+          "items" : {
+            "originalRef" : "ContactVerificationDomain",
+            "$ref" : "#/definitions/ContactVerificationDomain"
+          }
+        },
+        "verificationMails" : {
+          "type" : "array",
+          "description" : "the messages of the Verification",
+          "items" : {
+            "originalRef" : "ContactVerificationMessage",
+            "$ref" : "#/definitions/ContactVerificationMessage"
+          }
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "the comment of the Verification"
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "the action of the Verification, e.g. domain update or contact task"
+        },
+        "contact" : {
+          "description" : "the contact of the Verification",
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        }
+      }
+    },
     "ContactVerificationDomain" : {
       "type" : "object",
       "properties" : {
@@ -16064,8 +16834,8 @@
         },
         "mail" : {
           "description" : "the email of the VerificationMessage",
-          "originalRef" : "Message",
-          "$ref" : "#/definitions/Message"
+          "originalRef" : "MailServiceMessage",
+          "$ref" : "#/definitions/MailServiceMessage"
         },
         "status" : {
           "description" : "the status of the VerificationMessage",
@@ -16365,6 +17135,10 @@
     },
     "DNSSecJob" : {
       "type" : "object"
+    },
+    "DeliveryStatus" : {
+      "type" : "string",
+      "enum" : [ "PENDING", "SUCCESS", "FAILED", "EXPIRED", "ATTEMPTING", "PARTIAL" ]
     },
     "Document" : {
       "type" : "object",
@@ -17565,7 +18339,7 @@
     },
     "DomainStudioDomainSource" : {
       "type" : "string",
-      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED", "CUSTOM" ]
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED", "CUSTOM", "ONLINE_PRESENCE" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
@@ -17739,10 +18513,6 @@
             "$ref" : "#/definitions/DomainEnvelopeSearchService"
           }
         },
-        "language" : {
-          "type" : "string",
-          "description" : "Suggestion language"
-        },
         "max" : {
           "type" : "integer",
           "format" : "int32",
@@ -17757,17 +18527,67 @@
           "type" : "boolean",
           "description" : "Suggested domains with dash"
         },
-        "useNumber" : {
-          "type" : "boolean",
-          "description" : "Suggested domains with numbers"
-        },
-        "useIdn" : {
-          "type" : "boolean",
-          "description" : "Suggested domains with idn"
-        },
         "tlds" : {
           "type" : "array",
           "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "onlinePresenceUrl" : {
+          "type" : "string",
+          "description" : "The primary online presence URL."
+        },
+        "onlinePresenceTitle" : {
+          "type" : "string",
+          "description" : "The title of a website or a page."
+        },
+        "relatedUrls" : {
+          "type" : "string",
+          "description" : "Business category."
+        },
+        "onlinePresenceDescription" : {
+          "type" : "string",
+          "description" : "Description of the page."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "Preferred name. This parameter value isused to create exact match suggestions inpreferred TLDs prioritizing them aboveother suggestions."
+        },
+        "location" : {
+          "type" : "string",
+          "description" : "Location of the business."
+        },
+        "business" : {
+          "type" : "boolean",
+          "description" : "A flag indicating if the online presence is a business ornot."
+        },
+        "shortName" : {
+          "type" : "string",
+          "description" : "Short name (nick name)."
+        },
+        "fullName" : {
+          "type" : "string",
+          "description" : "Full name."
+        },
+        "firstName" : {
+          "type" : "string",
+          "description" : "First name."
+        },
+        "middleNames" : {
+          "type" : "array",
+          "description" : "List of middle names.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "Hometown."
+        },
+        "skills" : {
+          "type" : "array",
+          "description" : "List of skills.",
           "items" : {
             "type" : "string"
           }
@@ -17811,6 +18631,11 @@
           "description" : "The configuration for the custom source",
           "originalRef" : "DomainStudioSourceCustom",
           "$ref" : "#/definitions/DomainStudioSourceCustom"
+        },
+        "onlinePresence" : {
+          "description" : "The configuration for the online presence source",
+          "originalRef" : "DomainStudioSourceSuggestion",
+          "$ref" : "#/definitions/DomainStudioSourceSuggestion"
         }
       }
     },
@@ -18073,85 +18898,6 @@
     "GenericStatusConstants" : {
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
-    },
-    "HandleVerification" : {
-      "type" : "object",
-      "required" : [ "confirmIp", "handle" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "reference" : {
-          "type" : "string",
-          "description" : "the reference of the Verification"
-        },
-        "messageSend" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "the messageSend date of the Verification"
-        },
-        "confirmed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "the confirmed date of the Verification"
-        },
-        "confirmIp" : {
-          "description" : "the confirmIp of the Verification",
-          "originalRef" : "InetAddress",
-          "$ref" : "#/definitions/InetAddress"
-        },
-        "failed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "the failed date of the Verification"
-        },
-        "domain" : {
-          "type" : "array",
-          "description" : "the domains of the Verification",
-          "items" : {
-            "originalRef" : "ContactVerificationDomain",
-            "$ref" : "#/definitions/ContactVerificationDomain"
-          }
-        },
-        "verificationMail" : {
-          "type" : "array",
-          "description" : "the messages of the Verification",
-          "items" : {
-            "originalRef" : "ContactVerificationMessage",
-            "$ref" : "#/definitions/ContactVerificationMessage"
-          }
-        },
-        "comment" : {
-          "type" : "string",
-          "description" : "the comment of the Verification"
-        },
-        "action" : {
-          "type" : "string",
-          "description" : "the action of the Verification"
-        },
-        "handle" : {
-          "description" : "the contact of the Verification",
-          "originalRef" : "Contact",
-          "$ref" : "#/definitions/Contact"
-        }
-      }
     },
     "HkDocumentTypeConstants" : {
       "type" : "string",
@@ -18773,6 +19519,45 @@
         }
       }
     },
+    "JsonResponseDataContactVerification" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "ContactVerification",
+            "$ref" : "#/definitions/ContactVerification"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataDomain" : {
       "type" : "object",
       "properties" : {
@@ -19077,45 +19862,6 @@
           "items" : {
             "originalRef" : "DomainSafeUser",
             "$ref" : "#/definitions/DomainSafeUser"
-          }
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The client transaction id for the response."
-        }
-      }
-    },
-    "JsonResponseDataHandleVerification" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction id for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "originalRef" : "Message",
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "originalRef" : "ResponseStatus",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The object of the response.",
-          "originalRef" : "ResponseObject",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
-          "items" : {
-            "originalRef" : "HandleVerification",
-            "$ref" : "#/definitions/HandleVerification"
           }
         },
         "ctid" : {
@@ -19655,6 +20401,45 @@
         }
       }
     },
+    "JsonResponseDataMailServiceMessage" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "MailServiceMessage",
+            "$ref" : "#/definitions/MailServiceMessage"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataOTPAuth" : {
       "type" : "object",
       "properties" : {
@@ -19958,6 +20743,45 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "type" : "string"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataTmchMark" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "TmchMark",
+            "$ref" : "#/definitions/TmchMark"
           }
         },
         "ctid" : {
@@ -20319,6 +21143,52 @@
           "description" : "The exculded listed email addresses",
           "originalRef" : "MailList",
           "$ref" : "#/definitions/MailList"
+        }
+      }
+    },
+    "MailServiceMessage" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "the id of the message entry"
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "The message id of the email"
+        },
+        "from" : {
+          "type" : "string",
+          "description" : "The mail from header",
+          "x-custom-type" : "email"
+        },
+        "subject" : {
+          "type" : "string",
+          "description" : "the subject of the email"
+        },
+        "status" : {
+          "description" : "the actual delivery status of the email",
+          "originalRef" : "DeliveryStatus",
+          "$ref" : "#/definitions/DeliveryStatus"
+        },
+        "recipients" : {
+          "type" : "array",
+          "description" : "the recipients of the email",
+          "items" : {
+            "originalRef" : "Recipient",
+            "$ref" : "#/definitions/Recipient"
+          }
         }
       }
     },
@@ -21075,6 +21945,90 @@
     "RddsOptInConstants" : {
       "type" : "string",
       "enum" : [ "NOT_SET", "OWNERC", "ADMINC", "OWNERC_ADMINC", "TECHC", "OWNERC_TECHC", "ADMINC_TECHC", "ALL" ]
+    },
+    "Recipient" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "the email address of the recipient",
+          "x-custom-type" : "email"
+        },
+        "role" : {
+          "description" : "The recipients role",
+          "originalRef" : "RecipientRole",
+          "$ref" : "#/definitions/RecipientRole"
+        },
+        "status" : {
+          "description" : "The actual delivery status of the email",
+          "originalRef" : "DeliveryStatus",
+          "$ref" : "#/definitions/DeliveryStatus"
+        },
+        "attempt" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date of the next attempt"
+        },
+        "attemptCount" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The number of attempts"
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date after the mail delivery will be expire."
+        },
+        "logs" : {
+          "type" : "array",
+          "description" : "The trace logs of each attempt",
+          "items" : {
+            "originalRef" : "RecipientLog",
+            "$ref" : "#/definitions/RecipientLog"
+          }
+        }
+      }
+    },
+    "RecipientLog" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "host" : {
+          "type" : "string",
+          "description" : "the hostname of the mail exchange"
+        },
+        "lastResponse" : {
+          "type" : "string",
+          "description" : "the last reponse of the server communication"
+        },
+        "trace" : {
+          "type" : "string",
+          "description" : "the trace lof the commonication"
+        }
+      }
+    },
+    "RecipientRole" : {
+      "type" : "string",
+      "enum" : [ "TO", "CC", "BCC" ]
     },
     "Redirect" : {
       "type" : "object",
@@ -22455,11 +23409,25 @@
       "type" : "object",
       "required" : [ "flag", "key", "value" ],
       "properties" : {
-        "flag" : {
-          "example" : "FIX",
-          "description" : "The mode of the entry",
-          "originalRef" : "UserProfileFlag",
-          "$ref" : "#/definitions/UserProfileFlag"
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
         },
         "key" : {
           "type" : "string",
@@ -22470,6 +23438,12 @@
           "type" : "string",
           "example" : "12345",
           "description" : "The value of the key"
+        },
+        "flag" : {
+          "example" : "FIX",
+          "description" : "The mode of the entry",
+          "originalRef" : "UserProfileFlag",
+          "$ref" : "#/definitions/UserProfileFlag"
         },
         "readonly" : {
           "type" : "boolean",
