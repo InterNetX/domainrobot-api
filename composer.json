@@ -1,0 +1,11 @@
+{
+    "name": "internetx/internetx-swagger-files",
+    "description": "All the files needed to interact with the InterNetX APIs. The files help to create documentation and models matching the API.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "IXSwagger\\": "src/"
+        }
+    }
+}
