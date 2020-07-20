@@ -8,7 +8,7 @@ All the files needed to interact with the InterNetX APIs. The files help to crea
    * [Domainrobot SDKs](#domainrobot-sdks)
    * [Documentation](#documentation)
 2. [Changelog](#changelog)
-3. [License](#license
+3. [License](#license)
 
 ## Domainrobot API
 
