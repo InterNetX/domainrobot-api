@@ -12,7 +12,7 @@ All the files needed to interact with the InterNetX APIs. The files help to crea
 
 ## Domainrobot API
 
-The *Domainrobot API* is a powerfull, professional api for managing domains, certificates, dns and much more. The api can be accessed via three different interfaces :
+The *Domainrobot API* is a powerfull, professional API for managing domains, certificates, dns and much more. The API can be accessed via three different interfaces :
 
 * JSON
 * XML
