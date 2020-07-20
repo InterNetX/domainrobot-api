@@ -1,38 +1,44 @@
-# InterNetX-Swagger-Files
-All the files needed to interact with the InterNetX APIs. The files help to create documentation and models matching the API. 
+# Domainrobot Api
+
+All the files needed to interact with the InterNetX APIs. The files help to create documentation and models matching the API.
 
 ## Table of Contents
-1. [API](#api)
-   * [Product Store](#product-store)
-   * [Domainrobot JSON API](#domainrobot-json-api)
+
+1. [Domainrobot API](#domainrobot-api)
+   * [Domainrobot SDKs](#domainrobot-sdks)
+   * [Documentation](#documentation)
 2. [Changelog](#changelog)
-3. [Authors](#authors)
-4. [Swagger](#swagger)
-5. [License](#license)
+3. [License](#license
 
-## API
-Short information about all APIs offered by InterNetX.
+## Domainrobot API
 
-### Product Store
-#### About
-The "Product Store" is a central service that provides information about the products offered by InterNetX. The product information can be retrieved via a REST API.
-#### URL
-The API can be accessed via the following URL: https://api.autodns.com/productstore/v1/
-### Domainrobot JSON API
-#### About
-Domainrobot JSON API for managing Domains, SSL Certificates, DNS and much more.
-#### URL
-The API can be accessed via the following URL: https://api.autodns.com/v1
+Domainrobot API is a powerfull, professional api for managing domains, certificates, dns and much more. The api can be accessed via three different interfaces :
+
+* JSON
+* XML
+* EPP
+
+### Domainrobot SDKs
+
+Several Software Development Kit's (SDK's) are available for implementing the JSON API.
+
+* Java: <https://github.com/InterNetX/java-domainrobot-sdk>
+* Php: <https://github.com/InterNetX/php-domainrobot-sdk>
+* Dart: <https://github.com/InterNetX/dart-domainrobot-sdk>
+* Js: <https://github.com/InterNetX/js-domainrobot-sdk>
+
+**Note:** All SDKs rely on the JSON API.
+
+### Documentation
+
+A full documentation about the API can be found at <https://help.internetx.com/>.
+
+**Note:** There is also a [specification](/src/domainrobot.json) available for the JSON API using the Open API V2 standard.
 
 ## Changelog
-### 1.0.0
-* Initial Release
 
-## Authors
-* **Daniel Linsenmeier** - *Initial work*
-
-## Swagger
-Swagger is a powerful yet easy-to-use suite of API developer tools for teams and individuals, enabling development across the entire API lifecycle, from design and documentation, to test and deployment. More information at https://swagger.io.
+For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
