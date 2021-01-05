@@ -62,8 +62,6 @@
   }, {
     "name" : "Redirect bulk Tasks"
   }, {
-    "name" : "SSL Contact Tasks"
-  }, {
     "name" : "Session Tasks"
   }, {
     "name" : "SslContact Tasks"
@@ -79,6 +77,8 @@
     "name" : "User 2fa tasks"
   }, {
     "name" : "User Tasks"
+  }, {
+    "name" : "UserTaskLimit Task"
   }, {
     "name" : "Zone Bulk Tasks"
   }, {
@@ -150,6 +150,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -234,6 +240,12 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -312,6 +324,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -405,6 +423,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "account",
           "required" : false,
@@ -490,6 +514,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -586,6 +616,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -672,6 +708,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -768,6 +810,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -848,6 +896,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -935,6 +989,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1038,6 +1098,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1147,6 +1213,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "domain",
           "in" : "path",
           "required" : true,
@@ -1227,6 +1299,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1331,6 +1409,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "backupMxs",
@@ -1415,6 +1499,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1511,6 +1601,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "certificates",
@@ -1600,6 +1696,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "sources",
@@ -1684,6 +1786,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1780,6 +1888,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -1864,6 +1978,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -1960,6 +2080,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2044,6 +2170,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -2140,6 +2272,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2226,6 +2364,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -2322,6 +2466,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2413,6 +2563,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2497,6 +2653,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -2593,6 +2755,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2679,6 +2847,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -2775,6 +2949,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -2861,6 +3041,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -2955,6 +3141,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "cancelations",
@@ -3039,6 +3231,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -3135,6 +3333,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -3224,6 +3428,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -3308,6 +3518,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -3404,6 +3620,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domains",
@@ -3490,6 +3712,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -3584,6 +3812,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "sources",
@@ -3668,6 +3902,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -3764,6 +4004,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "objects",
@@ -3850,6 +4096,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -3944,6 +4196,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "sources",
@@ -4028,6 +4286,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -4124,6 +4388,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "zones",
@@ -4213,6 +4483,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "zones",
@@ -4297,6 +4573,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -4393,6 +4675,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "zones",
@@ -4479,6 +4767,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -4575,6 +4869,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "required" : false,
@@ -4663,6 +4963,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -4772,6 +5078,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "certificateData",
@@ -4863,6 +5175,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "certificate",
@@ -4949,6 +5267,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -5058,6 +5382,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -5139,6 +5469,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -5252,6 +5588,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -5353,6 +5695,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -5445,6 +5793,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -5560,6 +5914,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -5670,6 +6030,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "contact",
           "required" : false,
@@ -5680,6 +6046,19 @@
           "x-examples" : {
             "application/json" : "{\n  \"alias\": \"John-Doe-1\",\n  \"type\": \"PERSON\",\n  \"organization\": \"Company\",\n  \"title\": \"Dr.\",\n  \"city\": \"Anytown\",\n  \"country\": \"DE\",\n  \"state\": \"BY\",\n  \"email\": \"john.doe@domain.com\",\n  \"fname\": \"John\",\n  \"lname\": \"Doe\",\n  \"address\": [\n    \"addbfdgfdgfdress\"\n  ],\n  \"pcode\": \"12345\",\n  \"phone\": \"+49-123-12345\",\n  \"fax\": \"+49-123-12345\"\n}"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter wich enables the force mode if the key is set.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=force_handle_create",
+            "enum" : [ "{force_handle_create}" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=force_handle_create"
         } ],
         "responses" : {
           "200" : {
@@ -5758,6 +6137,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -5867,6 +6252,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "reference",
           "in" : "query",
           "required" : false,
@@ -5949,6 +6340,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6045,6 +6442,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6154,6 +6557,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "reference",
           "in" : "query",
           "required" : false,
@@ -6236,6 +6645,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6345,6 +6760,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -6426,6 +6847,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6526,6 +6953,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -6609,6 +7042,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6711,6 +7150,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -6792,6 +7237,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -6885,6 +7336,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -6966,6 +7423,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -7068,6 +7531,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -7156,6 +7625,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "alias",
           "in" : "path",
           "required" : true,
@@ -7238,6 +7713,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -7346,6 +7827,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domain",
@@ -7432,6 +7919,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -7528,6 +8021,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -7637,6 +8136,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "services",
@@ -7740,6 +8245,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domain",
@@ -7838,6 +8349,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -7947,6 +8464,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -8051,6 +8574,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8131,6 +8660,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -8238,6 +8773,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8318,6 +8859,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -8410,6 +8957,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8497,6 +9050,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8579,6 +9138,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -8680,6 +9245,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8765,6 +9336,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -8780,6 +9357,108 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJsonNoData",
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
+    "/domain/{name}/_ownerChange" : {
+      "put" : {
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Owner Change",
+        "description" : "Changing the ownerc of an existing domain.",
+        "operationId" : "ownercChange",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domain",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Domain",
+            "$ref" : "#/definitions/Domain"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataJob",
+              "$ref" : "#/definitions/JsonResponseDataJob"
             }
           }
         }
@@ -8847,6 +9526,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -8954,6 +9639,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -9045,6 +9736,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -9146,6 +9843,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -9242,6 +9945,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -9322,6 +10031,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -9416,6 +10131,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -9505,6 +10226,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -10167,6 +10894,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "search",
@@ -10186,6 +10919,196 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataDomainEnvelope",
               "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
+            }
+          }
+        }
+      }
+    },
+    "/domainstudio/socialmedia" : {
+      "post" : {
+        "tags" : [ "DomainStudio" ],
+        "summary" : "Powerful search api for free domains, premium domains and alternate domain names.",
+        "description" : "Configurable search results",
+        "operationId" : "domainstudiaSocalMediaCheck",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "search",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "DomainEnvelopeSearchRequest",
+            "$ref" : "#/definitions/DomainEnvelopeSearchRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataDomainEnvelope",
+              "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataDomainEnvelope",
+              "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
+            }
+          }
+        }
+      }
+    },
+    "/email/_verify/{token}" : {
+      "get" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "Email Action Verify",
+        "description" : "Applying a verification code for an email address.",
+        "operationId" : "emailConfirmVerification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "token",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -10253,6 +11176,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -10342,6 +11271,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -10438,6 +11373,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -10529,6 +11470,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -10609,6 +11556,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -10696,6 +11649,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -10792,6 +11751,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -10883,6 +11848,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -10963,6 +11934,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -11055,6 +12032,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -11137,6 +12120,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -11246,6 +12235,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -11329,6 +12324,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -11438,6 +12439,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -11542,6 +12549,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -11630,6 +12643,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -11713,6 +12732,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -11807,6 +12832,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -11891,6 +12922,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -11984,6 +13021,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -12067,6 +13110,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -12161,6 +13210,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -12245,6 +13300,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -12338,6 +13399,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -12426,6 +13493,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -12509,6 +13582,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -12646,6 +13725,12 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -12724,6 +13809,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -12827,6 +13918,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -12936,6 +14033,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "domain",
           "in" : "path",
           "required" : true,
@@ -13016,6 +14119,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13110,6 +14219,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13214,6 +14329,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -13297,6 +14418,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13393,6 +14520,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "object",
@@ -13483,6 +14616,12 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -13561,6 +14700,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13648,6 +14793,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13751,6 +14902,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -13860,6 +15017,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "source",
           "in" : "path",
           "required" : true,
@@ -13940,6 +15103,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14034,6 +15203,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14138,6 +15313,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "sslcontact",
           "required" : false,
@@ -14228,6 +15409,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -14267,7 +15454,7 @@
     },
     "/sslcontact/{id}" : {
       "get" : {
-        "tags" : [ "SSL Contact Tasks" ],
+        "tags" : [ "SslContact Tasks" ],
         "summary" : "SSL Contact Info",
         "description" : "Inquiring the data for a specified SSL contact.",
         "operationId" : "sslContactInfo",
@@ -14327,6 +15514,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14413,6 +15606,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14513,6 +15712,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -14596,6 +15801,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14692,6 +15903,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "subscription",
           "required" : false,
@@ -14777,6 +15994,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -14873,6 +16096,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "subscription",
@@ -14957,6 +16186,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -15050,6 +16285,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "subscription",
@@ -15069,6 +16310,198 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataPeriodicBilling",
               "$ref" : "#/definitions/JsonResponseDataPeriodicBilling"
+            }
+          }
+        }
+      }
+    },
+    "/subscription/{contractId}/cancelation" : {
+      "post" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "Subscription create cancelation",
+        "description" : "adds a cancelation for the subscription.",
+        "operationId" : "subscriptionCancelationCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Specifies the date of the cancelation execution. If not set the expire of the subscritn is used. Example : ?date=2020-10-21",
+          "required" : false,
+          "type" : "date"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Subscription Tasks" ],
+        "summary" : "Subscription remove cancalation",
+        "description" : "Removes an existing cancelation.",
+        "operationId" : "subscriptionCancelationDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataVoid",
+              "$ref" : "#/definitions/JsonResponseDataVoid"
             }
           }
         }
@@ -15610,6 +17043,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -15714,6 +17153,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "domain",
           "in" : "path",
           "required" : true,
@@ -15801,6 +17246,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -15898,6 +17349,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -15980,6 +17437,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16071,6 +17534,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16180,6 +17649,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -16261,6 +17736,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16374,6 +17855,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,
@@ -16457,6 +17944,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16552,6 +18045,12 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -16628,6 +18127,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16710,6 +18215,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16806,6 +18317,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "token",
           "in" : "path",
           "required" : true,
@@ -16889,6 +18406,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -16990,6 +18513,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "token",
           "in" : "path",
           "required" : true,
@@ -17072,6 +18601,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -17168,6 +18703,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "token",
           "in" : "path",
           "required" : true,
@@ -17255,6 +18796,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "token",
           "in" : "path",
           "required" : true,
@@ -17337,6 +18884,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -17448,6 +19001,12 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -17459,6 +19018,94 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataBillingObjectTerms",
               "$ref" : "#/definitions/JsonResponseDataBillingObjectTerms"
+            }
+          }
+        }
+      }
+    },
+    "/user/tasklimit" : {
+      "get" : {
+        "tags" : [ "UserTaskLimit Task" ],
+        "summary" : "User Limit Limit Info",
+        "description" : "Inquiring the user limit data for the logged in user.",
+        "operationId" : "userTaskLimitInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTaskUserLimit",
+              "$ref" : "#/definitions/JsonResponseDataTaskUserLimit"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTaskUserLimit",
+              "$ref" : "#/definitions/JsonResponseDataTaskUserLimit"
             }
           }
         }
@@ -17526,6 +19173,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -17657,6 +19310,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -17751,6 +19410,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -17852,6 +19517,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -17962,6 +19633,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18067,6 +19744,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18161,6 +19844,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -18267,6 +19956,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18368,6 +20063,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18462,6 +20163,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -18568,6 +20275,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18669,6 +20382,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18763,6 +20482,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -18869,6 +20594,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -18970,6 +20701,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "zone",
@@ -19056,6 +20793,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -19165,6 +20908,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "query",
@@ -19269,6 +21018,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "logId",
           "in" : "path",
           "required" : true,
@@ -19352,6 +21107,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -19466,6 +21227,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -19551,6 +21318,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -19655,6 +21428,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -19740,6 +21519,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -19846,6 +21631,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -19933,6 +21724,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -20034,6 +21831,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -20153,6 +21956,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "name" : "name",
           "in" : "path",
           "required" : true,
@@ -20238,6 +22047,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -20330,6 +22145,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -20431,6 +22252,12 @@
           "type" : "string"
         }, {
           "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
           "type" : "integer",
@@ -20797,6 +22624,20 @@
         }
       }
     },
+    "BasicCertificate" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id of stored certificate"
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "The certificate product"
+        }
+      }
+    },
     "BasicCustomer" : {
       "type" : "object",
       "required" : [ "addressLines", "client", "country", "name", "number", "payment" ],
@@ -20897,9 +22738,10 @@
           "description" : "The payment mode of the customer."
         },
         "paymentCurrency" : {
+          "type" : "string",
+          "example" : "EUR",
           "description" : "The payment currency of the customer.",
-          "originalRef" : "Currency",
-          "$ref" : "#/definitions/Currency"
+          "x-custom-type" : "currency"
         },
         "discountValid" : {
           "type" : "string",
@@ -20927,12 +22769,20 @@
             "$ref" : "#/definitions/CustomerContract"
           }
         },
-        "billingUsers" : {
+        "autodelete" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the customer is autodelete"
+        },
+        "pending" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the customer data are pending"
+        },
+        "verifications" : {
           "type" : "array",
-          "description" : "The billing users.",
+          "description" : "Shows the pending email verifications",
           "items" : {
-            "originalRef" : "BasicUser",
-            "$ref" : "#/definitions/BasicUser"
+            "originalRef" : "BasicCustomerSpoolVerification",
+            "$ref" : "#/definitions/BasicCustomerSpoolVerification"
           }
         },
         "account" : {
@@ -20940,14 +22790,13 @@
           "originalRef" : "Account",
           "$ref" : "#/definitions/Account"
         },
-        "clearAccount" : {
-          "description" : "The period after the post payment account will be cleared to zero",
-          "originalRef" : "ClearAccountPeriod",
-          "$ref" : "#/definitions/ClearAccountPeriod"
-        },
-        "autodelete" : {
-          "type" : "boolean",
-          "description" : "Flag indication if the customer is autodelete"
+        "billingUsers" : {
+          "type" : "array",
+          "description" : "The billing users.",
+          "items" : {
+            "originalRef" : "BasicUser",
+            "$ref" : "#/definitions/BasicUser"
+          }
         },
         "fname" : {
           "type" : "string",
@@ -20969,6 +22818,35 @@
           "description" : "The customers sepa mandate if payament was post with sepa.",
           "originalRef" : "SEPAMandate",
           "$ref" : "#/definitions/SEPAMandate"
+        }
+      }
+    },
+    "BasicCustomerSpoolVerification" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "The email address to verify"
+        },
+        "status" : {
+          "description" : "The status of the verification",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "customer" : {
+          "description" : "The related customer",
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
         }
       }
     },
@@ -21045,6 +22923,14 @@
           "type" : "string",
           "description" : "The user name.",
           "pattern" : "^[^_].*"
+        }
+      }
+    },
+    "BillingEventExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "externalReference" : {
+          "type" : "string"
         }
       }
     },
@@ -21973,6 +23859,13 @@
             "$ref" : "#/definitions/SubjectAlternativeName"
           }
         },
+        "clientEmails" : {
+          "type" : "array",
+          "description" : "The emails to secure within an s/mime certificate.",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "histories" : {
           "type" : "array",
           "description" : "The history of the certificate (old certificate versions)",
@@ -22183,9 +24076,6 @@
     "ConditionType" : {
       "type" : "string",
       "enum" : [ "AND", "OR" ]
-    },
-    "Configuration" : {
-      "type" : "object"
     },
     "Contact" : {
       "type" : "object",
@@ -23079,14 +24969,61 @@
           "type" : "boolean",
           "description" : "Show if host is default value"
         },
+        "csr" : {
+          "type" : "string",
+          "description" : "The csr of the certificate"
+        },
+        "serverCert" : {
+          "type" : "string",
+          "description" : "The server certificate."
+        },
+        "caCert" : {
+          "type" : "string",
+          "description" : "The intermediates of the certificate"
+        },
         "status" : {
           "description" : "The job status",
           "originalRef" : "JobStatusConstants",
           "$ref" : "#/definitions/JobStatusConstants"
         },
+        "subStatus" : {
+          "type" : "string",
+          "description" : "The job substatus"
+        },
+        "zone" : {
+          "description" : "The zones of the host",
+          "originalRef" : "ContextHostZone",
+          "$ref" : "#/definitions/ContextHostZone"
+        },
+        "certificate" : {
+          "description" : "The zones of the host",
+          "originalRef" : "BasicCertificate",
+          "$ref" : "#/definitions/BasicCertificate"
+        },
         "name" : {
           "type" : "string",
           "description" : "The host name"
+        }
+      }
+    },
+    "ContextHostZone" : {
+      "type" : "object",
+      "properties" : {
+        "origin" : {
+          "type" : "string",
+          "description" : "The zone origin"
+        },
+        "sub" : {
+          "type" : "string",
+          "description" : "The name of the sub zone"
+        },
+        "zones" : {
+          "type" : "array",
+          "description" : "The found zone entries",
+          "items" : {
+            "originalRef" : "HostSubZone",
+            "$ref" : "#/definitions/HostSubZone"
+          }
         }
       }
     },
@@ -23283,6 +25220,26 @@
           "type" : "boolean",
           "description" : "Flag indication if the customer is autodelete"
         },
+        "pending" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the customer data are pending"
+        },
+        "verifications" : {
+          "type" : "array",
+          "description" : "Shows the pending email verifications",
+          "items" : {
+            "originalRef" : "BasicCustomerSpoolVerification",
+            "$ref" : "#/definitions/BasicCustomerSpoolVerification"
+          }
+        },
+        "tags" : {
+          "type" : "array",
+          "description" : "The customers tags.",
+          "items" : {
+            "originalRef" : "CustomerTag",
+            "$ref" : "#/definitions/CustomerTag"
+          }
+        },
         "fname" : {
           "type" : "string",
           "description" : "The first name.",
@@ -23332,6 +25289,27 @@
         "ticketNumber" : {
           "type" : "string",
           "description" : "The ticketing number if available."
+        }
+      }
+    },
+    "CustomerTag" : {
+      "type" : "object",
+      "required" : [ "tag" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "tag" : {
+          "description" : "The tag.",
+          "originalRef" : "GenericLabelEntity",
+          "$ref" : "#/definitions/GenericLabelEntity"
         }
       }
     },
@@ -23808,39 +25786,6 @@
         "searchToken" : {
           "type" : "string",
           "description" : "Domain search token"
-        },
-        "currency" : {
-          "type" : "string",
-          "description" : "The currency for every price lookup"
-        },
-        "debug" : {
-          "type" : "boolean",
-          "description" : "Activates debugging"
-        },
-        "checkPortfolio" : {
-          "type" : "boolean",
-          "description" : "Activates the check for each domain whether the user already owns it."
-        },
-        "forceDnsCheck" : {
-          "type" : "boolean",
-          "description" : "All whois checks will be done via dns check."
-        },
-        "allowDuplicates" : {
-          "type" : "boolean",
-          "description" : "Allow duplicate domain names from different sources."
-        },
-        "sources" : {
-          "description" : "Wrapper for the configuration for each source",
-          "originalRef" : "DomainStudioSources",
-          "$ref" : "#/definitions/DomainStudioSources"
-        },
-        "clientIp" : {
-          "type" : "string",
-          "description" : "The ip of the client"
-        },
-        "onlyAvailable" : {
-          "type" : "boolean",
-          "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         }
       }
     },
@@ -24621,7 +26566,7 @@
     },
     "DomainStudioDomainSource" : {
       "type" : "string",
-      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED", "CUSTOM", "ONLINE_PRESENCE", "SPIN_WORD", "PERSONAL_NAMES", "UPCOMING" ]
+      "enum" : [ "INITIAL", "SUGGESTION", "PREMIUM", "GEO", "SIMILAR", "RECOMMENDED", "CUSTOM", "ONLINE_PRESENCE", "SPIN_WORD", "PERSONAL_NAMES", "UPCOMING", "MARKET" ]
     },
     "DomainStudioDomainStatus" : {
       "type" : "string",
@@ -24718,6 +26663,42 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "DomainStudioSourceMarket" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "originalRef" : "DomainEnvelopeSearchService",
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "onlyAvailable" : {
+          "type" : "boolean",
+          "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "promoTlds" : {
+          "type" : "array",
+          "description" : "Promo tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "topTlds" : {
+          "type" : "array",
+          "description" : "Top tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum amount of fetched premium and market domains."
         }
       }
     },
@@ -25178,6 +27159,11 @@
           "originalRef" : "DomainStudioSourcePremium",
           "$ref" : "#/definitions/DomainStudioSourcePremium"
         },
+        "market" : {
+          "description" : "The configuration for the market source",
+          "originalRef" : "DomainStudioSourceMarket",
+          "$ref" : "#/definitions/DomainStudioSourceMarket"
+        },
         "geo" : {
           "description" : "The configuration for the geo source",
           "originalRef" : "DomainStudioSourceGeo",
@@ -25314,51 +27300,51 @@
         "amount" : {
           "type" : "number",
           "format" : "double",
-          "description" : "Lorem Ipum"
+          "description" : "Amount"
         },
         "type" : {
-          "description" : "Lorem Ipum",
+          "description" : "The price type",
           "originalRef" : "PriceTypeConstants",
           "$ref" : "#/definitions/PriceTypeConstants"
         },
         "currency" : {
           "type" : "string",
           "example" : "EUR",
-          "description" : "Lorem Ipsum",
+          "description" : "Used currency ",
           "x-custom-type" : "currency"
         },
         "priority" : {
-          "description" : "Lorem Ipum",
+          "description" : "Priority",
           "originalRef" : "PriorityConstants",
           "$ref" : "#/definitions/PriorityConstants"
         },
         "customer" : {
-          "description" : "Lorem Ipum",
+          "description" : "Customer",
           "originalRef" : "Customer",
           "$ref" : "#/definitions/Customer"
         },
         "period" : {
-          "description" : "Lorem Ipum",
+          "description" : "The activity period of a product",
           "originalRef" : "TimePeriod",
           "$ref" : "#/definitions/TimePeriod"
         },
         "discountable" : {
           "type" : "boolean",
-          "description" : "Lorem Ipum"
+          "description" : "Indicates if price discountable is possible"
         },
         "logId" : {
           "type" : "integer",
           "format" : "int64",
-          "description" : "Lorem Ipum"
+          "description" : "Id of the created log"
         },
         "refund" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "Lorem Ipum"
+          "description" : "Refund"
         },
         "priceConditions" : {
           "type" : "array",
-          "description" : "Lorem Ipum",
+          "description" : "Price condition",
           "items" : {
             "originalRef" : "PriceServiceEntity",
             "$ref" : "#/definitions/PriceServiceEntity"
@@ -25366,17 +27352,17 @@
         },
         "comment" : {
           "type" : "string",
-          "description" : "Lorem Ipum"
+          "description" : "Comments"
         },
         "normalPrice" : {
-          "description" : "Lorem Ipum",
+          "description" : "Normal price",
           "originalRef" : "ExchangedPrice",
           "$ref" : "#/definitions/ExchangedPrice"
         },
         "valid" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Lorem Ipum"
+          "description" : "Date until the price is valid"
         },
         "vatRate" : {
           "type" : "number",
@@ -25410,6 +27396,14 @@
         "joiCountryName" : {
           "type" : "string",
           "description" : "Country of judicial formation"
+        },
+        "joiLocality" : {
+          "type" : "string",
+          "description" : "Locality or city of judicial formation"
+        },
+        "joiStateOrProvince" : {
+          "type" : "string",
+          "description" : "State or province of judicial formation"
         },
         "companyNumber" : {
           "type" : "string",
@@ -25461,7 +27455,7 @@
         },
         "label" : {
           "type" : "string",
-          "description" : "Lorem Ipum"
+          "description" : "The unique identifier"
         },
         "name" : {
           "type" : "string",
@@ -25496,7 +27490,20 @@
     },
     "HkIndustryTypeConstants" : {
       "type" : "string",
-      "enum" : [ "_0", "_4160", "_4224", "_4288", "_4352", "_4416", "_8256", "_8320", "_8384", "_8448", "_8512", "_12352", "_12416", "_16448", "_16512", "_16576", "_16640", "_16704", "_16768", "_16832", "_20544", "_20608", "_20672", "_20736", "_20800", "_20864", "_20928", "_24640", "_24704", "_24768", "_28736", "_28800", "_28864", "_28928", "_28992", "_29056", "_29120", "_070800", "_070900", "_080100", "_080200", "_080300", "_080400", "_080500", "_080600", "_080700", "_080800", "_080900", "_081000", "_081100", "_090100", "_090200", "_090300", "_090400", "_090500", "_100100", "_100200", "_100300", "_100400", "_100500", "_110100", "_110200", "_110300", "_110400", "_110500", "_110600", "_120100", "_120200", "_120300", "_120400", "_120500", "_120600", "_120700", "_120800", "_120900", "_130100", "_130200", "_130300", "_130400", "_130500", "_130600", "_130700", "_130800", "_140101", "_140102", "_140103", "_140200", "_140300", "_140400", "_140500", "_140600", "_140700" ]
+      "enum" : [ "_0", "_010100", "_010200", "_010300", "_010400", "_010500", "_020100", "_020200", "_020300", "_020400", "_020500", "_030100", "_030200", "_040100", "_040200", "_040300", "_040400", "_040500", "_040600", "_040700", "_050100", "_050200", "_050300", "_050400", "_050500", "_050600", "_050700", "_060100", "_060200", "_060300", "_070100", "_070200", "_070300", "_070400", "_070500", "_070600", "_070700", "_070800", "_070900", "_080100", "_080200", "_080300", "_080400", "_080500", "_080600", "_080700", "_080800", "_080900", "_081000", "_081100", "_090100", "_090200", "_090300", "_090400", "_090500", "_100100", "_100200", "_100300", "_100400", "_100500", "_110100", "_110200", "_110300", "_110400", "_110500", "_110600", "_120100", "_120200", "_120300", "_120400", "_120500", "_120600", "_120700", "_120800", "_120900", "_130100", "_130200", "_130300", "_130400", "_130500", "_130600", "_130700", "_130800", "_140101", "_140102", "_140103", "_140200", "_140300", "_140400", "_140500", "_140600", "_140700" ]
+    },
+    "HostSubZone" : {
+      "type" : "object",
+      "properties" : {
+        "origin" : {
+          "type" : "string",
+          "description" : "Zone name"
+        },
+        "virtualNameServer" : {
+          "type" : "string",
+          "description" : "The first nameserver managed by the system"
+        }
+      }
     },
     "Id4MeAgent" : {
       "type" : "object",
@@ -25533,8 +27540,8 @@
         },
         "layoutAddon" : {
           "description" : "Layout properties",
-          "originalRef" : "Configuration",
-          "$ref" : "#/definitions/Configuration"
+          "originalRef" : "Id4MeLayoutConfiguration",
+          "$ref" : "#/definitions/Id4MeLayoutConfiguration"
         },
         "name" : {
           "type" : "string",
@@ -25558,6 +27565,50 @@
     "Id4MeAgentStatus" : {
       "type" : "string",
       "enum" : [ "PENDING", "PENDING_SSL", "PENDING_SSL_VERIFY", "SUCCESS", "FAILED" ]
+    },
+    "Id4MeIdentityAddons" : {
+      "type" : "object"
+    },
+    "Id4MeLayoutConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "title" : {
+          "type" : "string"
+        },
+        "privacy" : {
+          "type" : "string"
+        },
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
+        "menuLogoHeight" : {
+          "type" : "string"
+        },
+        "about" : {
+          "type" : "string"
+        },
+        "menuLogoWidth" : {
+          "type" : "string"
+        },
+        "primaryColor" : {
+          "type" : "string"
+        },
+        "primaryText" : {
+          "type" : "string"
+        },
+        "secondaryColor" : {
+          "type" : "string"
+        },
+        "loginLogoSrc" : {
+          "type" : "string"
+        },
+        "menuLogoSrc" : {
+          "type" : "string"
+        },
+        "loginLogoHeight" : {
+          "type" : "string"
+        }
+      }
     },
     "Id4meIdentity" : {
       "type" : "object",
@@ -25595,8 +27646,8 @@
         },
         "addons" : {
           "description" : "Additional information",
-          "originalRef" : "Configuration",
-          "$ref" : "#/definitions/Configuration"
+          "originalRef" : "Id4MeIdentityAddons",
+          "$ref" : "#/definitions/Id4MeIdentityAddons"
         },
         "magicLink" : {
           "type" : "string",
@@ -27696,6 +29747,45 @@
         }
       }
     },
+    "JsonResponseDataTaskUserLimit" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "TaskUserLimit",
+            "$ref" : "#/definitions/TaskUserLimit"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataTmchMark" : {
       "type" : "object",
       "properties" : {
@@ -28663,6 +30753,11 @@
         "businessCase" : {
           "type" : "string",
           "description" : "The businessCase of the subscription, e.g. create"
+        },
+        "extensions" : {
+          "description" : "The additional data",
+          "originalRef" : "BillingEventExtensions",
+          "$ref" : "#/definitions/BillingEventExtensions"
         }
       }
     },
@@ -28699,6 +30794,10 @@
           "description" : "If the group contains statistical data for a zone"
         }
       }
+    },
+    "PolicyMode" : {
+      "type" : "string",
+      "enum" : [ "DISABLED", "QUARANTINE", "DISCARD", "ACCEPT" ]
     },
     "PollMessage" : {
       "type" : "object",
@@ -28873,7 +30972,7 @@
           }
         },
         "condition" : {
-          "description" : "Lorem Ipum",
+          "description" : "service entity",
           "originalRef" : "ServiceEntity",
           "$ref" : "#/definitions/ServiceEntity"
         }
@@ -29313,9 +31412,8 @@
           "description" : "The date of the confirm signature"
         },
         "confirmIp" : {
-          "description" : "The address of the confirm signature",
-          "originalRef" : "InetAddress",
-          "$ref" : "#/definitions/InetAddress"
+          "type" : "string",
+          "description" : "The address of the confirm signature"
         },
         "confirmUseragent" : {
           "type" : "string",
@@ -29372,7 +31470,7 @@
         },
         "label" : {
           "type" : "string",
-          "description" : "Lorem Ipum"
+          "description" : "The unique identifier"
         }
       }
     },
@@ -29427,7 +31525,7 @@
     },
     "SignatureHashAlgorithmConstants" : {
       "type" : "string",
-      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256" ]
+      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256", "SHA256_SHA1", "SHA384_SHA1", "SHA256_SHA256", "SHA256ECDSA_SHA1", "SHA384ECDSA_SHA1", "SHA256ECDSA_SHA384ECDSA", "SHA384ECDSA_SHA384ECDSA" ]
     },
     "SimplePrice" : {
       "type" : "object",
@@ -29515,6 +31613,10 @@
     "SpamPolicy" : {
       "type" : "object",
       "properties" : {
+        "mode" : {
+          "originalRef" : "PolicyMode",
+          "$ref" : "#/definitions/PolicyMode"
+        },
         "modifySubject" : {
           "type" : "boolean"
         },
@@ -29556,6 +31658,11 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The updated date."
+        },
+        "extensions" : {
+          "description" : "The contact extensions",
+          "originalRef" : "SslContactExtensions",
+          "$ref" : "#/definitions/SslContactExtensions"
         },
         "fname" : {
           "type" : "string",
@@ -29639,6 +31746,44 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "Unique identifier of the object"
+        }
+      }
+    },
+    "SslContactExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "general" : {
+          "description" : "The general extensions",
+          "originalRef" : "SslContactGeneralExtensions",
+          "$ref" : "#/definitions/SslContactGeneralExtensions"
+        }
+      }
+    },
+    "SslContactGeneralExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "joiCountryName" : {
+          "type" : "string",
+          "example" : "DE",
+          "description" : "Country of judicial formation",
+          "x-custom-type" : "country"
+        },
+        "joiLocality" : {
+          "type" : "string",
+          "description" : "Locality or city of judicial formation"
+        },
+        "joiStateOrProvince" : {
+          "type" : "string",
+          "description" : "State or province of judicial formation"
+        },
+        "companyNumber" : {
+          "type" : "string",
+          "description" : "The company number"
+        },
+        "businessCategory" : {
+          "description" : "Additional validation data required for certain Comodo products.",
+          "originalRef" : "BusinessCategory",
+          "$ref" : "#/definitions/BusinessCategory"
         }
       }
     },
@@ -29894,6 +32039,116 @@
         "businessCase" : {
           "type" : "string",
           "description" : "The businessCase of the subscription, e.g. create"
+        },
+        "extensions" : {
+          "description" : "The additional data",
+          "originalRef" : "BillingEventExtensions",
+          "$ref" : "#/definitions/BillingEventExtensions"
+        }
+      }
+    },
+    "TaskCount" : {
+      "type" : "object",
+      "properties" : {
+        "taskGroup" : {
+          "type" : "string",
+          "description" : "The selected task group"
+        },
+        "counts" : {
+          "type" : "object",
+          "description" : "Number of task calls",
+          "additionalProperties" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      }
+    },
+    "TaskGroup" : {
+      "type" : "string",
+      "enum" : [ "DOMAIN_CREATE", "DOMAIN_DELETE", "DOMAIN_STATUS_UPDATE", "DOMAIN_TRANSFER_IN", "DOMAIN_TRANSFER_OUT", "DOMAINSAFE", "AUTHINFO_CREATE", "AUTHINFO_SEND", "ZONE_CREATE", "WHOIS", "DOMAIN_UPDATE", "DOMAINSTUDIO" ]
+    },
+    "TaskLimit" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "taskGroup" : {
+          "description" : "The selected task group",
+          "originalRef" : "TaskGroup",
+          "$ref" : "#/definitions/TaskGroup"
+        },
+        "limitSelf" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The self limit count"
+        },
+        "inclusiveSelf" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The self included count"
+        },
+        "timeUnitSelf" : {
+          "description" : "The self time unit",
+          "originalRef" : "TimeUnitConstants",
+          "$ref" : "#/definitions/TimeUnitConstants"
+        },
+        "limitChildren" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The limited count for each child"
+        },
+        "inclusiveChildren" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The included count for each child"
+        },
+        "timeUnitChildren" : {
+          "description" : "The time unit for each child",
+          "originalRef" : "TimeUnitConstants",
+          "$ref" : "#/definitions/TimeUnitConstants"
+        },
+        "count" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The current count if available"
+        },
+        "user" : {
+          "description" : "The affected user ",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        }
+      }
+    },
+    "TaskUserLimit" : {
+      "type" : "object",
+      "required" : [ "user" ],
+      "properties" : {
+        "user" : {
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "entries" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "TaskLimit",
+            "$ref" : "#/definitions/TaskLimit"
+          }
+        },
+        "count" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "TaskCount",
+            "$ref" : "#/definitions/TaskCount"
+          }
         }
       }
     },
@@ -30557,6 +32812,11 @@
           "originalRef" : "IpRestrictions",
           "$ref" : "#/definitions/IpRestrictions"
         },
+        "customerLevel" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The actual customer level for the user."
+        },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
@@ -30728,6 +32988,10 @@
           "description" : "The mode of the entry",
           "originalRef" : "UserProfileFlag",
           "$ref" : "#/definitions/UserProfileFlag"
+        },
+        "inherited" : {
+          "type" : "boolean",
+          "description" : "Is true if the value was inherited"
         },
         "readonly" : {
           "type" : "boolean",
@@ -30934,6 +33198,10 @@
           "readOnly" : true,
           "originalRef" : "DomainStudioDomainStatus",
           "$ref" : "#/definitions/DomainStudioDomainStatus"
+        },
+        "priceClass" : {
+          "type" : "string",
+          "description" : "The price class for premium domains"
         }
       }
     },
