@@ -2982,7 +2982,7 @@
     "/bulk/domain/cancelation" : {
       "post" : {
         "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Cancelation Create Bulk",
+        "summary" : "Cancelation Create Bulk",
         "description" : "Creating several domain cancelations with one request.",
         "operationId" : "domainCancelationCreates",
         "produces" : [ "application/json" ],
@@ -3077,7 +3077,7 @@
       },
       "delete" : {
         "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Cancelation Delete Bulk",
+        "summary" : "Cancelation Delete Bulk",
         "description" : "Deleting several domain cancelations with one request.",
         "operationId" : "domainCancelationDeletes",
         "produces" : [ "application/json" ],
@@ -3172,7 +3172,7 @@
       },
       "patch" : {
         "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Cancelation Update Bulk ",
+        "summary" : "Cancelation Update Bulk ",
         "description" : "Updating several domain cancelations with one request.",
         "operationId" : "domainCancelationPatches",
         "produces" : [ "application/json" ],
@@ -8290,7 +8290,7 @@
     "/domain/cancelation/_search" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Cancelation List",
+        "summary" : "Cancelation List",
         "description" : "Inquiring a list of cancelations with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: disconnect, execdate, ctid, created, registryStatus, sld, type, tld, subtld, gainingRegistrar, updated.",
         "operationId" : "domainCancelationList",
         "produces" : [ "application/json" ],
@@ -9881,7 +9881,7 @@
     "/domain/{name}/cancelation" : {
       "get" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Cancelation Info",
+        "summary" : "Cancelation Info",
         "description" : "Inquiring the cancelation data for the specified domain.",
         "operationId" : "domainCancelationInfo",
         "produces" : [ "application/json" ],
@@ -9972,7 +9972,7 @@
       },
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Cancelation Create",
+        "summary" : "Cancelation Create",
         "description" : "Creating a cancelation for the specified domain.",
         "operationId" : "domainCancelationCreate",
         "produces" : [ "application/json" ],
@@ -10067,7 +10067,7 @@
       },
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Cancelation Update",
+        "summary" : "Cancelation Update",
         "description" : "Updating an existing cancelation for the specified domain.",
         "operationId" : "domainCancelationUpdate",
         "produces" : [ "application/json" ],
@@ -10167,7 +10167,7 @@
       },
       "delete" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Cancelation Delete",
+        "summary" : "Cancelation Delete",
         "description" : "Deleting an existing cancelation for the specified domain.",
         "operationId" : "domainCancelationDelete",
         "produces" : [ "application/json" ],
@@ -24748,7 +24748,7 @@
           "type" : "string",
           "description" : "The enterprise ID, in the specific context of .swiss based on current rules, is the Swiss UID/IDE/IDI."
         },
-        "intededUse" : {
+        "intendedUse" : {
           "type" : "string",
           "description" : "The statement of intended use for the domain name."
         }
@@ -27578,13 +27578,7 @@
         "privacy" : {
           "type" : "string"
         },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
         "menuLogoHeight" : {
-          "type" : "string"
-        },
-        "about" : {
           "type" : "string"
         },
         "menuLogoWidth" : {
@@ -27605,7 +27599,13 @@
         "menuLogoSrc" : {
           "type" : "string"
         },
+        "about" : {
+          "type" : "string"
+        },
         "loginLogoHeight" : {
+          "type" : "string"
+        },
+        "loginLogoWidth" : {
           "type" : "string"
         }
       }
@@ -31401,6 +31401,11 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The updated date."
+        },
+        "document" : {
+          "description" : "The linked pdf",
+          "originalRef" : "Document",
+          "$ref" : "#/definitions/Document"
         },
         "reference" : {
           "type" : "string",
