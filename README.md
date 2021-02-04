@@ -1,6 +1,6 @@
 # Domainrobot Api
 
-The *Domainrobot API* is a powerfull, professional API for managing domains, certificates, dns and much more. The API can be accessed via three different interfaces :
+The *Domainrobot API* is a powerful, professional API for managing domains, certificates, dns and much more. The API can be accessed via three different interfaces :
 
 * JSON
 * XML
