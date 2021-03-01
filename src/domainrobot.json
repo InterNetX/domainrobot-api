@@ -62,6 +62,8 @@
   }, {
     "name" : "Redirect bulk Tasks"
   }, {
+    "name" : "SalesReport Tasks"
+  }, {
     "name" : "Session Tasks"
   }, {
     "name" : "SslContact Tasks"
@@ -13640,7 +13642,7 @@
         }, {
           "name" : "timeout",
           "in" : "query",
-          "description" : "Defines the timeout of the session in minutes. Default is 10 minutes. Example : timeout=60",
+          "description" : "Defines the timeout of the session in minutes. Min: 10 minutes, Max: 300 minutes. Default is 10 minutes. Example : timeout=60",
           "required" : false,
           "type" : "string"
         } ],
@@ -17181,14 +17183,15 @@
               "$ref" : "#/definitions/JsonResponseDataTransferOut"
             }
           }
-        }
+        },
+        "deprecated" : true
       }
     },
     "/transferout/{domain}/{type}" : {
       "put" : {
         "tags" : [ "Transfer Request Tasks" ],
         "summary" : "TransferOut Answer",
-        "description" : "Accepting (ACK) or rejecting (NACK) transfer request.",
+        "description" : "Accepting (ACK) or rejecting (NACK) transfer request. A nackReason is only required for rejecting GTLDs Domains. You can use the following values for type : ACK, NACK",
         "operationId" : "transferOutAnswerOld",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -17266,6 +17269,15 @@
           "in" : "path",
           "required" : true,
           "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "body",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "TransferOut",
+            "$ref" : "#/definitions/TransferOut"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -19018,6 +19030,116 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataBillingObjectTerms",
               "$ref" : "#/definitions/JsonResponseDataBillingObjectTerms"
+            }
+          }
+        }
+      }
+    },
+    "/user/salesreport/_search" : {
+      "post" : {
+        "tags" : [ "SalesReport Tasks" ],
+        "summary" : "Sales Report List",
+        "description" : "Inquiring a list of sales with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: date",
+        "operationId" : "userSalesReportList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to inquire additional details.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=date",
+            "enum" : [ "{id", "date", "domainSales", "domainAddonSales", "certificateSales", "serverSales", "packageSales", "owner", "created", "updated}" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=date"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataUserSalesReport",
+              "$ref" : "#/definitions/JsonResponseDataUserSalesReport"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataUserSalesReport",
+              "$ref" : "#/definitions/JsonResponseDataUserSalesReport"
             }
           }
         }
@@ -22661,6 +22783,11 @@
           "minLength" : 0,
           "maxLength" : 255
         },
+        "type" : {
+          "description" : "The type of the customer.",
+          "originalRef" : "CustomerType",
+          "$ref" : "#/definitions/CustomerType"
+        },
         "organization" : {
           "type" : "string",
           "description" : "The name of the organization.",
@@ -23849,7 +23976,12 @@
         "expire" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date on which the certificate expires"
+          "description" : "The notAfter date of the certificate"
+        },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The payable date for the certificate. Indicates when a runtime renewal must take place."
         },
         "subjectAlternativeNames" : {
           "type" : "array",
@@ -23857,13 +23989,6 @@
           "items" : {
             "originalRef" : "SubjectAlternativeName",
             "$ref" : "#/definitions/SubjectAlternativeName"
-          }
-        },
-        "clientEmails" : {
-          "type" : "array",
-          "description" : "The emails to secure within an s/mime certificate.",
-          "items" : {
-            "type" : "string"
           }
         },
         "histories" : {
@@ -23928,6 +24053,10 @@
         "idn" : {
           "type" : "string",
           "description" : "The IDN version of the URL of the target domain."
+        },
+        "multiyear" : {
+          "type" : "boolean",
+          "description" : "Defines whether the certificate is a multiyear or not"
         }
       }
     },
@@ -24471,6 +24600,11 @@
           "description" : "The .madrid contact extensions.",
           "originalRef" : "ContactMadridExtensions",
           "$ref" : "#/definitions/ContactMadridExtensions"
+        },
+        "scot" : {
+          "description" : "The .scot contact extensions.",
+          "originalRef" : "ContactScotExtensions",
+          "$ref" : "#/definitions/ContactScotExtensions"
         }
       }
     },
@@ -24729,6 +24863,15 @@
         "territoryLinkedTaxpayerNumber" : {
           "type" : "string",
           "description" : "Territory-linked Taxpayer Number (kpp). Mandatory for organisations which belong to the Russian Federation."
+        }
+      }
+    },
+    "ContactScotExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "intendedUse" : {
+          "type" : "string",
+          "description" : "The statement of intended use for the domain name."
         }
       }
     },
@@ -25091,6 +25234,11 @@
           "minLength" : 0,
           "maxLength" : 255
         },
+        "type" : {
+          "description" : "The type of the customer.",
+          "originalRef" : "CustomerType",
+          "$ref" : "#/definitions/CustomerType"
+        },
         "organization" : {
           "type" : "string",
           "description" : "The name of the organization.",
@@ -25312,6 +25460,10 @@
           "$ref" : "#/definitions/GenericLabelEntity"
         }
       }
+    },
+    "CustomerType" : {
+      "type" : "string",
+      "enum" : [ "PERSON", "ORGANIZATION" ]
     },
     "DNSSec" : {
       "type" : "object",
@@ -26494,6 +26646,11 @@
           "format" : "int32",
           "description" : "The context."
         },
+        "mobile" : {
+          "description" : "The mobile of the user.",
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
         "user" : {
           "type" : "string",
           "description" : "The user name."
@@ -26699,6 +26856,16 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The maximum amount of fetched premium and market domains."
+        },
+        "priceMin" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The minumum price."
+        },
+        "priceMax" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum price."
         }
       }
     },
@@ -26967,6 +27134,16 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The maximum amount of fetched premium and market domains."
+        },
+        "priceMin" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The minumum price."
+        },
+        "priceMax" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The maximum price."
         }
       }
     },
@@ -27578,7 +27755,13 @@
         "privacy" : {
           "type" : "string"
         },
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
         "menuLogoHeight" : {
+          "type" : "string"
+        },
+        "about" : {
           "type" : "string"
         },
         "menuLogoWidth" : {
@@ -27599,13 +27782,7 @@
         "menuLogoSrc" : {
           "type" : "string"
         },
-        "about" : {
-          "type" : "string"
-        },
         "loginLogoHeight" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
           "type" : "string"
         }
       }
@@ -27906,13 +28083,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -30059,6 +30236,45 @@
         }
       }
     },
+    "JsonResponseDataUserSalesReport" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "UserSalesReport",
+            "$ref" : "#/definitions/UserSalesReport"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataVoid" : {
       "type" : "object",
       "properties" : {
@@ -30749,6 +30965,16 @@
             "originalRef" : "PeriodicBilling",
             "$ref" : "#/definitions/PeriodicBilling"
           }
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date."
+        },
+        "cancelation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The cancelation date."
         },
         "businessCase" : {
           "type" : "string",
@@ -31441,6 +31667,11 @@
             "$ref" : "#/definitions/SEPAMandate"
           }
         },
+        "status" : {
+          "description" : "The status of the mandate",
+          "originalRef" : "SepaStatus",
+          "$ref" : "#/definitions/SepaStatus"
+        },
         "accountHolder" : {
           "type" : "string",
           "description" : "The holder of the bank account"
@@ -31454,6 +31685,10 @@
           "description" : "The bank bic"
         }
       }
+    },
+    "SepaStatus" : {
+      "type" : "string",
+      "enum" : [ "ACTIVE", "UPDATE", "CANCELED", "EXPIRED", "LOCKED", "REMOVE" ]
     },
     "ServerSoftwareTypeConstants" : {
       "type" : "string",
@@ -31668,6 +31903,14 @@
           "description" : "The contact extensions",
           "originalRef" : "SslContactExtensions",
           "$ref" : "#/definitions/SslContactExtensions"
+        },
+        "references" : {
+          "type" : "array",
+          "description" : "The contact references",
+          "items" : {
+            "originalRef" : "ContactReference",
+            "$ref" : "#/definitions/ContactReference"
+          }
         },
         "fname" : {
           "type" : "string",
@@ -32021,6 +32264,16 @@
             "$ref" : "#/definitions/PeriodicBilling"
           }
         },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date."
+        },
+        "cancelation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The cancelation date."
+        },
         "limits" : {
           "type" : "array",
           "description" : "The limits of the package.",
@@ -32040,6 +32293,11 @@
         "variant" : {
           "type" : "string",
           "description" : "The name variant, e.g nodesecure"
+        },
+        "cancelationEffective" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The cancelationEffective"
         },
         "businessCase" : {
           "type" : "string",
@@ -32071,7 +32329,7 @@
     },
     "TaskGroup" : {
       "type" : "string",
-      "enum" : [ "DOMAIN_CREATE", "DOMAIN_DELETE", "DOMAIN_STATUS_UPDATE", "DOMAIN_TRANSFER_IN", "DOMAIN_TRANSFER_OUT", "DOMAINSAFE", "AUTHINFO_CREATE", "AUTHINFO_SEND", "ZONE_CREATE", "WHOIS", "DOMAIN_UPDATE", "DOMAINSTUDIO" ]
+      "enum" : [ "DOMAIN_CREATE", "DOMAIN_DELETE", "DOMAIN_STATUS_UPDATE", "DOMAIN_TRANSFER_IN", "DOMAIN_TRANSFER_OUT", "DOMAINSAFE", "AUTHINFO_CREATE", "AUTHINFO_SEND", "ZONE_CREATE", "WHOIS", "DOMAIN_UPDATE", "DOMAINSTUDIO", "ZONE_UPDATE", "ZONE_DELETE", "ZONE_AXFR" ]
     },
     "TaskLimit" : {
       "type" : "object",
@@ -32760,6 +33018,10 @@
           "originalRef" : "UserLock",
           "$ref" : "#/definitions/UserLock"
         },
+        "oldPassword" : {
+          "type" : "string",
+          "description" : "The old password."
+        },
         "acls" : {
           "description" : "Wrapper for the user acls.",
           "originalRef" : "UserAcls",
@@ -33017,6 +33279,61 @@
             "originalRef" : "UserProfile",
             "$ref" : "#/definitions/UserProfile"
           }
+        }
+      }
+    },
+    "UserSalesReport" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The report date."
+        },
+        "domainSales" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The domain sales."
+        },
+        "domainAddonSales" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The domain addon sales"
+        },
+        "certificateSales" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The certificate sales."
+        },
+        "serverSales" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The server sales."
+        },
+        "packageSales" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The package sales"
         }
       }
     },
@@ -33434,6 +33751,14 @@
           "description" : "Removes the zone garnts if exists.",
           "items" : {
             "type" : "string"
+          }
+        },
+        "modifiers" : {
+          "type" : "array",
+          "description" : "The modifer to apply on the objects",
+          "items" : {
+            "originalRef" : "Modifier",
+            "$ref" : "#/definitions/Modifier"
           }
         },
         "nameServers" : {
