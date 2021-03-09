@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "name": "@internetx/internetx-swagger-files",
+    "description": "All the files needed to interact with the InterNetX APIs. The files help to create documentation and models matching the API.",
+    "license": "MIT",
+    "author": "InterNetX GmbH <entwicklung@internetx.com>",
+    "homepage": "https://www.internetx.com",
+    "repository": "https: //github.com/adelholtz/domainrobot-api.git"
+}
