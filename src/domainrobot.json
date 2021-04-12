@@ -20,6 +20,8 @@
   }, {
     "name" : "Contact Tasks"
   }, {
+    "name" : "Contact bulk Tasks"
+  }, {
     "name" : "Customer Account Tasks"
   }, {
     "name" : "Document Tasks"
@@ -67,6 +69,8 @@
     "name" : "Session Tasks"
   }, {
     "name" : "SslContact Tasks"
+  }, {
+    "name" : "SslContact bulk Tasks"
   }, {
     "name" : "Subscription Tasks"
   }, {
@@ -1818,6 +1822,103 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataListJsonResponseDataCertificate",
               "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataCertificate"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/contact" : {
+      "delete" : {
+        "tags" : [ "Contact bulk Tasks" ],
+        "summary" : "Contact Delete Bulk",
+        "description" : "Deleting several Contacts with one request.",
+        "operationId" : "contactDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "sources",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkContactDeleteRequest",
+            "$ref" : "#/definitions/BulkContactDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataContact"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataContact"
             }
           }
         }
@@ -4323,6 +4424,103 @@
         }
       }
     },
+    "/bulk/sslcontact" : {
+      "delete" : {
+        "tags" : [ "SslContact bulk Tasks" ],
+        "summary" : "SslContact Delete Bulk",
+        "description" : "Deleting serveral SslContact with one request.",
+        "operationId" : "sslContactsDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "sources",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "BulkSslContactDeleteRequest",
+            "$ref" : "#/definitions/BulkSslContactDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataSslContact"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataListJsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataSslContact"
+            }
+          }
+        }
+      }
+    },
     "/bulk/zone" : {
       "post" : {
         "tags" : [ "Zone Bulk Tasks" ],
@@ -6264,108 +6462,6 @@
           "in" : "query",
           "required" : false,
           "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataContactVerification",
-              "$ref" : "#/definitions/JsonResponseDataContactVerification"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataContactVerification",
-              "$ref" : "#/definitions/JsonResponseDataContactVerification"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/_confirm" : {
-      "put" : {
-        "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification Confirm",
-        "description" : "Confirming an existing verification with a given hash.",
-        "operationId" : "verificationConfirm",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "reference",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "contactVerification",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "ContactVerification",
-            "$ref" : "#/definitions/ContactVerification"
-          }
         } ],
         "responses" : {
           "200" : {
@@ -22682,11 +22778,7 @@
     },
     "AuEligibilityIdTypeConstants" : {
       "type" : "string",
-      "enum" : [ "ACN", "ABN", "VIC_BN", "NSW_BN", "SA", "BN", "NT_BN", "WA_BN", "TAS_BN", "ACT_BN", "QLD_BN", "TM", "OTHER" ]
-    },
-    "AuEligibilityTypeConstants" : {
-      "type" : "string",
-      "enum" : [ "COMPANY", "REGISTERED_BUSINESS", "SOLE_TRADER", "PARTNERSHIP", "TRADEMARK_OWNER", "PENDING_TM_OWNER", "CITIZEN_RESIDENT", "INCORPORATED_ASSOCIATION", "UNINCORPORATED_ASSOCIATION", "CLUB", "NON_PROFIT_ORGANISATION", "CHARITY", "TRADE_UNION", "INDUSTRY_BODY", "COMMERCIAL_STATUTORY_BODY", "POLITICAL_PARTY", "RELIGIOUS_CHURCH_GROUPS", "OTHER" ]
+      "enum" : [ "ACN", "ABN", "VIC", "NSW", "SA", "BN", "NT", "WA", "TAS", "ACT", "QLD", "TM", "OTHER" ]
     },
     "AuRegistrantIdTypeConstants" : {
       "type" : "string",
@@ -23284,6 +23376,24 @@
         }
       }
     },
+    "BulkContactDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "Contact",
+            "$ref" : "#/definitions/Contact"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "originalRef" : "Query",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
     "BulkDomainCancelationDeleteRequest" : {
       "type" : "object",
       "properties" : {
@@ -23646,6 +23756,24 @@
         }
       }
     },
+    "BulkSslContactDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "originalRef" : "SslContact",
+            "$ref" : "#/definitions/SslContact"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "originalRef" : "Query",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
     "BulkZoneCommentRequest" : {
       "type" : "object",
       "properties" : {
@@ -23886,11 +24014,6 @@
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
         },
-        "extension" : {
-          "description" : "The certificate extensions for comodo.",
-          "originalRef" : "ExtendedValidationExtension",
-          "$ref" : "#/definitions/ExtendedValidationExtension"
-        },
         "id" : {
           "type" : "integer",
           "format" : "int32",
@@ -23982,6 +24105,11 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The payable date for the certificate. Indicates when a runtime renewal must take place."
+        },
+        "extension" : {
+          "description" : "The certificate extensions for comodo.",
+          "originalRef" : "ExtendedValidationExtension",
+          "$ref" : "#/definitions/ExtendedValidationExtension"
         },
         "subjectAlternativeNames" : {
           "type" : "array",
@@ -24393,9 +24521,8 @@
           "description" : "\tThis field is usually optional and whether it is required is determined by your policy reason for the domain registration, if in doubt just use the same details as your Registrant Name."
         },
         "eligibilityType" : {
-          "description" : "The type of entity that the registrant is.",
-          "originalRef" : "AuEligibilityTypeConstants",
-          "$ref" : "#/definitions/AuEligibilityTypeConstants"
+          "type" : "string",
+          "description" : "The type of entity that the registrant is."
         },
         "policyReason" : {
           "type" : "integer",
@@ -24445,7 +24572,7 @@
         },
         "day" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The day.",
           "x-custom-type" : "date"
         },
@@ -24701,13 +24828,13 @@
         },
         "dateOfIssue" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The date of issue.",
           "x-custom-type" : "date"
         },
         "validTill" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The valid till date.",
           "x-custom-type" : "date"
         }
@@ -24915,13 +25042,13 @@
         },
         "regdate" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The registration date.",
           "x-custom-type" : "date"
         },
         "appdate" : {
           "type" : "string",
-          "format" : "date-time",
+          "format" : "date",
           "description" : "The application date.",
           "x-custom-type" : "date"
         },
@@ -27755,12 +27882,6 @@
         "privacy" : {
           "type" : "string"
         },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
-          "type" : "string"
-        },
         "about" : {
           "type" : "string"
         },
@@ -27773,6 +27894,15 @@
         "primaryText" : {
           "type" : "string"
         },
+        "loginLogoHeight" : {
+          "type" : "string"
+        },
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
+        "menuLogoHeight" : {
+          "type" : "string"
+        },
         "secondaryColor" : {
           "type" : "string"
         },
@@ -27780,9 +27910,6 @@
           "type" : "string"
         },
         "menuLogoSrc" : {
-          "type" : "string"
-        },
-        "loginLogoHeight" : {
           "type" : "string"
         }
       }
@@ -29163,6 +29290,48 @@
         }
       }
     },
+    "JsonResponseDataListJsonResponseDataContact" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "originalRef" : "JsonResponseDataContact",
+              "$ref" : "#/definitions/JsonResponseDataContact"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataListJsonResponseDataDomain" : {
       "type" : "object",
       "properties" : {
@@ -29406,6 +29575,48 @@
             "items" : {
               "originalRef" : "JsonResponseDataRedirect",
               "$ref" : "#/definitions/JsonResponseDataRedirect"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataListJsonResponseDataSslContact" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "originalRef" : "JsonResponseDataSslContact",
+              "$ref" : "#/definitions/JsonResponseDataSslContact"
             }
           }
         },
@@ -31908,8 +32119,8 @@
           "type" : "array",
           "description" : "The contact references",
           "items" : {
-            "originalRef" : "ContactReference",
-            "$ref" : "#/definitions/ContactReference"
+            "originalRef" : "SslContactReference",
+            "$ref" : "#/definitions/SslContactReference"
           }
         },
         "fname" : {
@@ -32032,6 +32243,21 @@
           "description" : "Additional validation data required for certain Comodo products.",
           "originalRef" : "BusinessCategory",
           "$ref" : "#/definitions/BusinessCategory"
+        }
+      }
+    },
+    "SslContactReference" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
         }
       }
     },
