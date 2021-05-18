@@ -5211,6 +5211,103 @@
         }
       }
     },
+    "/certificate/_installcheck" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Install Check",
+        "description" : "Checks an installed certificate on a server",
+        "operationId" : "certificateInstallCheck",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "request",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "CertificateInstallCheckRequest",
+            "$ref" : "#/definitions/CertificateInstallCheckRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataCertificateInstallCheckResult",
+              "$ref" : "#/definitions/JsonResponseDataCertificateInstallCheckResult"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataCertificateInstallCheckResult",
+              "$ref" : "#/definitions/JsonResponseDataCertificateInstallCheckResult"
+            }
+          }
+        }
+      }
+    },
     "/certificate/_prepareOrder" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
@@ -6158,6 +6255,100 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataJob",
               "$ref" : "#/definitions/JsonResponseDataJob"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/{id}/_siteseal" : {
+      "get" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Get Site Seal",
+        "description" : "Fetches the site seal information for the given certificate",
+        "operationId" : "certificateGetSiteSeal",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataSiteSealInformation",
+              "$ref" : "#/definitions/JsonResponseDataSiteSealInformation"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataSiteSealInformation",
+              "$ref" : "#/definitions/JsonResponseDataSiteSealInformation"
             }
           }
         }
@@ -22714,6 +22905,17 @@
       "type" : "string",
       "enum" : [ "INVOICE", "CREDIT", "REFUND", "CANCELED", "CHARGE" ]
     },
+    "AdoptExpiration" : {
+      "type" : "object",
+      "properties" : {
+        "tlds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "Application" : {
       "type" : "object",
       "required" : [ "name" ],
@@ -22778,11 +22980,15 @@
     },
     "AuEligibilityIdTypeConstants" : {
       "type" : "string",
-      "enum" : [ "ACN", "ABN", "VIC", "NSW", "SA", "BN", "NT", "WA", "TAS", "ACT", "QLD", "TM", "OTHER" ]
+      "enum" : [ "ACN", "ABN", "VIC", "NSW", "SA", "NT", "WA", "TAS", "ACT", "QLD", "TM", "OTHER" ]
+    },
+    "AuEligibilityTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "COMPANY", "REGISTERED_BUSINESS", "SOLE_TRADER", "PARTNERSHIP", "TRADEMARK_OWNER", "PENDING_TM_OWNER", "CITIZEN_RESIDENT", "INCORPORATED_ASSOCIATION", "UNINCORPORATED_ASSOCIATION", "CLUB", "NON_PROFIT_ORGANISATION", "CHARITY", "TRADE_UNION", "INDUSTRY_BODY", "COMMERCIAL_STATUTORY_BODY", "POLITICAL_PARTY", "RELIGIOUS_CHURCH_GROUPS", "OTHER", "REGISTRABLE_BODY", "INDIGENOUS_CORPORATION", "REGISTERED_ORGANISATION", "COOPERATIVE", "TRUST", "EDUCATIONAL_INSTITUTION", "COMMONWEALTH_ENTITY", "STATUTORY_BODY", "TRADING_COOPERATIVE", "COMPANY_LIMITED_BY_GUARANTEE", "NON_DISTRIBUTING_COOPERATIVE", "NON_TRADING_COOPERATIVE", "CHARITABLE_TRUST", "PUBLIC_PRIVATE_ANCILLARY_FUND", "PEAK_STATE_TERRITORY_BODY", "NOT_FOR_PROFIT_COMMUNITY_GROUP" ]
     },
     "AuRegistrantIdTypeConstants" : {
       "type" : "string",
-      "enum" : [ "ACN", "ABN", "OTHER" ]
+      "enum" : [ "ACN", "ABN", "OTHER", "TAS", "VIC", "NSW", "ACT", "QLD", "NT", "WA", "SA" ]
     },
     "AuthMethodConstants" : {
       "type" : "string",
@@ -23017,6 +23223,14 @@
             "$ref" : "#/definitions/BasicUser"
           }
         },
+        "comments" : {
+          "type" : "array",
+          "description" : "The comments of the customer",
+          "items" : {
+            "originalRef" : "Comment",
+            "$ref" : "#/definitions/Comment"
+          }
+        },
         "fname" : {
           "type" : "string",
           "description" : "The first name.",
@@ -23126,6 +23340,11 @@
           "description" : "The updating user of the object.",
           "originalRef" : "BasicUser",
           "$ref" : "#/definitions/BasicUser"
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date."
         }
       }
     },
@@ -23284,7 +23503,7 @@
     },
     "BillingStatus" : {
       "type" : "string",
-      "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED" ]
+      "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED", "DROP" ]
     },
     "BulkBackupMxDeleteRequest" : {
       "type" : "object",
@@ -23972,6 +24191,14 @@
         "provisioning" : {
           "type" : "boolean",
           "description" : "Activates automatic provisioning of the zone for dns based authentication."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The authentication data for every domain.",
+          "items" : {
+            "originalRef" : "CertAuthentication",
+            "$ref" : "#/definitions/CertAuthentication"
+          }
         }
       }
     },
@@ -24302,6 +24529,130 @@
         }
       }
     },
+    "CertificateInstallCheckData" : {
+      "type" : "object",
+      "properties" : {
+        "ip" : {
+          "type" : "string",
+          "description" : "The ip that was checked"
+        },
+        "secured" : {
+          "type" : "boolean",
+          "description" : "Defines wether the hostname name is secured by a certificate or not"
+        },
+        "redirect" : {
+          "type" : "boolean",
+          "description" : "Defines wether the server behind the hostname has a automated redirect to https"
+        },
+        "redirectMatch" : {
+          "type" : "boolean",
+          "description" : "Defines wether the certificate at the end of a redirect matches the certificate under https"
+        },
+        "caa" : {
+          "type" : "boolean",
+          "description" : "Describes whether the zone associated with the hostname contains a CAA record."
+        },
+        "multipleCaa" : {
+          "type" : "boolean",
+          "description" : "Describes whether the zone associated with the hostname contains multiple CAA records."
+        },
+        "selfSigned" : {
+          "type" : "boolean",
+          "description" : "Describes whether the hostname is secured by a self signed certificate."
+        },
+        "chainOk" : {
+          "type" : "boolean",
+          "description" : "Defines wether the certificate chain is installed in a correct way"
+        },
+        "inventory" : {
+          "type" : "boolean",
+          "description" : "Defines wether a certificate with the same serial number was found within the owned inventory"
+        },
+        "certificate" : {
+          "description" : "The corresponding certificate from the portfolio",
+          "originalRef" : "Certificate",
+          "$ref" : "#/definitions/Certificate"
+        },
+        "tls" : {
+          "type" : "array",
+          "example" : "SSL_V1, TLS1.0, TLS1.1, TLS1.2, TLS1.3",
+          "description" : "The supported tls version by server behind the hostname",
+          "items" : {
+            "originalRef" : "TlsData",
+            "$ref" : "#/definitions/TlsData"
+          }
+        },
+        "certificateData" : {
+          "description" : "Then data of the certificate installed on the server",
+          "originalRef" : "X509CertificateData",
+          "$ref" : "#/definitions/X509CertificateData"
+        },
+        "redirectCertificateData" : {
+          "description" : "Then data of the redirect certificate installed on the server",
+          "originalRef" : "X509CertificateData",
+          "$ref" : "#/definitions/X509CertificateData"
+        },
+        "chain" : {
+          "type" : "array",
+          "description" : "Then certificate chain",
+          "items" : {
+            "originalRef" : "X509CertificateData",
+            "$ref" : "#/definitions/X509CertificateData"
+          }
+        },
+        "notices" : {
+          "type" : "array",
+          "description" : "Notices for the check",
+          "items" : {
+            "originalRef" : "CertificateInstallCheckNotice",
+            "$ref" : "#/definitions/CertificateInstallCheckNotice"
+          }
+        }
+      }
+    },
+    "CertificateInstallCheckNotice" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "The type of the notice"
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "The label of the notice"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "The value of the notice"
+        }
+      }
+    },
+    "CertificateInstallCheckRequest" : {
+      "type" : "object",
+      "properties" : {
+        "hostname" : {
+          "type" : "string",
+          "description" : "The hostname to check"
+        }
+      }
+    },
+    "CertificateInstallCheckResult" : {
+      "type" : "object",
+      "properties" : {
+        "hostname" : {
+          "type" : "string",
+          "description" : "The hostname to check"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the check",
+          "items" : {
+            "originalRef" : "CertificateInstallCheckData",
+            "$ref" : "#/definitions/CertificateInstallCheckData"
+          }
+        }
+      }
+    },
     "CertificateTransparencyPrivacyConstants" : {
       "type" : "string",
       "enum" : [ "PUBLIC", "REDACTED" ]
@@ -24329,6 +24680,37 @@
     "CodeSigningType" : {
       "type" : "string",
       "enum" : [ "JAVASOFT", "MS_AUTHENTICODE", "VBA", "ADOBE_AIR", "APPLE", "MOZILLA", "OTHER" ]
+    },
+    "Comment" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id."
+        },
+        "customer" : {
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "user" : {
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        }
+      }
     },
     "ConditionType" : {
       "type" : "string",
@@ -24521,8 +24903,9 @@
           "description" : "\tThis field is usually optional and whether it is required is determined by your policy reason for the domain registration, if in doubt just use the same details as your Registrant Name."
         },
         "eligibilityType" : {
-          "type" : "string",
-          "description" : "The type of entity that the registrant is."
+          "description" : "The type of entity that the registrant is.",
+          "originalRef" : "AuEligibilityTypeConstants",
+          "$ref" : "#/definitions/AuEligibilityTypeConstants"
         },
         "policyReason" : {
           "type" : "integer",
@@ -24732,6 +25115,11 @@
           "description" : "The .scot contact extensions.",
           "originalRef" : "ContactScotExtensions",
           "$ref" : "#/definitions/ContactScotExtensions"
+        },
+        "ie" : {
+          "description" : "The .ie contact extensions.",
+          "originalRef" : "ContactIeExtensions",
+          "$ref" : "#/definitions/ContactIeExtensions"
         }
       }
     },
@@ -24837,6 +25225,23 @@
           "format" : "date",
           "description" : "The valid till date.",
           "x-custom-type" : "date"
+        }
+      }
+    },
+    "ContactIeExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "contactType" : {
+          "type" : "string",
+          "description" : "EPP Element = <fury:key>IE_CONTACT_TYPE\nDescription: The contact’s Connection to Ireland (CTI) category that is used to indicate how the Registrant meets specific presence requirements. CTI category values include Charity, Company, and Other. CTI category information is mandatory if you intend to use the contact as a Registrant for a domain name. This property is only supported if you have specified that you are using the Fury 2.0 extension during your EPP login"
+        },
+        "croNumber" : {
+          "type" : "string",
+          "description" : "EPP Element = <fury:key>IE_CRO_NUMBER\nDescription: The Companies Registration Office (CRO) identifier that can be used to ensure the company is in a valid state to be registering domains."
+        },
+        "supportingNumber" : {
+          "type" : "string",
+          "description" : "EPP Element = <fury:key>IE_SUPPORTING_NUMBER\nDescription: The identifier for a charity or a supporting number (RBN or VAT, for example) for other contact typesn"
         }
       }
     },
@@ -25057,6 +25462,10 @@
           "description" : "The office."
         }
       }
+    },
+    "ContactType" : {
+      "type" : "string",
+      "enum" : [ "BILLING", "TECH", "LEGAL", "DOMAIN", "SSL", "SERVER" ]
     },
     "ContactTypeConstants" : {
       "type" : "string",
@@ -25481,6 +25890,22 @@
             "$ref" : "#/definitions/BasicUser"
           }
         },
+        "comments" : {
+          "type" : "array",
+          "description" : "The comments of the customer",
+          "items" : {
+            "originalRef" : "Comment",
+            "$ref" : "#/definitions/Comment"
+          }
+        },
+        "contacts" : {
+          "type" : "array",
+          "description" : "The contacts of the customer",
+          "items" : {
+            "originalRef" : "contact",
+            "$ref" : "#/definitions/contact"
+          }
+        },
         "account" : {
           "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
           "originalRef" : "Account",
@@ -25515,6 +25940,10 @@
             "$ref" : "#/definitions/CustomerTag"
           }
         },
+        "pin" : {
+          "type" : "string",
+          "description" : "The pin number."
+        },
         "fname" : {
           "type" : "string",
           "description" : "The first name.",
@@ -25531,10 +25960,20 @@
           "type" : "string",
           "description" : "The postal code of the city."
         },
+        "technical" : {
+          "description" : "technical Customer.",
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
         "sepa" : {
           "description" : "The customers sepa mandate if payament was post with sepa.",
           "originalRef" : "SEPAMandate",
           "$ref" : "#/definitions/SEPAMandate"
+        },
+        "pricelists" : {
+          "description" : "the customer PriceLists",
+          "originalRef" : "CustomerPriceLists",
+          "$ref" : "#/definitions/CustomerPriceLists"
         }
       }
     },
@@ -25557,6 +25996,11 @@
           "originalRef" : "GenericLabelEntity",
           "$ref" : "#/definitions/GenericLabelEntity"
         },
+        "accountManager" : {
+          "description" : "The name of the manager.",
+          "originalRef" : "accountManager",
+          "$ref" : "#/definitions/accountManager"
+        },
         "notice" : {
           "type" : "string",
           "description" : "The notices."
@@ -25566,6 +26010,9 @@
           "description" : "The ticketing number if available."
         }
       }
+    },
+    "CustomerPriceLists" : {
+      "type" : "object"
     },
     "CustomerTag" : {
       "type" : "object",
@@ -27765,6 +28212,16 @@
           "type" : "string",
           "description" : "The name of the contract."
         },
+        "category" : {
+          "type" : "string"
+        },
+        "configuration" : {
+          "type" : "object",
+          "description" : "Lorem Ipum",
+          "additionalProperties" : {
+            "type" : "object"
+          }
+        },
         "packageLabel" : {
           "type" : "string",
           "description" : "The related package label of the contract"
@@ -27879,10 +28336,13 @@
         "title" : {
           "type" : "string"
         },
-        "privacy" : {
+        "loginLogoHeight" : {
           "type" : "string"
         },
-        "about" : {
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
+        "menuLogoHeight" : {
           "type" : "string"
         },
         "menuLogoWidth" : {
@@ -27894,15 +28354,6 @@
         "primaryText" : {
           "type" : "string"
         },
-        "loginLogoHeight" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
-          "type" : "string"
-        },
         "secondaryColor" : {
           "type" : "string"
         },
@@ -27910,6 +28361,12 @@
           "type" : "string"
         },
         "menuLogoSrc" : {
+          "type" : "string"
+        },
+        "about" : {
+          "type" : "string"
+        },
+        "privacy" : {
           "type" : "string"
         }
       }
@@ -28210,13 +28667,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -28574,6 +29031,45 @@
           "items" : {
             "originalRef" : "CertificateData",
             "$ref" : "#/definitions/CertificateData"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataCertificateInstallCheckResult" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "CertificateInstallCheckResult",
+            "$ref" : "#/definitions/CertificateInstallCheckResult"
           }
         },
         "ctid" : {
@@ -30019,6 +30515,45 @@
         }
       }
     },
+    "JsonResponseDataSiteSealInformation" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "SiteSealInformation",
+            "$ref" : "#/definitions/SiteSealInformation"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataSslContact" : {
       "type" : "object",
       "properties" : {
@@ -30563,6 +31098,9 @@
           "description" : "The client transaction id for the response."
         }
       }
+    },
+    "Locale" : {
+      "type" : "object"
     },
     "LoginData" : {
       "type" : "object",
@@ -31279,6 +31817,10 @@
           "type" : "string",
           "description" : "Optional message flags."
         },
+        "notice" : {
+          "type" : "string",
+          "description" : "Optional notice."
+        },
         "created" : {
           "type" : "string",
           "format" : "date-time",
@@ -31897,6 +32439,10 @@
         }
       }
     },
+    "SanType" : {
+      "type" : "string",
+      "enum" : [ "FQDN", "SUBDOMAIN", "WILDCARD" ]
+    },
     "SepaStatus" : {
       "type" : "string",
       "enum" : [ "ACTIVE", "UPDATE", "CANCELED", "EXPIRED", "LOCKED", "REMOVE" ]
@@ -32029,6 +32575,31 @@
           "description" : "The currency rate for the view currency",
           "originalRef" : "CurrencyRate",
           "$ref" : "#/definitions/CurrencyRate"
+        }
+      }
+    },
+    "SiteSealInformation" : {
+      "type" : "object",
+      "properties" : {
+        "hash" : {
+          "type" : "string",
+          "description" : "The hash value for the site seal."
+        },
+        "size" : {
+          "type" : "string",
+          "description" : "The size of the site seal."
+        },
+        "html" : {
+          "type" : "string",
+          "description" : "The plain html markup."
+        },
+        "icon" : {
+          "type" : "string",
+          "description" : "The icon url."
+        },
+        "preview" : {
+          "type" : "string",
+          "description" : "The preview url."
         }
       }
     },
@@ -32291,6 +32862,24 @@
     "SubjectAlternativeName" : {
       "type" : "object",
       "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "type" : {
+          "originalRef" : "SanType",
+          "$ref" : "#/definitions/SanType"
+        },
+        "sslCertificateId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
         "name" : {
           "type" : "string",
           "description" : "The name of the san."
@@ -32302,6 +32891,10 @@
         "orderId" : {
           "type" : "string",
           "description" : "The order id of the san."
+        },
+        "free" : {
+          "type" : "boolean",
+          "description" : "Defines whether the san was free or not"
         }
       }
     },
@@ -32661,6 +33254,19 @@
     "TimeUnitConstants" : {
       "type" : "string",
       "enum" : [ "MILLISECOND", "SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "QUARTER", "YEAR" ]
+    },
+    "TlsData" : {
+      "type" : "object",
+      "properties" : {
+        "version" : {
+          "type" : "string",
+          "description" : "The tls version"
+        },
+        "supported" : {
+          "type" : "boolean",
+          "description" : "Whether the version is supported or not"
+        }
+      }
     },
     "TmchContact" : {
       "type" : "object",
@@ -33767,6 +34373,165 @@
         }
       }
     },
+    "X509CertificateData" : {
+      "type" : "object",
+      "properties" : {
+        "cn" : {
+          "type" : "string",
+          "description" : "The common name"
+        },
+        "serialNumber" : {
+          "type" : "string",
+          "description" : "The serial number of the certificate"
+        },
+        "issuer" : {
+          "description" : "The issuer information of the certificate",
+          "originalRef" : "X509CertificateIssuer",
+          "$ref" : "#/definitions/X509CertificateIssuer"
+        },
+        "subject" : {
+          "description" : "The subject information of the certificate",
+          "originalRef" : "X509CertificateSubject",
+          "$ref" : "#/definitions/X509CertificateSubject"
+        },
+        "validity" : {
+          "description" : "The validity of the certificate",
+          "originalRef" : "X509CertificateValidity",
+          "$ref" : "#/definitions/X509CertificateValidity"
+        },
+        "subjectAlternativNames" : {
+          "type" : "array",
+          "description" : "The subject alternativ names covered by this certificate",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "plain" : {
+          "type" : "string",
+          "description" : "The plain certificate pem string, that was used to decode."
+        },
+        "signatureAlgorithm" : {
+          "type" : "string",
+          "description" : "The signatureAlgorithm of the certificate."
+        },
+        "sha1Thumbprint" : {
+          "type" : "string",
+          "description" : "The SHA-1 thumbprint for the certificate."
+        },
+        "sha256Thumbprint" : {
+          "type" : "string",
+          "description" : "The SHA-256 thumbprint for the certificate."
+        },
+        "md5Thumbprint" : {
+          "type" : "string",
+          "description" : "The MD5 thumbprint for the certificate."
+        },
+        "publicKeyData" : {
+          "description" : "The public key data from the certificate.",
+          "originalRef" : "X509CertificatePublicKeyData",
+          "$ref" : "#/definitions/X509CertificatePublicKeyData"
+        }
+      }
+    },
+    "X509CertificateIssuer" : {
+      "type" : "object",
+      "properties" : {
+        "commonName" : {
+          "type" : "string",
+          "description" : "The CN attribute of the issuer"
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "The O attribute of the issuer"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "The C attribute of the issuer"
+        },
+        "organizationUnit" : {
+          "type" : "string",
+          "description" : "The OU attribute of the issuer"
+        },
+        "locality" : {
+          "type" : "string",
+          "description" : "The L attribute of the issuer"
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "The ST attribute of the issuer"
+        }
+      }
+    },
+    "X509CertificatePublicKeyData" : {
+      "type" : "object",
+      "properties" : {
+        "algorithm" : {
+          "type" : "string",
+          "description" : "The algorithm of the public key"
+        },
+        "length" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The key length of the public key"
+        },
+        "sha1Thumbprint" : {
+          "type" : "string",
+          "description" : "The SHA-1 thumbprint of the public key"
+        },
+        "sha256Thumbprint" : {
+          "type" : "string",
+          "description" : "The SHA-256 thumbprint of the public key"
+        },
+        "bytes" : {
+          "type" : "string",
+          "description" : "The bytes representing the public key as Stringe"
+        }
+      }
+    },
+    "X509CertificateSubject" : {
+      "type" : "object",
+      "properties" : {
+        "commonName" : {
+          "type" : "string",
+          "description" : "The CN attribute of the subject"
+        },
+        "organization" : {
+          "type" : "string",
+          "description" : "The O attribute of the subject"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "The C attribute of the subject"
+        },
+        "organizationUnit" : {
+          "type" : "string",
+          "description" : "The OU attribute of the subject"
+        },
+        "locality" : {
+          "type" : "string",
+          "description" : "The L attribute of the subject"
+        },
+        "state" : {
+          "type" : "string",
+          "description" : "The ST attribute of the subject"
+        }
+      }
+    },
+    "X509CertificateValidity" : {
+      "type" : "object",
+      "properties" : {
+        "notAfter" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The notAfter date of the certificate"
+        },
+        "notBefore" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The notBefore date of the certificate"
+        }
+      }
+    },
     "Zone" : {
       "type" : "object",
       "required" : [ "origin" ],
@@ -34082,6 +34847,45 @@
         }
       }
     },
+    "accountManager" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "originalRef" : "Phone",
+          "$ref" : "#/definitions/Phone"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
     "address_claim" : {
       "type" : "object",
       "properties" : {
@@ -34198,6 +35002,100 @@
         "organization" : {
           "type" : "string",
           "description" : "End-user's organization"
+        }
+      }
+    },
+    "contact" : {
+      "type" : "object",
+      "required" : [ "customer", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id."
+        },
+        "customer" : {
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "type" : {
+          "originalRef" : "ContactType",
+          "$ref" : "#/definitions/ContactType"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "label" : {
+          "type" : "string"
+        },
+        "locale" : {
+          "originalRef" : "Locale",
+          "$ref" : "#/definitions/Locale"
+        },
+        "gender" : {
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "postalCode" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "Phone",
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "faxes" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "Phone",
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     }
