@@ -11291,8 +11291,8 @@
           "description" : "search",
           "required" : false,
           "schema" : {
-            "originalRef" : "DomainEnvelopeSearchRequest",
-            "$ref" : "#/definitions/DomainEnvelopeSearchRequest"
+            "originalRef" : "DomainstudioSocialMediaRequest",
+            "$ref" : "#/definitions/DomainstudioSocialMediaRequest"
           }
         } ],
         "responses" : {
@@ -22905,17 +22905,6 @@
       "type" : "string",
       "enum" : [ "INVOICE", "CREDIT", "REFUND", "CANCELED", "CHARGE" ]
     },
-    "AdoptExpiration" : {
-      "type" : "object",
-      "properties" : {
-        "tlds" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
     "Application" : {
       "type" : "object",
       "required" : [ "name" ],
@@ -23092,6 +23081,10 @@
           "minLength" : 0,
           "maxLength" : 70
         },
+        "organization2" : {
+          "type" : "string",
+          "description" : "The second line for the organization name."
+        },
         "vatNumber" : {
           "type" : "string",
           "description" : "The value added tax number."
@@ -23153,6 +23146,14 @@
             "type" : "string"
           }
         },
+        "contacts" : {
+          "type" : "array",
+          "description" : "The contacts.",
+          "items" : {
+            "originalRef" : "contact",
+            "$ref" : "#/definitions/contact"
+          }
+        },
         "payment" : {
           "description" : "The payment typ of the customer.",
           "originalRef" : "PaymentConstants",
@@ -23176,6 +23177,10 @@
         "invoiceLanguage" : {
           "type" : "string",
           "description" : "The language to use for the invoice."
+        },
+        "pin" : {
+          "type" : "string",
+          "description" : "The pin number."
         },
         "taxable" : {
           "type" : "boolean",
@@ -23503,7 +23508,7 @@
     },
     "BillingStatus" : {
       "type" : "string",
-      "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED", "DROP" ]
+      "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "UPGRADE", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED", "DROP" ]
     },
     "BulkBackupMxDeleteRequest" : {
       "type" : "object",
@@ -24665,9 +24670,9 @@
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
     },
-    "ClearAccountPeriod" : {
+    "CnAuditDocumentType" : {
       "type" : "string",
-      "enum" : [ "DAY", "MONTH", "BILL", "WEEK", "NONE" ]
+      "enum" : [ "ID_CARD", "PASSPORT", "CN_MAINLAND_TRAVEL_PERMIT_HK_MO", "CN_MAINLAND_TRAVEL_PERMIT_TW", "PERMANENT_RESIDENCE_PERMIT_FOREIGNERS", "CN_RESIDENCE_PERMIT_HK_MO", "CN_RESIDENCE_PERMIT_TW", "MILITARY_ID_CARD", "OTHER_ID_CARD", "CN_ORG_ID", "CN_BUSINESS_ID", "CN_SOCIAL_CREDIT_LICENCE", "MILITARY_UNIT_CODE", "MILITARY_UNIT_EXTERNAL_PERMIT", "INSTITUION_LEGAL_PERSON", "CN_FOREIGN_ENTERPRISE_REGISTRATION", "SOCIAL_ORG_LEGAL_PERSON", "RELIGIOS_ACTIVITY", "PRIVATE_NON_ENTERPRISE_REGISTRATION", "FOUNDATION_LEGAL_PERSON", "LAW_FIRM_LICENCE", "CN_FOREIGN_CULTURAL_CENTER", "CN_FOREIGN_TOURISM_DEPARTMENT_REGISTRATION", "FORENSIC_EXPERTISE_LICENCE", "SOCIAL_AGENCY_CERTIFICATE", "PRIVATE_SCHOOL_PERMIT", "MEDICAL_INSTITUION_LICENCE", "NOTARY_ORG_LICENCE", "CN_FOREIGN_EMBASSY_CHILDREN_PERMIT_BEIJING", "OTHER_ORG_DOC", "ORG_CERTIFICATE" ]
     },
     "CodeSigningHardwarePlatform" : {
       "type" : "string",
@@ -24822,6 +24827,13 @@
           "originalRef" : "GenericStatusConstants",
           "$ref" : "#/definitions/GenericStatusConstants"
         },
+        "documents" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "ContactDocument",
+            "$ref" : "#/definitions/ContactDocument"
+          }
+        },
         "fname" : {
           "type" : "string",
           "example" : "John",
@@ -24939,7 +24951,7 @@
     "ContactBarcelonaExtensions" : {
       "type" : "object",
       "properties" : {
-        "intededUse" : {
+        "intendedUse" : {
           "type" : "string",
           "description" : "The statement of intended use for the domain name."
         }
@@ -25005,6 +25017,44 @@
         "intendedUse" : {
           "type" : "string",
           "description" : "The statement of intended use for the domain name."
+        }
+      }
+    },
+    "ContactDocument" : {
+      "type" : "object",
+      "required" : [ "contact", "document", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "contact" : {
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "document" : {
+          "originalRef" : "Document",
+          "$ref" : "#/definitions/Document"
+        },
+        "type" : {
+          "originalRef" : "CnAuditDocumentType",
+          "$ref" : "#/definitions/CnAuditDocumentType"
+        },
+        "verification" : {
+          "description" : "The verification status of the contact",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The expire date."
         }
       }
     },
@@ -25364,6 +25414,11 @@
           "description" : "The role as contact reference type",
           "originalRef" : "ContactReferenceType",
           "$ref" : "#/definitions/ContactReferenceType"
+        },
+        "verification" : {
+          "description" : "The external verification status",
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
         },
         "name" : {
           "type" : "string",
@@ -25747,236 +25802,6 @@
         }
       }
     },
-    "Customer" : {
-      "type" : "object",
-      "required" : [ "addressLines", "client", "country", "name", "number", "payment" ],
-      "properties" : {
-        "number" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "client" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 2147483647
-        },
-        "group" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "name" : {
-          "type" : "string",
-          "description" : "The name of the customer.",
-          "minLength" : 0,
-          "maxLength" : 255
-        },
-        "type" : {
-          "description" : "The type of the customer.",
-          "originalRef" : "CustomerType",
-          "$ref" : "#/definitions/CustomerType"
-        },
-        "organization" : {
-          "type" : "string",
-          "description" : "The name of the organization.",
-          "minLength" : 0,
-          "maxLength" : 70
-        },
-        "vatNumber" : {
-          "type" : "string",
-          "description" : "The value added tax number."
-        },
-        "gender" : {
-          "description" : "The gender of the person.",
-          "originalRef" : "GenderConstants",
-          "$ref" : "#/definitions/GenderConstants"
-        },
-        "title" : {
-          "type" : "string",
-          "description" : "The title of the customer"
-        },
-        "addressLines" : {
-          "type" : "array",
-          "description" : "The address of the customer",
-          "items" : {
-            "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
-        },
-        "city" : {
-          "type" : "string",
-          "description" : "The city of the customer."
-        },
-        "state" : {
-          "type" : "string",
-          "description" : "The state of the customer."
-        },
-        "country" : {
-          "type" : "string",
-          "description" : "The country of the customer."
-        },
-        "phone" : {
-          "type" : "string",
-          "example" : "+49-123-12345",
-          "description" : "The phone number of the customer",
-          "x-custom-type" : "phone"
-        },
-        "fax" : {
-          "description" : "The fax number.",
-          "originalRef" : "Phone",
-          "$ref" : "#/definitions/Phone"
-        },
-        "emails" : {
-          "type" : "array",
-          "description" : "The email addresses.",
-          "items" : {
-            "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
-        },
-        "billingEmails" : {
-          "type" : "array",
-          "description" : "The billing recipients.",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "payment" : {
-          "description" : "The payment typ of the customer.",
-          "originalRef" : "PaymentConstants",
-          "$ref" : "#/definitions/PaymentConstants"
-        },
-        "paymentMode" : {
-          "type" : "string",
-          "description" : "The payment mode of the customer."
-        },
-        "paymentCurrency" : {
-          "description" : "The payment currency of the customer.",
-          "originalRef" : "Currency",
-          "$ref" : "#/definitions/Currency"
-        },
-        "discountValid" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The end of a promo discount."
-        },
-        "invoiceLanguage" : {
-          "type" : "string",
-          "description" : "The language to use for the invoice."
-        },
-        "taxable" : {
-          "type" : "boolean",
-          "description" : "The taxable flag of the customer."
-        },
-        "card" : {
-          "description" : "The customers minimal credit card data if payament was post with credit card.",
-          "originalRef" : "Card",
-          "$ref" : "#/definitions/Card"
-        },
-        "contracts" : {
-          "type" : "array",
-          "description" : "The customers contracts.",
-          "items" : {
-            "originalRef" : "CustomerContract",
-            "$ref" : "#/definitions/CustomerContract"
-          }
-        },
-        "billingUsers" : {
-          "type" : "array",
-          "description" : "The billing users.",
-          "items" : {
-            "originalRef" : "BasicUser",
-            "$ref" : "#/definitions/BasicUser"
-          }
-        },
-        "comments" : {
-          "type" : "array",
-          "description" : "The comments of the customer",
-          "items" : {
-            "originalRef" : "Comment",
-            "$ref" : "#/definitions/Comment"
-          }
-        },
-        "contacts" : {
-          "type" : "array",
-          "description" : "The contacts of the customer",
-          "items" : {
-            "originalRef" : "contact",
-            "$ref" : "#/definitions/contact"
-          }
-        },
-        "account" : {
-          "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
-          "originalRef" : "Account",
-          "$ref" : "#/definitions/Account"
-        },
-        "clearAccount" : {
-          "description" : "The period after the post payment account will be cleared to zero",
-          "originalRef" : "ClearAccountPeriod",
-          "$ref" : "#/definitions/ClearAccountPeriod"
-        },
-        "autodelete" : {
-          "type" : "boolean",
-          "description" : "Flag indication if the customer is autodelete"
-        },
-        "pending" : {
-          "type" : "boolean",
-          "description" : "Flag indication if the customer data are pending"
-        },
-        "verifications" : {
-          "type" : "array",
-          "description" : "Shows the pending email verifications",
-          "items" : {
-            "originalRef" : "BasicCustomerSpoolVerification",
-            "$ref" : "#/definitions/BasicCustomerSpoolVerification"
-          }
-        },
-        "tags" : {
-          "type" : "array",
-          "description" : "The customers tags.",
-          "items" : {
-            "originalRef" : "CustomerTag",
-            "$ref" : "#/definitions/CustomerTag"
-          }
-        },
-        "pin" : {
-          "type" : "string",
-          "description" : "The pin number."
-        },
-        "fname" : {
-          "type" : "string",
-          "description" : "The first name.",
-          "minLength" : 0,
-          "maxLength" : 35
-        },
-        "lname" : {
-          "type" : "string",
-          "description" : "The last name.",
-          "minLength" : 0,
-          "maxLength" : 35
-        },
-        "pcode" : {
-          "type" : "string",
-          "description" : "The postal code of the city."
-        },
-        "technical" : {
-          "description" : "technical Customer.",
-          "originalRef" : "GenericCustomer",
-          "$ref" : "#/definitions/GenericCustomer"
-        },
-        "sepa" : {
-          "description" : "The customers sepa mandate if payament was post with sepa.",
-          "originalRef" : "SEPAMandate",
-          "$ref" : "#/definitions/SEPAMandate"
-        },
-        "pricelists" : {
-          "description" : "the customer PriceLists",
-          "originalRef" : "CustomerPriceLists",
-          "$ref" : "#/definitions/CustomerPriceLists"
-        }
-      }
-    },
     "CustomerContract" : {
       "type" : "object",
       "required" : [ "contract" ],
@@ -26008,30 +25833,6 @@
         "ticketNumber" : {
           "type" : "string",
           "description" : "The ticketing number if available."
-        }
-      }
-    },
-    "CustomerPriceLists" : {
-      "type" : "object"
-    },
-    "CustomerTag" : {
-      "type" : "object",
-      "required" : [ "tag" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "tag" : {
-          "description" : "The tag.",
-          "originalRef" : "GenericLabelEntity",
-          "$ref" : "#/definitions/GenericLabelEntity"
         }
       }
     },
@@ -26512,6 +26313,39 @@
         "searchToken" : {
           "type" : "string",
           "description" : "Domain search token"
+        },
+        "currency" : {
+          "type" : "string",
+          "description" : "The currency for every price lookup"
+        },
+        "debug" : {
+          "type" : "boolean",
+          "description" : "Activates debugging"
+        },
+        "checkPortfolio" : {
+          "type" : "boolean",
+          "description" : "Activates the check for each domain whether the user already owns it."
+        },
+        "forceDnsCheck" : {
+          "type" : "boolean",
+          "description" : "All whois checks will be done via dns check."
+        },
+        "allowDuplicates" : {
+          "type" : "boolean",
+          "description" : "Allow duplicate domain names from different sources."
+        },
+        "sources" : {
+          "description" : "Wrapper for the configuration for each source",
+          "originalRef" : "DomainStudioSources",
+          "$ref" : "#/definitions/DomainStudioSources"
+        },
+        "clientIp" : {
+          "type" : "string",
+          "description" : "The ip of the client"
+        },
+        "onlyAvailable" : {
+          "type" : "boolean",
+          "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         }
       }
     },
@@ -27985,6 +27819,15 @@
         }
       }
     },
+    "DomainstudioSocialMediaRequest" : {
+      "type" : "object",
+      "properties" : {
+        "searchToken" : {
+          "type" : "string",
+          "description" : "Domain search token"
+        }
+      }
+    },
     "EstimationData" : {
       "type" : "object",
       "properties" : {
@@ -28071,8 +27914,8 @@
         },
         "customer" : {
           "description" : "Customer",
-          "originalRef" : "Customer",
-          "$ref" : "#/definitions/Customer"
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
         },
         "period" : {
           "description" : "The activity period of a product",
@@ -28336,22 +28179,7 @@
         "title" : {
           "type" : "string"
         },
-        "loginLogoHeight" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
-          "type" : "string"
-        },
-        "menuLogoWidth" : {
-          "type" : "string"
-        },
-        "primaryColor" : {
-          "type" : "string"
-        },
-        "primaryText" : {
+        "privacy" : {
           "type" : "string"
         },
         "secondaryColor" : {
@@ -28363,10 +28191,25 @@
         "menuLogoSrc" : {
           "type" : "string"
         },
+        "loginLogoHeight" : {
+          "type" : "string"
+        },
+        "menuLogoWidth" : {
+          "type" : "string"
+        },
         "about" : {
           "type" : "string"
         },
-        "privacy" : {
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
+        "menuLogoHeight" : {
+          "type" : "string"
+        },
+        "primaryColor" : {
+          "type" : "string"
+        },
+        "primaryText" : {
           "type" : "string"
         }
       }
@@ -28496,8 +28339,8 @@
         },
         "customer" : {
           "description" : "Customer",
-          "originalRef" : "Customer",
-          "$ref" : "#/definitions/Customer"
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
         },
         "payment" : {
           "description" : "The method of payment: PRE, POST, etc.",
@@ -28667,13 +28510,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -31703,6 +31546,11 @@
           "type" : "string",
           "description" : "The article type label of the subscription, e.g. domain"
         },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date then the event should be billed."
+        },
         "articleLabel" : {
           "type" : "string",
           "description" : "The article label of the subscription, e.g. backup_mx"
@@ -32522,7 +32370,7 @@
     },
     "SignatureHashAlgorithmConstants" : {
       "type" : "string",
-      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256", "SHA256_SHA1", "SHA384_SHA1", "SHA256_SHA256", "SHA256ECDSA_SHA1", "SHA384ECDSA_SHA1", "SHA256ECDSA_SHA384ECDSA", "SHA384ECDSA_SHA384ECDSA" ]
+      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256", "SHA256_SHA1", "SHA384_SHA1", "SHA256_SHA256", "SHA256ECDSA_SHA1", "SHA384ECDSA_SHA1", "SHA256ECDSA_SHA384ECDSA", "SHA384ECDSA_SHA384ECDSA", "DEFAULT" ]
     },
     "SimplePrice" : {
       "type" : "object",
@@ -33070,6 +32918,11 @@
         "articleTypeLabel" : {
           "type" : "string",
           "description" : "The article type label of the subscription, e.g. domain"
+        },
+        "payable" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date then the event should be billed."
         },
         "articleLabel" : {
           "type" : "string",
