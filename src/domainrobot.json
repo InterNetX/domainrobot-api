@@ -14,13 +14,13 @@
   }, {
     "name" : "BackupMx Tasks"
   }, {
+    "name" : "Certificate Bulk Tasks"
+  }, {
     "name" : "Certificate Tasks"
   }, {
-    "name" : "Certificate bulk Tasks"
+    "name" : "Contact Bulk Tasks"
   }, {
     "name" : "Contact Tasks"
-  }, {
-    "name" : "Contact bulk Tasks"
   }, {
     "name" : "Customer Account Tasks"
   }, {
@@ -50,29 +50,31 @@
   }, {
     "name" : "Mail Tasks"
   }, {
+    "name" : "MailProxy Bulk Tasks"
+  }, {
     "name" : "MailProxy Tasks"
   }, {
-    "name" : "MailProxy bulk Tasks"
+    "name" : "ObjectUserAssignment Bulk Tasks"
   }, {
-    "name" : "ObjectUserAssignment bulk Tasks"
-  }, {
-    "name" : "ObjectUserAssignment tasks"
+    "name" : "ObjectUserAssignment Tasks"
   }, {
     "name" : "Poll Tasks"
   }, {
-    "name" : "Redirect Tasks"
+    "name" : "Redirect Bulk Tasks"
   }, {
-    "name" : "Redirect bulk Tasks"
+    "name" : "Redirect Tasks"
   }, {
     "name" : "SalesReport Tasks"
   }, {
     "name" : "Session Tasks"
   }, {
+    "name" : "SslContact Bulk Tasks"
+  }, {
     "name" : "SslContact Tasks"
   }, {
-    "name" : "SslContact bulk Tasks"
-  }, {
     "name" : "Subscription Tasks"
+  }, {
+    "name" : "TmchMark Claim Tasks"
   }, {
     "name" : "TmchMark Tasks"
   }, {
@@ -80,7 +82,7 @@
   }, {
     "name" : "TrustedApplication Tasks"
   }, {
-    "name" : "User 2fa tasks"
+    "name" : "User 2fa Tasks"
   }, {
     "name" : "User Tasks"
   }, {
@@ -96,7 +98,7 @@
   "paths" : {
     "/OTPAuth" : {
       "get" : {
-        "tags" : [ "User 2fa tasks" ],
+        "tags" : [ "User 2fa Tasks" ],
         "summary" : "User Token Config Info",
         "description" : "Inquiring the token-configuration of the logged in user.",
         "operationId" : "otpAuthInfo",
@@ -182,7 +184,7 @@
         }
       },
       "post" : {
-        "tags" : [ "User 2fa tasks" ],
+        "tags" : [ "User 2fa Tasks" ],
         "summary" : "User Token Config Create",
         "description" : "Creating a temporary token for the logged in user. The response contains the qr code as a base64 image.",
         "operationId" : "otpAuthCreate",
@@ -1542,7 +1544,7 @@
     },
     "/bulk/certificate" : {
       "post" : {
-        "tags" : [ "Certificate bulk Tasks" ],
+        "tags" : [ "Certificate Bulk Tasks" ],
         "summary" : "Certificate Create Bulk",
         "description" : "Creating several new certificates.",
         "operationId" : "certificateCreates",
@@ -1637,7 +1639,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "Certificate bulk Tasks" ],
+        "tags" : [ "Certificate Bulk Tasks" ],
         "summary" : "Certificate Delete Bulk",
         "description" : "Deleting several existing certificates.",
         "operationId" : "certificateDeletes",
@@ -1732,7 +1734,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "Certificate bulk Tasks" ],
+        "tags" : [ "Certificate Bulk Tasks" ],
         "summary" : "Certificate Update Bulk",
         "description" : "Updating several existing certificates.",
         "operationId" : "certificatePatches",
@@ -1829,7 +1831,7 @@
     },
     "/bulk/contact" : {
       "delete" : {
-        "tags" : [ "Contact bulk Tasks" ],
+        "tags" : [ "Contact Bulk Tasks" ],
         "summary" : "Contact Delete Bulk",
         "description" : "Deleting several Contacts with one request.",
         "operationId" : "contactDeletes",
@@ -3755,7 +3757,7 @@
     },
     "/bulk/mailProxy" : {
       "post" : {
-        "tags" : [ "MailProxy bulk Tasks" ],
+        "tags" : [ "MailProxy Bulk Tasks" ],
         "summary" : "MailProxy Create Bulk",
         "description" : "Creating several new MailProxys with one request.",
         "operationId" : "mailProxyCreates",
@@ -3850,7 +3852,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "MailProxy bulk Tasks" ],
+        "tags" : [ "MailProxy Bulk Tasks" ],
         "summary" : "MailProxy Delete Bulk",
         "description" : "Deleting several new MailProxys with one request.",
         "operationId" : "mailProxyDeletes",
@@ -3945,7 +3947,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "MailProxy bulk Tasks" ],
+        "tags" : [ "MailProxy Bulk Tasks" ],
         "summary" : "MailProxy Update Bulk",
         "description" : "Updating several new MailProxys with one request.",
         "operationId" : "mailProxyPatches",
@@ -4042,7 +4044,7 @@
     },
     "/bulk/objectUserAssignment" : {
       "patch" : {
-        "tags" : [ "ObjectUserAssignment bulk Tasks" ],
+        "tags" : [ "ObjectUserAssignment Bulk Tasks" ],
         "summary" : "Update owner objects",
         "description" : "Reassgins objects to a new owner..",
         "operationId" : "objectUserAssignment",
@@ -4139,7 +4141,7 @@
     },
     "/bulk/redirect" : {
       "post" : {
-        "tags" : [ "Redirect bulk Tasks" ],
+        "tags" : [ "Redirect Bulk Tasks" ],
         "summary" : "Redirect Create Bulk",
         "description" : "Creating several redirects in one request.",
         "operationId" : "redirectCreates",
@@ -4234,7 +4236,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "Redirect bulk Tasks" ],
+        "tags" : [ "Redirect Bulk Tasks" ],
         "summary" : " Redirect Delete Bulk",
         "description" : "Deleting several redirects in one request.",
         "operationId" : "redirectDeletes",
@@ -4329,7 +4331,7 @@
         }
       },
       "patch" : {
-        "tags" : [ "Redirect bulk Tasks" ],
+        "tags" : [ "Redirect Bulk Tasks" ],
         "summary" : "Redirect Update Bulk ",
         "description" : "Updating several redirects in one request.",
         "operationId" : "redirectPatches",
@@ -4426,7 +4428,7 @@
     },
     "/bulk/sslcontact" : {
       "delete" : {
-        "tags" : [ "SslContact bulk Tasks" ],
+        "tags" : [ "SslContact Bulk Tasks" ],
         "summary" : "SslContact Delete Bulk",
         "description" : "Deleting serveral SslContact with one request.",
         "operationId" : "sslContactsDeletes",
@@ -6669,6 +6671,108 @@
         }
       }
     },
+    "/contact/verification/_confirm" : {
+      "put" : {
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Contact Verification Confirm",
+        "description" : "Confirming an existing verification with a given hash.",
+        "operationId" : "verificationConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "reference",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "contactVerification",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "ContactVerification",
+            "$ref" : "#/definitions/ContactVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataContactVerification",
+              "$ref" : "#/definitions/JsonResponseDataContactVerification"
+            }
+          }
+        }
+      }
+    },
     "/contact/verification/_search" : {
       "post" : {
         "tags" : [ "Contact Tasks" ],
@@ -8030,9 +8134,12 @@
         }, {
           "name" : "nsCheck",
           "in" : "query",
-          "description" : "Specifies the name server check to use. Forces the name server nast check if set. Example : ?nsCheck",
+          "description" : "Specifies the name server check to use. Forces the name server nast check if set",
           "required" : false,
-          "type" : "DNSCheck"
+          "type" : "string",
+          "default" : "NONE",
+          "x-example" : "?nsCheck=ALL",
+          "enum" : [ "SOA", "NS", "ALL", "NONE" ]
         } ],
         "responses" : {
           "200" : {
@@ -8549,17 +8656,14 @@
             "$ref" : "#/definitions/Domain"
           }
         }, {
-          "name" : "ignoreWhois",
-          "in" : "query",
-          "description" : "Specifies whether the whois check should be ignored. Ignores the whois check if parameter is set. Example : ?ignoreWhois",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "nsCheck",
           "in" : "query",
-          "description" : "Specifies the name server check to use. Forces the name server nast check if set. Example : ?nsCheck",
+          "description" : "Specifies the name server check to use. Forces the name server nast check if set",
           "required" : false,
-          "type" : "DNSCheck"
+          "type" : "string",
+          "default" : "NONE",
+          "x-example" : "?nsCheck=ALL",
+          "enum" : [ "SOA", "NS", "ALL", "NONE" ]
         } ],
         "responses" : {
           "200" : {
@@ -8976,9 +9080,12 @@
         }, {
           "name" : "nsCheck",
           "in" : "query",
-          "description" : "Specifies the name server check to use. Forces the name server nast check if set. Example : ?nsCheck",
+          "description" : "Specifies the name server check to use. Forces the name server nast check if set",
           "required" : false,
-          "type" : "DNSCheck"
+          "type" : "string",
+          "default" : "NONE",
+          "x-example" : "?nsCheck=ALL",
+          "enum" : [ "SOA", "NS", "ALL", "NONE" ]
         } ],
         "responses" : {
           "200" : {
@@ -10331,6 +10438,11 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domain",
@@ -11083,7 +11195,7 @@
         }
       }
     },
-    "/domainSafeObject/{object}/{type}" : {
+    "/domainSafeObject/{safeObject}/{type}" : {
       "delete" : {
         "tags" : [ "DomainSafe Tasks" ],
         "summary" : "Safe Object Delete",
@@ -13149,194 +13261,6 @@
         "x-allowed-types" : "Certificate"
       }
     },
-    "/job/{id}/_failed" : {
-      "put" : {
-        "tags" : [ "Job Tasks" ],
-        "summary" : "Job Failed",
-        "description" : "Ending the specified job and setting the status to failed.",
-        "operationId" : "jobFailed",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/job/{id}/_reject" : {
-      "put" : {
-        "tags" : [ "Job Tasks" ],
-        "summary" : "Job Reject",
-        "description" : "Rejecting the specified job.",
-        "operationId" : "jobReject",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
     "/job/{id}/_resendApproverEmail" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
@@ -13525,288 +13449,6 @@
           }
         },
         "x-allowed-types" : "Certificate"
-      }
-    },
-    "/job/{id}/_restart" : {
-      "put" : {
-        "tags" : [ "Job Tasks" ],
-        "summary" : "Job Restart",
-        "description" : "Restarting the specified job.",
-        "operationId" : "jobRestart",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/job/{id}/_retry" : {
-      "put" : {
-        "tags" : [ "Job Tasks" ],
-        "summary" : "Job Retry",
-        "description" : "Retrying the specified job.",
-        "operationId" : "jobRetry",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/job/{id}/_succeded" : {
-      "put" : {
-        "tags" : [ "Job Tasks" ],
-        "summary" : "Job Succeeded",
-        "description" : "Ending the specified job and set the status to success.",
-        "operationId" : "jobSucceded",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            },
-            "responseSchema" : {
-              "originalRef" : "JsonResponseDataJsonNoData",
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
       }
     },
     "/login" : {
@@ -14432,6 +14074,19 @@
             "originalRef" : "MailProxy",
             "$ref" : "#/definitions/MailProxy"
           }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "The query parameter to inquire additional details.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=merge",
+            "enum" : [ "merge" ]
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=merge"
         } ],
         "responses" : {
           "200" : {
@@ -14647,7 +14302,7 @@
     },
     "/object/_assignment" : {
       "put" : {
-        "tags" : [ "ObjectUserAssignment tasks" ],
+        "tags" : [ "ObjectUserAssignment Tasks" ],
         "summary" : "Object Owner Update",
         "description" : "Reassigning an object to a new owner.",
         "operationId" : "ObjectUserAssignment",
@@ -14744,7 +14399,7 @@
     },
     "/object/_assignment/all" : {
       "put" : {
-        "tags" : [ "ObjectUserAssignment tasks" ],
+        "tags" : [ "ObjectUserAssignment Tasks" ],
         "summary" : "Object User Assignment All",
         "description" : "Reassigning all objects from one user to another one.",
         "operationId" : "ObjectUserAssignmentAll",
@@ -16391,6 +16046,12 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "subscription",
@@ -16577,6 +16238,12 @@
           "name" : "X-Domainrobot-2FA-Token",
           "in" : "header",
           "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
           "type" : "integer",
           "format" : "int32"
         }, {
@@ -16937,6 +16604,122 @@
         }
       }
     },
+    "/tmchMark/claim/_search" : {
+      "post" : {
+        "tags" : [ "TmchMark Claim Tasks" ],
+        "summary" : "Tmch claim List",
+        "description" : "Inquiring a list of tmchClaim.",
+        "operationId" : "claimList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "Query",
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/claim/{reference}" : {
+      "get" : {
+        "tags" : [ "TmchMark Claim Tasks" ],
+        "summary" : "Tmch claim info",
+        "description" : " Inquiring a single tmchClaim.",
+        "operationId" : "claimInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/claim/{reference}/_confirm" : {
+      "post" : {
+        "tags" : [ "TmchMark Claim Tasks" ],
+        "summary" : "Tmch claim Reject",
+        "description" : "Rejecting the specified tmchClaim.",
+        "operationId" : "claimConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            }
+          }
+        }
+      }
+    },
+    "/tmchMark/claim/{reference}/_reject" : {
+      "put" : {
+        "tags" : [ "TmchMark Claim Tasks" ],
+        "summary" : "Tmch claim Reject",
+        "description" : "Rejecting the specified tmchClaim.",
+        "operationId" : "claimReject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataTmchClaimsNotice",
+              "$ref" : "#/definitions/JsonResponseDataTmchClaimsNotice"
+            }
+          }
+        }
+      }
+    },
     "/tmchMark/{reference}" : {
       "get" : {
         "tags" : [ "TmchMark Tasks" ],
@@ -16945,13 +16728,10 @@
         "operationId" : "tmchMarkInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -16974,13 +16754,10 @@
         "operationId" : "tmchMarkUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -17003,13 +16780,10 @@
         "operationId" : "tmchMArkDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -17034,13 +16808,10 @@
         "operationId" : "tmchMarkConfirm",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -17093,6 +16864,11 @@
         "operationId" : "tmchMarkDocumentCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "tmchMark",
@@ -17138,22 +16914,15 @@
         "operationId" : "tmchMarkDocumentInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "type",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "DocumentTypeConstants",
-            "$ref" : "#/definitions/DocumentTypeConstants"
-          }
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         }, {
           "name" : "keys",
           "in" : "query",
@@ -17195,22 +16964,15 @@
           "required" : false,
           "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "type",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "DocumentTypeConstants",
-            "$ref" : "#/definitions/DocumentTypeConstants"
-          }
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -17233,22 +16995,15 @@
         "operationId" : "tmchMarkDocumentDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "reference",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "type",
-          "required" : false,
-          "schema" : {
-            "originalRef" : "DocumentTypeConstants",
-            "$ref" : "#/definitions/DocumentTypeConstants"
-          }
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -18262,6 +18017,13 @@
             "originalRef" : "User",
             "$ref" : "#/definitions/User"
           }
+        }, {
+          "name" : "replyUrl",
+          "in" : "query",
+          "description" : "Optional reply url in case of user invite",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyUrl=https%3A%2F%2Fexample.com%2Finvite%2F%7Btoken%7D"
         } ],
         "responses" : {
           "200" : {
@@ -18280,7 +18042,7 @@
     },
     "/user/_2fa" : {
       "put" : {
-        "tags" : [ "User 2fa tasks" ],
+        "tags" : [ "User 2fa Tasks" ],
         "summary" : "User Token Config Activate",
         "description" : "Activating the 2fa authentication for the logged in user. The response contains the rescue tokens",
         "operationId" : "user2faAktivate",
@@ -18366,7 +18128,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "User 2fa tasks" ],
+        "tags" : [ "User 2fa Tasks" ],
         "summary" : "User Token Config Delete",
         "description" : "Deactivating the 2fa of the logged in user. The auth type of the user is set back to password.",
         "operationId" : "user2faDelete",
@@ -18649,7 +18411,7 @@
         "summary" : "New Password",
         "description" : "This route is for setting a new password for a user.",
         "operationId" : "newPassword",
-        "produces" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
           "in" : "header",
@@ -18751,7 +18513,7 @@
         "summary" : "New Password Verify",
         "description" : "Verifying a passwort change request",
         "operationId" : "newPasswordVerify",
-        "produces" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
           "in" : "header",
@@ -19975,6 +19737,104 @@
         }
       }
     },
+    "/user/{name}/{context}/_resendInvite" : {
+      "put" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "User update - resend invite",
+        "description" : "Invokes the resend of an invite for an invite user.",
+        "operationId" : "userUpdateResendInvite",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataBasicUser",
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataBasicUser",
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
+            }
+          }
+        }
+      }
+    },
     "/user/{name}/{context}/_unlock" : {
       "put" : {
         "tags" : [ "User Tasks" ],
@@ -20700,6 +20560,11 @@
           "required" : true,
           "type" : "string"
         }, {
+          "name" : "prefix",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "user",
@@ -21019,6 +20884,11 @@
           "required" : true,
           "type" : "string"
         }, {
+          "name" : "prefix",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "user",
@@ -21038,6 +20908,113 @@
             "responseSchema" : {
               "originalRef" : "JsonResponseDataServiceUsersProfile",
               "$ref" : "#/definitions/JsonResponseDataServiceUsersProfile"
+            }
+          }
+        }
+      }
+    },
+    "/user/{name}/{context}/verification" : {
+      "post" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "User Verification Create",
+        "description" : "",
+        "operationId" : "userVerificationCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "auth",
+          "required" : false,
+          "schema" : {
+            "originalRef" : "AuthSession",
+            "$ref" : "#/definitions/AuthSession"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "originalRef" : "JsonResponseDataAuthSession",
+              "$ref" : "#/definitions/JsonResponseDataAuthSession"
+            },
+            "responseSchema" : {
+              "originalRef" : "JsonResponseDataAuthSession",
+              "$ref" : "#/definitions/JsonResponseDataAuthSession"
             }
           }
         }
@@ -22905,6 +22882,17 @@
       "type" : "string",
       "enum" : [ "INVOICE", "CREDIT", "REFUND", "CANCELED", "CHARGE" ]
     },
+    "AdoptExpiration" : {
+      "type" : "object",
+      "properties" : {
+        "tlds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "Application" : {
       "type" : "object",
       "required" : [ "name" ],
@@ -22983,9 +22971,43 @@
       "type" : "string",
       "enum" : [ "DNS", "EMAIL", "FILE", "ORG" ]
     },
+    "AuthSession" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language."
+        },
+        "configuration" : {
+          "description" : "Additional information",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
+        }
+      }
+    },
     "AuthType" : {
       "type" : "string",
-      "enum" : [ "PASSWORD", "PASSWORD_TOKEN", "ALIAS" ]
+      "enum" : [ "PASSWORD", "PASSWORD_TOKEN", "ALIAS", "INVITE" ]
     },
     "AuthenticateStatus" : {
       "type" : "string",
@@ -23150,8 +23172,8 @@
           "type" : "array",
           "description" : "The contacts.",
           "items" : {
-            "originalRef" : "contact",
-            "$ref" : "#/definitions/contact"
+            "originalRef" : "basicCustomerContact",
+            "$ref" : "#/definitions/basicCustomerContact"
           }
         },
         "payment" : {
@@ -23235,6 +23257,11 @@
             "originalRef" : "Comment",
             "$ref" : "#/definitions/Comment"
           }
+        },
+        "persistent" : {
+          "description" : "the current customer",
+          "originalRef" : "BasicCustomer",
+          "$ref" : "#/definitions/BasicCustomer"
         },
         "fname" : {
           "type" : "string",
@@ -24517,6 +24544,11 @@
         "businessCase" : {
           "type" : "string",
           "description" : "Describes the business case (CREATE, RENEW, REISSUE, DELETE) for which preparation is to be performed."
+        },
+        "ecCurve" : {
+          "description" : "The ec curve of the public key.",
+          "originalRef" : "CsrHashAlgorithmConstants",
+          "$ref" : "#/definitions/CsrHashAlgorithmConstants"
         }
       }
     },
@@ -24670,9 +24702,13 @@
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
     },
+    "ClearAccountPeriod" : {
+      "type" : "string",
+      "enum" : [ "DAY", "MONTH", "BILL", "WEEK", "NONE" ]
+    },
     "CnAuditDocumentType" : {
       "type" : "string",
-      "enum" : [ "ID_CARD", "PASSPORT", "CN_MAINLAND_TRAVEL_PERMIT_HK_MO", "CN_MAINLAND_TRAVEL_PERMIT_TW", "PERMANENT_RESIDENCE_PERMIT_FOREIGNERS", "CN_RESIDENCE_PERMIT_HK_MO", "CN_RESIDENCE_PERMIT_TW", "MILITARY_ID_CARD", "OTHER_ID_CARD", "CN_ORG_ID", "CN_BUSINESS_ID", "CN_SOCIAL_CREDIT_LICENCE", "MILITARY_UNIT_CODE", "MILITARY_UNIT_EXTERNAL_PERMIT", "INSTITUION_LEGAL_PERSON", "CN_FOREIGN_ENTERPRISE_REGISTRATION", "SOCIAL_ORG_LEGAL_PERSON", "RELIGIOS_ACTIVITY", "PRIVATE_NON_ENTERPRISE_REGISTRATION", "FOUNDATION_LEGAL_PERSON", "LAW_FIRM_LICENCE", "CN_FOREIGN_CULTURAL_CENTER", "CN_FOREIGN_TOURISM_DEPARTMENT_REGISTRATION", "FORENSIC_EXPERTISE_LICENCE", "SOCIAL_AGENCY_CERTIFICATE", "PRIVATE_SCHOOL_PERMIT", "MEDICAL_INSTITUION_LICENCE", "NOTARY_ORG_LICENCE", "CN_FOREIGN_EMBASSY_CHILDREN_PERMIT_BEIJING", "OTHER_ORG_DOC", "ORG_CERTIFICATE" ]
+      "enum" : [ "ID_CARD", "PASSPORT", "CN_MAINLAND_TRAVEL_PERMIT_HK_MO", "CN_MAINLAND_TRAVEL_PERMIT_TW", "PERMANENT_RESIDENCE_PERMIT_FOREIGNERS", "CN_RESIDENCE_PERMIT_HK_MO", "CN_RESIDENCE_PERMIT_TW", "MILITARY_ID_CARD", "OTHER_ID_CARD", "CN_ORG_ID", "CN_BUSINESS_ID", "CN_SOCIAL_CREDIT_LICENSE", "MILITARY_UNIT_CODE", "MILITARY_UNIT_EXTERNAL_PERMIT", "INSTITUTION_LEGAL_PERSON", "CN_FOREIGN_ENTERPRISE_REGISTRATION", "SOCIAL_ORG_LEGAL_PERSON", "RELIGIOUS_ACTIVITY", "PRIVATE_NON_ENTERPRISE_REGISTRATION", "FOUNDATION_LEGAL_PERSON", "LAW_FIRM_LICENSE", "CN_FOREIGN_CULTURAL_CENTER", "CN_FOREIGN_TOURISM_DEPARTMENT_REGISTRATION", "FORENSIC_EXPERTISE_LICENSE", "SOCIAL_AGENCY_CERTIFICATE", "PRIVATE_SCHOOL_PERMIT", "MEDICAL_INSTITUTION_LICENSE", "NOTARY_ORG_LICENSE", "CN_FOREIGN_EMBASSY_CHILDREN_PERMIT_BEIJING", "OTHER_ORG_DOC", "ORG_CERTIFICATE" ]
     },
     "CodeSigningHardwarePlatform" : {
       "type" : "string",
@@ -24720,6 +24756,9 @@
     "ConditionType" : {
       "type" : "string",
       "enum" : [ "AND", "OR" ]
+    },
+    "Configuration" : {
+      "type" : "object"
     },
     "Contact" : {
       "type" : "object",
@@ -25170,6 +25209,11 @@
           "description" : "The .ie contact extensions.",
           "originalRef" : "ContactIeExtensions",
           "$ref" : "#/definitions/ContactIeExtensions"
+        },
+        "zuerich" : {
+          "description" : "The .zuerich contact extensions.",
+          "originalRef" : "ContactZuerichExtensions",
+          "$ref" : "#/definitions/ContactZuerichExtensions"
         }
       }
     },
@@ -25686,6 +25730,19 @@
         }
       }
     },
+    "ContactZuerichExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "enterpriseId" : {
+          "type" : "string",
+          "description" : "The enterprise ID, in the specific context of .zuerich based on current rules, is the Swiss UID/IDE/IDI."
+        },
+        "isAuthority" : {
+          "type" : "boolean",
+          "description" : "Indicates whether the organization is an authority. Should be set to true if the organization is an authority."
+        }
+      }
+    },
     "ContextHost" : {
       "type" : "object",
       "properties" : {
@@ -25771,7 +25828,7 @@
     },
     "CsrHashAlgorithmConstants" : {
       "type" : "string",
-      "enum" : [ "ECC", "RSA", "DSA" ]
+      "enum" : [ "PRIME_256_V1", "SECP_384_R1" ]
     },
     "Currency" : {
       "type" : "object"
@@ -25833,6 +25890,30 @@
         "ticketNumber" : {
           "type" : "string",
           "description" : "The ticketing number if available."
+        }
+      }
+    },
+    "CustomerPriceLists" : {
+      "type" : "object"
+    },
+    "CustomerTag" : {
+      "type" : "object",
+      "required" : [ "tag" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "tag" : {
+          "description" : "The tag.",
+          "originalRef" : "GenericLabelEntity",
+          "$ref" : "#/definitions/GenericLabelEntity"
         }
       }
     },
@@ -26297,13 +26378,19 @@
           "type" : "boolean",
           "description" : "All whois checks will be done via dns check."
         },
+        "whoisTimeout" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Defines the timeout for the whois duration in seconds"
+        },
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
         "isPrereg" : {
           "type" : "boolean",
-          "description" : "Defines whether this domain name is only available for preregistration."
+          "description" : "Defines whether this domain name is only available for preregistration.",
+          "readOnly" : true
         }
       }
     },
@@ -26346,6 +26433,11 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "whoisTimeout" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Defines the timeout for the whois duration in seconds"
         }
       }
     },
@@ -27825,6 +27917,18 @@
         "searchToken" : {
           "type" : "string",
           "description" : "Domain search token"
+        },
+        "platforms" : {
+          "type" : "array",
+          "description" : "The platforms to check",
+          "items" : {
+            "originalRef" : "SocialMediaPlatform",
+            "$ref" : "#/definitions/SocialMediaPlatform"
+          }
+        },
+        "clientIp" : {
+          "type" : "string",
+          "description" : "The ip of the client"
         }
       }
     },
@@ -27869,7 +27973,7 @@
     },
     "ExchangedPrice" : {
       "type" : "object",
-      "required" : [ "currency" ],
+      "required" : [ "amount", "currency" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27880,6 +27984,12 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the price"
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -28030,6 +28140,13 @@
         "group" : {
           "type" : "integer",
           "format" : "int64"
+        },
+        "adoptExpiration" : {
+          "originalRef" : "AdoptExpiration",
+          "$ref" : "#/definitions/AdoptExpiration"
+        },
+        "autoDeleteTlds" : {
+          "type" : "string"
         }
       }
     },
@@ -28050,24 +28167,6 @@
         "label" : {
           "type" : "string",
           "description" : "The unique identifier"
-        },
-        "name" : {
-          "type" : "string",
-          "description" : "The name of the contract."
-        },
-        "category" : {
-          "type" : "string"
-        },
-        "configuration" : {
-          "type" : "object",
-          "description" : "Lorem Ipum",
-          "additionalProperties" : {
-            "type" : "object"
-          }
-        },
-        "packageLabel" : {
-          "type" : "string",
-          "description" : "The related package label of the contract"
         }
       }
     },
@@ -28182,6 +28281,21 @@
         "privacy" : {
           "type" : "string"
         },
+        "loginLogoWidth" : {
+          "type" : "string"
+        },
+        "menuLogoHeight" : {
+          "type" : "string"
+        },
+        "menuLogoWidth" : {
+          "type" : "string"
+        },
+        "primaryColor" : {
+          "type" : "string"
+        },
+        "primaryText" : {
+          "type" : "string"
+        },
         "secondaryColor" : {
           "type" : "string"
         },
@@ -28194,22 +28308,7 @@
         "loginLogoHeight" : {
           "type" : "string"
         },
-        "menuLogoWidth" : {
-          "type" : "string"
-        },
         "about" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
-          "type" : "string"
-        },
-        "primaryColor" : {
-          "type" : "string"
-        },
-        "primaryText" : {
           "type" : "string"
         }
       }
@@ -28411,6 +28510,11 @@
         "comment" : {
           "type" : "string",
           "description" : "Comment to the invoice"
+        },
+        "extension" : {
+          "description" : "Additional information",
+          "originalRef" : "Configuration",
+          "$ref" : "#/definitions/Configuration"
         }
       }
     },
@@ -28510,13 +28614,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -28640,6 +28744,45 @@
           "items" : {
             "originalRef" : "AccountingDocument",
             "$ref" : "#/definitions/AccountingDocument"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataAuthSession" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "AuthSession",
+            "$ref" : "#/definitions/AuthSession"
           }
         },
         "ctid" : {
@@ -30552,6 +30695,45 @@
         }
       }
     },
+    "JsonResponseDataTmchClaimsNotice" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "originalRef" : "Message",
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "originalRef" : "ResponseStatus",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "originalRef" : "ResponseObject",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "originalRef" : "TmchClaimsNotice",
+            "$ref" : "#/definitions/TmchClaimsNotice"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataTmchMark" : {
       "type" : "object",
       "properties" : {
@@ -30942,9 +31124,6 @@
         }
       }
     },
-    "Locale" : {
-      "type" : "object"
-    },
     "LoginData" : {
       "type" : "object",
       "required" : [ "context", "user" ],
@@ -31110,6 +31289,10 @@
             "originalRef" : "Recipient",
             "$ref" : "#/definitions/Recipient"
           }
+        },
+        "externalReference" : {
+          "type" : "string",
+          "description" : "The external reference of the email"
         }
       }
     },
@@ -31850,6 +32033,11 @@
           "type" : "boolean",
           "description" : "Shows if the product requires a price"
         },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The unique id of the product"
+        },
         "businessCase" : {
           "type" : "string",
           "description" : "Business case"
@@ -32480,6 +32668,10 @@
         }
       }
     },
+    "SocialMediaPlatform" : {
+      "type" : "string",
+      "enum" : [ "FACEBOOK", "TWITTER", "PINTEREST", "YOUTUBE", "TIKTOK", "GITHUB", "TWITCH", "VIMEO", "VK" ]
+    },
     "SpamPolicy" : {
       "type" : "object",
       "properties" : {
@@ -32578,7 +32770,9 @@
         "organization" : {
           "type" : "string",
           "example" : "Company",
-          "description" : "The name of the organization"
+          "description" : "The name of the organization",
+          "minLength" : 0,
+          "maxLength" : 64
         },
         "address" : {
           "type" : "array",
@@ -33118,6 +33312,94 @@
         "supported" : {
           "type" : "boolean",
           "description" : "Whether the version is supported or not"
+        }
+      }
+    },
+    "TmchClaimsNotice" : {
+      "type" : "object",
+      "required" : [ "confirmIP" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "reference" : {
+          "type" : "string"
+        },
+        "name" : {
+          "originalRef" : "Domain",
+          "$ref" : "#/definitions/Domain"
+        },
+        "idn" : {
+          "type" : "string"
+        },
+        "ownerc" : {
+          "originalRef" : "Contact",
+          "$ref" : "#/definitions/Contact"
+        },
+        "messageSent" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "confirmIP" : {
+          "originalRef" : "InetAddress",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "status" : {
+          "originalRef" : "GenericStatusConstants",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "comment" : {
+          "type" : "string"
+        },
+        "tmchClaimsNoticeMails" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "TmchClaimsNoticeMessage",
+            "$ref" : "#/definitions/TmchClaimsNoticeMessage"
+          }
+        },
+        "expire" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "TmchClaimsNoticeMessage" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
         }
       }
     },
@@ -33899,7 +34181,7 @@
     },
     "UserLock" : {
       "type" : "string",
-      "enum" : [ "NONE", "CUSTOMER", "EXPIRED", "USER" ]
+      "enum" : [ "NONE", "CUSTOMER", "EXPIRED", "USER", "INVITE" ]
     },
     "UserProfile" : {
       "type" : "object",
@@ -34162,6 +34444,11 @@
             "originalRef" : "VirtualNameServer",
             "$ref" : "#/definitions/VirtualNameServer"
           }
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The unique id of the nsVirtualGroup"
         },
         "systemNameServerGroup" : {
           "description" : "The custom label for the group",
@@ -34768,6 +35055,100 @@
         }
       }
     },
+    "basicCustomerContact" : {
+      "type" : "object",
+      "required" : [ "customer", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "originalRef" : "BasicUser",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id."
+        },
+        "customer" : {
+          "originalRef" : "GenericCustomer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "type" : {
+          "originalRef" : "ContactType",
+          "$ref" : "#/definitions/ContactType"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "label" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language to use for the contact."
+        },
+        "gender" : {
+          "originalRef" : "GenderConstants",
+          "$ref" : "#/definitions/GenderConstants"
+        },
+        "postalCode" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "Phone",
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "faxes" : {
+          "type" : "array",
+          "items" : {
+            "originalRef" : "Phone",
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "claims" : {
       "type" : "object",
       "properties" : {
@@ -34834,9 +35215,9 @@
           "type" : "string",
           "description" : "End-User's zoneinfo."
         },
-        "locale" : {
+        "language" : {
           "type" : "string",
-          "description" : "The locale."
+          "description" : "The language."
         },
         "phone_number" : {
           "description" : "End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. .",
@@ -34855,100 +35236,6 @@
         "organization" : {
           "type" : "string",
           "description" : "End-user's organization"
-        }
-      }
-    },
-    "contact" : {
-      "type" : "object",
-      "required" : [ "customer", "type" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "originalRef" : "BasicUser",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "id" : {
-          "type" : "integer",
-          "format" : "int32",
-          "description" : "The id."
-        },
-        "customer" : {
-          "originalRef" : "GenericCustomer",
-          "$ref" : "#/definitions/GenericCustomer"
-        },
-        "type" : {
-          "originalRef" : "ContactType",
-          "$ref" : "#/definitions/ContactType"
-        },
-        "firstName" : {
-          "type" : "string"
-        },
-        "lastName" : {
-          "type" : "string"
-        },
-        "title" : {
-          "type" : "string"
-        },
-        "label" : {
-          "type" : "string"
-        },
-        "locale" : {
-          "originalRef" : "Locale",
-          "$ref" : "#/definitions/Locale"
-        },
-        "gender" : {
-          "originalRef" : "GenderConstants",
-          "$ref" : "#/definitions/GenderConstants"
-        },
-        "postalCode" : {
-          "type" : "string"
-        },
-        "city" : {
-          "type" : "string"
-        },
-        "country" : {
-          "type" : "string"
-        },
-        "state" : {
-          "type" : "string"
-        },
-        "phones" : {
-          "type" : "array",
-          "items" : {
-            "originalRef" : "Phone",
-            "$ref" : "#/definitions/Phone"
-          }
-        },
-        "faxes" : {
-          "type" : "array",
-          "items" : {
-            "originalRef" : "Phone",
-            "$ref" : "#/definitions/Phone"
-          }
-        },
-        "email" : {
-          "type" : "string"
-        },
-        "address" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
         }
       }
     }
