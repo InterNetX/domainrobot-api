@@ -15802,7 +15802,7 @@
         "tags" : [ "TmchMark Tasks" ],
         "summary" : "TmchMark Document Upload",
         "description" : "Uploading a specific document to a tmch mark entry.",
-        "operationId" : "documentCreate",
+        "operationId" : "tmchMarkdocumentUpload",
         "consumes" : [ "multipart/form-data" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16161,7 +16161,7 @@
         "tags" : [ "Transfer Request Tasks" ],
         "summary" : "Transfer Request Info",
         "description" : "Inquires supplied .",
-        "operationId" : "transferOutInfo",
+        "operationId" : "transferOutTaskInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -18075,7 +18075,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "name" : "acl",
           "in" : "query",
@@ -18202,7 +18203,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -18301,7 +18303,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -18402,7 +18405,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "name" : "keys",
           "in" : "query",
@@ -18508,7 +18512,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         } ],
         "responses" : {
           "200" : {
@@ -18601,7 +18606,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "name" : "keys",
           "in" : "query",
@@ -18707,7 +18713,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -18806,7 +18813,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -18907,7 +18915,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -18932,7 +18941,7 @@
         "tags" : [ "User Tasks" ],
         "summary" : "Upload Image",
         "description" : "Uploading an image to the user profile as a specific key.",
-        "operationId" : "documentCreate",
+        "operationId" : "userDocumentUpload",
         "consumes" : [ "multipart/form-data" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -19017,13 +19026,10 @@
           "type" : "integer",
           "format" : "int32"
         }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "key",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
+          "name" : "key",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -19116,7 +19122,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -19215,7 +19222,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -19316,7 +19324,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "name" : "prefix",
           "in" : "path",
@@ -19422,7 +19431,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -19521,7 +19531,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -19622,7 +19633,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "name" : "prefix",
           "in" : "path",
@@ -19728,7 +19740,8 @@
           "name" : "context",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         }, {
           "in" : "body",
           "name" : "body",
@@ -22697,6 +22710,10 @@
           "items" : {
             "$ref" : "#/definitions/CertAuthentication"
           }
+        },
+        "status" : {
+          "description" : "The status of the DCV.",
+          "$ref" : "#/definitions/AuthenticateStatus"
         }
       }
     },
@@ -22720,7 +22737,7 @@
     },
     "Certificate" : {
       "type" : "object",
-      "required" : [ "lifetime", "product", "software" ],
+      "required" : [ "lifetime", "product" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -22907,7 +22924,7 @@
         },
         "vmcLogo" : {
           "type" : "string",
-          "description" : "The gzipped and base64 encoded SVG logo"
+          "description" : "The base64 encoded SVG logo"
         },
         "vmcTrademarkRegistrationNumber" : {
           "type" : "string",
@@ -23018,7 +23035,7 @@
         },
         "vmcLogo" : {
           "type" : "string",
-          "description" : "The gzipped and base64 encoded SVG logo"
+          "description" : "The base64 encoded SVG logo"
         },
         "vmcTrademarkRegistrationNumber" : {
           "type" : "string",
@@ -23977,7 +23994,7 @@
     },
     "ContactType" : {
       "type" : "string",
-      "enum" : [ "BILLING", "TECH", "LEGAL", "DOMAIN", "SSL", "SERVER" ]
+      "enum" : [ "BILLING", "TECH", "LEGAL", "PRIMARY", "DOMAIN", "SSL", "SERVER" ]
     },
     "ContactTypeConstants" : {
       "type" : "string",
@@ -26711,6 +26728,9 @@
     "Id4MeLayoutConfiguration" : {
       "type" : "object",
       "properties" : {
+        "privacy" : {
+          "type" : "string"
+        },
         "title" : {
           "type" : "string"
         },
@@ -26723,13 +26743,13 @@
         "loginLogoHeight" : {
           "type" : "string"
         },
+        "primaryColor" : {
+          "type" : "string"
+        },
         "loginLogoWidth" : {
           "type" : "string"
         },
         "menuLogoHeight" : {
-          "type" : "string"
-        },
-        "primaryColor" : {
           "type" : "string"
         },
         "primaryText" : {
@@ -26742,9 +26762,6 @@
           "type" : "string"
         },
         "menuLogoSrc" : {
-          "type" : "string"
-        },
-        "privacy" : {
           "type" : "string"
         }
       }
