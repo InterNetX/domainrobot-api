@@ -10426,11 +10426,6 @@
           "in" : "path",
           "required" : true,
           "type" : "string"
-        }, {
-          "name" : "provider",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -22947,11 +22942,11 @@
           "type" : "string",
           "description" : "The common name."
         },
-        "san" : {
+        "subjectAlternativeNames" : {
           "type" : "array",
           "description" : "The subject alternative names, listed in the csr.",
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/SubjectAlternativeName"
           }
         },
         "histories" : {
@@ -26728,10 +26723,10 @@
     "Id4MeLayoutConfiguration" : {
       "type" : "object",
       "properties" : {
-        "privacy" : {
+        "title" : {
           "type" : "string"
         },
-        "title" : {
+        "privacy" : {
           "type" : "string"
         },
         "about" : {
@@ -27053,13 +27048,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
