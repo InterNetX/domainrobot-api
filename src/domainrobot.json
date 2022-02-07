@@ -26726,7 +26726,10 @@
         "title" : {
           "type" : "string"
         },
-        "privacy" : {
+        "loginLogoHeight" : {
+          "type" : "string"
+        },
+        "loginLogoWidth" : {
           "type" : "string"
         },
         "about" : {
@@ -26735,16 +26738,10 @@
         "menuLogoWidth" : {
           "type" : "string"
         },
-        "loginLogoHeight" : {
+        "menuLogoHeight" : {
           "type" : "string"
         },
         "primaryColor" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
           "type" : "string"
         },
         "primaryText" : {
@@ -26757,6 +26754,9 @@
           "type" : "string"
         },
         "menuLogoSrc" : {
+          "type" : "string"
+        },
+        "privacy" : {
           "type" : "string"
         }
       }
@@ -27048,13 +27048,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -30318,6 +30318,12 @@
         },
         "value" : {
           "type" : "string"
+        },
+        "values" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         },
         "operator" : {
           "$ref" : "#/definitions/Operator"
