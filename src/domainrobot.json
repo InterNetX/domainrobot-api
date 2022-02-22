@@ -40,10 +40,6 @@
   }, {
     "name" : "Guest account tasks"
   }, {
-    "name" : "Id4me agent tasks"
-  }, {
-    "name" : "Id4me identity tasks"
-  }, {
     "name" : "Invoice Tasks"
   }, {
     "name" : "Job Tasks"
@@ -10707,895 +10703,6 @@
         }
       }
     },
-    "/id4MeAgent" : {
-      "post" : {
-        "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me Agent Create",
-        "description" : "Creating a new id4me agent. Not available yet.",
-        "operationId" : "createId4MeAgent",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "agent",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Id4MeAgent"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
-            }
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me Agent Update",
-        "description" : "Updating an existing id4me agent. Not available yet.",
-        "operationId" : "updateId4MeAgent",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "agent",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Id4MeAgent"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4MeAgent"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeAgent/_search" : {
-      "post" : {
-        "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me Agent List",
-        "description" : "Inquiring a list of id4Me agents with certain details. Not available yet.",
-        "operationId" : "id4MeAgentList",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "query",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Query"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeAgent/{name}" : {
-      "get" : {
-        "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me Agent Inf.",
-        "description" : "Inquiríng the data for the specified name. Not available yet.",
-        "operationId" : "id4MeAgentInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "Id4me agent tasks" ],
-        "summary" : "Id4me Agent Delete",
-        "description" : "Deleting an existing id4me agent. Not available yet.",
-        "operationId" : "deleteId4MeAgent",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeIdentity" : {
-      "post" : {
-        "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me Identity Create",
-        "description" : "Creating a new id4me identity. Not available yet.",
-        "operationId" : "createId4MeIdentity",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "identity",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Id4meIdentity"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeIdentity/_search" : {
-      "post" : {
-        "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me Identity List",
-        "description" : "Inquiring a list of id4me identities with certain details. Not available yet. ",
-        "operationId" : "id4MeIdentityList",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "query",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Query"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeIdentity/{name}" : {
-      "get" : {
-        "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me Identity Info",
-        "description" : "Inquiring the data for the specified name. Not available yet.",
-        "operationId" : "id4MeIdentityInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me Identity Delete",
-        "description" : "Deleting an existing id4me identity. Not available yet.",
-        "operationId" : "deleteId4MeIdentity",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
-            }
-          }
-        }
-      }
-    },
-    "/id4MeIdentity/{name}/_confirm" : {
-      "put" : {
-        "tags" : [ "Id4me identity tasks" ],
-        "summary" : "Id4me Identity Confirm",
-        "description" : "Confirming an existing id4me identity. Not available yet.",
-        "operationId" : "confirmId4MeIdentity",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataId4meIdentity"
-            }
-          }
-        }
-      }
-    },
     "/invoice/_search" : {
       "post" : {
         "tags" : [ "Invoice Tasks" ],
@@ -21399,6 +20506,12 @@
         "view" : {
           "description" : "The selected exchange for the account",
           "$ref" : "#/definitions/CurrencyRate"
+        },
+        "reserved" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Flag indication if the reserved",
+          "readOnly" : true
         }
       }
     },
@@ -22082,6 +21195,20 @@
     "BillingStatus" : {
       "type" : "string",
       "enum" : [ "ADD", "REMOVE", "UPDATE", "IGNORE", "CUSTOMER_CHANGED", "USER_CHANGED", "UPGRADE", "ACTIVE", "CANCELED", "CANCELED_EXPIRE", "RESTORE", "AUTODELETE", "REMOVED", "DROP" ]
+    },
+    "BillingTerm" : {
+      "type" : "object",
+      "properties" : {
+        "terms" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BillingTldTerm"
+          }
+        }
+      }
+    },
+    "BillingTldTerm" : {
+      "type" : "object"
     },
     "BulkBackupMxDeleteRequest" : {
       "type" : "object",
@@ -24329,6 +23456,9 @@
       "type" : "string",
       "enum" : [ "PERSON", "ORGANIZATION" ]
     },
+    "Customerdiscounts" : {
+      "type" : "object"
+    },
     "DNSSec" : {
       "type" : "object",
       "required" : [ "algorithm", "flags", "protocol", "publicKey" ],
@@ -24640,6 +23770,22 @@
       "type" : "string",
       "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY" ]
     },
+    "DomainBuyExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The amount for the domain"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Used currency of the amount",
+          "x-custom-type" : "currency"
+        }
+      }
+    },
     "DomainCancelation" : {
       "type" : "object",
       "required" : [ "domain", "execution", "registryWhen", "type" ],
@@ -24835,6 +23981,9 @@
     "DomainExtensions" : {
       "type" : "object",
       "properties" : {
+        "domainBuyExtensions" : {
+          "$ref" : "#/definitions/DomainBuyExtensions"
+        },
         "parkingExtensions" : {
           "$ref" : "#/definitions/DomainParkingExtensions"
         },
@@ -26594,12 +25743,6 @@
         "group" : {
           "type" : "integer",
           "format" : "int64"
-        },
-        "adoptExpiration" : {
-          "$ref" : "#/definitions/AdoptExpiration"
-        },
-        "autoDeleteTlds" : {
-          "type" : "string"
         }
       }
     },
@@ -26660,188 +25803,6 @@
           "description" : "The first nameserver managed by the system"
         }
       }
-    },
-    "Id4MeAgent" : {
-      "type" : "object",
-      "required" : [ "name" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "externalReference" : {
-          "type" : "string",
-          "description" : "External reference"
-        },
-        "certificate" : {
-          "description" : "Virtual host with certificate data",
-          "$ref" : "#/definitions/VhostCertificate"
-        },
-        "layoutAddon" : {
-          "description" : "Layout properties",
-          "$ref" : "#/definitions/Id4MeLayoutConfiguration"
-        },
-        "name" : {
-          "type" : "string",
-          "description" : "Fully qualified domain name"
-        },
-        "status" : {
-          "example" : "PENDING",
-          "description" : "Agent status",
-          "$ref" : "#/definitions/Id4MeAgentStatus"
-        },
-        "records" : {
-          "type" : "array",
-          "description" : "List of dns text records",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
-    "Id4MeAgentStatus" : {
-      "type" : "string",
-      "enum" : [ "PENDING", "PENDING_SSL", "PENDING_SSL_VERIFY", "SUCCESS", "FAILED" ]
-    },
-    "Id4MeIdentityAddons" : {
-      "type" : "object"
-    },
-    "Id4MeLayoutConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "title" : {
-          "type" : "string"
-        },
-        "loginLogoHeight" : {
-          "type" : "string"
-        },
-        "loginLogoWidth" : {
-          "type" : "string"
-        },
-        "about" : {
-          "type" : "string"
-        },
-        "menuLogoWidth" : {
-          "type" : "string"
-        },
-        "menuLogoHeight" : {
-          "type" : "string"
-        },
-        "primaryColor" : {
-          "type" : "string"
-        },
-        "primaryText" : {
-          "type" : "string"
-        },
-        "secondaryColor" : {
-          "type" : "string"
-        },
-        "loginLogoSrc" : {
-          "type" : "string"
-        },
-        "menuLogoSrc" : {
-          "type" : "string"
-        },
-        "privacy" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Id4meIdentity" : {
-      "type" : "object",
-      "required" : [ "agent", "language" ],
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "agent" : {
-          "description" : "The ID4ME agent",
-          "$ref" : "#/definitions/Id4MeAgent"
-        },
-        "verifyExpire" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "Expiration of verification"
-        },
-        "addons" : {
-          "description" : "Additional information",
-          "$ref" : "#/definitions/Id4MeIdentityAddons"
-        },
-        "magicLink" : {
-          "type" : "string",
-          "description" : "The generated magic link"
-        },
-        "claims" : {
-          "description" : "The initial claims",
-          "$ref" : "#/definitions/claims"
-        },
-        "showClaims" : {
-          "type" : "boolean",
-          "description" : "Enables showing claims."
-        },
-        "resetUrl" : {
-          "type" : "string",
-          "description" : "Url to redirect to passwort reset"
-        },
-        "resetUrlExpire" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "time when reset url expire"
-        },
-        "name" : {
-          "type" : "string",
-          "description" : "Fully qualified domain name"
-        },
-        "status" : {
-          "example" : "VERIFY",
-          "description" : "status",
-          "$ref" : "#/definitions/IdentityStatus"
-        },
-        "language" : {
-          "type" : "string",
-          "description" : "The language."
-        },
-        "record" : {
-          "type" : "array",
-          "description" : "DNS text records",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
-    "IdentityStatus" : {
-      "type" : "string",
-      "enum" : [ "VERIFY", "SUCCESS" ]
     },
     "InetAddress" : {
       "type" : "object"
@@ -27867,76 +26828,6 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "$ref" : "#/definitions/DomainSafeUser"
-          }
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The client transaction id for the response."
-        }
-      }
-    },
-    "JsonResponseDataId4MeAgent" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction id for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
-          "items" : {
-            "$ref" : "#/definitions/Id4MeAgent"
-          }
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The client transaction id for the response."
-        }
-      }
-    },
-    "JsonResponseDataId4meIdentity" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction id for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
-          "items" : {
-            "$ref" : "#/definitions/Id4meIdentity"
           }
         },
         "ctid" : {
@@ -31472,6 +30363,34 @@
         }
       }
     },
+    "TechnicalCustomer" : {
+      "type" : "object",
+      "required" : [ "client", "number" ],
+      "properties" : {
+        "number" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "client" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "group" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "adoptExpiration" : {
+          "$ref" : "#/definitions/AdoptExpiration"
+        },
+        "billingTerm" : {
+          "$ref" : "#/definitions/BillingTerm"
+        },
+        "autoDeleteTlds" : {
+          "type" : "string"
+        }
+      }
+    },
     "TimePeriod" : {
       "type" : "object",
       "properties" : {
@@ -32089,9 +31008,6 @@
       "type" : "string",
       "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
     },
-    "UrlEntity" : {
-      "type" : "object"
-    },
     "User" : {
       "type" : "object",
       "required" : [ "context", "user" ],
@@ -32449,29 +31365,6 @@
           "type" : "number",
           "format" : "double",
           "description" : "The package sales"
-        }
-      }
-    },
-    "VhostCertificate" : {
-      "type" : "object",
-      "properties" : {
-        "created" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The created date."
-        },
-        "updated" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The updated date."
-        },
-        "owner" : {
-          "description" : "The owner of the object.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "The updater of the object.",
-          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -33110,35 +32003,6 @@
         }
       }
     },
-    "address_claim" : {
-      "type" : "object",
-      "properties" : {
-        "formatted" : {
-          "type" : "string",
-          "description" : "Full mailing address, formatted for display or use on a mailing label. This field MAY contain multiple lines, separated by newlines. Newlines can be represented either as a carriage return/line feed pair (\"\\r\\n\") or as a single line feed character (\"\\n\")"
-        },
-        "street_address" : {
-          "type" : "string",
-          "description" : "Full street address component, which MAY include house number, street name, Post Office Box, and multi-line extended street address information. This field MAY contain multiple lines, separated by newlines. Newlines can be represented either as a carriage return/line feed pair (\"\\r\\n\") or as a single line feed character (\"\\n\")"
-        },
-        "locality" : {
-          "type" : "string",
-          "description" : "City or locality component"
-        },
-        "region" : {
-          "type" : "string",
-          "description" : "State, province, prefecture, or region component"
-        },
-        "postal_code" : {
-          "type" : "string",
-          "description" : "Zip code or postal code component"
-        },
-        "country" : {
-          "type" : "string",
-          "description" : "Country name component"
-        }
-      }
-    },
     "basicCustomerContact" : {
       "type" : "object",
       "required" : [ "customer", "type" ],
@@ -33223,90 +32087,6 @@
           "items" : {
             "type" : "string"
           }
-        }
-      }
-    },
-    "claims" : {
-      "type" : "object",
-      "properties" : {
-        "name" : {
-          "type" : "string",
-          "description" : "End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences."
-        },
-        "given_name" : {
-          "type" : "string",
-          "description" : "Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters."
-        },
-        "family_name" : {
-          "type" : "string",
-          "description" : "Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters"
-        },
-        "middle_name" : {
-          "type" : "string",
-          "description" : "Middle name(s) of the End-User. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used."
-        },
-        "nickname" : {
-          "type" : "string",
-          "description" : "Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael."
-        },
-        "preferred_username" : {
-          "type" : "string",
-          "description" : "Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe. This value MAY be any valid JSON string including special characters such as @, /, or whitespace"
-        },
-        "profile" : {
-          "description" : "URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.",
-          "$ref" : "#/definitions/UrlEntity"
-        },
-        "picture" : {
-          "description" : "URL of the End-User's profile picture.",
-          "$ref" : "#/definitions/UrlEntity"
-        },
-        "website" : {
-          "description" : "URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with.",
-          "$ref" : "#/definitions/UrlEntity"
-        },
-        "email" : {
-          "type" : "string",
-          "example" : "john.doe@domain.com",
-          "description" : "End-user's preferred email address"
-        },
-        "email_verified" : {
-          "type" : "boolean",
-          "description" : "True if the End-User's e-mail address has been verified; otherwise false."
-        },
-        "gender" : {
-          "description" : "URL of the End-User's profile picture.",
-          "$ref" : "#/definitions/GenderConstants"
-        },
-        "birthdate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "example" : "2019-12-30",
-          "description" : "End-user's birth date, ISO 8601:2004 (YYYY-MM-DD)"
-        },
-        "zoneinfo" : {
-          "type" : "string",
-          "description" : "End-User's zoneinfo."
-        },
-        "language" : {
-          "type" : "string",
-          "description" : "The language."
-        },
-        "phone_number" : {
-          "description" : "End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. .",
-          "$ref" : "#/definitions/Phone"
-        },
-        "phone_number_verified" : {
-          "type" : "boolean",
-          "description" : "True if the End-User's phne number has been verified; otherwise false."
-        },
-        "address" : {
-          "description" : "End-user's address",
-          "$ref" : "#/definitions/address_claim"
-        },
-        "organization" : {
-          "type" : "string",
-          "description" : "End-user's organization"
         }
       }
     },
