@@ -38,6 +38,10 @@
   }, {
     "name" : "DomainStudio"
   }, {
+    "name" : "Elastic Tld Search Tasks"
+  }, {
+    "name" : "Elastic Tld Statistic"
+  }, {
     "name" : "Guest account tasks"
   }, {
     "name" : "Invoice Tasks"
@@ -89,6 +93,8 @@
     "name" : "Zone Bulk Tasks"
   }, {
     "name" : "Zone Tasks"
+  }, {
+    "name" : "ZoneQuery Tasks"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
@@ -1372,7 +1378,7 @@
       "delete" : {
         "tags" : [ "Contact Bulk Tasks" ],
         "summary" : "Contact Delete Bulk",
-        "description" : "Deleting several Contacts with one request.",
+        "description" : "Deleting several contacts with one request.",
         "operationId" : "contactDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1447,6 +1453,186 @@
           "required" : false,
           "schema" : {
             "$ref" : "#/definitions/BulkContactDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataContact"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/contact/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Safe Object Contact Create Bulk",
+        "description" : "Adding several contacts in the DomainSafe with one request.",
+        "operationId" : "domainsAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkDomainSafeContactRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataContact"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Safe Object Contact Delete Bulk",
+        "description" : "Deleting several contacts from the DomainSafe with one request.",
+        "operationId" : "domainsDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkDomainSafeContactRequest"
           }
         } ],
         "responses" : {
@@ -4242,6 +4428,186 @@
           "required" : false,
           "schema" : {
             "$ref" : "#/definitions/BulkZoneCommentRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/zone/_domainSafe" : {
+      "put" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Safe Object Zone Create Bulk",
+        "description" : "Adding several zones in the DomainSafe with one request.",
+        "operationId" : "domainsAddDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkDomainSafeZoneRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataZone"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Domain Bulk Tasks" ],
+        "summary" : "Safe Object Zone Delete Bulk",
+        "description" : "Deleting several zones from the DomainSafe with one request.",
+        "operationId" : "domainsDeleteDomainSafe",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "domains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkDomainSafeZoneRequest"
           }
         } ],
         "responses" : {
@@ -10610,6 +10976,187 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataDomainEnvelope"
+            }
+          }
+        }
+      }
+    },
+    "/domainstudio/tlds/_search" : {
+      "post" : {
+        "tags" : [ "Elastic Tld Search Tasks" ],
+        "summary" : "",
+        "description" : "",
+        "operationId" : "elasticTldList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Query"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?keys[]=searchPrefix",
+          "enum" : [ "{searchPrefix", "bla}" ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataTldProduct"
+            }
+          }
+        }
+      }
+    },
+    "/domainstudio/tlds/stats/_search" : {
+      "get" : {
+        "tags" : [ "Elastic Tld Statistic" ],
+        "summary" : "",
+        "description" : "",
+        "operationId" : "elasticTldStatistics",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataTldStatistic"
             }
           }
         }
@@ -19251,6 +19798,97 @@
         }
       }
     },
+    "/zone/zoneQuery/_search" : {
+      "post" : {
+        "tags" : [ "ZoneQuery Tasks" ],
+        "summary" : "ZoneQuery List",
+        "description" : "Inquiring a list of zoneQuerys with certain details.",
+        "operationId" : "zoneQueryList",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "query",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Query"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataZoneQuery"
+            }
+          }
+        }
+      }
+    },
     "/zone/{name}/_stream" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
@@ -20602,6 +21240,14 @@
       "type" : "string",
       "enum" : [ "ACN", "ABN", "OTHER", "TAS", "VIC", "NSW", "ACT", "QLD", "NT", "WA", "SA" ]
     },
+    "AuthInfo" : {
+      "type" : "string",
+      "enum" : [ "AUTHINFO1", "AUTHINFO2", "ALL" ]
+    },
+    "AuthInfo1Location" : {
+      "type" : "string",
+      "enum" : [ "REGISTRAR", "REGISTRY", "REGISTRANT" ]
+    },
     "AuthMethodConstants" : {
       "type" : "string",
       "enum" : [ "DNS", "EMAIL", "FILE", "ORG" ]
@@ -21489,6 +22135,22 @@
         }
       }
     },
+    "BulkDomainSafeContactRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/Contact"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
     "BulkDomainSafeDomainRequest" : {
       "type" : "object",
       "properties" : {
@@ -21497,6 +22159,22 @@
           "description" : "The objects to process",
           "items" : {
             "$ref" : "#/definitions/Domain"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkDomainSafeZoneRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/Zone"
           }
         },
         "query" : {
@@ -22166,6 +22844,10 @@
         "vmcTrademarkCountryOrRegion" : {
           "description" : "Two-letter code for the country or region where the logo is trademarked",
           "$ref" : "#/definitions/VmcTrademarkCountryOrRegion"
+        },
+        "scope" : {
+          "description" : "The DCV scope to use for generating the dcv data",
+          "$ref" : "#/definitions/DcvValidationScope"
         }
       }
     },
@@ -22308,6 +22990,10 @@
       "type" : "string",
       "enum" : [ "FQDN", "MAIL", "CODE", "DOCUMENT", "VMC" ]
     },
+    "Charset" : {
+      "type" : "string",
+      "enum" : [ "BIG5", "EUC_JP", "EUC_KR", "ISCII", "KOI8_R", "KOI8_U", "SHIFT_JIS", "TIS_620", "ISO_8859_1", "ISO_8859_7" ]
+    },
     "CiraCprConstants" : {
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
@@ -22358,6 +23044,17 @@
         },
         "user" : {
           "$ref" : "#/definitions/BasicUser"
+        }
+      }
+    },
+    "Condition" : {
+      "type" : "object",
+      "properties" : {
+        "text" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
         }
       }
     },
@@ -23356,6 +24053,20 @@
         }
       }
     },
+    "Country" : {
+      "type" : "object",
+      "properties" : {
+        "isoCode" : {
+          "type" : "string"
+        },
+        "countrynameDe" : {
+          "type" : "string"
+        },
+        "countrynameEn" : {
+          "type" : "string"
+        }
+      }
+    },
     "CreditCardVendor" : {
       "type" : "string",
       "enum" : [ "MC", "VISA", "AMEX", "DIC", "DISC", "CB" ]
@@ -23429,8 +24140,24 @@
         }
       }
     },
-    "CustomerPriceLists" : {
-      "type" : "object"
+    "CustomerPriceList" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "priceList" : {
+          "description" : "The priceList label.",
+          "$ref" : "#/definitions/PriceList"
+        }
+      }
     },
     "CustomerTag" : {
       "type" : "object",
@@ -23455,9 +24182,6 @@
     "CustomerType" : {
       "type" : "string",
       "enum" : [ "PERSON", "ORGANIZATION" ]
-    },
-    "Customerdiscounts" : {
-      "type" : "object"
     },
     "DNSSec" : {
       "type" : "object",
@@ -23489,6 +24213,10 @@
     },
     "DNSSecJob" : {
       "type" : "object"
+    },
+    "DcvValidationScope" : {
+      "type" : "string",
+      "enum" : [ "FQDN", "BASEDOMAIN", "DEFAULT" ]
     },
     "DeliveryStatus" : {
       "type" : "string",
@@ -23534,6 +24262,10 @@
           "type" : "string"
         }
       }
+    },
+    "DocumentType" : {
+      "type" : "string",
+      "enum" : [ "CONTACT", "JOB" ]
     },
     "DocumentTypeConstants" : {
       "type" : "string",
@@ -23770,6 +24502,22 @@
       "type" : "string",
       "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY" ]
     },
+    "DomainAutodeleteExtensions" : {
+      "type" : "object",
+      "properties" : {
+        "autodeletePaymentLimit" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "autodeleteLastUpdated" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "autoDeleteStatus" : {
+          "$ref" : "#/definitions/AutoDeleteStatus"
+        }
+      }
+    },
     "DomainBuyExtensions" : {
       "type" : "object",
       "properties" : {
@@ -23883,6 +24631,11 @@
           "example" : "müller.org",
           "description" : "The unicode domain name"
         },
+        "tld" : {
+          "type" : "string",
+          "example" : "com",
+          "description" : "The tld for the given domain name"
+        },
         "source" : {
           "description" : "Source",
           "$ref" : "#/definitions/DomainStudioDomainSource"
@@ -23983,6 +24736,9 @@
       "properties" : {
         "domainBuyExtensions" : {
           "$ref" : "#/definitions/DomainBuyExtensions"
+        },
+        "domainAutodeleteExtensions" : {
+          "$ref" : "#/definitions/DomainAutodeleteExtensions"
         },
         "parkingExtensions" : {
           "$ref" : "#/definitions/DomainParkingExtensions"
@@ -24836,6 +25592,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "max" : {
           "type" : "integer",
           "format" : "int32",
@@ -24856,6 +25619,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "tlds" : {
           "type" : "array",
@@ -24879,6 +25649,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "promoTlds" : {
           "type" : "array",
@@ -24924,6 +25701,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "max" : {
           "type" : "integer",
@@ -25035,6 +25819,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "max" : {
           "type" : "integer",
           "format" : "int32",
@@ -25095,6 +25886,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "language" : {
           "type" : "string",
           "description" : "Suggestion language"
@@ -25154,6 +25952,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "promoTlds" : {
           "type" : "array",
           "description" : "Promo tlds",
@@ -25199,6 +26004,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "max" : {
           "type" : "integer",
           "format" : "int32",
@@ -25219,6 +26031,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "max" : {
           "type" : "integer",
@@ -25247,6 +26066,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "max" : {
           "type" : "integer",
@@ -25295,6 +26121,13 @@
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
         },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "language" : {
           "type" : "string",
           "description" : "Suggestion language"
@@ -25327,6 +26160,11 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The debug time"
         }
       }
     },
@@ -25343,6 +26181,13 @@
         "onlyAvailable" : {
           "type" : "boolean",
           "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
         },
         "max" : {
           "type" : "integer",
@@ -27849,6 +28694,76 @@
         }
       }
     },
+    "JsonResponseDataTldProduct" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/TldProduct"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataTldStatistic" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/TldStatistic"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataTmchClaimsNotice" : {
       "type" : "object",
       "properties" : {
@@ -28226,6 +29141,41 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "$ref" : "#/definitions/Zone"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataZoneQuery" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/ZoneQuery"
           }
         },
         "ctid" : {
@@ -29027,6 +29977,39 @@
         }
       }
     },
+    "PreregInformation" : {
+      "type" : "object",
+      "properties" : {
+        "phase" : {
+          "type" : "string"
+        },
+        "confirmationStart" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "confirmationEnd" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "periodStart" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "periodEnd" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "registrationType" : {
+          "type" : "string"
+        },
+        "minPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      }
+    },
     "PriceData" : {
       "type" : "object",
       "properties" : {
@@ -29036,6 +30019,46 @@
           "items" : {
             "$ref" : "#/definitions/SimplePrice"
           }
+        }
+      }
+    },
+    "PriceList" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updater of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "The unique identifier, must be unique within the customer client"
+        },
+        "client" : {
+          "type" : "string",
+          "description" : "The customer client"
+        },
+        "group" : {
+          "type" : "string",
+          "description" : "The optional list group"
         }
       }
     },
@@ -29433,6 +30456,17 @@
     "RedirectTypeConstants" : {
       "type" : "string",
       "enum" : [ "DOMAIN", "EMAIL" ]
+    },
+    "Registrar" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "tag" : {
+          "type" : "string"
+        }
+      }
     },
     "RegistrationTypeConstants" : {
       "type" : "string",
@@ -30265,23 +31299,6 @@
         }
       }
     },
-    "TaskCount" : {
-      "type" : "object",
-      "properties" : {
-        "taskGroup" : {
-          "type" : "string",
-          "description" : "The selected task group"
-        },
-        "counts" : {
-          "type" : "object",
-          "description" : "Number of task calls",
-          "additionalProperties" : {
-            "type" : "integer",
-            "format" : "int32"
-          }
-        }
-      }
-    },
     "TaskGroup" : {
       "type" : "string",
       "enum" : [ "DOMAIN_CREATE", "DOMAIN_DELETE", "DOMAIN_STATUS_UPDATE", "DOMAIN_TRANSFER_IN", "DOMAIN_TRANSFER_OUT", "DOMAINSAFE", "AUTHINFO_CREATE", "AUTHINFO_SEND", "ZONE_CREATE", "WHOIS", "DOMAIN_UPDATE", "DOMAINSTUDIO", "ZONE_UPDATE", "ZONE_DELETE", "ZONE_AXFR" ]
@@ -30354,12 +31371,6 @@
           "items" : {
             "$ref" : "#/definitions/TaskLimit"
           }
-        },
-        "count" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/TaskCount"
-          }
         }
       }
     },
@@ -30410,6 +31421,450 @@
     "TimeUnitConstants" : {
       "type" : "string",
       "enum" : [ "MILLISECOND", "SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "QUARTER", "YEAR" ]
+    },
+    "TldContinent" : {
+      "type" : "string",
+      "enum" : [ "ASIA", "AFRICA", "NORTH_AMERICA", "SOUTH_AMERICA", "ANTARCTICA", "EUROPE", "OCEANIA", "GLOBAL" ]
+    },
+    "TldDataController" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "organisation" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "TldDns" : {
+      "type" : "object",
+      "properties" : {
+        "dnssecMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dnssecMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dnssecAlgorithms" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "nserverMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nserverMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv4Min" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv4Max" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv6Min" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv6Max" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nsentryMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nsentryMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "TldPeriod" : {
+      "type" : "object",
+      "properties" : {
+        "restoreArgpPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "restoreRgpPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "cancelationPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      }
+    },
+    "TldProduct" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "label" : {
+          "type" : "string"
+        },
+        "charMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "charMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dnssecMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dnssecMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dnssecAlgorithms" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "nserverMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nserverMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv4Min" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv4Max" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv6Min" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ipv6Max" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nsentryMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nsentryMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "rootNserver" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "dnssecRecord" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "restoreArgpPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "restoreRgpPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "cancelationPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "taskCreate" : {
+          "type" : "boolean"
+        },
+        "taskUpdate" : {
+          "type" : "boolean"
+        },
+        "taskDelete" : {
+          "type" : "boolean"
+        },
+        "taskRenew" : {
+          "type" : "boolean"
+        },
+        "taskTransfer" : {
+          "type" : "boolean"
+        },
+        "taskTransit" : {
+          "type" : "boolean"
+        },
+        "taskPreack" : {
+          "type" : "boolean"
+        },
+        "taskRestore" : {
+          "type" : "boolean"
+        },
+        "taskAuthinfoCreate" : {
+          "type" : "boolean"
+        },
+        "taskAuthinfoDelete" : {
+          "type" : "boolean"
+        },
+        "taskAuthinfo2" : {
+          "type" : "boolean"
+        },
+        "taskStatusUpdate" : {
+          "type" : "boolean"
+        },
+        "taskOwnerChange" : {
+          "type" : "boolean"
+        },
+        "cancelationExpireOnly" : {
+          "type" : "boolean"
+        },
+        "registrarStatus" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "authinfo1Location" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AuthInfo1Location"
+          }
+        },
+        "numeralDomains" : {
+          "type" : "boolean"
+        },
+        "realtime" : {
+          "type" : "boolean"
+        },
+        "idn" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Charset"
+          }
+        },
+        "transferComfirmation" : {
+          "type" : "boolean"
+        },
+        "dnsCheck" : {
+          "type" : "boolean"
+        },
+        "premiumDomains" : {
+          "type" : "boolean"
+        },
+        "contactExtensions" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "privacy" : {
+          "type" : "boolean"
+        },
+        "trustee" : {
+          "type" : "boolean"
+        },
+        "forcedTrustee" : {
+          "type" : "boolean"
+        },
+        "thirdLevel" : {
+          "type" : "boolean"
+        },
+        "transferAuthinfo" : {
+          "type" : "boolean"
+        },
+        "ownerchangeAuthinfo" : {
+          "type" : "boolean"
+        },
+        "errorCodes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "tldType" : {
+          "$ref" : "#/definitions/TldType"
+        },
+        "tldContinent" : {
+          "$ref" : "#/definitions/TldContinent"
+        },
+        "categories" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "confluencePageDe" : {
+          "type" : "string"
+        },
+        "confluencePageEn" : {
+          "type" : "string"
+        },
+        "commentDe" : {
+          "type" : "string"
+        },
+        "commentEn" : {
+          "type" : "string"
+        },
+        "whois" : {
+          "type" : "string"
+        },
+        "countryIso" : {
+          "type" : "string"
+        },
+        "geoPol" : {
+          "type" : "string"
+        },
+        "officialLanguage" : {
+          "type" : "string"
+        },
+        "blockingService" : {
+          "type" : "boolean"
+        },
+        "restrictions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Condition"
+          }
+        },
+        "country" : {
+          "$ref" : "#/definitions/Country"
+        },
+        "dataControllers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TldDataController"
+          }
+        },
+        "preregInformation" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreregInformation"
+          }
+        },
+        "rankingLevel" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "tldTasks" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TldTask"
+          }
+        },
+        "tldDns" : {
+          "$ref" : "#/definitions/TldDns"
+        },
+        "tldPeriod" : {
+          "$ref" : "#/definitions/TldPeriod"
+        },
+        "isManual" : {
+          "type" : "boolean"
+        },
+        "requiredFields" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "transferImportedContacts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ContactReferenceType"
+          }
+        },
+        "registrars" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Registrar"
+          }
+        },
+        "autoDelete" : {
+          "type" : "boolean"
+        },
+        "documents" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Document"
+          }
+        },
+        "registryLock" : {
+          "type" : "boolean"
+        },
+        "trusteeTypes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ContactReferenceType"
+          }
+        },
+        "sldMin" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "sldMax" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "numeric" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "TldStatistic" : {
+      "type" : "object"
+    },
+    "TldTask" : {
+      "type" : "object",
+      "properties" : {
+        "label" : {
+          "type" : "string"
+        },
+        "available" : {
+          "type" : "boolean"
+        },
+        "chargeable" : {
+          "type" : "boolean"
+        },
+        "min" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "max" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "processing" : {
+          "$ref" : "#/definitions/TldTaskProcessing"
+        },
+        "authinfo" : {
+          "$ref" : "#/definitions/AuthInfo"
+        }
+      }
+    },
+    "TldTaskProcessing" : {
+      "type" : "string",
+      "enum" : [ "AUTOMATED", "MANUAL", "SEMIAUTOMATED" ]
+    },
+    "TldType" : {
+      "type" : "string",
+      "enum" : [ "CCTLD", "GTLD", "NEW_GTLD" ]
     },
     "TlsData" : {
       "type" : "object",
@@ -31004,6 +32459,24 @@
         }
       }
     },
+    "TrusteeContact" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The nicName."
+        },
+        "contact" : {
+          "description" : "The contact.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "type" : {
+          "description" : "The type of the contact",
+          "readOnly" : true,
+          "$ref" : "#/definitions/ContactReferenceType"
+        }
+      }
+    },
     "UkTypeConstants" : {
       "type" : "string",
       "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
@@ -31141,7 +32614,14 @@
           "type" : "array",
           "description" : "The task limits of the user.",
           "items" : {
-            "$ref" : "#/definitions/limit"
+            "$ref" : "#/definitions/TaskLimit"
+          }
+        },
+        "trusteeContacts" : {
+          "type" : "array",
+          "description" : "The trustee Contacts of the user.",
+          "items" : {
+            "$ref" : "#/definitions/TrusteeContact"
           }
         }
       }
@@ -31948,6 +33428,47 @@
         }
       }
     },
+    "ZoneQuery" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the date"
+        },
+        "count" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "the count"
+        },
+        "unit" : {
+          "description" : "the Unit",
+          "$ref" : "#/definitions/TimeUnitConstants"
+        },
+        "zone" : {
+          "description" : "the zone",
+          "$ref" : "#/definitions/Zone"
+        },
+        "physicalHostname" : {
+          "type" : "string",
+          "description" : "The physicalHostname by the system"
+        },
+        "virtualNameServer" : {
+          "type" : "string",
+          "description" : "The first nameserver managed by the system"
+        }
+      }
+    },
     "ZoneStream" : {
       "type" : "object",
       "properties" : {
@@ -32087,21 +33608,6 @@
           "items" : {
             "type" : "string"
           }
-        }
-      }
-    },
-    "limit" : {
-      "type" : "object",
-      "properties" : {
-        "name" : {
-          "description" : "The task group name.",
-          "$ref" : "#/definitions/TaskGroup"
-        },
-        "limit" : {
-          "$ref" : "#/definitions/TaskLimit"
-        },
-        "count" : {
-          "$ref" : "#/definitions/TaskCount"
         }
       }
     }
