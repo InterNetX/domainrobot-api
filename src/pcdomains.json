@@ -442,8 +442,8 @@
         }
       }
     },
-    "/smu_check/{username}": {
-      "get": {
+    "/smu_check": {
+      "post": {
         "tags": [
           "social media"
         ],
@@ -454,11 +454,21 @@
         ],
         "parameters": [
           {
-            "name": "username",
-            "in": "path",
-            "description": "Username to check",
+            "name": "searchToken",
+            "in": "body",
+            "description": "The token to search after",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "platforms",
+            "in": "body",
+            "description": "The platforms to check",
+            "required": true,
+            "type": "array",
+            "items": {
+              "$ref" : "#/definitions/Platform"
+            }
           }
         ],
         "responses": {
@@ -1755,6 +1765,10 @@
           "type": "boolean"
         }
       }
+    },
+    "Platform" : {
+      "type" : "string",
+      "enum" : [ "FACEBOOK", "TWITTER", "PINTEREST", "YOUTUBE", "TIKTOK", "GITHUB", "TWITCH", "VIMEO", "VK" ]
     },
     "StatisticsParameters": {
       "type": "object",
