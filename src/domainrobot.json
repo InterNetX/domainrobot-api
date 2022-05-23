@@ -8379,6 +8379,13 @@
           "default" : "NONE",
           "x-example" : "?nsCheck=ALL",
           "enum" : [ "SOA", "NS", "ALL", "NONE" ]
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -8470,6 +8477,13 @@
           "schema" : {
             "$ref" : "#/definitions/Domain"
           }
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -8870,6 +8884,13 @@
           "schema" : {
             "$ref" : "#/definitions/Domain"
           }
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -8970,6 +8991,13 @@
           "default" : "NONE",
           "x-example" : "?nsCheck=ALL",
           "enum" : [ "SOA", "NS", "ALL", "NONE" ]
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -9460,6 +9488,13 @@
           "default" : "NONE",
           "x-example" : "?nsCheck=ALL",
           "enum" : [ "SOA", "NS", "ALL", "NONE" ]
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -10176,6 +10211,13 @@
           "schema" : {
             "$ref" : "#/definitions/Domain"
           }
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -10278,6 +10320,13 @@
           "description" : "Specifies whether an existing cancelation should be removed or not. Removes an existing cancelation if parameter is set. Example : ?removeCancelation",
           "required" : false,
           "type" : "string"
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -10374,6 +10423,13 @@
           "schema" : {
             "$ref" : "#/definitions/DomainRestore"
           }
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -10748,6 +10804,13 @@
           "schema" : {
             "$ref" : "#/definitions/DomainCancelation"
           }
+        }, {
+          "name" : "replyTo",
+          "in" : "query",
+          "description" : "The query parameter to override the  default reply to address.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "?replyTo=john.doe@example.org"
         } ],
         "responses" : {
           "200" : {
@@ -22015,6 +22078,10 @@
           "type" : "string",
           "description" : "type of the article "
         },
+        "category" : {
+          "type" : "string",
+          "description" : "category of the article "
+        },
         "label" : {
           "type" : "string",
           "description" : "name of the article"
@@ -23335,6 +23402,10 @@
           "items" : {
             "$ref" : "#/definitions/CertAuthentication"
           }
+        },
+        "scope" : {
+          "description" : "The authentication scope.",
+          "$ref" : "#/definitions/DcvValidationScope"
         },
         "status" : {
           "description" : "The status of the DCV.",
@@ -24778,6 +24849,10 @@
         "status" : {
           "description" : "the status of the VerificationMessage",
           "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "lastResponse" : {
+          "type" : "string",
+          "description" : "The last response of the mailserver"
         }
       }
     },
@@ -27250,6 +27325,20 @@
         "comment" : {
           "type" : "string",
           "description" : "Comments"
+        },
+        "taskComment" : {
+          "type" : "string",
+          "description" : "TaskComment"
+        },
+        "from" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "from"
+        },
+        "until" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "until"
         },
         "normalPrice" : {
           "description" : "Normal price",
@@ -30470,6 +30559,7 @@
     },
     "NiccomLog" : {
       "type" : "object",
+      "required" : [ "created", "name", "source", "task", "text" ],
       "properties" : {
         "jobId" : {
           "type" : "integer",
@@ -30510,7 +30600,7 @@
     },
     "NiccomSourceConstants" : {
       "type" : "string",
-      "enum" : [ "NIC_REQUEST", "NIC_RESPONSE", "NIC_NOTIFY", "A3_REQUEST", "A3_RESPONSE" ]
+      "enum" : [ "NIC_REQUEST", "NIC_RESPONSE", "NIC_NOTIFY", "A3_REQUEST", "A3_RESPONSE", "LOG_OBJECTS" ]
     },
     "NotifyMessage" : {
       "type" : "object",
@@ -30620,6 +30710,13 @@
           "description" : "The domain controll validation status for each domain.",
           "items" : {
             "$ref" : "#/definitions/DomainControllValidationStatus"
+          }
+        },
+        "notices" : {
+          "type" : "array",
+          "description" : "Additional notices of the order",
+          "items" : {
+            "type" : "string"
           }
         }
       }
@@ -31006,6 +31103,10 @@
           "type" : "string",
           "description" : "The optional list group"
         },
+        "type" : {
+          "description" : "The type of the price list",
+          "$ref" : "#/definitions/Type"
+        },
         "from" : {
           "type" : "string",
           "format" : "date-time",
@@ -31019,6 +31120,20 @@
         "inactive" : {
           "type" : "boolean",
           "description" : "Flag indication if the priceList is inactive"
+        },
+        "customerPriceListsAdd" : {
+          "type" : "array",
+          "description" : "Used by the patch route",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
+        },
+        "customerPriceListsRem" : {
+          "type" : "array",
+          "description" : "Used by the patch route",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
         }
       }
     },
@@ -31163,6 +31278,10 @@
           }
         }
       }
+    },
+    "PurgeTypes" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "DISABLED", "SCHEDULED" ]
     },
     "Query" : {
       "type" : "object",
@@ -33440,6 +33559,10 @@
         }
       }
     },
+    "Type" : {
+      "type" : "string",
+      "enum" : [ "INDIVIDUAL", "DISCOUNT" ]
+    },
     "UkTypeConstants" : {
       "type" : "string",
       "enum" : [ "LTD", "PLC", "PTNR", "STRA", "LLP", "IP", "IND", "SCH", "RCHAR", "GOV", "CRC", "STAT", "OTHER", "FIND", "FCORP", "FOTHER" ]
@@ -34181,6 +34304,10 @@
           "type" : "string",
           "description" : "System name server to look up the zone to copy"
         },
+        "purgeType" : {
+          "description" : "The Purge Type. Default value is AUTO",
+          "$ref" : "#/definitions/PurgeTypes"
+        },
         "nameServers" : {
           "type" : "array",
           "description" : "List of name servers",
@@ -34301,6 +34428,10 @@
         "sourceVirtualHostname" : {
           "type" : "string",
           "description" : "System name server to look up the zone to copy"
+        },
+        "purgeType" : {
+          "description" : "The Purge Type. Default value is AUTO",
+          "$ref" : "#/definitions/PurgeTypes"
         },
         "zoneGrantsAdd" : {
           "type" : "array",
