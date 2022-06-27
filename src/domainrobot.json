@@ -16,6 +16,8 @@
   }, {
     "name" : "Certificate Tasks"
   }, {
+    "name" : "ClientCustomer Bulk Tasks"
+  }, {
     "name" : "Contact Bulk Tasks"
   }, {
     "name" : "Contact Document Tasks"
@@ -62,7 +64,11 @@
   }, {
     "name" : "ObjectUserAssignment Tasks"
   }, {
+    "name" : "Parking Domain Bulk Tasks"
+  }, {
     "name" : "Poll Tasks"
+  }, {
+    "name" : "Price Bulk Tasks"
   }, {
     "name" : "Redirect Bulk Tasks"
   }, {
@@ -3544,6 +3550,102 @@
         }
       }
     },
+    "/bulk/externalCustomer/clientAccount/{label}/clientCustomer" : {
+      "post" : {
+        "tags" : [ "ClientCustomer Bulk Tasks" ],
+        "summary" : "ClientCustomer Create Bulk",
+        "description" : "Creating several client customers in one request.",
+        "operationId" : "externalCustomerCreates",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "label",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "externalCustomers",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkExternalCustomerPostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataExternalCustomer"
+            }
+          }
+        }
+      }
+    },
     "/bulk/mailProxy" : {
       "post" : {
         "tags" : [ "MailProxy Bulk Tasks" ],
@@ -3899,6 +4001,455 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataObjectUserAssignment"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/parking/domain" : {
+      "post" : {
+        "tags" : [ "Parking Domain Bulk Tasks" ],
+        "summary" : "ParkingDomain Create",
+        "description" : "Create multiple parking domain.",
+        "operationId" : "parkingDomainCreates",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "parkingDomains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkParkingDomainPostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataParkingDomain"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Parking Domain Bulk Tasks" ],
+        "summary" : "ParkingDomain Bulk Delete",
+        "description" : "Delete multiple parking domain.",
+        "operationId" : "parkingDomainDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "parkingDomains",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkParkingDomainDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataParkingDomain"
+            }
+          }
+        }
+      }
+    },
+    "/bulk/price" : {
+      "post" : {
+        "tags" : [ "Price Bulk Tasks" ],
+        "summary" : "Price Create Bulk",
+        "description" : "Creating several prices in one request.",
+        "operationId" : "priceCreates",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "prices",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkPricePostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataPrice"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Price Bulk Tasks" ],
+        "summary" : " Price Delete Bulk",
+        "description" : "Deleting several prices in one request.",
+        "operationId" : "priceDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "prices",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkPriceDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataPrice"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "Price Bulk Tasks" ],
+        "summary" : "Price Update Bulk ",
+        "description" : "Updating several prices with one request.",
+        "operationId" : "pricePatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "prices",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkPricePatchRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataPrice"
             }
           }
         }
@@ -22261,7 +22812,7 @@
     },
     "BasicCustomer" : {
       "type" : "object",
-      "required" : [ "addressLines", "client", "country", "name", "number", "payment" ],
+      "required" : [ "addressLines", "client", "country", "number", "payment" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -22442,6 +22993,10 @@
         "persistent" : {
           "description" : "the current customer",
           "$ref" : "#/definitions/BasicCustomer"
+        },
+        "clearAccount" : {
+          "description" : "The period after the post payment account will be cleared to zero",
+          "$ref" : "#/definitions/ClearAccountPeriod"
         },
         "fname" : {
           "type" : "string",
@@ -23075,6 +23630,22 @@
         }
       }
     },
+    "BulkExternalCustomerPostRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/ExternalCustomer"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "$ref" : "#/definitions/ExternalCustomer"
+        }
+      }
+    },
     "BulkMailProxyDeleteRequest" : {
       "type" : "object",
       "properties" : {
@@ -23140,6 +23711,86 @@
         "template" : {
           "description" : "The template for objects to process",
           "$ref" : "#/definitions/ObjectUserAssignment"
+        }
+      }
+    },
+    "BulkParkingDomainDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/ParkingDomain"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkParkingDomainPostRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/ParkingDomain"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkPriceDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/Price"
+          }
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
+    "BulkPricePatchRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/Price"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "$ref" : "#/definitions/Price"
+        }
+      }
+    },
+    "BulkPricePostRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/Price"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "$ref" : "#/definitions/Price"
         }
       }
     },
@@ -23337,6 +23988,10 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The updated date."
+        },
+        "provider" : {
+          "description" : "The provider",
+          "$ref" : "#/definitions/Provider"
         },
         "type" : {
           "description" : "The credit card vendor",
@@ -23898,10 +24553,6 @@
       "type" : "string",
       "enum" : [ "DAY", "MONTH", "BILL", "WEEK", "NONE" ]
     },
-    "CnAuditDocumentType" : {
-      "type" : "string",
-      "enum" : [ "ID_CARD", "PASSPORT", "CN_MAINLAND_TRAVEL_PERMIT_HK_MO", "CN_MAINLAND_TRAVEL_PERMIT_TW", "PERMANENT_RESIDENCE_PERMIT_FOREIGNERS", "CN_RESIDENCE_PERMIT_HK_MO", "CN_RESIDENCE_PERMIT_TW", "MILITARY_ID_CARD", "OTHER_ID_CARD", "CN_ORG_ID", "CN_BUSINESS_ID", "CN_SOCIAL_CREDIT_LICENSE", "MILITARY_UNIT_CODE", "MILITARY_UNIT_EXTERNAL_PERMIT", "INSTITUTION_LEGAL_PERSON", "CN_FOREIGN_ENTERPRISE_REGISTRATION", "SOCIAL_ORG_LEGAL_PERSON", "RELIGIOUS_ACTIVITY", "PRIVATE_NON_ENTERPRISE_REGISTRATION", "FOUNDATION_LEGAL_PERSON", "LAW_FIRM_LICENSE", "CN_FOREIGN_CULTURAL_CENTER", "CN_FOREIGN_TOURISM_DEPARTMENT_REGISTRATION", "FORENSIC_EXPERTISE_LICENSE", "SOCIAL_AGENCY_CERTIFICATE", "PRIVATE_SCHOOL_PERMIT", "MEDICAL_INSTITUTION_LICENSE", "NOTARY_ORG_LICENSE", "CN_FOREIGN_EMBASSY_CHILDREN_PERMIT_BEIJING", "OTHER_ORG_DOC", "ORG_CERTIFICATE" ]
-    },
     "CodeSigningHardwarePlatform" : {
       "type" : "string",
       "enum" : [ "AEP_KEYPER", "ARX_PRIVATE_SERVER", "BULL_TRUSTWAY_CRYPTO_PCI", "E_PASS_3003", "SAFE_NET_E_TOKEN_5100", "SAFE_NET_E_TOKEN_5105", "SAFE_NET_E_TOKEN_5110", "SAFE_NET_E_TOKEN_5110_FIPS", "SAFE_NET_E_TOKEN_5200", "SAFE_NET_E_TOKEN_5205", "SAFE_NET_E_TOKEN_PRO_72K", "SAFE_NET_E_TOKEN_PRO_ANYWHERE", "SAFE_NET_I_KEY_4000", "SAFE_NET_LUNA", "THALES_N_SHIELD", "ULTIMACO_CRYPTO_SERVER", "OTHER" ]
@@ -24269,7 +24920,7 @@
           "$ref" : "#/definitions/Document"
         },
         "type" : {
-          "$ref" : "#/definitions/CnAuditDocumentType"
+          "$ref" : "#/definitions/ContactDocumentType"
         },
         "verification" : {
           "description" : "The verification status of the contact",
@@ -24281,6 +24932,10 @@
           "description" : "The expire date."
         }
       }
+    },
+    "ContactDocumentType" : {
+      "type" : "string",
+      "enum" : [ "ID_CARD", "PASSPORT", "OTHER_ID_CARD", "COLLEGE_ID_CARD", "ORG_CERTIFICATE", "PROOF_TRADE", "PROOF_TRADEMARK", "IE_TAX_CLEARANCE_CERTIFICATE", "IE_HMRC_CORRESPONDENCE", "IE_IRISH_BANK_STATEMENT", "IE_PUBLIC_SERVICE_CARD", "IE_IRISH_REVENUE_CORRESPONDENCE", "JP_REGISTRATION_FORM", "JP_UPDATE_FORM", "TR_FORM", "TH_CHANGE_LOGIN_FORM", "CN_MAINLAND_TRAVEL_PERMIT_HK_MO", "CN_MAINLAND_TRAVEL_PERMIT_TW", "PERMANENT_RESIDENCE_PERMIT_FOREIGNERS", "CN_RESIDENCE_PERMIT_HK_MO", "CN_RESIDENCE_PERMIT_TW", "MILITARY_ID_CARD", "CN_ORG_ID", "CN_BUSINESS_ID", "CN_SOCIAL_CREDIT_LICENSE", "MILITARY_UNIT_CODE", "MILITARY_UNIT_EXTERNAL_PERMIT", "INSTITUTION_LEGAL_PERSON", "CN_FOREIGN_ENTERPRISE_REGISTRATION", "SOCIAL_ORG_LEGAL_PERSON", "RELIGIOUS_ACTIVITY", "PRIVATE_NON_ENTERPRISE_REGISTRATION", "FOUNDATION_LEGAL_PERSON", "LAW_FIRM_LICENSE", "CN_FOREIGN_CULTURAL_CENTER", "CN_FOREIGN_TOURISM_DEPARTMENT_REGISTRATION", "FORENSIC_EXPERTISE_LICENSE", "SOCIAL_AGENCY_CERTIFICATE", "PRIVATE_SCHOOL_PERMIT", "MEDICAL_INSTITUTION_LICENSE", "NOTARY_ORG_LICENSE", "CN_FOREIGN_EMBASSY_CHILDREN_PERMIT_BEIJING", "OTHER_ORG_DOC" ]
     },
     "ContactExtensions" : {
       "type" : "object",
@@ -27082,6 +27737,68 @@
         }
       }
     },
+    "DomainStudioSourceSuggestion2" : {
+      "type" : "object",
+      "properties" : {
+        "services" : {
+          "type" : "array",
+          "description" : "The services to fetch extra data from for this source",
+          "items" : {
+            "$ref" : "#/definitions/DomainEnvelopeSearchService"
+          }
+        },
+        "onlyAvailable" : {
+          "type" : "boolean",
+          "description" : "Defines whether to return only free domain names when service WHOIS is used for a source."
+        },
+        "domains" : {
+          "type" : "array",
+          "description" : "The generated domains of this source",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "Suggestion language"
+        },
+        "max" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Maximum fetched suggested domains"
+        },
+        "maxSimilarWords" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "?"
+        },
+        "maxPrefixSuffix" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "?"
+        },
+        "useDash" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with dash"
+        },
+        "useWordSegmentation" : {
+          "type" : "boolean",
+          "description" : "Suggested domains with idn"
+        },
+        "tlds" : {
+          "type" : "array",
+          "description" : "Selected tlds",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "debugTime" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The debug time"
+        }
+      }
+    },
     "DomainStudioSourceUpcoming" : {
       "type" : "object",
       "properties" : {
@@ -27120,6 +27837,10 @@
         "suggestion" : {
           "description" : "The configuration for the suggestion source",
           "$ref" : "#/definitions/DomainStudioSourceSuggestion"
+        },
+        "semantic" : {
+          "description" : "The configuration for the suggestion2 source",
+          "$ref" : "#/definitions/DomainStudioSourceSuggestion2"
         },
         "premium" : {
           "description" : "The configuration for the premium source",
@@ -27330,6 +28051,10 @@
           "type" : "string",
           "description" : "TaskComment"
         },
+        "priceList" : {
+          "description" : "The related priceList label",
+          "$ref" : "#/definitions/PriceList"
+        },
         "from" : {
           "type" : "string",
           "format" : "date-time",
@@ -27448,7 +28173,7 @@
         },
         "priceRounding" : {
           "description" : "The type of rounding",
-          "$ref" : "#/definitions/PriceRounding"
+          "$ref" : "#/definitions/PriceRoundingConstants"
         },
         "currency" : {
           "type" : "string",
@@ -27488,6 +28213,52 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The date when the last pricelist sync finished"
+        }
+      }
+    },
+    "ExternalCustomer" : {
+      "type" : "object",
+      "required" : [ "client", "number" ],
+      "properties" : {
+        "number" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "client" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2147483647
+        },
+        "group" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "billing" : {
+          "description" : "The billing user.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "externalReference" : {
+          "type" : "string",
+          "description" : "The external reference gives a hint on the creation or use case of the external customer."
+        },
+        "creditLimit" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The credit limit the external customer."
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "customer" : {
+          "description" : "The customer data.",
+          "$ref" : "#/definitions/BasicCustomer"
         }
       }
     },
@@ -27777,13 +28548,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -28674,6 +29445,41 @@
         }
       }
     },
+    "JsonResponseDataExternalCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/ExternalCustomer"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataInvoice" : {
       "type" : "object",
       "properties" : {
@@ -29045,6 +29851,44 @@
         }
       }
     },
+    "JsonResponseDataListJsonResponseDataExternalCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/JsonResponseDataExternalCustomer"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataListJsonResponseDataMailProxy" : {
       "type" : "object",
       "properties" : {
@@ -29112,6 +29956,82 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataListJsonResponseDataParkingDomain" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/JsonResponseDataParkingDomain"
+            }
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataListJsonResponseDataPrice" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/JsonResponseDataPrice"
             }
           }
         },
@@ -29410,6 +30330,41 @@
         }
       }
     },
+    "JsonResponseDataParkingDomain" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/ParkingDomain"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataPeriodicBilling" : {
       "type" : "object",
       "properties" : {
@@ -29472,6 +30427,41 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
           "items" : {
             "$ref" : "#/definitions/PollMessage"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
+    "JsonResponseDataPrice" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/Price"
           }
         },
         "ctid" : {
@@ -30759,11 +31749,138 @@
     },
     "Operator" : {
       "type" : "string",
-      "enum" : [ "EQUAL", "NOT_EQUAL", "NOT_LIKE", "LIKE", "ILIKE", "GREATER", "GREATER_EQUAL", "LESS", "LESS_EQUAL", "IS_NULL", "IS_NOT_NULL", "IN" ]
+      "enum" : [ "EQUAL", "NOT_EQUAL", "NOT_LIKE", "LIKE", "ILIKE", "GREATER", "GREATER_EQUAL", "LESS", "LESS_EQUAL", "IS_NULL", "IS_NOT_NULL", "NOT_LESS", "NOT_GREATER", "NOT_LESS_EQUAL", "NOT_GREATER_EQUAL", "IN" ]
     },
     "OrderType" : {
       "type" : "string",
       "enum" : [ "DESC", "ASC" ]
+    },
+    "ParkingAccount" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "type" : {
+          "description" : "The parking account type",
+          "$ref" : "#/definitions/ParkingAccountType"
+        },
+        "login" : {
+          "type" : "string",
+          "description" : "The login"
+        },
+        "apiKey" : {
+          "type" : "string",
+          "description" : "The api key"
+        },
+        "status" : {
+          "description" : "The status",
+          "$ref" : "#/definitions/ParkingAccountStatus"
+        },
+        "lastSynchronized" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The last synchronized date"
+        }
+      }
+    },
+    "ParkingAccountStatus" : {
+      "type" : "string",
+      "enum" : [ "ACTIVE", "PENDING", "NOT_SET", "FAILED" ]
+    },
+    "ParkingAccountType" : {
+      "type" : "string",
+      "enum" : [ "SEDO" ]
+    },
+    "ParkingDomain" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "parkingAccount" : {
+          "description" : "The connected parking account",
+          "$ref" : "#/definitions/ParkingAccount"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The domain name"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "The currency of the sale",
+          "x-custom-type" : "currency"
+        },
+        "fixedPrice" : {
+          "type" : "boolean",
+          "description" : "Is the price fix"
+        },
+        "forSale" : {
+          "type" : "boolean",
+          "description" : "Should the domain be listed for sale"
+        },
+        "keywords" : {
+          "type" : "array",
+          "description" : "The keywords to use",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "price" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The price to use"
+        },
+        "minPrice" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The minimum of price"
+        },
+        "externalReference" : {
+          "type" : "string",
+          "description" : "The external reference"
+        },
+        "lastSynchronized" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The last synchronized date"
+        },
+        "registrantAccountId" : {
+          "type" : "string",
+          "description" : "The registrant account id"
+        }
+      }
     },
     "ParkingProviderConstants" : {
       "type" : "string",
@@ -31053,6 +32170,119 @@
         }
       }
     },
+    "Price" : {
+      "type" : "object",
+      "required" : [ "amount", "currency", "product" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the price"
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Amount"
+        },
+        "type" : {
+          "description" : "The price type",
+          "$ref" : "#/definitions/PriceTypeConstants"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Used currency ",
+          "x-custom-type" : "currency"
+        },
+        "priority" : {
+          "description" : "Priority",
+          "$ref" : "#/definitions/PriorityConstants"
+        },
+        "customer" : {
+          "description" : "Customer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "period" : {
+          "description" : "The activity period of a product",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "discountable" : {
+          "type" : "boolean",
+          "description" : "Indicates if price discountable is possible"
+        },
+        "logId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Id of the created log"
+        },
+        "refund" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Refund"
+        },
+        "priceConditions" : {
+          "type" : "array",
+          "description" : "Price condition",
+          "items" : {
+            "$ref" : "#/definitions/PriceServiceEntity"
+          }
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "Comments"
+        },
+        "taskComment" : {
+          "type" : "string",
+          "description" : "TaskComment"
+        },
+        "priceList" : {
+          "description" : "The related priceList label",
+          "$ref" : "#/definitions/PriceList"
+        },
+        "from" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "from"
+        },
+        "until" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "until"
+        },
+        "normalPrice" : {
+          "description" : "Normal price",
+          "$ref" : "#/definitions/ExchangedPrice"
+        },
+        "valid" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date until the price is valid"
+        },
+        "product" : {
+          "description" : "The product",
+          "$ref" : "#/definitions/Product"
+        }
+      }
+    },
     "PriceData" : {
       "type" : "object",
       "properties" : {
@@ -31121,6 +32351,10 @@
           "type" : "boolean",
           "description" : "Flag indication if the priceList is inactive"
         },
+        "comment" : {
+          "type" : "string",
+          "description" : "Comments"
+        },
         "customerPriceListsAdd" : {
           "type" : "array",
           "description" : "Used by the patch route",
@@ -31141,7 +32375,7 @@
       "type" : "string",
       "enum" : [ "PERCENT", "ABSOLUTE" ]
     },
-    "PriceRounding" : {
+    "PriceRoundingConstants" : {
       "type" : "string",
       "enum" : [ "NONE", "ROUND_X0", "ROUND_00", "ROUND_X9", "ROUND_99" ]
     },
@@ -31243,6 +32477,10 @@
     "ProtocolTypeConstants" : {
       "type" : "string",
       "enum" : [ "TOTP", "HOTP" ]
+    },
+    "Provider" : {
+      "type" : "string",
+      "enum" : [ "IPAYMENT", "PAYPAL" ]
     },
     "ProviderEntity" : {
       "type" : "object",
