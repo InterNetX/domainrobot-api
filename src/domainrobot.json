@@ -1384,6 +1384,191 @@
         }
       }
     },
+    "/bulk/clientAccount/{label}/clientCustomer" : {
+      "post" : {
+        "tags" : [ "ClientCustomer Bulk Tasks" ],
+        "summary" : "ClientCustomer Create Bulk",
+        "description" : "Creating several client customers in one request.",
+        "operationId" : "externalCustomerCreates",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "label",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "externalCustomers",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkExternalCustomerPostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataExternalCustomer"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "ClientCustomer Bulk Tasks" ],
+        "summary" : " ClientCustomer Delete Bulk",
+        "description" : "Deleting several clientCustomer in one request.",
+        "operationId" : "externalCustomerDeletes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "externalCustomers",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkExternalCustomerDeleteRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataExternalCustomer"
+            }
+          }
+        }
+      }
+    },
     "/bulk/contact" : {
       "delete" : {
         "tags" : [ "Contact Bulk Tasks" ],
@@ -3545,102 +3730,6 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataDomainPrereg"
-            }
-          }
-        }
-      }
-    },
-    "/bulk/externalCustomer/clientAccount/{label}/clientCustomer" : {
-      "post" : {
-        "tags" : [ "ClientCustomer Bulk Tasks" ],
-        "summary" : "ClientCustomer Create Bulk",
-        "description" : "Creating several client customers in one request.",
-        "operationId" : "externalCustomerCreates",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "label",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "externalCustomers",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/BulkExternalCustomerPostRequest"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataExternalCustomer"
             }
           }
         }
@@ -23564,6 +23653,10 @@
             "$ref" : "#/definitions/CustomerPriceList"
           }
         },
+        "template" : {
+          "description" : "The template for objects to process",
+          "$ref" : "#/definitions/CustomerPriceList"
+        },
         "query" : {
           "description" : "The query to fetch the object instead of defined list",
           "$ref" : "#/definitions/Query"
@@ -23817,6 +23910,26 @@
         }
       }
     },
+    "BulkExternalCustomerDeleteRequest" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/ExternalCustomer"
+          }
+        },
+        "template" : {
+          "description" : "The template for objects to process",
+          "$ref" : "#/definitions/ExternalCustomer"
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        }
+      }
+    },
     "BulkExternalCustomerPostRequest" : {
       "type" : "object",
       "properties" : {
@@ -23830,6 +23943,10 @@
         "template" : {
           "description" : "The template for objects to process",
           "$ref" : "#/definitions/ExternalCustomer"
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
         }
       }
     },
@@ -26255,7 +26372,7 @@
     },
     "DomainActionConstants" : {
       "type" : "string",
-      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY" ]
+      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "AUTOUPDATE_DNSSEC", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY", "CONTACT_CREATE" ]
     },
     "DomainAutodeleteExtensions" : {
       "type" : "object",
@@ -32609,6 +32726,10 @@
         "label" : {
           "type" : "string",
           "description" : "The unique identifier, must be unique within the customer client"
+        },
+        "inactive" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the priceList is inactive"
         }
       }
     },
@@ -32618,7 +32739,7 @@
     },
     "PriceRoundingConstants" : {
       "type" : "string",
-      "enum" : [ "NONE", "ROUND_X0", "ROUND_00", "ROUND_X9", "ROUND_99" ]
+      "enum" : [ "NONE", "ROUND_X0", "ROUND_00", "ROUND_X9", "ROUND_99", "ROUND_COMMERCIAL" ]
     },
     "PriceServiceData" : {
       "type" : "object",
@@ -34302,8 +34423,11 @@
         "officialLanguage" : {
           "type" : "string"
         },
-        "blockingService" : {
-          "type" : "boolean"
+        "blockingServices" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         },
         "restrictions" : {
           "type" : "array",
@@ -35348,13 +35472,60 @@
       "type" : "string",
       "enum" : [ "OPTIONAL", "FIX", "RECURSE", "HIDDEN", "PARENT_FIX" ]
     },
+    "UserProfileView" : {
+      "type" : "object",
+      "required" : [ "flag", "key", "value" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The updated date."
+        },
+        "owner" : {
+          "description" : "The owner of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "The updating user of the object.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "key" : {
+          "type" : "string",
+          "example" : "techc",
+          "description" : "The  user profile key"
+        },
+        "value" : {
+          "type" : "string",
+          "example" : "12345",
+          "description" : "The value of the key"
+        },
+        "flag" : {
+          "example" : "FIX",
+          "description" : "The mode of the entry",
+          "$ref" : "#/definitions/UserProfileFlag"
+        },
+        "inherited" : {
+          "type" : "boolean",
+          "description" : "Is true if the value was inherited"
+        },
+        "readonly" : {
+          "type" : "boolean",
+          "description" : "The read only entry"
+        }
+      }
+    },
     "UserProfileViews" : {
       "type" : "object",
       "properties" : {
         "profiles" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/UserProfile"
+            "$ref" : "#/definitions/UserProfileView"
           }
         }
       }
