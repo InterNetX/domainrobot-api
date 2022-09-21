@@ -6612,10 +6612,10 @@
       }
     },
     "/certificate/{id}/_revoke" : {
-      "delete" : {
+      "post" : {
         "tags" : [ "Certificate Tasks" ],
         "summary" : "Certificate Revoke",
-        "description" : "Revoking an existing certificate. The operation is asynchronous and creates a job.",
+        "description" : "Revoking an existing old certificate by serialnumber. The operation is in realtime",
         "operationId" : "certificateRevoke",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -22781,18 +22781,18 @@
       "required" : [ "customer" ],
       "properties" : {
         "customer" : {
-          "description" : "The customer itself",
+          "description" : "The customer object.",
           "$ref" : "#/definitions/GenericCustomer"
         },
         "currentAccountBalance" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The real account balance"
+          "description" : "The current account balance"
         },
         "runningTotal" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The current total, the amount of all finished and unfinished transactions"
+          "description" : "The current total, the amount of all finished and unfinished transactions."
         },
         "creditLimit" : {
           "type" : "number",
@@ -22802,30 +22802,30 @@
         "currency" : {
           "type" : "string",
           "example" : "EUR",
-          "description" : "The currency of the account",
+          "description" : "Currency in which the account is held.",
           "x-custom-type" : "currency"
         },
         "minRunningTotalNotification" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The minimum running total amount if a notification should be send"
+          "description" : "The minimum account balance at which a notification should be sent."
         },
         "minRunningTotalNotificationEmail" : {
           "type" : "string",
-          "description" : "The recipient of the notification limit email"
+          "description" : "Email address for notification. A notification is sent when the minimum account balance has been reached (minRunningTotalNotification). "
         },
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the acccount creation"
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the las update."
+          "description" : "The date of the last update."
         },
         "view" : {
-          "description" : "The selected exchange for the account",
+          "description" : "The selected exchange for the account.",
           "$ref" : "#/definitions/CurrencyRate"
         },
         "reserved" : {
@@ -22858,12 +22858,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "name" : {
           "type" : "string",
@@ -22886,19 +22886,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "type" : {
@@ -22945,12 +22945,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -22988,19 +22988,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
@@ -23046,28 +23046,28 @@
       "properties" : {
         "domain" : {
           "type" : "string",
-          "description" : "The domain of the mail exchange to backup"
+          "description" : "Domain name for which the BackupMX Record is to be created."
         },
         "idn" : {
           "type" : "string",
-          "description" : "The idn version of the domain."
+          "description" : "IDN version of the domain name written in Punycode."
         },
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the creation"
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the last updated"
+          "description" : "Date of the last update."
         },
         "owner" : {
-          "description" : "The owner of the entry",
+          "description" : "The object owner.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The last updater of the entry",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         }
       }
@@ -23302,12 +23302,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "email" : {
           "type" : "string",
@@ -23330,12 +23330,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -23431,12 +23431,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "articleLabel" : {
           "type" : "string"
@@ -23466,12 +23466,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -24255,12 +24255,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "caType" : {
           "type" : "string",
@@ -24286,12 +24286,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "provider" : {
           "description" : "The provider",
@@ -24397,12 +24397,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -24703,6 +24703,14 @@
         "scope" : {
           "description" : "The DCV scope to use for generating the dcv data",
           "$ref" : "#/definitions/DcvValidationScope"
+        },
+        "hasMultiValueDN" : {
+          "type" : "boolean",
+          "description" : "Describes whether the CSR contains multi value DN data"
+        },
+        "validSignature" : {
+          "type" : "boolean",
+          "description" : "Describes whether the CSR contains a valid signature or not"
         }
       }
     },
@@ -24879,12 +24887,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -24927,12 +24935,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -24951,10 +24959,10 @@
         "alias" : {
           "type" : "string",
           "example" : "John-Doe-1",
-          "description" : "The unique alias of the contact"
+          "description" : "A string that is either automatically generated when an alias is not sent or a self-defined string that can be set by the user for the purpose of identifying the domain contact."
         },
         "type" : {
-          "description" : "The type of the contact",
+          "description" : "Domain contact type",
           "$ref" : "#/definitions/ContactTypeConstants"
         },
         "organization" : {
@@ -24965,7 +24973,7 @@
         "title" : {
           "type" : "string",
           "example" : "Dr.",
-          "description" : "The title of the contact"
+          "description" : "A prefix to a person’s name."
         },
         "city" : {
           "type" : "string",
@@ -24975,7 +24983,7 @@
         "country" : {
           "type" : "string",
           "example" : "DE",
-          "description" : "The country of the contact",
+          "description" : "Country (ISO 3166-1 alpha-2). \n Country Code. \n Certain strings, such as \"Germany\", are mapped to DE.",
           "x-custom-type" : "country"
         },
         "state" : {
@@ -24987,7 +24995,7 @@
         "email" : {
           "type" : "string",
           "example" : "john.doe@domain.com",
-          "description" : "The email of the contact",
+          "description" : "Email address",
           "x-custom-type" : "email"
         },
         "protection" : {
@@ -24998,27 +25006,21 @@
           "type" : "string",
           "description" : "The sip of the contact"
         },
-        "remarks" : {
-          "type" : "array",
-          "description" : "The remarks of the contact",
-          "items" : {
-            "type" : "string"
-          }
-        },
         "domainsafe" : {
           "type" : "boolean",
-          "description" : "The nic references of the contact"
+          "description" : "Indicates whether the domain contact is in the DomainSafe."
         },
         "confirmOwnerConsent" : {
           "type" : "boolean",
-          "description" : "???"
+          "description" : "Confirmation of the domain holder that he agrees to the changes. \n\n false or blank= Refuse confirmation. Order will not be accepted. \n true = Confirm \n default value = false \n\n This confirmation has been required since December 7, 2016 due to ICANN's new change of ownership procedure for changes to the domain holder's name, email address or organization. Only for gTLDs and new gTLDs."
         },
         "comment" : {
           "type" : "string",
-          "description" : "The comment for the contact"
+          "description" : "A freely definable text that can be set for a contact. May only be composed of ASCII characters."
         },
         "verification" : {
-          "description" : "The verification status of the contact",
+          "example" : "SUCCESS - Domain contact verification successful. \n PENDING - Domain contact verification in progress. \n FAILED - Domain contact verification failed. \n NOT_SET - Domain contact verification not started.",
+          "description" : "The status of domain contact verification.",
           "$ref" : "#/definitions/GenericStatusConstants"
         },
         "documents" : {
@@ -25030,16 +25032,16 @@
         "fname" : {
           "type" : "string",
           "example" : "John",
-          "description" : "The first name of the contact"
+          "description" : "First name"
         },
         "lname" : {
           "type" : "string",
           "example" : "Doe",
-          "description" : "The last name of the contact"
+          "description" : "Last name"
         },
         "address" : {
           "type" : "array",
-          "description" : "The address of the contact.",
+          "description" : "Street or post box. Depending on the registry, up to 65,536 characters may be possible.",
           "items" : {
             "type" : "string"
           },
@@ -25048,8 +25050,8 @@
         },
         "pcode" : {
           "type" : "string",
-          "example" : "12345",
-          "description" : "The pcode of the contact"
+          "example" : "93055",
+          "description" : "The postal code (“zip-code”) of the contact."
         },
         "phone" : {
           "type" : "string",
@@ -25065,13 +25067,13 @@
         },
         "nicRef" : {
           "type" : "array",
-          "description" : "The nic references of the contact",
+          "description" : "Manually create a NIC reference for the domain contact. This is not required, since the NIC references are always created automatically.\n This will no longer be supported in the future.",
           "items" : {
             "$ref" : "#/definitions/ContactReference"
           }
         },
         "extensions" : {
-          "description" : "The contact extensions.",
+          "description" : "Additional data for contacts required by certain TLDs.",
           "$ref" : "#/definitions/ContactExtensions"
         }
       }
@@ -25097,7 +25099,7 @@
           "description" : "The corresponding ID number for the eligibility name if applicable, if in doubt just use the same details as your Registrant ID."
         },
         "eligibilityIdType" : {
-          "description" : "The type of Eligibility ID.",
+          "description" : "The type of eligibility id as above.",
           "$ref" : "#/definitions/AuEligibilityIdTypeConstants"
         },
         "eligibilityName" : {
@@ -25123,7 +25125,7 @@
         },
         "registrantName" : {
           "type" : "string",
-          "description" : "The registrants name."
+          "description" : "Name of the registrant."
         }
       }
     },
@@ -25132,7 +25134,7 @@
       "properties" : {
         "ftldToken" : {
           "type" : "string",
-          "description" : "The FTLD token."
+          "description" : "Registration token that you receive by email after successful verification by the registry."
         }
       }
     },
@@ -25141,7 +25143,7 @@
       "properties" : {
         "intendedUse" : {
           "type" : "string",
-          "description" : "The statement of intended use for the domain name."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25150,23 +25152,25 @@
       "properties" : {
         "country" : {
           "type" : "string",
-          "description" : "The country.",
+          "example" : "DE",
+          "description" : "Birth country (ISO 3166 Country Code).",
           "x-custom-type" : "country"
         },
         "day" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The day.",
+          "example" : "1987-10-04",
+          "description" : "Birthday (yyyy-MM-dd).",
           "x-custom-type" : "date"
         },
         "postalCode" : {
           "type" : "string",
-          "description" : "The postalCode.",
+          "description" : "Postal code of the birth place.",
           "x-custom-type" : "pcode"
         },
         "place" : {
           "type" : "string",
-          "description" : "The place."
+          "description" : "Birth place."
         }
       }
     },
@@ -25174,7 +25178,7 @@
       "type" : "object",
       "properties" : {
         "cpr" : {
-          "description" : "The cira cpr.",
+          "description" : "Canadian Presence Requirements.\n Enter the reason for the authorization to register a .ca domain.",
           "$ref" : "#/definitions/CiraCprConstants"
         },
         "agreementVersion" : {
@@ -25189,12 +25193,12 @@
         },
         "officialRepresentative" : {
           "type" : "string",
-          "description" : "The official representative."
+          "description" : "Offical representative."
         },
         "trusteePercentage" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The trustee percentage."
+          "description" : "Share of Canadians in a trust. \n Value must be <= 66. Mandatory if CPR = TRS (Trust)."
         }
       }
     },
@@ -25203,7 +25207,7 @@
       "properties" : {
         "intendedUse" : {
           "type" : "string",
-          "description" : "The statement of intended use for the domain name."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25214,12 +25218,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "contact" : {
           "$ref" : "#/definitions/Contact"
@@ -25359,29 +25363,35 @@
         },
         "language" : {
           "type" : "string",
-          "description" : "The language.",
+          "example" : "\"de\" or \"de_ch\"",
+          "description" : "Language of the contact RFC 3066.",
           "x-custom-type" : "language"
         },
         "companyNumber" : {
           "type" : "string",
-          "description" : "The company number."
+          "description" : "Company number."
         },
         "gender" : {
-          "description" : "The gender.",
+          "description" : "Gender.",
           "$ref" : "#/definitions/GenderConstants"
         },
         "vatNumber" : {
           "type" : "string",
-          "description" : "The vatnumber."
+          "description" : "VAT number."
         },
         "citizenship" : {
           "type" : "string",
-          "description" : "The citizenship.",
+          "description" : "Citizenship. For EU citizens living outside the EU.",
           "x-custom-type" : "country"
+        },
+        "strict" : {
+          "type" : "boolean",
+          "description" : "If strict mode should be used for the registry mapping."
         },
         "mobilePhone" : {
           "type" : "string",
-          "description" : "The mobile phonenumber.",
+          "example" : "+49-123-123",
+          "description" : "Mobile phone number.",
           "x-custom-type" : "phone"
         }
       }
@@ -25390,7 +25400,7 @@
       "type" : "object",
       "properties" : {
         "documentType" : {
-          "description" : "The document types.",
+          "description" : "Dokument type für persons and organizations.",
           "$ref" : "#/definitions/HkDocumentTypeConstants"
         },
         "others" : {
@@ -25399,19 +25409,20 @@
         },
         "documentNumber" : {
           "type" : "string",
-          "description" : "Document number."
+          "description" : "Document number, e.g. id card number."
         },
         "documentOrigin" : {
           "type" : "string",
-          "description" : "Country of licensure.",
+          "description" : "Country of issuing authority.",
           "x-custom-type" : "country"
         },
         "above18" : {
           "type" : "boolean",
-          "description" : "Is the person 18 years of age or older. For Person only."
+          "example" : false,
+          "description" : "For \"Person\" only. Is the person 18 years of age or older?. "
         },
         "industryType" : {
-          "description" : "The industry types.",
+          "description" : "Industry type.",
           "$ref" : "#/definitions/HkIndustryTypeConstants"
         }
       }
@@ -25421,22 +25432,22 @@
       "properties" : {
         "number" : {
           "type" : "string",
-          "description" : "The number."
+          "description" : "Id card number."
         },
         "authority" : {
           "type" : "string",
-          "description" : "The authority."
+          "description" : "Issuing authority of the identification card."
         },
         "dateOfIssue" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The date of issue.",
+          "description" : "Date on which the identification card was issued.",
           "x-custom-type" : "date"
         },
         "validTill" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The valid till date.",
+          "description" : "Date on which the validity of the identification card expires.",
           "x-custom-type" : "date"
         }
       }
@@ -25458,7 +25469,7 @@
       "type" : "object",
       "properties" : {
         "entityType" : {
-          "description" : "The number of the matching entity.",
+          "description" : "Entity the contact belongs to. \n Depending on what you have entered in it_entity_type, other data must also be specified. You can find a description of this data in the section \"General Extensions\".",
           "$ref" : "#/definitions/ItEntityTypeConstants"
         }
       }
@@ -25468,7 +25479,8 @@
       "properties" : {
         "adminType" : {
           "type" : "boolean",
-          "description" : "Contact is the administrative contact with the permission to act as an independent agent / recruiter on behalf of the listed registrant."
+          "example" : false,
+          "description" : "Here you enter whether the contact is the administrative contact with the permission to act as an independent agent /recruiter on behalf of the listed registrant."
         },
         "contactTitle" : {
           "type" : "string",
@@ -25476,16 +25488,17 @@
         },
         "hrMember" : {
           "type" : "boolean",
+          "example" : false,
           "description" : "Choose whether the contact is is a member of the Human Resource Organization"
         },
         "industryClass" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The Industry class."
+          "description" : "The industry class in which the company is active in."
         },
         "website" : {
           "type" : "string",
-          "description" : "The Website.",
+          "description" : "The website URL of the company.",
           "x-custom-type" : "uri"
         }
       }
@@ -25495,27 +25508,27 @@
       "properties" : {
         "first" : {
           "type" : "string",
-          "description" : "The first name."
+          "description" : "First Name. Japanese characters must be used."
         },
         "last" : {
           "type" : "string",
-          "description" : "The last name."
+          "description" : "Last Name. Japanese characters must be used."
         },
         "organization" : {
           "type" : "string",
-          "description" : "The organization."
+          "description" : "Organization Name. Japanese characters must be used."
         },
         "adressLine1" : {
           "type" : "string",
-          "description" : "The first line of the address."
+          "description" : "First address line. Japanese characters must be used."
         },
         "adressLine2" : {
           "type" : "string",
-          "description" : "The second line of the address."
+          "description" : "Second address line. Japanese characters must be used."
         },
         "adressLine3" : {
           "type" : "string",
-          "description" : "The third line of the address."
+          "description" : "Third address line. Japanese characters must be used."
         }
       }
     },
@@ -25524,7 +25537,7 @@
       "properties" : {
         "walletAddress" : {
           "type" : "string",
-          "description" : "The .luxe wallet address"
+          "description" : "The wallet address"
         }
       }
     },
@@ -25533,7 +25546,7 @@
       "properties" : {
         "intendedUse" : {
           "type" : "string",
-          "description" : "The statement of intended use for the domain name."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25542,7 +25555,8 @@
       "properties" : {
         "irpo" : {
           "type" : "boolean",
-          "description" : "The irpo."
+          "example" : false,
+          "description" : "Hide contact data in the Whois. Address, telephone, fax are affected. \n Permitted only for natural persons (\"individuals\") who do not use the domain name to a significant extent in \"trading\" as defined and used in the Fair Trading Act 1986."
         }
       }
     },
@@ -25587,7 +25601,7 @@
       "type" : "object",
       "properties" : {
         "personType" : {
-          "description" : "The entity person type.",
+          "description" : "Type of group that the contact belongs to.",
           "$ref" : "#/definitions/RoPersonTypeConstants"
         }
       }
@@ -25610,7 +25624,7 @@
       "properties" : {
         "intendedUse" : {
           "type" : "string",
-          "description" : "The statement of intended use for the domain name."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25619,7 +25633,7 @@
       "properties" : {
         "intendedUse" : {
           "type" : "string",
-          "description" : "The intended use."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25628,11 +25642,11 @@
       "properties" : {
         "enterpriseId" : {
           "type" : "string",
-          "description" : "The enterprise ID, in the specific context of .swiss based on current rules, is the Swiss UID/IDE/IDI."
+          "description" : "The enterprise ID, in the specific context of .swiss based on current rules, is the Swiss UID/IDE/IDI.The full name is in German \"Unternehmens-ID\",  in French \"Numéro d’identification des entreprises (IDE)\" and in Italian \"Numero d’identificazione delle imprese\" (IDI)."
         },
         "intendedUse" : {
           "type" : "string",
-          "description" : "The statement of intended use for the domain name."
+          "description" : "The intended use for the domain."
         }
       }
     },
@@ -25641,32 +25655,34 @@
       "properties" : {
         "name" : {
           "type" : "string",
-          "description" : "The name."
+          "description" : "Trademark name."
         },
         "number" : {
           "type" : "string",
-          "description" : "The number."
+          "description" : "Trademark number."
         },
         "country" : {
           "type" : "string",
-          "description" : "The country.",
+          "example" : "DE",
+          "description" : "Country in which the trade mark is valid (ISO 3166 Country Code).",
           "x-custom-type" : "country"
         },
         "regdate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The registration date.",
+          "description" : "Registration date.",
           "x-custom-type" : "date"
         },
         "appdate" : {
           "type" : "string",
           "format" : "date",
-          "description" : "The application date.",
+          "example" : "2022-07-29",
+          "description" : "Application date of the trade mark (yyyy-MM-dd).",
           "x-custom-type" : "date"
         },
         "office" : {
           "type" : "string",
-          "description" : "The office."
+          "description" : "The trademark office where the trademark is registered at."
         }
       }
     },
@@ -25682,7 +25698,7 @@
       "type" : "object",
       "properties" : {
         "entityType" : {
-          "description" : "The entity type.",
+          "description" : "Organization type. \n For the sub domains ltd.uk, net.uk and plc.uk the selection of <uk _type> is mandatory.\n For co.uk and me.uk the selection of <uk_type> is not mandatory.",
           "$ref" : "#/definitions/UkTypeConstants"
         }
       }
@@ -25694,19 +25710,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "reference" : {
@@ -25766,12 +25782,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "name" : {
           "type" : "string",
@@ -25798,12 +25814,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "mail" : {
           "description" : "the email of the VerificationMessage",
@@ -25824,11 +25840,12 @@
       "properties" : {
         "membershipID" : {
           "type" : "string",
-          "description" : "Membership ID (token) for the .XXX community."
+          "description" : "Membership ID (token) for the .XXX community. \n You receive your ID after you have finished the ICM registry membership process successfully and having created an account there."
         },
         "nonResolverDomain" : {
           "type" : "boolean",
-          "description" : "XXX community membership available or not."
+          "example" : false,
+          "description" : "XXX community membership. Members have a membership ID (token)."
         }
       }
     },
@@ -25841,7 +25858,8 @@
         },
         "isAuthority" : {
           "type" : "boolean",
-          "description" : "Indicates whether the organization is an authority. Should be set to true if the organization is an authority."
+          "example" : false,
+          "description" : "Indicates whether the registrant is a public corporation or not."
         }
       }
     },
@@ -25851,12 +25869,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "master" : {
           "type" : "boolean",
@@ -25951,13 +25969,13 @@
         "currency" : {
           "type" : "string",
           "example" : "EUR",
-          "description" : "The currency of the exchange",
+          "description" : "Currency of the customer's prepayment account.",
           "x-custom-type" : "currency"
         },
         "rate" : {
           "type" : "number",
           "format" : "double",
-          "description" : "the rate of the exchange"
+          "description" : "Exchange rate."
         }
       }
     },
@@ -25978,12 +25996,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "contract" : {
           "description" : "The contract.",
@@ -26010,12 +26028,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -26038,12 +26056,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "tag" : {
           "description" : "The tag.",
@@ -26079,7 +26097,7 @@
         "publicKey" : {
           "type" : "string",
           "description" : "The public key.",
-          "pattern" : "^[\\sA-Za-z0-9+\\/]+[=]*$"
+          "pattern" : "^[\\sa-zA-Z0-9+\\/\\n=]{8,}$"
         }
       }
     },
@@ -26088,7 +26106,7 @@
     },
     "DcvValidationScope" : {
       "type" : "string",
-      "enum" : [ "FQDN", "BASEDOMAIN", "DEFAULT" ]
+      "enum" : [ "FQDN", "BASEDOMAIN" ]
     },
     "DeliveryStatus" : {
       "type" : "string",
@@ -26100,12 +26118,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -26150,19 +26168,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
@@ -26396,12 +26414,12 @@
         "amount" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The amount for the domain"
+          "description" : "Purchase price of the domain."
         },
         "currency" : {
           "type" : "string",
           "example" : "EUR",
-          "description" : "Used currency of the amount",
+          "description" : "Currency of the purchase price.",
           "x-custom-type" : "currency"
         }
       }
@@ -26413,34 +26431,38 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Domain to be cancelled."
         },
         "registryWhen" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the execution. Only necessary when ExecutionType equals DATE."
+          "description" : "The date on which the registry should perform the domain cancelation. Only necessary when ExecutionType equals DATE."
         },
         "gainingRegistrar" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The registrar to which the domain is to be transferred. Only possible with preack, for which it is required. \n accept_all = All registrars are accepted \n Designated registrar (e.g. DENIC-104).\nAsk the registry for the provider ID of your reseller. The transfer is then only possible to the selected registrar."
         },
         "disconnect" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "example" : false,
+          "description" : "Specifies whether the domain is disconnected during a transit. Only possible with transit, for which it is necessary. Default value = false"
         },
         "notice" : {
           "type" : "string",
@@ -26448,17 +26470,22 @@
         },
         "logId" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "description" : "Identifier specifically used for this transfer."
         },
         "registryStatus" : {
           "$ref" : "#/definitions/RegistryStatusConstants"
+        },
+        "status" : {
+          "description" : "Status of the cancelation request.",
+          "$ref" : "#/definitions/CancelationStatusConstants"
         },
         "type" : {
           "description" : "The cancelation type. TRANSIT is only possible for certain TLDs.",
           "$ref" : "#/definitions/CancelationTypeConstants"
         },
         "execution" : {
-          "description" : "The execution type.",
+          "description" : "Date and Time at which the domain is to be canceled.",
           "$ref" : "#/definitions/ExecutionTypeConstants"
         }
       }
@@ -26638,12 +26665,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -26705,12 +26732,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "data" : {
           "type" : "string",
@@ -26765,12 +26792,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -26833,19 +26860,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "ownerc" : {
@@ -27019,19 +27046,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
@@ -27256,12 +27283,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -28304,12 +28331,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -28461,12 +28488,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -28628,12 +28655,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "label" : {
           "type" : "string",
@@ -28688,19 +28715,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
@@ -28805,12 +28832,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "type" : {
           "description" : "The restriction level",
@@ -28849,19 +28876,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
@@ -31583,28 +31610,28 @@
       "properties" : {
         "domain" : {
           "type" : "string",
-          "description" : "The domain of the mail exchange to backup"
+          "description" : "Domain name for which the BackupMX Record is to be created."
         },
         "idn" : {
           "type" : "string",
-          "description" : "The idn version of the domain."
+          "description" : "IDN version of the domain name written in Punycode."
         },
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the creation"
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date of the last updated"
+          "description" : "Date of the last update."
         },
         "owner" : {
-          "description" : "The owner of the entry",
+          "description" : "The object owner.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The last updater of the entry",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "target" : {
@@ -31662,12 +31689,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -31709,13 +31736,14 @@
       "properties" : {
         "address" : {
           "type" : "string",
-          "example" : "127.0.0.1"
+          "example" : "127.0.0.1",
+          "description" : "IP address used for the A-record of the zone's e-mail."
         },
         "ttl" : {
           "type" : "integer",
           "format" : "int64",
           "example" : 86000,
-          "description" : "The ttl of main address to use"
+          "description" : "Time to Live (TTL) Validity period for the IP address of the zone."
         }
       }
     },
@@ -31949,12 +31977,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -32097,12 +32125,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -32149,12 +32177,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -32241,12 +32269,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -32327,12 +32355,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "name" : {
           "type" : "string",
@@ -32421,12 +32449,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "name" : {
           "type" : "string"
@@ -32521,12 +32549,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -32645,19 +32673,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
@@ -32794,12 +32822,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -32850,12 +32878,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -32907,10 +32935,12 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Name of keyword."
         },
         "value" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Value after which filtering is to be performed."
         },
         "values" : {
           "type" : "array",
@@ -32919,6 +32949,7 @@
           }
         },
         "operator" : {
+          "description" : "Comparison operator.",
           "$ref" : "#/definitions/Operator"
         },
         "link" : {
@@ -32983,12 +33014,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "email" : {
           "type" : "string",
@@ -33033,12 +33064,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "host" : {
           "type" : "string",
@@ -33065,19 +33096,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "source" : {
@@ -33243,12 +33274,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "document" : {
           "description" : "The linked pdf",
@@ -33324,12 +33355,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "label" : {
           "type" : "string",
@@ -33356,12 +33387,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -33385,7 +33416,7 @@
     },
     "SignatureHashAlgorithmConstants" : {
       "type" : "string",
-      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256", "SHA256_SHA1", "SHA384_SHA1", "SHA256_SHA256", "SHA256ECDSA_SHA1", "SHA384ECDSA_SHA1", "SHA256ECDSA_SHA384ECDSA", "SHA384ECDSA_SHA384ECDSA", "DEFAULT" ]
+      "enum" : [ "SHA1", "SHA2", "SHA2_FULL_CHAIN", "UNKNOWN", "SHA384", "SHA512", "SHA256", "SHA256_SHA1", "SHA384_SHA1", "SHA256_SHA256", "SHA256ECDSA_SHA1", "SHA384ECDSA_SHA1", "SHA256ECDSA_SHA384ECDSA", "SHA384ECDSA_SHA384ECDSA", "DEFAULT", "MD5_WITH_RSA_ENCRYPTION" ]
     },
     "SimplePrice" : {
       "type" : "object",
@@ -33536,12 +33567,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "extensions" : {
           "description" : "The contact extensions",
@@ -33681,12 +33712,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         }
       }
     },
@@ -33722,12 +33753,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "type" : {
           "$ref" : "#/definitions/SanType"
@@ -33761,19 +33792,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
@@ -33878,12 +33909,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "id" : {
           "type" : "integer",
@@ -33995,12 +34026,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "taskGroup" : {
           "description" : "The selected task group",
@@ -34194,6 +34225,9 @@
           "$ref" : "#/definitions/TimePeriod"
         },
         "cancelationPeriod" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "cancelationPeriodAutoDelete" : {
           "$ref" : "#/definitions/TimePeriod"
         }
       }
@@ -34578,12 +34612,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -34646,12 +34680,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         }
       }
     },
@@ -34701,19 +34735,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
@@ -34840,12 +34874,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "status" : {
           "$ref" : "#/definitions/TmchMarkStatusConstants"
@@ -34865,12 +34899,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "type" : {
           "$ref" : "#/definitions/DocumentTypeConstants"
@@ -34899,12 +34933,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -34989,12 +35023,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35088,12 +35122,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35436,12 +35470,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35479,12 +35513,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35536,12 +35570,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35589,19 +35623,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "active" : {
@@ -35632,12 +35666,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
@@ -35893,12 +35927,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "origin" : {
           "type" : "string",
@@ -36018,12 +36052,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "origin" : {
           "type" : "string",
@@ -36177,12 +36211,12 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "date" : {
           "type" : "string",
@@ -36237,19 +36271,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
@@ -36274,19 +36308,19 @@
         "created" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The created date."
+          "description" : "Date of creation."
         },
         "updated" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The updated date."
+          "description" : "Date of the last update."
         },
         "owner" : {
           "description" : "The owner of the object.",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updater of the object.",
+          "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
