@@ -23676,6 +23676,17 @@
         "template" : {
           "description" : "The template for objects to process",
           "$ref" : "#/definitions/CustomerPriceList"
+        },
+        "query" : {
+          "description" : "The query to fetch the object instead of defined list",
+          "$ref" : "#/definitions/Query"
+        },
+        "options" : {
+          "type" : "array",
+          "description" : "The objects to process",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
         }
       }
     },
@@ -28208,10 +28219,6 @@
           "description" : "The configuration for the suggestion source",
           "$ref" : "#/definitions/DomainStudioSourceSuggestion"
         },
-        "semantic" : {
-          "description" : "The configuration for the suggestion2 source",
-          "$ref" : "#/definitions/DomainStudioSourceSuggestion2"
-        },
         "premium" : {
           "description" : "The configuration for the premium source",
           "$ref" : "#/definitions/DomainStudioSourcePremium"
@@ -28255,6 +28262,10 @@
         "prefixSuffix" : {
           "description" : "The configuration for the prefix suffix source",
           "$ref" : "#/definitions/DomainStudioSourcePrefixSuffix"
+        },
+        "semantic" : {
+          "description" : "The configuration for the suggestion2 source",
+          "$ref" : "#/definitions/DomainStudioSourceSuggestion2"
         }
       }
     },
@@ -28544,6 +28555,10 @@
         "priceRounding" : {
           "description" : "The type of rounding",
           "$ref" : "#/definitions/PriceRoundingConstants"
+        },
+        "enablePromoPrice" : {
+          "type" : "boolean",
+          "description" : "Enables promo prices syncronization"
         },
         "currency" : {
           "type" : "string",
@@ -28875,7 +28890,9 @@
           "description" : "A list of ip restrictions",
           "items" : {
             "$ref" : "#/definitions/IpRestriction"
-          }
+          },
+          "maxItems" : 20,
+          "minItems" : 0
         }
       }
     },
@@ -32207,7 +32224,7 @@
     },
     "ParkingAccountType" : {
       "type" : "string",
-      "enum" : [ "SEDO" ]
+      "enum" : [ "SEDO", "PARKING_CREW" ]
     },
     "ParkingDomain" : {
       "type" : "object",
@@ -35006,51 +35023,38 @@
         "start" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The start date."
+          "description" : "Date on which the transfer started."
         },
         "reminder" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The reminder date."
+          "description" : "Date on which the transfer reminder mail is sent."
         },
         "autoAck" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The auto ack date."
+          "description" : "Date of the automatic ACK on which the transfer is confirmed."
         },
         "autoNack" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The auto nack date."
+          "description" : "Date of the automatic NACK on which the transfer is rejected."
         },
         "end" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The end date."
+          "description" : "Date on which the transfer process ends."
         },
         "autoAnswer" : {
           "type" : "boolean",
-          "description" : "Autoanswer active."
+          "description" : "Automatic response to the transfer request.\r\nfalse = not active\r\ntrue = active\r\nDefault value = false\r\nFor XML, 0 (false) and 1 (true) can also be used."
         },
         "recipient" : {
           "type" : "string",
-          "description" : "The recipient."
-        },
-        "mailserver" : {
-          "type" : "string",
-          "description" : "The mailserver."
-        },
-        "deliveredMailserver" : {
-          "type" : "string",
-          "description" : "The delivered mailserver."
-        },
-        "delivered" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The delivered date."
+          "description" : "Receiver of the reminder email."
         },
         "status" : {
-          "description" : "The transfer status.",
+          "description" : "Status of a running transfer.",
           "$ref" : "#/definitions/TransferStatusConstants"
         }
       }
@@ -35096,48 +35100,35 @@
         "start" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The start date."
+          "description" : "Date on which the transfer started."
         },
         "reminder" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The reminder date."
+          "description" : "Date on which the transfer reminder mail is sent."
         },
         "autoAck" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The auto ack date."
+          "description" : "Date of the automatic ACK on which the transfer is confirmed."
         },
         "autoNack" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The auto nack date."
+          "description" : "Date of the automatic NACK on which the transfer is rejected."
         },
         "end" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The end date."
+          "description" : "Date on which the transfer process ends."
         },
         "autoAnswer" : {
           "type" : "boolean",
-          "description" : "Autoanswer active."
+          "description" : "Automatic response to the transfer request.\r\nfalse = not active\r\ntrue = active\r\nDefault value = false\r\nFor XML, 0 (false) and 1 (true) can also be used."
         },
         "recipient" : {
           "type" : "string",
-          "description" : "The recipient."
-        },
-        "mailserver" : {
-          "type" : "string",
-          "description" : "The mailserver."
-        },
-        "deliveredMailserver" : {
-          "type" : "string",
-          "description" : "The delivered mailserver."
-        },
-        "delivered" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The delivered date."
+          "description" : "Receiver of the reminder email."
         },
         "transaction" : {
           "type" : "string",
@@ -35150,7 +35141,7 @@
         "nackReason" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The reason. Possible values are : 1 = Evidence of fraud / 2 = Current UDRP action / 3 = Court order / 4 = Identity dispute / 5 = No payment for previous registration period / 6 = Express written objection to the transfer from the transfer contact. "
+          "description" : "Reason for rejection. Only for type \"nack\", mandatory here."
         }
       }
     },
@@ -35275,7 +35266,7 @@
         },
         "password" : {
           "type" : "string",
-          "description" : "The password."
+          "description" : "User password."
         },
         "defaultEmail" : {
           "type" : "string",
@@ -35284,15 +35275,15 @@
         "status" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The status."
+          "description" : "User status."
         },
         "substatus" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The substatus."
+          "description" : "User substatus of the User."
         },
         "authType" : {
-          "description" : "The users authorization method.",
+          "description" : "Authentication type, e.g. password or TOTP.",
           "$ref" : "#/definitions/AuthType"
         },
         "details" : {
@@ -35300,7 +35291,7 @@
           "$ref" : "#/definitions/UserDetails"
         },
         "lock" : {
-          "description" : "The lock status of the user.",
+          "description" : "Defines the type of user lock.",
           "$ref" : "#/definitions/UserLock"
         },
         "oldPassword" : {
@@ -35308,11 +35299,11 @@
           "description" : "The old password."
         },
         "acls" : {
-          "description" : "Wrapper for the user acls.",
+          "description" : "User privileges.",
           "$ref" : "#/definitions/UserAcls"
         },
         "profiles" : {
-          "description" : "Wrapper for the user profiles.",
+          "description" : "User profile.",
           "$ref" : "#/definitions/UserProfileViews"
         },
         "serviceProfiles" : {
@@ -35327,7 +35318,7 @@
           }
         },
         "customer" : {
-          "description" : "The customer belonging to the user.",
+          "description" : "Customer to which this user belongs.",
           "$ref" : "#/definitions/BasicCustomer"
         },
         "nameServerGroups" : {
@@ -35339,20 +35330,20 @@
         },
         "subscriptions" : {
           "type" : "array",
-          "description" : "Wrapper for the subscriptions.",
+          "description" : "Different subscriptions of the users.",
           "items" : {
             "$ref" : "#/definitions/Subscription"
           }
         },
         "applications" : {
           "type" : "array",
-          "description" : "Holds the used applications.",
+          "description" : "Trusted applications of the user.",
           "items" : {
             "$ref" : "#/definitions/TrustedApplication"
           }
         },
         "restrictions" : {
-          "description" : "The wrapper of the ip restrictions for the user.",
+          "description" : "Grouping object for specifying the user's IP networks.",
           "$ref" : "#/definitions/IpRestrictions"
         },
         "customerLevel" : {
@@ -35367,14 +35358,15 @@
         },
         "language" : {
           "type" : "string",
-          "description" : "The language."
+          "description" : "The language for the user. The setting affects \nthe user interface language and system messages.\nPossible values:\nde\nen\nes."
         },
         "parent" : {
-          "description" : "The parent.",
+          "description" : "Parent user.",
           "$ref" : "#/definitions/User"
         },
         "directCustomer" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Specifies whether the user is a direct customer of the user.\nfalse = No direct customer\ntrue = direct customer\nDefault value = false\nFor XML, 0 (false) and 1 (true) can also be used."
         },
         "clientAccounts" : {
           "type" : "array",
@@ -35985,7 +35977,7 @@
         },
         "idn" : {
           "type" : "string",
-          "description" : "The idn version of the origin."
+          "description" : "Punycode version of the origin."
         },
         "soa" : {
           "description" : "Only for ns_action: \"primary\"  and \"complete\"",
@@ -35993,22 +35985,22 @@
         },
         "dnssec" : {
           "type" : "boolean",
-          "description" : "Enables dnssec"
+          "description" : "If true dnssec signing for the zone is active."
         },
         "nameServerGroup" : {
           "type" : "string",
-          "description" : "The name of the name server group, if the zone is managed by"
+          "description" : "Name of the nameserver group."
         },
         "allowTransfer" : {
           "type" : "boolean",
-          "description" : "Allow AXFR"
+          "description" : "Allow zone transfer for the defined zone grants"
         },
         "owner" : {
-          "description" : "The owner of the object",
+          "description" : "Owner of the zone object",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updating user of the object",
+          "description" : "User who last updated the zone.",
           "$ref" : "#/definitions/BasicUser"
         },
         "logId" : {
@@ -36022,11 +36014,11 @@
         },
         "domainsafe" : {
           "type" : "boolean",
-          "description" : "true if the domain is represented in the domain safe"
+          "description" : "Denotes of the zone is present in the DomainSafe service."
         },
         "source" : {
           "type" : "string",
-          "description" : "Nameserver, the zone is copied from via AXFR (for zone_import)"
+          "description" : "Name server from which a zone is copied via AXFR (with zone_import)."
         },
         "sourceVirtualHostname" : {
           "type" : "string",
@@ -36035,26 +36027,26 @@
         "purgeDate" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Earliest possible deletion"
+          "description" : "Date on which the zone is purged (removed) from the system."
         },
         "purgeType" : {
-          "description" : "The Purge Type.",
+          "description" : "Setting for automatic zone deletion.",
           "$ref" : "#/definitions/PurgeTypes"
         },
         "nameServers" : {
           "type" : "array",
-          "description" : "List of name servers",
+          "description" : "List of hostnames to be used as name severs.",
           "items" : {
             "$ref" : "#/definitions/NameServer"
           }
         },
         "main" : {
-          "description" : "IP address of the zone (A record)",
+          "description" : "Main IP address of the zone. Required for ns_action \"primary\" and \"complete\".",
           "$ref" : "#/definitions/MainIp"
         },
         "wwwInclude" : {
           "type" : "boolean",
-          "description" : "Automatic generation of resource records \"www\""
+          "description" : "Create a www A-record automatically?\n\nfalse = no\ntrue = yes\n\n\nDefault = true\n\n\nFor XML, 0 (false) and 1 (true) can also be used."
         },
         "virtualNameServer" : {
           "type" : "string",
@@ -36062,18 +36054,18 @@
         },
         "freeText" : {
           "type" : "array",
-          "description" : "The free text records.",
+          "description" : "Freely definable resource records to be entered in BIND Syntax.",
           "items" : {
             "type" : "string"
           }
         },
         "action" : {
-          "description" : "Additional nameserver check is proceeded",
+          "description" : "Additional nameserver check is proceeded.",
           "$ref" : "#/definitions/NameserverActionConstants"
         },
         "grants" : {
           "type" : "array",
-          "description" : "The grants where transfer (axfr) can be done from.",
+          "description" : "A list of IP addresses from which a zone transfer (AXFR) by be started from for this zone.",
           "items" : {
             "type" : "string"
           }
@@ -36091,7 +36083,7 @@
           "type" : "integer",
           "format" : "int32",
           "example" : 1,
-          "description" : "The resource object identifier of the zone"
+          "description" : "The resource object identifier of the zone."
         }
       }
     },
@@ -36115,7 +36107,7 @@
         },
         "idn" : {
           "type" : "string",
-          "description" : "The idn version of the origin."
+          "description" : "Punycode version of the origin."
         },
         "soa" : {
           "description" : "Only for ns_action: \"primary\"  and \"complete\"",
@@ -36123,22 +36115,22 @@
         },
         "dnssec" : {
           "type" : "boolean",
-          "description" : "Enables dnssec"
+          "description" : "If true dnssec signing for the zone is active."
         },
         "nameServerGroup" : {
           "type" : "string",
-          "description" : "The name of the name server group, if the zone is managed by"
+          "description" : "Name of the nameserver group."
         },
         "allowTransfer" : {
           "type" : "boolean",
-          "description" : "Allow AXFR"
+          "description" : "Allow zone transfer for the defined zone grants"
         },
         "owner" : {
-          "description" : "The owner of the object",
+          "description" : "Owner of the zone object",
           "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
-          "description" : "The updating user of the object",
+          "description" : "User who last updated the zone.",
           "$ref" : "#/definitions/BasicUser"
         },
         "logId" : {
@@ -36152,11 +36144,11 @@
         },
         "domainsafe" : {
           "type" : "boolean",
-          "description" : "true if the domain is represented in the domain safe"
+          "description" : "Denotes of the zone is present in the DomainSafe service."
         },
         "source" : {
           "type" : "string",
-          "description" : "Nameserver, the zone is copied from via AXFR (for zone_import)"
+          "description" : "Name server from which a zone is copied via AXFR (with zone_import)."
         },
         "sourceVirtualHostname" : {
           "type" : "string",
@@ -36165,10 +36157,10 @@
         "purgeDate" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "Earliest possible deletion"
+          "description" : "Date on which the zone is purged (removed) from the system."
         },
         "purgeType" : {
-          "description" : "The Purge Type.",
+          "description" : "Setting for automatic zone deletion.",
           "$ref" : "#/definitions/PurgeTypes"
         },
         "zoneGrantsAdd" : {
@@ -36194,18 +36186,18 @@
         },
         "nameServers" : {
           "type" : "array",
-          "description" : "List of name servers",
+          "description" : "List of hostnames to be used as name severs.",
           "items" : {
             "$ref" : "#/definitions/NameServer"
           }
         },
         "main" : {
-          "description" : "IP address of the zone (A record)",
+          "description" : "Main IP address of the zone. Required for ns_action \"primary\" and \"complete\".",
           "$ref" : "#/definitions/MainIp"
         },
         "wwwInclude" : {
           "type" : "boolean",
-          "description" : "Automatic generation of resource records \"www\""
+          "description" : "Create a www A-record automatically?\n\nfalse = no\ntrue = yes\n\n\nDefault = true\n\n\nFor XML, 0 (false) and 1 (true) can also be used."
         },
         "virtualNameServer" : {
           "type" : "string",
@@ -36213,18 +36205,18 @@
         },
         "freeText" : {
           "type" : "array",
-          "description" : "The free text records.",
+          "description" : "Freely definable resource records to be entered in BIND Syntax.",
           "items" : {
             "type" : "string"
           }
         },
         "action" : {
-          "description" : "Additional nameserver check is proceeded",
+          "description" : "Additional nameserver check is proceeded.",
           "$ref" : "#/definitions/NameserverActionConstants"
         },
         "grants" : {
           "type" : "array",
-          "description" : "The grants where transfer (axfr) can be done from.",
+          "description" : "A list of IP addresses from which a zone transfer (AXFR) by be started from for this zone.",
           "items" : {
             "type" : "string"
           }
@@ -36242,7 +36234,7 @@
           "type" : "integer",
           "format" : "int32",
           "example" : 1,
-          "description" : "The resource object identifier of the zone"
+          "description" : "The resource object identifier of the zone."
         },
         "resourceRecordsAdd" : {
           "type" : "array",
