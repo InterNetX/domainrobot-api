@@ -24489,6 +24489,10 @@
           "description" : "The hardware platform for the code signing token.",
           "$ref" : "#/definitions/CodeSigningHardwarePlatform"
         },
+        "hardwareInitToken" : {
+          "type" : "string",
+          "description" : "The token for initializing a EV CodeSigning"
+        },
         "certificateType" : {
           "description" : "The type of the certificate",
           "$ref" : "#/definitions/CertificateType"
@@ -26823,14 +26827,6 @@
           "format" : "date-time",
           "description" : "Date of the last update."
         },
-        "owner" : {
-          "description" : "The object owner.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/BasicUser"
-        },
         "name" : {
           "type" : "string",
           "example" : "example.org",
@@ -26870,6 +26866,14 @@
         "metric" : {
           "description" : "Some domain metrics",
           "$ref" : "#/definitions/Metric"
+        },
+        "owner" : {
+          "description" : "The object owner.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "User who performed the last update.",
+          "$ref" : "#/definitions/BasicUser"
         },
         "premiumStatus" : {
           "example" : "FREE",
@@ -32045,7 +32049,9 @@
         "digits" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The length of the token"
+          "description" : "The length of the token",
+          "minimum" : 6,
+          "maximum" : 8
         },
         "secret" : {
           "type" : "string",
@@ -34287,7 +34293,7 @@
         "cancelationPeriod" : {
           "$ref" : "#/definitions/TimePeriod"
         },
-        "cancelationPeriodAutoDelete" : {
+        "cutoffPeriod" : {
           "$ref" : "#/definitions/TimePeriod"
         }
       }
@@ -34442,7 +34448,7 @@
             "$ref" : "#/definitions/Charset"
           }
         },
-        "transferComfirmation" : {
+        "transferConfirmation" : {
           "type" : "boolean"
         },
         "dnsCheck" : {
