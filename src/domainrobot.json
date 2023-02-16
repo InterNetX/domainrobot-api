@@ -86,13 +86,13 @@
   }, {
     "name" : "Subscription Tasks"
   }, {
+    "name" : "Test Tasks"
+  }, {
     "name" : "TmchMark Claim Tasks"
   }, {
     "name" : "TmchMark Tasks"
   }, {
     "name" : "Transfer Request Tasks"
-  }, {
-    "name" : "TrustedApplication Tasks"
   }, {
     "name" : "User 2fa Tasks"
   }, {
@@ -12842,6 +12842,89 @@
         }
       }
     },
+    "/hello" : {
+      "get" : {
+        "tags" : [ "Test Tasks" ],
+        "summary" : "Hello",
+        "description" : "This route is only for testing the connection to the system. It does no operation.",
+        "operationId" : "hello",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataVoid"
+            }
+          }
+        }
+      }
+    },
     "/invoice/_search" : {
       "post" : {
         "tags" : [ "Invoice Tasks" ],
@@ -17480,485 +17563,6 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataTransfer"
-            }
-          }
-        }
-      }
-    },
-    "/trustedapp" : {
-      "post" : {
-        "tags" : [ "TrustedApplication Tasks" ],
-        "summary" : "TrustedApp Create",
-        "description" : "Creating a new trusted application.",
-        "operationId" : "trustedAppCreate",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "trustedApplication",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/TrustedApplication"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
-            }
-          }
-        }
-      }
-    },
-    "/trustedapp/_search" : {
-      "post" : {
-        "tags" : [ "TrustedApplication Tasks" ],
-        "summary" : "TrustedApp List",
-        "description" : "Inquiring a list of trusted app with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: created, comment, uuid, device, updated, application.",
-        "operationId" : "trustedAppList",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "query",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Query"
-          }
-        }, {
-          "name" : "keys",
-          "in" : "query",
-          "description" : "The query parameter to inquire additional details.",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "example" : "?keys[]=device",
-            "enum" : [ "{created", "comment", "uuid", "device", "updated", "application}" ]
-          },
-          "collectionFormat" : "multi",
-          "x-example" : "?keys[]=device"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
-            }
-          }
-        }
-      }
-    },
-    "/trustedapp/{id}" : {
-      "get" : {
-        "tags" : [ "TrustedApplication Tasks" ],
-        "summary" : "TrustedApp Info",
-        "description" : "Inquiring the data for the specified trusted application.",
-        "operationId" : "trustedAppInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
-            }
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "TrustedApplication Tasks" ],
-        "summary" : "TrustedApp Update",
-        "description" : "Updating an existing trusted application.",
-        "operationId" : "trustedAppUpdate",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "trustedApplication",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/TrustedApplication"
-          }
-        }, {
-          "name" : "keys",
-          "in" : "query",
-          "description" : "Defines additional option generate a new password",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "example" : "?keys[]=generatePassword",
-            "enum" : [ "{generatePassword}" ]
-          },
-          "collectionFormat" : "multi",
-          "x-example" : "?keys[]=generatePassword"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataTrustedApplication"
-            }
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "TrustedApplication Tasks" ],
-        "summary" : "TrustedApp Delete",
-        "description" : "Deleting an existing trusted application.",
-        "operationId" : "trustedAppDelete",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
         }
@@ -24489,6 +24093,10 @@
           "description" : "The hardware platform for the code signing token.",
           "$ref" : "#/definitions/CodeSigningHardwarePlatform"
         },
+        "globalSignPickupMethod" : {
+          "description" : "The pickup method for globalsign products.",
+          "$ref" : "#/definitions/GlobalSignPickupMethod"
+        },
         "hardwareInitToken" : {
           "type" : "string",
           "description" : "The token for initializing a EV CodeSigning"
@@ -28454,6 +28062,10 @@
           "description" : "Normal price",
           "$ref" : "#/definitions/ExchangedPrice"
         },
+        "newPrice" : {
+          "description" : "new price",
+          "$ref" : "#/definitions/ExchangedPrice"
+        },
         "valid" : {
           "type" : "string",
           "format" : "date-time",
@@ -28716,6 +28328,10 @@
     "GenericStatusConstants" : {
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET" ]
+    },
+    "GlobalSignPickupMethod" : {
+      "type" : "string",
+      "enum" : [ "EDGE_IE_COMPATIBILITY_MODE", "FORTIFY" ]
     },
     "HkDocumentTypeConstants" : {
       "type" : "string",
@@ -31357,41 +30973,6 @@
         }
       }
     },
-    "JsonResponseDataTrustedApplication" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction id for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The object of the response.",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
-          "items" : {
-            "$ref" : "#/definitions/TrustedApplication"
-          }
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The client transaction id for the response."
-        }
-      }
-    },
     "JsonResponseDataUser" : {
       "type" : "object",
       "properties" : {
@@ -32306,14 +31887,18 @@
           "description" : "Unique identifier of the registrants account in your systems."
         },
         "status" : {
-          "type" : "string",
-          "description" : "The status of the domain"
+          "description" : "The status of the domain",
+          "$ref" : "#/definitions/ParkingDomainStatus"
         },
         "message" : {
           "type" : "string",
           "description" : "A message if status was FAILED"
         }
       }
+    },
+    "ParkingDomainStatus" : {
+      "type" : "string",
+      "enum" : [ "SUCCESS", "PENDING", "FAILED" ]
     },
     "ParkingProviderConstants" : {
       "type" : "string",
@@ -32709,6 +32294,10 @@
           "description" : "Normal price",
           "$ref" : "#/definitions/ExchangedPrice"
         },
+        "newPrice" : {
+          "description" : "new price",
+          "$ref" : "#/definitions/ExchangedPrice"
+        },
         "valid" : {
           "type" : "string",
           "format" : "date-time",
@@ -32805,6 +32394,10 @@
           "items" : {
             "$ref" : "#/definitions/CustomerPriceList"
           }
+        },
+        "hasCustomerPriceList" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the priceList is inactive"
         }
       }
     },
@@ -35797,14 +35390,31 @@
     "WorkflowEvent" : {
       "type" : "object",
       "properties" : {
+        "jobId" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Job id"
+        },
         "vertex" : {
           "type" : "integer",
           "format" : "int32",
           "description" : "Vertex"
         },
+        "ctid" : {
+          "type" : "string",
+          "description" : "Client Transaction ID"
+        },
+        "object" : {
+          "type" : "string",
+          "description" : "Object for which the job was created. (e.g. domain)"
+        },
         "type" : {
           "type" : "string",
-          "description" : "Event type"
+          "description" : "Type of Event"
+        },
+        "subtype" : {
+          "type" : "string",
+          "description" : "Subtype of the event to specify the event type (e.g . DONUTS-PSIUSA_toys)"
         }
       }
     },
