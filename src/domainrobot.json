@@ -102,6 +102,8 @@
   }, {
     "name" : "Zone Bulk Tasks"
   }, {
+    "name" : "Zone Query Tasks"
+  }, {
     "name" : "Zone Tasks"
   }, {
     "name" : "ZoneQuery Tasks"
@@ -111,8 +113,8 @@
     "/OTPAuth" : {
       "get" : {
         "tags" : [ "User 2fa Tasks" ],
-        "summary" : "User Token Config Info",
-        "description" : "Inquiring the token-configuration of the logged in user.",
+        "summary" : "User Token Config Info (1301044)",
+        "description" : "Inquiring the token configuration of the logged in user.",
         "operationId" : "otpAuthInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -192,7 +194,7 @@
       },
       "post" : {
         "tags" : [ "User 2fa Tasks" ],
-        "summary" : "User Token Config Create",
+        "summary" : "User Token Config Create (1301041)",
         "description" : "Creating a temporary token for the logged in user. The response contains the qr code as a base64 image.",
         "operationId" : "otpAuthCreate",
         "produces" : [ "application/json" ],
@@ -275,7 +277,7 @@
     "/account" : {
       "get" : {
         "tags" : [ "Customer Account Tasks" ],
-        "summary" : "Account Info",
+        "summary" : "Account Info (0984)",
         "description" : "Inquiring the account data of a customer.",
         "operationId" : "AccountInfo",
         "produces" : [ "application/json" ],
@@ -364,7 +366,7 @@
       },
       "post" : {
         "tags" : [ "Customer Account Tasks" ],
-        "summary" : "Account updates",
+        "summary" : "Account Update (0982)",
         "description" : "Updates the notifications parameters",
         "operationId" : "contextHostCreate",
         "produces" : [ "application/json" ],
@@ -454,8 +456,8 @@
     "/backupMx" : {
       "post" : {
         "tags" : [ "BackupMx Tasks" ],
-        "summary" : "BackupMx Create",
-        "description" : "Creating a new backupmx.",
+        "summary" : "BackupMx Create (0521)",
+        "description" : "Creating a new BackupMx.",
         "operationId" : "backupMxCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -557,8 +559,8 @@
     "/backupMx/_search" : {
       "post" : {
         "tags" : [ "BackupMx Tasks" ],
-        "summary" : "BackupMx List",
-        "description" : "Inquiring a list of backupmx with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: domain, created, updated",
+        "summary" : "BackupMx List (0524)",
+        "description" : "Inquiring a list of BackupMx with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: domain, created, updated",
         "operationId" : "backupMxList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -661,7 +663,7 @@
     "/backupMx/{domain}" : {
       "get" : {
         "tags" : [ "BackupMx Tasks" ],
-        "summary" : "BackupMx Info",
+        "summary" : "BackupMx Info (0524)",
         "description" : "Inquiring the data for the specified backup mx.",
         "operationId" : "backupMxInfo",
         "produces" : [ "application/json" ],
@@ -747,8 +749,8 @@
       },
       "delete" : {
         "tags" : [ "BackupMx Tasks" ],
-        "summary" : "BackupMx Delete",
-        "description" : "Deleting an existing backup mx.",
+        "summary" : "BackupMx Delete (0523)",
+        "description" : "Deleting an existing BackupMx.",
         "operationId" : "backupMxDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5538,7 +5540,7 @@
     "/certificate" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Create",
+        "summary" : "Certificate Create (400101)",
         "description" : "Ordering a new certificate. The operation is asynchronous and creates a job.",
         "operationId" : "certificateCreate",
         "produces" : [ "application/json" ],
@@ -5642,7 +5644,7 @@
     "/certificate/_installcheck" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Install Check",
+        "summary" : "Certificate Install Check (4001013)",
         "description" : "Checks an installed certificate on a server",
         "operationId" : "certificateInstallCheck",
         "produces" : [ "application/json" ],
@@ -5733,7 +5735,7 @@
     "/certificate/_prepareOrder" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : " Certificate Order Prepare",
+        "summary" : " Certificate Order Prepare (400110)",
         "description" : "Preparing a certificate order. This call checks the csr and generates authentication data required for further calls like order, renew, reissue, revoke, delete.",
         "operationId" : "certificatePrepareOrder",
         "produces" : [ "application/json" ],
@@ -5824,7 +5826,7 @@
     "/certificate/_realtime" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Realtime Order",
+        "summary" : "Certificate Realtime Order (4001012)",
         "description" : "Ordering or renewing a certificate in realtime. Only supported by a few certificate products!",
         "operationId" : "certificateRealtime",
         "produces" : [ "application/json" ],
@@ -5915,7 +5917,7 @@
     "/certificate/_search" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate List",
+        "summary" : "Certificate List (400105)",
         "description" : "Inquiring a list of certificates with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: product, technical, orderId, created, admin, type, expire, domain, name, comment, id, updated, authentication.",
         "operationId" : "certificateList",
         "produces" : [ "application/json" ],
@@ -6019,7 +6021,7 @@
     "/certificate/_verifyVmc" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Verify VMC",
+        "summary" : "Certificate Verify VMC (4001015)",
         "description" : "Verify a VMC logo.",
         "operationId" : "certificateVerifyVmc",
         "produces" : [ "application/json" ],
@@ -6110,7 +6112,7 @@
     "/certificate/{id}" : {
       "get" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Info",
+        "summary" : "Certificate Info (400104)",
         "description" : "Inquiring the data for the specified certificate.",
         "operationId" : "certificateinfo",
         "produces" : [ "application/json" ],
@@ -6197,7 +6199,7 @@
       },
       "put" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Reissue",
+        "summary" : "Certificate Reissue (400102)",
         "description" : "Reissuing an existing certificate. The operation is asynchronous and creates a job.",
         "operationId" : "certificateReissue",
         "produces" : [ "application/json" ],
@@ -6305,7 +6307,7 @@
       },
       "delete" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Delete",
+        "summary" : "Certificate Delete (400103)",
         "description" : "Deleting an existing certificate. The operation is asynchronous and creates a job.",
         "operationId" : "certificateDelete",
         "produces" : [ "application/json" ],
@@ -6407,7 +6409,7 @@
     "/certificate/{id}/_comment" : {
       "put" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Comment Update",
+        "summary" : "Certificate Comment Update (4001024)",
         "description" : "Updating a comment for an existing certificate.",
         "operationId" : "certificateCommentUpdate",
         "produces" : [ "application/json" ],
@@ -6504,7 +6506,7 @@
     "/certificate/{id}/_renew" : {
       "put" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Renew",
+        "summary" : "Certificate Renew (400106)",
         "description" : "Renewin an existing certificate. The operation is asynchronous and creates a job.",
         "operationId" : "certificateRenew",
         "produces" : [ "application/json" ],
@@ -6614,7 +6616,7 @@
     "/certificate/{id}/_revoke" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Revoke",
+        "summary" : "Certificate Revoke (4001031)",
         "description" : "Revoking an existing old certificate by serialnumber. The operation is in realtime",
         "operationId" : "certificateRevoke",
         "produces" : [ "application/json" ],
@@ -6724,7 +6726,7 @@
     "/certificate/{id}/_siteseal" : {
       "get" : {
         "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Get Site Seal",
+        "summary" : "Certificate Get Site Seal (4001014)",
         "description" : "Fetches the site seal information for the given certificate",
         "operationId" : "certificateGetSiteSeal",
         "produces" : [ "application/json" ],
@@ -6813,7 +6815,7 @@
     "/contact" : {
       "post" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Create",
+        "summary" : "Contact Create (0301)",
         "description" : "Creating a new domain contact.",
         "operationId" : "contactCreate",
         "produces" : [ "application/json" ],
@@ -6919,7 +6921,7 @@
     "/contact/_search" : {
       "post" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact List",
+        "summary" : "Contact List (0304)",
         "description" : "Inquiring a list of contacts with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: country, pcode, city, type, title, lname, alias, state, id, sip, fax, verification, email, fname, address, created, phone, organization, domainsafe, comment, updated.",
         "operationId" : "contactList",
         "produces" : [ "application/json" ],
@@ -7023,7 +7025,7 @@
     "/contact/verification" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification Info",
+        "summary" : "Contact Verification Info (0344)",
         "description" : "Inquiring the data for the specified verification.",
         "operationId" : "verificationInfoWithReference",
         "produces" : [ "application/json" ],
@@ -7111,7 +7113,7 @@
     "/contact/verification/_confirm" : {
       "put" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification Confirm",
+        "summary" : "Contact Verification Confirm (0346)",
         "description" : "Confirming an existing verification with a given hash.",
         "operationId" : "verificationConfirm",
         "produces" : [ "application/json" ],
@@ -7207,8 +7209,8 @@
     "/contact/verification/_search" : {
       "post" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification List",
-        "description" : "Inquiring a list of contact vrifications with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: confirmed, action, deactivation, created, failed, name, comment, updated, status.",
+        "summary" : "Contact Verification List (0345)",
+        "description" : "Inquiring a list of contact verifications with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: confirmed, action, deactivation, created, failed, name, comment, updated, status.",
         "operationId" : "verificationList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -7311,7 +7313,7 @@
     "/contact/verification/history" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification History Info",
+        "summary" : "Contact Verification History Info (0354)",
         "description" : "Inquiring the data of a specified verification.",
         "operationId" : "verificationHistoryInfo",
         "produces" : [ "application/json" ],
@@ -7399,7 +7401,7 @@
     "/contact/verification/history/_search" : {
       "post" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification History List",
+        "summary" : "Contact Verification History List (0355)",
         "description" : "Inquiring a list of history verifications with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: confirmed, action, deactivation, created, failed, name, comment, updated, status",
         "operationId" : "verificationHistoryList",
         "produces" : [ "application/json" ],
@@ -7503,7 +7505,7 @@
     "/contact/{id}" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Info",
+        "summary" : "Contact Info (0304)",
         "description" : "Inquiring data of a specified domain contact.",
         "operationId" : "contactInfo",
         "produces" : [ "application/json" ],
@@ -7590,7 +7592,7 @@
       },
       "put" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Update",
+        "summary" : "Contact Update (0302)",
         "description" : "Updating an existing domain contact.",
         "operationId" : "contactUpdate",
         "produces" : [ "application/json" ],
@@ -7685,7 +7687,7 @@
       },
       "delete" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Delete",
+        "summary" : "Contact Delete (0303)",
         "description" : "Deleting an existing domain contact.",
         "operationId" : "contactDelete",
         "produces" : [ "application/json" ],
@@ -7774,7 +7776,7 @@
     "/contact/{id}/_comment" : {
       "put" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Comment Update",
+        "summary" : "Contact Comment Update (0302004)",
         "description" : "Updating a comment for an existing contact.",
         "operationId" : "contcatCommentUpdate",
         "produces" : [ "application/json" ],
@@ -7871,7 +7873,7 @@
     "/contact/{id}/_domainSafe" : {
       "put" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Safe Object Create",
+        "summary" : "Safe Object Create (0601)",
         "description" : "Adding the contact to the domain safe",
         "operationId" : "contactAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -7958,7 +7960,7 @@
       },
       "delete" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Safe Object Create",
+        "summary" : "Safe Object Create (0603)",
         "description" : "Deleting the contact from the domain safe",
         "operationId" : "contactDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -8047,7 +8049,7 @@
     "/contact/{id}/document/{type}" : {
       "get" : {
         "tags" : [ "Contact Document Tasks" ],
-        "summary" : "Contact Document Info",
+        "summary" : "Contact Document Info (0364)",
         "description" : "Inquiring a single contact document for the given type.",
         "operationId" : "contactDocumentInfo",
         "produces" : [ "application/json" ],
@@ -8152,7 +8154,7 @@
       },
       "post" : {
         "tags" : [ "Contact Document Tasks" ],
-        "summary" : "Contact Document Upload",
+        "summary" : "Contact Document Create (0361)",
         "description" : "Uploading a specific document to a contact entry.",
         "operationId" : "documentCreate",
         "consumes" : [ "multipart/form-data" ],
@@ -8263,7 +8265,7 @@
       },
       "delete" : {
         "tags" : [ "Contact Document Tasks" ],
-        "summary" : "Contact Document Delete",
+        "summary" : "Contact Document Delete (0363)",
         "description" : "Deleting a single TmchMark document for the given type.",
         "operationId" : "contactDocumentDelete",
         "produces" : [ "application/json" ],
@@ -8355,7 +8357,7 @@
       },
       "patch" : {
         "tags" : [ "Contact Document Tasks" ],
-        "summary" : "Contact Document Status Update",
+        "summary" : "Contact Document Status Update (0362)",
         "description" : "Updating status an existing contactDocument.",
         "operationId" : "contactDocumentPatch",
         "produces" : [ "application/json" ],
@@ -8457,8 +8459,8 @@
     "/contact/{id}/document/{type}/_copy" : {
       "post" : {
         "tags" : [ "Contact Document Tasks" ],
-        "summary" : "Contact Document Copy",
-        "description" : "Copy a document and assignes it to another contact.",
+        "summary" : "Contact Document Copy (0365)",
+        "description" : "Copying a document and assigning it to another contact.",
         "operationId" : "documentCopy",
         "consumes" : [ "multipart/form-data" ],
         "produces" : [ "application/json" ],
@@ -8565,7 +8567,7 @@
     "/contact/{id}/verification" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification Info",
+        "summary" : "Contact Verification Info (0344)",
         "description" : "Inquiring the data for the specified verification.",
         "operationId" : "verificationInfo",
         "produces" : [ "application/json" ],
@@ -8652,7 +8654,7 @@
       },
       "post" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification Create",
+        "summary" : "Contact Verification Create (0341)",
         "description" : "Creating a new contact verification.",
         "operationId" : "verificationCreate",
         "produces" : [ "application/json" ],
@@ -8749,7 +8751,7 @@
     "/contact/{id}/verification/_resendEmail" : {
       "put" : {
         "tags" : [ "Contact Tasks" ],
-        "summary" : "Contact Verification ResendEmail",
+        "summary" : "Contact Verification ResendEmail (0349)",
         "description" : "Resending the email for an existing verification.",
         "operationId" : "verificationResendEmail",
         "produces" : [ "application/json" ],
@@ -8838,7 +8840,7 @@
     "/document/{alias}" : {
       "get" : {
         "tags" : [ "Document Tasks" ],
-        "summary" : "Document Info",
+        "summary" : "Document Info (1901004)",
         "description" : "Inquiring the document for the given alias. The alias can be an ID, UUID or a alias name like price_list.xml. For more information on Pricelist download look at our helpcenter.",
         "operationId" : "documentInfoWithAlias",
         "produces" : [ "application/octet-stream" ],
@@ -8927,7 +8929,7 @@
     "/domain" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Create",
+        "summary" : "Domain Create (0101)",
         "description" : "Ordering a new domain. The operation is asynchronous and creates a job.",
         "operationId" : "domainCreate",
         "produces" : [ "application/json" ],
@@ -9040,7 +9042,7 @@
     "/domain/_buy" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain BuyOrder",
+        "summary" : "Domain Buy Order (0101006)",
         "description" : "Buying a domain from the premium market. The operation is asynchronous and creates a job.",
         "operationId" : "domainBuy",
         "produces" : [ "application/json" ],
@@ -9138,7 +9140,7 @@
     "/domain/_ownerChange" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Owner Change. Deprecated: Will be removed in future releases. Please use /_trade instead",
+        "summary" : "Domain Owner Change (0104010). Deprecated: Will be removed in future releases. Please use /_trade instead",
         "description" : "Changing the ownerc of an existing domain.",
         "operationId" : "domainOwnerChange",
         "produces" : [ "application/json" ],
@@ -9235,7 +9237,7 @@
     "/domain/_search" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain List",
+        "summary" : "Domain List (0105)",
         "description" : "Inquiring a list of domains with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: sld, subtld, tld, status, authinfo, expire, comment, ownerc, updated, zonec, nserver, techc, adminc,  certificate, created, autorenew.",
         "operationId" : "domainList",
         "produces" : [ "application/json" ],
@@ -9442,7 +9444,7 @@
     "/domain/_trade" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Trade.",
+        "summary" : "Domain Trade (0104010).",
         "description" : "Changing the ownerc of an existing domain.",
         "operationId" : "domainTrade",
         "produces" : [ "application/json" ],
@@ -9545,7 +9547,7 @@
     "/domain/_transfer" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Transfer",
+        "summary" : "Domain Transfer (0104)",
         "description" : "Transfering a domain. The operation is asynchronous and creates a job.",
         "operationId" : "domainTransfer",
         "produces" : [ "application/json" ],
@@ -9652,7 +9654,7 @@
     "/domain/autodelete/_search" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "AutoDelete List",
+        "summary" : "Auto Delete List (0718)",
         "description" : "AutoDelete list",
         "operationId" : "autoDeleteList",
         "produces" : [ "application/json" ],
@@ -9743,7 +9745,7 @@
     "/domain/cancelation/_search" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Cancelation List",
+        "summary" : "Cancelation List (0103104)",
         "description" : "Inquiring a list of cancelations with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: disconnect, execdate, ctid, created, registryStatus, sld, type, tld, subtld, gainingRegistrar, updated.",
         "operationId" : "domainCancelationList",
         "produces" : [ "application/json" ],
@@ -9847,7 +9849,7 @@
     "/domain/restore/_search" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domains Restore List",
+        "summary" : "Domain Restore List (0105005)",
         "description" : "Inquiring a list of restorable domains with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: parking, certificate, adminc, cancelation, action, zonec, nserver, techc, nsentry, dnssec, period, created, sld, tld, subtld, deleted, autorenew, expire, domainsafe, comment, ownerc, updated, remarks, authinfo, status.",
         "operationId" : "domainRestoreList",
         "produces" : [ "application/json" ],
@@ -9951,7 +9953,7 @@
     "/domain/{name}" : {
       "get" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Info",
+        "summary" : "Domain Info (0105)",
         "description" : "Inquiring the data for the specified domain.",
         "operationId" : "domainInfo",
         "produces" : [ "application/json" ],
@@ -10037,7 +10039,7 @@
       },
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Update",
+        "summary" : "Domain Update (0102)",
         "description" : "Updating an existing domain. The operation is asynchronous and creates a job.",
         "operationId" : "domainUpdate",
         "produces" : [ "application/json" ],
@@ -10149,7 +10151,7 @@
     "/domain/{name}/_authinfo1" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Authinfo Create",
+        "summary" : "Authinfo Create (0113001)",
         "description" : "Creating an AuthInfo 1 for the specified domain.",
         "operationId" : "domainAuthinfo1Create",
         "produces" : [ "application/json" ],
@@ -10323,7 +10325,7 @@
     "/domain/{name}/_authinfo2" : {
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Authinfo2 Create",
+        "summary" : "Authinfo2 Create (0113003)",
         "description" : "Creating an AuthInfo 2 for the specified domain.",
         "operationId" : "domainAuthinfo2Create",
         "produces" : [ "application/json" ],
@@ -10411,7 +10413,7 @@
     "/domain/{name}/_autoDnssecKeyRollover" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "AutoDNSSec Key Rollover",
+        "summary" : "AutoDNSSec Key Rollover (0120002)",
         "description" : "Invoking an AutoDNSSec key rollover. Note the AutoDNSSec feature must be enabled for the domain",
         "operationId" : "autoDnssecKeyRollover",
         "produces" : [ "application/json" ],
@@ -10499,7 +10501,7 @@
     "/domain/{name}/_comment" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Comment Update",
+        "summary" : "Domain Comment Update (0102004)",
         "description" : "Updating a comment for an existing domain.",
         "operationId" : "domainCommentUpdate",
         "produces" : [ "application/json" ],
@@ -10595,7 +10597,7 @@
     "/domain/{name}/_dnssec" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Update",
+        "summary" : "Domain Update (0102007)",
         "description" : "Updating only the dnssec information for an existing domain. The operation is asynchronous and creates a job.",
         "operationId" : "domainUpdateDnsSec",
         "produces" : [ "application/json" ],
@@ -10691,7 +10693,7 @@
     "/domain/{name}/_domainSafe" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Safe Object Create",
+        "summary" : "Safe Object Create (0601)",
         "description" : "Adding the domain to the domain safe",
         "operationId" : "domainAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -10777,7 +10779,7 @@
       },
       "delete" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "SafeObject Delete",
+        "summary" : "Safe Object Delete (0603)",
         "description" : "Deleting the domain from the domain safe",
         "operationId" : "domainDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -10865,7 +10867,7 @@
     "/domain/{name}/_ownerChange" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Owner Change",
+        "summary" : "Domain Owner Change (0104010)",
         "description" : "Changing the ownerc of an existing domain.",
         "operationId" : "ownercChange",
         "produces" : [ "application/json" ],
@@ -10968,7 +10970,7 @@
     "/domain/{name}/_renew" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Renew",
+        "summary" : "Domain Renew (0101003)",
         "description" : "Renewing an existing domain. The operation is asynchronous and creates a job.",
         "operationId" : "domainRenew",
         "produces" : [ "application/json" ],
@@ -11077,7 +11079,7 @@
     "/domain/{name}/_restore" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Restore",
+        "summary" : "Domain Restore (0101005)",
         "description" : "Restoring an existing domain.",
         "operationId" : "domainRestore",
         "produces" : [ "application/json" ],
@@ -11180,7 +11182,7 @@
     "/domain/{name}/_sendAuthinfoToOwnerc" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "AuthInfo Send",
+        "summary" : "AuthInfo Send (0113005)",
         "description" : "Sending the AuthInfo for the specified domain to the domain owner.",
         "operationId" : "authinfoSend",
         "produces" : [ "application/json" ],
@@ -11276,7 +11278,7 @@
     "/domain/{name}/_statusUpdate" : {
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Domain Status Update",
+        "summary" : "Domain Status Update (0102002)",
         "description" : "Updating the registry status for an existing domain.",
         "operationId" : "domainStatusUpdate",
         "produces" : [ "application/json" ],
@@ -11372,7 +11374,7 @@
     "/domain/{name}/cancelation" : {
       "get" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Cancelation Info",
+        "summary" : "Cancelation Info (0103104)",
         "description" : "Inquiring the cancelation data for the specified domain.",
         "operationId" : "domainCancelationInfo",
         "produces" : [ "application/json" ],
@@ -11458,7 +11460,7 @@
       },
       "post" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Cancelation Create",
+        "summary" : "Cancelation Create (0103101)",
         "description" : "Creating a cancelation for the specified domain.",
         "operationId" : "domainCancelationCreate",
         "produces" : [ "application/json" ],
@@ -11559,7 +11561,7 @@
       },
       "put" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Cancelation Update",
+        "summary" : "Cancelation Update (0103102)",
         "description" : "Updating an existing cancelation for the specified domain.",
         "operationId" : "domainCancelationUpdate",
         "produces" : [ "application/json" ],
@@ -11653,7 +11655,7 @@
       },
       "delete" : {
         "tags" : [ "Domain Tasks" ],
-        "summary" : "Cancelation Delete",
+        "summary" : "Cancelation Delete (0103103)",
         "description" : "Deleting an existing cancelation for the specified domain.",
         "operationId" : "domainCancelationDelete",
         "produces" : [ "application/json" ],
@@ -11741,7 +11743,7 @@
     "/domainPrereg" : {
       "post" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPrereg Create",
+        "summary" : "Domain Prereg Create (0110001)",
         "description" : "Creating a new domain preregistration.",
         "operationId" : "domainPreregCreate",
         "produces" : [ "application/json" ],
@@ -11767,7 +11769,7 @@
     "/domainPrereg/_confirm" : {
       "post" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPreregCreate",
+        "summary" : "Domain Prereg Create (0110001)",
         "description" : "Creating and confirming an existing domain preregistration.",
         "operationId" : "createAndConfirmPrereg",
         "produces" : [ "application/json" ],
@@ -11793,7 +11795,7 @@
     "/domainPrereg/_search" : {
       "post" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPrereg List",
+        "summary" : "Domain Prereg List (0110005)",
         "description" : "Inquiring a list of domain preregistrations with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: orderReference, techc, phase, nsentry, period, created, sld, ownerc, updated, status, confirmed, adminc,  zonec, nserver, tld, recommended, subtld.",
         "operationId" : "domainPreregList",
         "produces" : [ "application/json" ],
@@ -11832,7 +11834,7 @@
     "/domainPrereg/{reference}" : {
       "get" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPreregInfo",
+        "summary" : "Domain PreregInfo (0110004)",
         "description" : "Inquiring the data of a specified domain preregistration.",
         "operationId" : "domainPreregInfo",
         "produces" : [ "application/json" ],
@@ -11853,7 +11855,7 @@
       },
       "put" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPrereg Update",
+        "summary" : "Domain Prereg Update (0110002)",
         "description" : "Updating an existing domain preregistration.",
         "operationId" : "domainPreregUpdate",
         "produces" : [ "application/json" ],
@@ -11882,7 +11884,7 @@
       },
       "delete" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPrereg Delete",
+        "summary" : "Domain Prereg Delete (0110003)",
         "description" : "Deleting an existing domain preregistration.",
         "operationId" : "domainPreregDelete",
         "produces" : [ "application/json" ],
@@ -11905,7 +11907,7 @@
     "/domainPrereg/{reference}/_confirm" : {
       "put" : {
         "tags" : [ "DomainPrereg Tasks" ],
-        "summary" : "DomainPrereg Confirm",
+        "summary" : "Domain Prereg Confirm (0110007)",
         "description" : "Confirming an existing domain preregistration.",
         "operationId" : "confirmPrereg",
         "produces" : [ "application/json" ],
@@ -11928,7 +11930,7 @@
     "/domainSafeContact" : {
       "post" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Contact Create",
+        "summary" : "Safe Contact Create (0621)",
         "description" : "Creating a new DomainSafe Contact.",
         "operationId" : "safeContactCreate",
         "produces" : [ "application/json" ],
@@ -11953,7 +11955,7 @@
     "/domainSafeContact/_search" : {
       "post" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Contact List",
+        "summary" : "Safe Contact List (0624)",
         "description" : "Inquiring a list of Domain Safe contacts with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: name, created, updated.",
         "operationId" : "safeContactList",
         "produces" : [ "application/json" ],
@@ -11992,7 +11994,7 @@
     "/domainSafeContact/user" : {
       "post" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : " Safe User Create",
+        "summary" : " Safe User Create (0622001)",
         "description" : "Creating a new DomainSafe user.",
         "operationId" : "safeUserCreate",
         "produces" : [ "application/json" ],
@@ -12015,7 +12017,7 @@
       },
       "put" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe User Update",
+        "summary" : "Safe User Update (0622002)",
         "description" : "Updating an existing DomainSafe user.",
         "operationId" : "safeUserUpdate",
         "produces" : [ "application/json" ],
@@ -12041,7 +12043,7 @@
     "/domainSafeContact/user/{user}/{context}" : {
       "delete" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe User Delete",
+        "summary" : "Safe User Delete (0622003)",
         "description" : "Deleting an existing DomainSafe user.",
         "operationId" : "safeUserDelete",
         "produces" : [ "application/json" ],
@@ -12069,7 +12071,7 @@
     "/domainSafeContact/{id}" : {
       "get" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Contact Info",
+        "summary" : "Safe Contact Info (0624)",
         "description" : "Inquiring the data for the specified safeContact.",
         "operationId" : "safeContactInfo",
         "produces" : [ "application/json" ],
@@ -12091,7 +12093,7 @@
       },
       "put" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Contact Update",
+        "summary" : "Safe Contact Update (0622)",
         "description" : "Updating an existing DomainSafe contact.",
         "operationId" : "safeContactUpdate",
         "produces" : [ "application/json" ],
@@ -12123,7 +12125,7 @@
     "/domainSafeObject" : {
       "post" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Object Create ",
+        "summary" : "Safe Object Create (0601)",
         "description" : "Creating a new SafeObject.",
         "operationId" : "safeObjectCreate",
         "produces" : [ "application/json" ],
@@ -12148,7 +12150,7 @@
     "/domainSafeObject/_search" : {
       "post" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Object List",
+        "summary" : "Safe Object List (0604)",
         "description" : "Inquiring a list of DomanSafe objects with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: created, updated.",
         "operationId" : "safeObjectList",
         "produces" : [ "application/json" ],
@@ -12187,7 +12189,7 @@
     "/domainSafeObject/{safeObject}/{type}" : {
       "delete" : {
         "tags" : [ "DomainSafe Tasks" ],
-        "summary" : "Safe Object Delete",
+        "summary" : "Safe Object Delete (0603)",
         "description" : "Deleting an existing safeObject.",
         "operationId" : "safeObjectDelete",
         "produces" : [ "application/json" ],
@@ -12215,7 +12217,7 @@
     "/domainpremium/{name}" : {
       "get" : {
         "tags" : [ "DomainPremium Tasks" ],
-        "summary" : "Domain Premium Info",
+        "summary" : "Domain Premium Info (0164)",
         "description" : "Inquiring the data for the specified premium domain.",
         "operationId" : "domainPremiumInfo",
         "produces" : [ "application/json" ],
@@ -12303,7 +12305,7 @@
     "/domainstudio" : {
       "post" : {
         "tags" : [ "DomainStudio" ],
-        "summary" : "Powerful search api for free domains, premium domains and alternate domain names.",
+        "summary" : "Powerful search api for free domains, premium domains and alternate domain names (0108001).",
         "description" : "Configurable search results",
         "operationId" : "domainSearch",
         "produces" : [ "application/json" ],
@@ -12928,7 +12930,7 @@
     "/invoice/_search" : {
       "post" : {
         "tags" : [ "Invoice Tasks" ],
-        "summary" : "Invoice List",
+        "summary" : "Invoice List (0885)",
         "description" : "Inquiring a list of invoices with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: number, payment,  subType, amount, status, type, failed, currency, paid.",
         "operationId" : "InvoiceList",
         "produces" : [ "application/json" ],
@@ -13032,7 +13034,7 @@
     "/invoice/{id}" : {
       "get" : {
         "tags" : [ "Invoice Tasks" ],
-        "summary" : "Invoice Info",
+        "summary" : "Invoice Info (0884)",
         "description" : "Inquiring the data for the specified Invoice.",
         "operationId" : "InvoiceInfo",
         "produces" : [ "application/json" ],
@@ -13121,7 +13123,7 @@
     "/job/_search" : {
       "post" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job List",
+        "summary" : "Job List (300115)",
         "description" : "Inquiring a list of jobs with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: parent, execution, subStatus, type, created, id, updated, status, object, action.",
         "operationId" : "jobList",
         "produces" : [ "application/json" ],
@@ -13225,7 +13227,7 @@
     "/job/history/_search" : {
       "post" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job History List",
+        "summary" : "Job History List (300135)",
         "description" : "Inquiring a list of finished jobs with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: parent, execution, subStatus, type, created, id, updated, status, object, action.",
         "operationId" : "jobHistoryList",
         "produces" : [ "application/json" ],
@@ -13329,7 +13331,7 @@
     "/job/history/{id}" : {
       "get" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job History Info",
+        "summary" : "Job History Info (300134)",
         "description" : "Inquiring the data for the specified finished job.",
         "operationId" : "jobHistoryInfo",
         "produces" : [ "application/json" ],
@@ -13418,7 +13420,7 @@
     "/job/{id}" : {
       "get" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job Info",
+        "summary" : "Job Info (300114)",
         "description" : "Inquiring the data of the specified job.",
         "operationId" : "jobInfo",
         "produces" : [ "application/json" ],
@@ -13507,7 +13509,7 @@
     "/job/{id}/_cancel" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job Cancel",
+        "summary" : "Job Cancel (300121)",
         "description" : "Cancelling the specified job.",
         "operationId" : "jobCancel",
         "produces" : [ "application/json" ],
@@ -13597,7 +13599,7 @@
     "/job/{id}/_confirm" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Job Confirm",
+        "summary" : "Job Confirm (300122)",
         "description" : "Confirming the specified job.",
         "operationId" : "jobConfirm",
         "produces" : [ "application/json" ],
@@ -13687,7 +13689,7 @@
     "/job/{id}/_resendApproverEmail" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Approver Email Resend",
+        "summary" : "Approver Email Resend (400118)",
         "description" : "Resending the approver email.",
         "operationId" : "resendApproverEmail",
         "produces" : [ "application/json" ],
@@ -13777,7 +13779,7 @@
     "/job/{id}/_resendPhoneAuthorization" : {
       "put" : {
         "tags" : [ "Job Tasks" ],
-        "summary" : "Phone Authorization Resend",
+        "summary" : "Phone Authorization Resend (400119)",
         "description" : "Resending the phone authorization.",
         "operationId" : "resendPhoneAuthorization",
         "produces" : [ "application/json" ],
@@ -13867,7 +13869,7 @@
     "/login" : {
       "post" : {
         "tags" : [ "Session Tasks" ],
-        "summary" : "Login",
+        "summary" : "Login (1321001)",
         "description" : "Logging in and creating a new session.",
         "operationId" : "login",
         "produces" : [ "application/json" ],
@@ -14006,7 +14008,7 @@
     "/logout" : {
       "get" : {
         "tags" : [ "Session Tasks" ],
-        "summary" : "Logout",
+        "summary" : "Logout (1321003)",
         "description" : "Logging out and deleting the current session.",
         "operationId" : "logout",
         "produces" : [ "application/json" ],
@@ -14089,8 +14091,8 @@
     "/mailProxy" : {
       "post" : {
         "tags" : [ "MailProxy Tasks" ],
-        "summary" : "MailProxy Create",
-        "description" : "Creating a new mail proxy.",
+        "summary" : "MailProxy Create (0511)",
+        "description" : "Creating a new mailproxy.",
         "operationId" : "mailProxyCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -14192,8 +14194,8 @@
     "/mailProxy/_search" : {
       "post" : {
         "tags" : [ "MailProxy Tasks" ],
-        "summary" : "MailProxy List",
-        "description" : "Inquiring a list of mail proxies with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: target, admin, protection, created, updated.",
+        "summary" : "MailProxy List (0514)",
+        "description" : "Inquiring a list of MailProxies with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: target, admin, protection, created, updated.",
         "operationId" : "mailProxyList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -14296,7 +14298,7 @@
     "/mailProxy/{domain}" : {
       "get" : {
         "tags" : [ "MailProxy Tasks" ],
-        "summary" : "MailProxy Info",
+        "summary" : "MailProxy Info (0514)",
         "description" : "Inquiring the data for the specified mail proxy.",
         "operationId" : "mailProxyInfo",
         "produces" : [ "application/json" ],
@@ -14382,8 +14384,8 @@
       },
       "put" : {
         "tags" : [ "MailProxy Tasks" ],
-        "summary" : "MailProxy Update",
-        "description" : "Updating an existing mail proxy.",
+        "summary" : "MailProxy Update (0512)",
+        "description" : "Updating an existing mailproxy.",
         "operationId" : "mailProxyUpdate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -14489,7 +14491,7 @@
       },
       "delete" : {
         "tags" : [ "MailProxy Tasks" ],
-        "summary" : "MailProxy Delete",
+        "summary" : "MailProxy Delete (0513)",
         "description" : "Deleting an existing mail proxy.",
         "operationId" : "mailProxyDelete",
         "produces" : [ "application/json" ],
@@ -14589,7 +14591,7 @@
     "/mailServiceMessage/{id}" : {
       "get" : {
         "tags" : [ "Mail Tasks" ],
-        "summary" : "Mail Info",
+        "summary" : "Mail Info (1801004)",
         "description" : "Inquiring the data for the mail entry.",
         "operationId" : "mailInfo",
         "produces" : [ "application/json" ],
@@ -14678,7 +14680,7 @@
     "/object/_assignment" : {
       "put" : {
         "tags" : [ "ObjectUserAssignment Tasks" ],
-        "summary" : "Object Owner Update",
+        "summary" : "Object Owner Update (1308)",
         "description" : "Reassigning an object to a new owner.",
         "operationId" : "ObjectUserAssignment",
         "produces" : [ "application/json" ],
@@ -14769,7 +14771,7 @@
     "/object/_assignment/all" : {
       "put" : {
         "tags" : [ "ObjectUserAssignment Tasks" ],
-        "summary" : "Object User Assignment All",
+        "summary" : "Object User Assignment All (1308001)",
         "description" : "Reassigning all objects from one user to another one.",
         "operationId" : "ObjectUserAssignmentAll",
         "produces" : [ "application/json" ],
@@ -14860,7 +14862,7 @@
     "/poll" : {
       "get" : {
         "tags" : [ "Poll Tasks" ],
-        "summary" : "PollMessage Info",
+        "summary" : "Poll Message Info (0905)",
         "description" : "Inqiring the latest poll message.",
         "operationId" : "pollInfo",
         "produces" : [ "application/json" ],
@@ -14943,7 +14945,7 @@
     "/poll/{id}" : {
       "put" : {
         "tags" : [ "Poll Tasks" ],
-        "summary" : "PollMessage Confirm",
+        "summary" : "Poll Message Confirm (0906)",
         "description" : "Confirming the specified poll message",
         "operationId" : "pollConfirm",
         "produces" : [ "application/json" ],
@@ -15031,7 +15033,7 @@
     "/redirect" : {
       "post" : {
         "tags" : [ "Redirect Tasks" ],
-        "summary" : "Redirect Create",
+        "summary" : "Redirect Create (0501)",
         "description" : "Creating a new redirect.",
         "operationId" : "redirectCreate",
         "produces" : [ "application/json" ],
@@ -15134,7 +15136,7 @@
     "/redirect/_search" : {
       "post" : {
         "tags" : [ "Redirect Tasks" ],
-        "summary" : "Redirect List",
+        "summary" : "Redirect List (0504)",
         "description" : "Inquiring a list of redirects with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: mode, created, domain, source, type, title, updated, target.",
         "operationId" : "redirectList",
         "produces" : [ "application/json" ],
@@ -15238,7 +15240,7 @@
     "/redirect/{source}" : {
       "get" : {
         "tags" : [ "Redirect Tasks" ],
-        "summary" : "Redirect Info",
+        "summary" : "Redirect Info (0504)",
         "description" : "Inquiring the data for a specified redirect.",
         "operationId" : "redirectInfo",
         "produces" : [ "application/json" ],
@@ -15324,7 +15326,7 @@
       },
       "put" : {
         "tags" : [ "Redirect Tasks" ],
-        "summary" : " Redirect Update",
+        "summary" : " Redirect Update (0502)",
         "description" : "Updating an existing redirect.",
         "operationId" : "redirectUpdate",
         "produces" : [ "application/json" ],
@@ -15418,7 +15420,7 @@
       },
       "delete" : {
         "tags" : [ "Redirect Tasks" ],
-        "summary" : "Redirect Delete",
+        "summary" : "Redirect Delete (0503)",
         "description" : "Deleting an existing redirect.",
         "operationId" : "redirectDelete",
         "produces" : [ "application/json" ],
@@ -15518,7 +15520,7 @@
     "/sslcontact" : {
       "post" : {
         "tags" : [ "SslContact Tasks" ],
-        "summary" : "SSL Contact Create",
+        "summary" : "SSL Contact Create (400201)",
         "description" : "Creating a new SSL contact.",
         "operationId" : "sslContactCreate",
         "produces" : [ "application/json" ],
@@ -15608,7 +15610,7 @@
     "/sslcontact/_search" : {
       "post" : {
         "tags" : [ "SslContact Tasks" ],
-        "summary" : "SSL Contact List",
+        "summary" : "SSL Contact List (400205)",
         "description" : "Inquiring a list of SSL contacts with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: country, fname, address, city, created, title, lname, phone, organization, state, id, fax, pcode, updated, email.",
         "operationId" : "sslContactList",
         "produces" : [ "application/json" ],
@@ -15712,7 +15714,7 @@
     "/sslcontact/{id}" : {
       "get" : {
         "tags" : [ "SslContact Tasks" ],
-        "summary" : "SSL Contact Info",
+        "summary" : "SSL Contact Info (400204)",
         "description" : "Inquiring the data for a specified SSL contact.",
         "operationId" : "sslContactInfo",
         "produces" : [ "application/json" ],
@@ -15799,7 +15801,7 @@
       },
       "put" : {
         "tags" : [ "SslContact Tasks" ],
-        "summary" : " SSL Contact Update",
+        "summary" : "SSL Contact Update (400202)",
         "description" : "Updating an existing SSL contact.",
         "operationId" : "sslContactUpdate",
         "produces" : [ "application/json" ],
@@ -15894,7 +15896,7 @@
       },
       "delete" : {
         "tags" : [ "SslContact Tasks" ],
-        "summary" : " SSL Contact Delete",
+        "summary" : "SSL Contact Delete (400203)",
         "description" : "Deleting an existing SSL contact.",
         "operationId" : "sslContactDelete",
         "produces" : [ "application/json" ],
@@ -15983,7 +15985,7 @@
     "/subjectProduct/_search" : {
       "post" : {
         "tags" : [ "subjectProduct Tasks" ],
-        "summary" : "SubjectProduct List",
+        "summary" : "SubjectProduct List (0995001)",
         "description" : "Inquiring a list of subjectProduct with certain details. The data to be displayed can be extended per url paremeter.",
         "operationId" : "subjectProductList",
         "produces" : [ "application/json" ],
@@ -16074,7 +16076,7 @@
     "/subscription" : {
       "post" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription Create",
+        "summary" : "Subscription Create (1701)",
         "description" : "Creating a new subscription contract.",
         "operationId" : "subscriptionCreate",
         "produces" : [ "application/json" ],
@@ -16164,7 +16166,7 @@
     "/subscription/_search" : {
       "post" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription List",
+        "summary" : "Subscription List (1705)",
         "description" : "Inquiring a list of the subscription contracts",
         "operationId" : "subscriptionList",
         "produces" : [ "application/json" ],
@@ -16255,7 +16257,7 @@
     "/subscription/{contractId}" : {
       "put" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription Update",
+        "summary" : "Subscription Update (1702)",
         "description" : "Updating a subscription contract.",
         "operationId" : "subscriptionUpdate",
         "produces" : [ "application/json" ],
@@ -16350,7 +16352,7 @@
       },
       "delete" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription Delete",
+        "summary" : "Subscription Delete (1703)",
         "description" : "Deleting a subscription contract.",
         "operationId" : "subscriptionDelte",
         "produces" : [ "application/json" ],
@@ -16439,7 +16441,7 @@
     "/subscription/{contractId}/_upgrade" : {
       "put" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription Upgrade",
+        "summary" : "Subscription Upgrade (1706)",
         "description" : "Upgrading a subscription contract.",
         "operationId" : "subscriptionUpgrade",
         "produces" : [ "application/json" ],
@@ -16536,8 +16538,8 @@
     "/subscription/{contractId}/cancelation" : {
       "post" : {
         "tags" : [ "Subscription Tasks" ],
-        "summary" : "Subscription create cancelation",
-        "description" : "adds a cancelation for the subscription.",
+        "summary" : "Subscription Create Cancelation",
+        "description" : "Adding a cancelation for the subscription.",
         "operationId" : "subscriptionCancelationCreate",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16630,7 +16632,7 @@
       "delete" : {
         "tags" : [ "Subscription Tasks" ],
         "summary" : "Subscription remove cancalation",
-        "description" : "Removes an existing cancelation.",
+        "description" : "Removing an existing cancelation of a subscription.",
         "operationId" : "subscriptionCancelationDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16718,7 +16720,7 @@
     "/tmchMark" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Create",
+        "summary" : "TmchMark Create (011441)",
         "description" : "Creating a new TmchMark.",
         "operationId" : "tmchMarkCreate",
         "produces" : [ "application/json" ],
@@ -16744,7 +16746,7 @@
     "/tmchMark/_import" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Import",
+        "summary" : "TmchMark Import (011449)",
         "description" : "Importing an existing TmchMark.",
         "operationId" : "tmchMarkImport",
         "produces" : [ "application/json" ],
@@ -16770,7 +16772,7 @@
     "/tmchMark/_search" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark List",
+        "summary" : "TmchMark List (011445)",
         "description" : "Inquiring a list of TmchMark with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: type, name, reference, description, period, renew, status, payable, sent.",
         "operationId" : "tmchMarkList",
         "produces" : [ "application/json" ],
@@ -16809,7 +16811,7 @@
     "/tmchMark/_transfer" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Transfer Request",
+        "summary" : "TmchMark Transfer Request (011450)",
         "description" : "Importing an existing TmchMark and starting the transfer.",
         "operationId" : "importAndtmchMarkTransfer",
         "produces" : [ "application/json" ],
@@ -16835,8 +16837,8 @@
     "/tmchMark/claim/_search" : {
       "post" : {
         "tags" : [ "TmchMark Claim Tasks" ],
-        "summary" : "Tmch claim List",
-        "description" : "Inquiring a list of tmchClaim.",
+        "summary" : "Tmch Claims List (011545)",
+        "description" : "Inquiring a list of TmchClaim.",
         "operationId" : "claimList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16861,8 +16863,8 @@
     "/tmchMark/claim/{reference}" : {
       "get" : {
         "tags" : [ "TmchMark Claim Tasks" ],
-        "summary" : "Tmch claim info",
-        "description" : " Inquiring a single tmchClaim.",
+        "summary" : "Tmch Claims Info (011544)",
+        "description" : " Inquiring a single TmchClaim.",
         "operationId" : "claimInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16884,8 +16886,8 @@
     "/tmchMark/claim/{reference}/_confirm" : {
       "post" : {
         "tags" : [ "TmchMark Claim Tasks" ],
-        "summary" : "Tmch claim Reject",
-        "description" : "Rejecting the specified tmchClaim.",
+        "summary" : "Tmch Claim Reject (011546)",
+        "description" : "Rejecting the specified TmchClaim.",
         "operationId" : "claimConfirm",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16907,8 +16909,8 @@
     "/tmchMark/claim/{reference}/_reject" : {
       "put" : {
         "tags" : [ "TmchMark Claim Tasks" ],
-        "summary" : "Tmch claim Reject",
-        "description" : "Rejecting the specified tmchClaim.",
+        "summary" : "Tmch Claim Reject (011547)",
+        "description" : "Rejecting the specified TmchClaim.",
         "operationId" : "claimReject",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16930,8 +16932,8 @@
     "/tmchMark/{reference}" : {
       "get" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Info",
-        "description" : "-inquiring the TmchMark entry for the given reference.",
+        "summary" : "TmchMark Info (011444)",
+        "description" : "Inquiring the TmchMark entry for the given reference.",
         "operationId" : "tmchMarkInfo",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -16951,7 +16953,7 @@
       },
       "put" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Update",
+        "summary" : "TmchMark Update (011442)",
         "description" : "Updating the TmchMark entry for the given reference.",
         "operationId" : "tmchMarkUpdate",
         "produces" : [ "application/json" ],
@@ -16972,7 +16974,7 @@
       },
       "delete" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Delete",
+        "summary" : "TmchMark Delete (011443)",
         "description" : "Deleting the TmchMark entry for the given reference.",
         "operationId" : "tmchMArkDelete",
         "produces" : [ "application/json" ],
@@ -16995,7 +16997,7 @@
     "/tmchMark/{reference}/_confirm" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Confirm",
+        "summary" : "TmchMark Confirm (011446)",
         "description" : "Confirming an existing TmchMark.",
         "operationId" : "tmchMarkConfirm",
         "produces" : [ "application/json" ],
@@ -17018,7 +17020,7 @@
     "/tmchMark/{reference}/_transfer" : {
       "put" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Transfer Request",
+        "summary" : "TmchMark Transfer Request (011450)",
         "description" : "Starting the transfer for given reference (External TmchMark).",
         "operationId" : "tmchMarkTransfer",
         "produces" : [ "application/json" ],
@@ -17041,7 +17043,7 @@
     "/tmchMark/{reference}/document" : {
       "post" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Document Create",
+        "summary" : "TmchMark Document Create (011451)",
         "description" : "Assinging an uploaded document to a tmch mark entry.",
         "operationId" : "tmchMarkDocumentCreate",
         "produces" : [ "application/json" ],
@@ -17085,7 +17087,7 @@
     "/tmchMark/{reference}/document/{type}" : {
       "get" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Document Info",
+        "summary" : "TmchMark Document Info (011454)",
         "description" : "Inquiring a single TmchMark document for the given type.",
         "operationId" : "tmchMarkDocumentInfo",
         "produces" : [ "application/json" ],
@@ -17156,7 +17158,7 @@
       },
       "delete" : {
         "tags" : [ "TmchMark Tasks" ],
-        "summary" : "TmchMark Document Delete",
+        "summary" : "TmchMark Document Delete (011453)",
         "description" : "Deleting a single TmchMark document for the given type.",
         "operationId" : "tmchMarkDocumentDelete",
         "produces" : [ "application/json" ],
@@ -17184,7 +17186,7 @@
     "/transferout/_search" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
-        "summary" : " TransferOut List",
+        "summary" : " TransferOut List (0106001)",
         "description" : "Inquiring a list of transferOut with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: reminder, created, loosingRegistrar, start, sld, tld, type, subtld, end, gainingRegistrar, id, updated, transaction, status.",
         "operationId" : "transferOutList",
         "produces" : [ "application/json" ],
@@ -17288,7 +17290,7 @@
     "/transferout/{domain}/{_type}" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
-        "summary" : " TransferOut Answer",
+        "summary" : " TransferOut Answer (0106002)",
         "description" : "Accepting (ACK) or rejecting (NACK) transfer request.",
         "operationId" : "transferOutAnswer",
         "produces" : [ "application/json" ],
@@ -17483,7 +17485,7 @@
     "/transferout/{name}" : {
       "get" : {
         "tags" : [ "Transfer Request Tasks" ],
-        "summary" : "Transfer Request Info",
+        "summary" : "Transfer Request Info (0106001)",
         "description" : "Inquires supplied .",
         "operationId" : "transferOutTaskInfo",
         "produces" : [ "application/json" ],
@@ -17571,7 +17573,7 @@
     "/user" : {
       "post" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Create",
+        "summary" : "User Create (1301001)",
         "description" : "Creating a new user.",
         "operationId" : "userCreate",
         "produces" : [ "application/json" ],
@@ -17669,7 +17671,7 @@
     "/user/_2fa" : {
       "put" : {
         "tags" : [ "User 2fa Tasks" ],
-        "summary" : "User Token Config Activate",
+        "summary" : "User Token Config Activate (1301042)",
         "description" : "Activating the 2fa authentication for the logged in user. The response contains the rescue tokens",
         "operationId" : "user2faAktivate",
         "produces" : [ "application/json" ],
@@ -17750,7 +17752,7 @@
       },
       "delete" : {
         "tags" : [ "User 2fa Tasks" ],
-        "summary" : "User Token Config Delete",
+        "summary" : "User Token Config Delete (1301043)",
         "description" : "Deactivating the 2fa of the logged in user. The auth type of the user is set back to password.",
         "operationId" : "user2faDelete",
         "produces" : [ "application/json" ],
@@ -18197,7 +18199,7 @@
     "/user/_search" : {
       "post" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User List",
+        "summary" : "User List (1301004)",
         "description" : "Inquiring a list of users with certain details. The data to be displayed can be extended per url paremeter.",
         "operationId" : "userList",
         "produces" : [ "application/json" ],
@@ -18464,7 +18466,7 @@
     "/user/billinglimit" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Billing Object Limit Info",
+        "summary" : "Billing Object Limit Info (01144)",
         "description" : "Inquiring the billing limit data for the logged in user.",
         "operationId" : "userBillingLimitInfo",
         "produces" : [ "application/json" ],
@@ -18572,7 +18574,7 @@
     "/user/billingterm" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Billing Object Terms Info",
+        "summary" : "Billing Object Terms Info (09994)",
         "description" : "Inquiring the terms of the contact for the logged in user.",
         "operationId" : "UserBillingObjectTermsInfo",
         "produces" : [ "application/json" ],
@@ -18655,7 +18657,7 @@
     "/user/salesreport/_search" : {
       "post" : {
         "tags" : [ "SalesReport Tasks" ],
-        "summary" : "Sales Report List",
+        "summary" : "Sales Report List (160105)",
         "description" : "Inquiring a list of sales with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: date",
         "operationId" : "userSalesReportList",
         "produces" : [ "application/json" ],
@@ -18759,7 +18761,7 @@
     "/user/tasklimit" : {
       "get" : {
         "tags" : [ "UserTaskLimit Task" ],
-        "summary" : "User Limit Limit Info",
+        "summary" : "User Limit Limit Info (01164)",
         "description" : "Inquiring the user limit data for the logged in user.",
         "operationId" : "userTaskLimitInfo",
         "produces" : [ "application/json" ],
@@ -18842,7 +18844,7 @@
     "/user/{name}/{context}" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Info",
+        "summary" : "User Info (1301004)",
         "description" : "Inquiring the data for the specified user.",
         "operationId" : "userInfo",
         "produces" : [ "application/json" ],
@@ -18970,7 +18972,7 @@
       },
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Update",
+        "summary" : "User Update (1301002)",
         "description" : "Updating an existing user.",
         "operationId" : "userUpdate",
         "produces" : [ "application/json" ],
@@ -19070,7 +19072,7 @@
       },
       "delete" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Delete",
+        "summary" : "User Delete (1301003)",
         "description" : "Deleting an existing user.",
         "operationId" : "userDelete",
         "produces" : [ "application/json" ],
@@ -19172,7 +19174,7 @@
     "/user/{name}/{context}/_lock" : {
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Update - lock",
+        "summary" : "User Update - lock (1301002)",
         "description" : "Updating an existing user to lock him.",
         "operationId" : "userUpdateLock",
         "produces" : [ "application/json" ],
@@ -19279,8 +19281,8 @@
     "/user/{name}/{context}/_resendInvite" : {
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User update - resend invite",
-        "description" : "Invokes the resend of an invite for an invite user.",
+        "summary" : "User update - resend invite (1301002)",
+        "description" : "Invokes the resending of an invite for an invite user.",
         "operationId" : "userUpdateResendInvite",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -19373,7 +19375,7 @@
     "/user/{name}/{context}/_unlock" : {
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Update User - unlock",
+        "summary" : "Update User - unlock (1301002)",
         "description" : "Updating an an existing user to unlock him.",
         "operationId" : "userUpdateUnlock",
         "produces" : [ "application/json" ],
@@ -19480,7 +19482,7 @@
     "/user/{name}/{context}/acl" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User ACL Info",
+        "summary" : "User ACL Info (1301024)",
         "description" : "Inquiring the ACL data for the specified user.",
         "operationId" : "userAclInfo",
         "produces" : [ "application/json" ],
@@ -19580,7 +19582,7 @@
       },
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "ACL Update",
+        "summary" : "ACL Update (1301022)",
         "description" : "Updating the ACLs for the specified user.",
         "operationId" : "userAclUpdate",
         "produces" : [ "application/json" ],
@@ -19682,7 +19684,7 @@
     "/user/{name}/{context}/copy" : {
       "post" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Copy",
+        "summary" : "User Copy (1301016)",
         "description" : "Copying an existing user.",
         "operationId" : "userCopy",
         "produces" : [ "application/json" ],
@@ -19889,7 +19891,7 @@
     "/user/{name}/{context}/profile" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Profile Info",
+        "summary" : "User Profile Info (1301017)",
         "description" : "Inquiring the user profile of the specified user.",
         "operationId" : "userProfileInfo",
         "produces" : [ "application/json" ],
@@ -19989,7 +19991,7 @@
       },
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Profile Update",
+        "summary" : "User Profile Update (1301014)",
         "description" : "Updating the profile of the specified user.",
         "operationId" : "userProfileUpdate",
         "produces" : [ "application/json" ],
@@ -20091,7 +20093,7 @@
     "/user/{name}/{context}/profile/{prefix}" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Profile Info",
+        "summary" : "User Profile Info (1301017)",
         "description" : "Inquiring the user profile of the specified user.",
         "operationId" : "userProfileInfoWithPrefix",
         "produces" : [ "application/json" ],
@@ -20198,7 +20200,7 @@
     "/user/{name}/{context}/serviceProfile" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Service User Profile Info",
+        "summary" : "Service User Profile Info (1301054)",
         "description" : "Inquiring the service user profile for the specified user.",
         "operationId" : "serviceUserProfilInfo",
         "produces" : [ "application/json" ],
@@ -20298,7 +20300,7 @@
       },
       "put" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Service User Profile Update",
+        "summary" : "Service User Profile Update (1301052)",
         "description" : "Updating the service user profile for the specified user.",
         "operationId" : "serviceUserProfileUpdate",
         "produces" : [ "application/json" ],
@@ -20400,7 +20402,7 @@
     "/user/{name}/{context}/serviceProfile/{prefix}" : {
       "get" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "Service User Profile",
+        "summary" : "Service User Profile (1301054)",
         "description" : "Inquiring the service user profile for the specified user.",
         "operationId" : "serviceUserProfilInfoWithPrefix",
         "produces" : [ "application/json" ],
@@ -20507,7 +20509,7 @@
     "/user/{name}/{context}/verification" : {
       "post" : {
         "tags" : [ "User Tasks" ],
-        "summary" : "User Verification Create",
+        "summary" : "User Verification Create (1321011)",
         "description" : "",
         "operationId" : "userVerificationCreate",
         "produces" : [ "application/json" ],
@@ -20609,7 +20611,7 @@
     "/zone" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Create",
+        "summary" : "Zone Create (0201)",
         "description" : "Creating a zone.",
         "operationId" : "zoneCreate",
         "produces" : [ "application/json" ],
@@ -20700,7 +20702,7 @@
     "/zone/_search" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone List",
+        "summary" : "Zone List (0205)",
         "description" : "Inquiring a list of zones with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: dnssec, created, mainip, secondary1, secondary2, secondary3, secondary4, secondary5, secondary6, secondary7, virtualNameServer, domainsafe, name, comment, updated, action, primary, changed.",
         "operationId" : "zoneList",
         "produces" : [ "application/json" ],
@@ -20804,7 +20806,7 @@
     "/zone/history/_search" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone History List",
+        "summary" : "Zone History List (0225)",
         "description" : "Inquiring a list of zones history entries with certain details. The following keys can be used for filtering, ordering and inquiring additional data via query parameter: dnssec, created, mainip, secondary1, secondary2, secondary3, secondary4, secondary5, secondary6, secondary7, virtualNameServer, domainsafe, name, comment, updated, action, primary, changed.",
         "operationId" : "zoneHistoryList",
         "produces" : [ "application/json" ],
@@ -20908,7 +20910,7 @@
     "/zone/history/{logId}" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone History Info",
+        "summary" : "Zone History Info (0224)",
         "description" : "Inquiring the data for the specified log.",
         "operationId" : "zoneHistoryInfo",
         "produces" : [ "application/json" ],
@@ -20996,9 +20998,9 @@
     },
     "/zone/zoneQuery/_search" : {
       "post" : {
-        "tags" : [ "ZoneQuery Tasks" ],
-        "summary" : "ZoneQuery List",
-        "description" : "Inquiring a list of zoneQuerys with certain details.",
+        "tags" : [ "Zone Query Tasks" ],
+        "summary" : "Zone Query List (0265)",
+        "description" : "Inquiring a list of zone querys with certain details.",
         "operationId" : "zoneQueryList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -21088,7 +21090,7 @@
     "/zone/{name}/_stream" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Stream Update",
+        "summary" : "Zone Stream Update (0202002)",
         "description" : "Adding or removing records for any zone with the given name.",
         "operationId" : "zoneStream",
         "produces" : [ "application/json" ],
@@ -21197,7 +21199,7 @@
     "/zone/{name}/{systemNameServer}" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Info",
+        "summary" : "Zone Info (0205)",
         "description" : "Inquiring the data for the specified zone.",
         "operationId" : "zoneInfo",
         "produces" : [ "application/json" ],
@@ -21288,7 +21290,7 @@
       },
       "put" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Update",
+        "summary" : "Zone Update (0202)",
         "description" : "Updating an existing zone.",
         "operationId" : "zoneUpdate",
         "produces" : [ "application/json" ],
@@ -21387,7 +21389,7 @@
       },
       "delete" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Delete",
+        "summary" : "Zone Delete (0203)",
         "description" : "Deleting an existing zone.",
         "operationId" : "zoneDelete",
         "produces" : [ "application/json" ],
@@ -21478,7 +21480,7 @@
       },
       "patch" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Update",
+        "summary" : "Zone Update (0202001)",
         "description" : "Updating an existing zone.",
         "operationId" : "zonePatch",
         "produces" : [ "application/json" ],
@@ -21579,7 +21581,7 @@
     "/zone/{name}/{systemNameServer}/_axfr" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Axfr",
+        "summary" : "Zone Axfr (0210)",
         "description" : "Inquiring the AXFR data for the specified zone.",
         "operationId" : "zoneAxfr",
         "produces" : [ "application/json" ],
@@ -21672,7 +21674,7 @@
     "/zone/{name}/{systemNameServer}/_comment" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Comment Update",
+        "summary" : "Zone Comment Update (0202004)",
         "description" : "Updating an existing zone.",
         "operationId" : "zoneUpdateComment",
         "produces" : [ "application/json" ],
@@ -21773,7 +21775,7 @@
     "/zone/{name}/{systemNameServer}/_copy" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Update",
+        "summary" : "Zone Update (0212)",
         "description" : "Copying an existing zone.",
         "operationId" : "zoneCopy",
         "produces" : [ "application/json" ],
@@ -21887,7 +21889,7 @@
     "/zone/{name}/{systemNameServer}/_domainSafe" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Safe Object Create",
+        "summary" : "Safe Object Create (0601)",
         "description" : "Adding the zone to the domain safe",
         "operationId" : "zoneAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -21978,7 +21980,7 @@
       },
       "delete" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Safe Object Delete",
+        "summary" : "Safe Object Delete (0603)",
         "description" : "Deleting the zone from the domain safe",
         "operationId" : "zoneDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -22071,7 +22073,7 @@
     "/zone/{name}/{systemNameServer}/_import" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Import",
+        "summary" : "Zone Import (0204)",
         "description" : "Importing the specified zone.",
         "operationId" : "zoneImport",
         "produces" : [ "application/json" ],
@@ -22172,7 +22174,7 @@
     "/zone/{name}/{systemNameServer}/_migrate" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
-        "summary" : "Zone Update",
+        "summary" : "Zone Update (0212)",
         "description" : "Copying an existing zone and updating the domain with the new name servers.",
         "operationId" : "zoneMigrate",
         "produces" : [ "application/json" ],
@@ -22286,8 +22288,8 @@
     "/zone/{name}/{systemNameServer}/zoneQuery/_search" : {
       "post" : {
         "tags" : [ "ZoneQuery Tasks" ],
-        "summary" : "ZoneQuery List",
-        "description" : "Inquiring a list of zoneQuerys for the given Zone .",
+        "summary" : "Zone Query List (0265)",
+        "description" : "Inquiring a list of zone querys for the given Zone .",
         "operationId" : "zoneBaseQueryList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -28511,7 +28513,7 @@
           "items" : {
             "$ref" : "#/definitions/IpRestriction"
           },
-          "maxItems" : 20,
+          "maxItems" : 30,
           "minItems" : 0
         }
       }
