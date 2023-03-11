@@ -540,8 +540,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -644,8 +643,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=domain",
-            "enum" : [ "{domain", "created", "updated}" ]
+            "enum" : [ "domain", "created", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=domain"
@@ -830,8 +828,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -1553,6 +1550,11 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "label",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "externalCustomers",
@@ -1664,10 +1666,10 @@
     },
     "/bulk/contact/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Contact Bulk Tasks" ],
         "summary" : "Safe Object Contact Create Bulk",
         "description" : "Adding several contacts in the DomainSafe with one request.",
-        "operationId" : "domainsAddDomainSafe",
+        "operationId" : "contactsAddDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -1753,10 +1755,10 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Contact Bulk Tasks" ],
         "summary" : "Safe Object Contact Delete Bulk",
         "description" : "Deleting several contacts from the DomainSafe with one request.",
-        "operationId" : "domainsDeleteDomainSafe",
+        "operationId" : "contactsDeleteDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -2204,7 +2206,7 @@
     },
     "/bulk/domain/_authinfo1" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Authinfo1 Bulk Tasks" ],
         "summary" : "Authinfo1 Create Bulk",
         "description" : "Creating several AuthInfos 1 with one request.",
         "operationId" : "domainAuthinfoCreates",
@@ -2293,7 +2295,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Authinfo1 Bulk Tasks" ],
         "summary" : "Authinfo1 Delete Bulk",
         "description" : "Deleting several AuthInfos 1 with one request.",
         "operationId" : "domainAuthinfoDeletes",
@@ -2384,7 +2386,7 @@
     },
     "/bulk/domain/_authinfo2" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "AuthInfo2 Bulk Tasks" ],
         "summary" : "AuthInfo2 Create Bulk",
         "description" : "Creating several AuthInfos 2 with one request.",
         "operationId" : "domainAuthinfo2Creates",
@@ -5268,10 +5270,10 @@
     },
     "/bulk/zone/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Zone Bulk Tasks" ],
         "summary" : "Safe Object Zone Create Bulk",
         "description" : "Adding several zones in the DomainSafe with one request.",
-        "operationId" : "domainsAddDomainSafe",
+        "operationId" : "zonesAddDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -5357,10 +5359,10 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
+        "tags" : [ "Zone Bulk Tasks" ],
         "summary" : "Safe Object Zone Delete Bulk",
         "description" : "Deleting several zones from the DomainSafe with one request.",
-        "operationId" : "domainsDeleteDomainSafe",
+        "operationId" : "zonesDeleteDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -5625,8 +5627,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=dnsProvisioning",
-            "enum" : [ "{dnsProvisioning}" ]
+            "enum" : [ "dnsProvisioning" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -6002,8 +6003,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=product",
-            "enum" : [ "{product", "technical", "orderId", "created", "admin", "type", "expire", "domain", "name", "comment", "id", "updated", "authentication}" ]
+            "enum" : [ "product", "technical", "orderId", "created", "admin", "type", "expire", "domain", "name", "comment", "id", "updated", "authentication" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=product"
@@ -6290,8 +6290,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=dnsProvisioning",
-            "enum" : [ "{dnsProvisioning}" ]
+            "enum" : [ "dnsProvisioning" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -6390,8 +6389,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=dnsProvisioning",
-            "enum" : [ "{dnsProvisioning}" ]
+            "enum" : [ "dnsProvisioning" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -6597,8 +6595,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=dnsProvisioning",
-            "enum" : [ "{dnsProvisioning}" ]
+            "enum" : [ "dnsProvisioning" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -6707,8 +6704,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=dnsProvisioning",
-            "enum" : [ "{dnsProvisioning}" ]
+            "enum" : [ "dnsProvisioning" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -6902,8 +6898,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=force_handle_create",
-            "enum" : [ "{force_handle_create}" ]
+            "enum" : [ "force_handle_create" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=force_handle_create"
@@ -7006,8 +7001,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=email",
-            "enum" : [ "{country", "pcode", "city", "type", "title", "lname", "alias", "state", "id", "sip", "fax", "verification", "email", "fname", "address", "created", "phone", "organization", "domainsafe", "comment", "updated}" ]
+            "enum" : [ "country", "pcode", "city", "type", "title", "lname", "alias", "state", "id", "sip", "fax", "verification", "email", "fname", "address", "created", "phone", "organization", "domainsafe", "comment", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=email"
@@ -7294,8 +7288,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=action",
-            "enum" : [ "{confirmed", "action", "deactivation", "created", "failed", "name", "comment", "updated", "status}" ]
+            "enum" : [ "confirmed", "action", "deactivation", "created", "failed", "name", "comment", "updated", "status" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=action"
@@ -7486,8 +7479,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=action",
-            "enum" : [ "{confirmed", "action", "deactivation", "created", "failed", "name", "comment", "updated", "status}" ]
+            "enum" : [ "confirmed", "action", "deactivation", "created", "failed", "name", "comment", "updated", "status" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=action"
@@ -8137,8 +8129,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=link",
-            "enum" : [ "{link}" ]
+            "enum" : [ "link" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=link"
@@ -8248,8 +8239,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=override",
-            "enum" : [ "{override}" ]
+            "enum" : [ "override" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=override"
@@ -8529,11 +8519,6 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
-        }, {
-          "name" : "file",
-          "in" : "formData",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "type",
           "in" : "path",
@@ -9210,11 +9195,6 @@
           "type" : "integer",
           "format" : "int32"
         }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
           "in" : "body",
           "name" : "body",
           "description" : "domain",
@@ -9322,8 +9302,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=expire",
-            "enum" : [ "{sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "certificate", "created", "autorenew}" ]
+            "enum" : [ "sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "certificate", "created", "autorenew" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=expire"
@@ -9425,8 +9404,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -9513,11 +9491,6 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
-        }, {
-          "name" : "name",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
         }, {
           "in" : "body",
           "name" : "body",
@@ -9830,8 +9803,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=sld",
-            "enum" : [ "{disconnect", "execdate", "ctid", "created", "registryStatus", "sld", "type", "tld", "subtld", "gainingRegistrar", "updated}" ]
+            "enum" : [ "disconnect", "execdate", "ctid", "created", "registryStatus", "sld", "type", "tld", "subtld", "gainingRegistrar", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=sld"
@@ -9934,8 +9906,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=sld",
-            "enum" : [ "{parking", "certificate", "adminc", "cancelation", "action", "zonec", "nserver", "techc", "nsentry", "dnssec", "period", "created", "sld", "tld", "subtld", "deleted", "autorenew", "expire", "domainsafe", "comment", "ownerc", "updated", "remarks", "authinfo", "status}" ]
+            "enum" : [ "parking", "certificate", "adminc", "cancelation", "action", "zonec", "nserver", "techc", "nsentry", "dnssec", "period", "created", "sld", "tld", "subtld", "deleted", "autorenew", "expire", "domainsafe", "comment", "ownerc", "updated", "remarks", "authinfo", "status" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=sld"
@@ -11815,8 +11786,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=sld",
-            "enum" : [ "{orderReference", "techc", "phase", "nsentry", "period", "created", "sld", "ownerc", "updated", "status", "confirmed", "adminc", "zonec", "nserver", "tld", "recommended", "subtld}" ]
+            "enum" : [ "orderReference", "techc", "phase", "nsentry", "period", "created", "sld", "ownerc", "updated", "status", "confirmed", "adminc", "zonec", "nserver", "tld", "recommended", "subtld" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=sld"
@@ -11975,8 +11945,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=name",
-            "enum" : [ "{name", "created", "updated}" ]
+            "enum" : [ "name", "created", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=name"
@@ -12170,8 +12139,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=created",
-            "enum" : [ "{created", "updated}" ]
+            "enum" : [ "created", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=created"
@@ -12661,7 +12629,7 @@
           "required" : false,
           "type" : "string",
           "x-example" : "?keys[]=searchPrefix",
-          "enum" : [ "{searchPrefix", "bla}" ]
+          "enum" : [ "searchPrefix", "bla" ]
         } ],
         "responses" : {
           "200" : {
@@ -13015,8 +12983,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=created",
-            "enum" : [ "{number", "payment", "subType", "amount", "status", "type", "failed", "currency", "paid}" ]
+            "enum" : [ "number", "payment", "subType", "amount", "status", "type", "failed", "currency", "paid" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=created"
@@ -13208,8 +13175,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=type",
-            "enum" : [ "{parent", "execution", "subStatus", "type", "created", "id", "updated", "status", "object", "action}" ]
+            "enum" : [ "parent", "execution", "subStatus", "type", "created", "id", "updated", "status", "object", "action" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=type"
@@ -13312,8 +13278,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=type",
-            "enum" : [ "{parent", "execution", "subStatus", "type", "created", "id", "updated", "status", "object", "action}" ]
+            "enum" : [ "parent", "execution", "subStatus", "type", "created", "id", "updated", "status", "object", "action" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=type"
@@ -14175,8 +14140,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -14279,8 +14243,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=target",
-            "enum" : [ "{target", "admin", "protection", "created", "updated}" ]
+            "enum" : [ "target", "admin", "protection", "created", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=target"
@@ -14474,7 +14437,6 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=merge",
             "enum" : [ "merge" ]
           },
           "collectionFormat" : "multi",
@@ -14572,8 +14534,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -15117,8 +15078,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -15221,8 +15181,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=title",
-            "enum" : [ "{mode", "created", "domain", "source", "type", "title", "updated", "target}" ]
+            "enum" : [ "mode", "created", "domain", "source", "type", "title", "updated", "target" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=title"
@@ -15501,8 +15460,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?keys[]=dnsProvisioning"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=dnsProvisioning"
@@ -15695,8 +15653,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=email",
-            "enum" : [ "{country", "fname", "address", "city", "created", "title", "lname", "phone", "organization", "state", "id", "fax", "pcode", "updated", "email}" ]
+            "enum" : [ "country", "fname", "address", "city", "created", "title", "lname", "phone", "organization", "state", "id", "fax", "pcode", "updated", "email" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=email"
@@ -16618,7 +16575,7 @@
           "in" : "query",
           "description" : "Specifies the date of the cancelation execution. If not set the expire of the subscritn is used. Example : ?date=2020-10-21",
           "required" : false,
-          "type" : "date"
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -16792,8 +16749,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=name",
-            "enum" : [ "{type", "name", "reference", "description", "period", "renew", "status", "payable", "sent}" ]
+            "enum" : [ "type", "name", "reference", "description", "period", "renew", "status", "payable", "sent" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=name"
@@ -17068,8 +17024,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=override",
-            "enum" : [ "{override}" ]
+            "enum" : [ "override" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=override"
@@ -17109,8 +17064,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=link",
-            "enum" : [ "{link}" ]
+            "enum" : [ "link" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=link"
@@ -17271,8 +17225,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=end",
-            "enum" : [ "{reminder", "created", "loosingRegistrar", "start", "sld", "tld", "type", "subtld", "end", "gainingRegistrar", "id", "updated", "transaction", "status}" ]
+            "enum" : [ "reminder", "created", "loosingRegistrar", "start", "sld", "tld", "type", "subtld", "end", "gainingRegistrar", "id", "updated", "transaction", "status" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=end"
@@ -17287,7 +17240,7 @@
         }
       }
     },
-    "/transferout/{domain}/{_type}" : {
+    "/transferout/{domain}/{type}" : {
       "post" : {
         "tags" : [ "Transfer Request Tasks" ],
         "summary" : " TransferOut Answer (0106002)",
@@ -17365,7 +17318,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "_type",
+          "name" : "type",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -17379,9 +17332,7 @@
           }
         },
         "deprecated" : true
-      }
-    },
-    "/transferout/{domain}/{type}" : {
+      },
       "put" : {
         "tags" : [ "Transfer Request Tasks" ],
         "summary" : "TransferOut Answer",
@@ -18012,7 +17963,7 @@
         "deprecated" : true
       }
     },
-    "/user/_newPassword?token={token}" : {
+    "/user/_newPassword" : {
       "put" : {
         "tags" : [ "User Tasks" ],
         "summary" : "New Password",
@@ -18086,7 +18037,7 @@
           "format" : "int32"
         }, {
           "name" : "token",
-          "in" : "path",
+          "in" : "query",
           "required" : true,
           "type" : "string"
         }, {
@@ -18108,7 +18059,7 @@
         }
       }
     },
-    "/user/_newPasswordVerify?token={token}" : {
+    "/user/_newPasswordVerify" : {
       "get" : {
         "tags" : [ "User Tasks" ],
         "summary" : "New Password Verify",
@@ -18182,7 +18133,7 @@
           "format" : "int32"
         }, {
           "name" : "token",
-          "in" : "path",
+          "in" : "query",
           "required" : true,
           "type" : "string"
         } ],
@@ -18543,8 +18494,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=excludeUnlimited",
-            "enum" : [ "{excludeUnlimited", "count}" ]
+            "enum" : [ "excludeUnlimited", "count" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=excludeUnlimited"
@@ -18555,8 +18505,7 @@
           "required" : false,
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "example" : "?articleTypes[]=domain"
+            "type" : "string"
           },
           "collectionFormat" : "multi",
           "x-example" : "?articleTypes[]=domain"
@@ -18742,8 +18691,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=date",
-            "enum" : [ "{id", "date", "domainSales", "domainAddonSales", "certificateSales", "serverSales", "packageSales", "owner", "created", "updated}" ]
+            "enum" : [ "id", "date", "domainSales", "domainAddonSales", "certificateSales", "serverSales", "packageSales", "owner", "created", "updated" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=date"
@@ -18949,7 +18897,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "subscription",
+          "name" : "application",
           "in" : "query",
           "description" : "Specifies whether the used applications are returned in the response. Returns extra data if parameter is set. Example : ?application",
           "required" : false,
@@ -19262,8 +19210,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=children",
-            "enum" : [ "{children}" ]
+            "enum" : [ "children" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=children"
@@ -19463,8 +19410,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=children",
-            "enum" : [ "{children}" ]
+            "enum" : [ "children" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=children"
@@ -20787,8 +20733,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=primary",
-            "enum" : [ "{dnssec", "created", "mainip", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "virtualNameServer", "domainsafe", "name", "comment", "updated", "action", "primary", "changed}" ]
+            "enum" : [ "dnssec", "created", "mainip", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "virtualNameServer", "domainsafe", "name", "comment", "updated", "action", "primary", "changed" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=primary"
@@ -20891,8 +20836,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=primary",
-            "enum" : [ "{dnssec", "created", "mainip", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "virtualNameServer", "domainsafe", "name", "comment", "updated", "action", "primary", "changed}" ]
+            "enum" : [ "dnssec", "created", "mainip", "secondary1", "secondary2", "secondary3", "secondary4", "secondary5", "secondary6", "secondary7", "virtualNameServer", "domainsafe", "name", "comment", "updated", "action", "primary", "changed" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=primary"
@@ -21180,8 +21124,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=autofix",
-            "enum" : [ "{autofix}" ]
+            "enum" : [ "autofix" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=autofix"
@@ -21870,8 +21813,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=replace",
-            "enum" : [ "{replace", "forceOwner}" ]
+            "enum" : [ "replace", "forceOwner" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=replace"
@@ -22269,8 +22211,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "example" : "?keys[]=replace",
-            "enum" : [ "{replace", "forceOwner}" ]
+            "enum" : [ "replace", "forceOwner" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=replace"
@@ -22357,6 +22298,16 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
         }, {
           "in" : "body",
           "name" : "body",
@@ -35321,7 +35272,7 @@
         "name" : {
           "type" : "string",
           "description" : "Custom name of the name server group.",
-          "pattern" : "(?i)\\b(?!default\\b)\\w+"
+          "pattern" : "/\\b(?!default\\b)\\w+/i"
         },
         "useDefaultIps" : {
           "type" : "boolean",
