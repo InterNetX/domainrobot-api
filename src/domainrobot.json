@@ -22694,7 +22694,7 @@
     },
     "BasicCustomer" : {
       "type" : "object",
-      "required" : [ "addressLines", "client", "country", "number", "payment" ],
+      "required" : [ "addressLines", "client", "name", "number", "payment" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -22723,11 +22723,13 @@
           "type" : "string",
           "description" : "The name of the organization.",
           "minLength" : 0,
-          "maxLength" : 70
+          "maxLength" : 35
         },
         "organization2" : {
           "type" : "string",
-          "description" : "The second line for the organization name."
+          "description" : "The second line for the name of the organization.",
+          "minLength" : 0,
+          "maxLength" : 35
         },
         "vatNumber" : {
           "type" : "string",
@@ -22748,7 +22750,7 @@
             "type" : "string"
           },
           "maxItems" : 2147483647,
-          "minItems" : 1
+          "minItems" : 0
         },
         "city" : {
           "type" : "string",
@@ -22790,13 +22792,6 @@
             "type" : "string"
           }
         },
-        "contacts" : {
-          "type" : "array",
-          "description" : "The contacts.",
-          "items" : {
-            "$ref" : "#/definitions/basicCustomerContact"
-          }
-        },
         "payment" : {
           "description" : "The payment typ of the customer.",
           "$ref" : "#/definitions/PaymentConstants"
@@ -22806,10 +22801,28 @@
           "description" : "The payment mode of the customer."
         },
         "paymentCurrency" : {
-          "type" : "string",
-          "example" : "EUR",
           "description" : "The payment currency of the customer.",
-          "x-custom-type" : "currency"
+          "$ref" : "#/definitions/Currency"
+        },
+        "paymentCurrencyExchangeFee" : {
+          "type" : "number",
+          "format" : "float",
+          "description" : "The payment currency exchange fee of the customer."
+        },
+        "discount" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The discount of the customer."
+        },
+        "discountNgtld" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The discount of the ngtld."
+        },
+        "discountCertificate" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The discount of the certificate."
         },
         "discountValid" : {
           "type" : "string",
@@ -22819,10 +22832,6 @@
         "invoiceLanguage" : {
           "type" : "string",
           "description" : "The language to use for the invoice."
-        },
-        "pin" : {
-          "type" : "string",
-          "description" : "The pin number."
         },
         "taxable" : {
           "type" : "boolean",
@@ -22839,6 +22848,56 @@
             "$ref" : "#/definitions/CustomerContract"
           }
         },
+        "billingUsers" : {
+          "type" : "array",
+          "description" : "The billing users.",
+          "items" : {
+            "$ref" : "#/definitions/BasicUser"
+          }
+        },
+        "comments" : {
+          "type" : "array",
+          "description" : "The comments of the customer",
+          "items" : {
+            "$ref" : "#/definitions/Comment"
+          }
+        },
+        "contacts" : {
+          "type" : "array",
+          "description" : "The contacts of the customer",
+          "items" : {
+            "$ref" : "#/definitions/basicCustomerContact"
+          }
+        },
+        "account" : {
+          "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
+          "$ref" : "#/definitions/Account"
+        },
+        "priceListEntities" : {
+          "type" : "array",
+          "description" : "The attached price lists",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
+        },
+        "addPriceListEntities" : {
+          "type" : "array",
+          "description" : "Used by the update to task to attache new price lists",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
+        },
+        "remPriceListEntities" : {
+          "type" : "array",
+          "description" : "Used by the update to task to detache price lists",
+          "items" : {
+            "$ref" : "#/definitions/CustomerPriceList"
+          }
+        },
+        "clearAccount" : {
+          "description" : "The period after the post payment account will be cleared to zero",
+          "$ref" : "#/definitions/ClearAccountPeriod"
+        },
         "autodelete" : {
           "type" : "boolean",
           "description" : "Flag indication if the customer is autodelete"
@@ -22854,31 +22913,24 @@
             "$ref" : "#/definitions/BasicCustomerSpoolVerification"
           }
         },
-        "account" : {
-          "description" : "The account of the customer in case of prepayment or if the customer has a credit limit",
-          "$ref" : "#/definitions/Account"
-        },
-        "billingUsers" : {
+        "tags" : {
           "type" : "array",
-          "description" : "The billing users.",
+          "description" : "The customers tags.",
           "items" : {
-            "$ref" : "#/definitions/BasicUser"
+            "$ref" : "#/definitions/CustomerTag"
           }
         },
-        "comments" : {
-          "type" : "array",
-          "description" : "The comments of the customer",
-          "items" : {
-            "$ref" : "#/definitions/Comment"
-          }
+        "pin" : {
+          "type" : "string",
+          "description" : "The pin number."
         },
         "persistent" : {
           "description" : "the current customer",
           "$ref" : "#/definitions/BasicCustomer"
         },
-        "clearAccount" : {
-          "description" : "The period after the post payment account will be cleared to zero",
-          "$ref" : "#/definitions/ClearAccountPeriod"
+        "active" : {
+          "type" : "boolean",
+          "description" : "Flag indication if the customer is active"
         },
         "fname" : {
           "type" : "string",
@@ -22895,6 +22947,10 @@
         "pcode" : {
           "type" : "string",
           "description" : "The postal code of the city."
+        },
+        "technical" : {
+          "description" : "technical Customer.",
+          "$ref" : "#/definitions/TechnicalCustomer"
         },
         "sepa" : {
           "description" : "The customers sepa mandate if payament was post with sepa.",
@@ -23000,6 +23056,15 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The context."
+        },
+        "passwordChanged" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password has changed"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "The passwordExpired boolean"
         },
         "user" : {
           "type" : "string",
@@ -23862,6 +23927,26 @@
         }
       }
     },
+    "BusinessCase" : {
+      "type" : "object",
+      "required" : [ "label" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "The unique identifier"
+        }
+      }
+    },
     "BusinessCategory" : {
       "type" : "string",
       "enum" : [ "PRIVATE_ORGANIZATION", "GOVERNMENT_ENTITY", "BUSINESS_ENTITY" ]
@@ -24341,6 +24426,13 @@
         "validSignature" : {
           "type" : "boolean",
           "description" : "Describes whether the CSR contains a valid signature or not"
+        },
+        "includedSans" : {
+          "type" : "array",
+          "description" : "Included subject alternativ names for the current order",
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     },
@@ -27087,6 +27179,14 @@
           "type" : "integer",
           "format" : "int32",
           "description" : "The amount of suggested tlds"
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language to be used. Allowed values : en, de, es, fr, it"
+        },
+        "taxonomy" : {
+          "type" : "string",
+          "description" : "The taxonomy to be used for categorising. Allowed values : dit, internetx"
         }
       }
     },
@@ -28073,6 +28173,10 @@
           "format" : "date-time",
           "description" : "Date until the price is valid"
         },
+        "priceChange" : {
+          "description" : "The price change",
+          "$ref" : "#/definitions/PriceChange"
+        },
         "vatRate" : {
           "type" : "number",
           "format" : "double",
@@ -28168,7 +28272,9 @@
         "priceMarkup" : {
           "type" : "number",
           "format" : "double",
-          "description" : "markup value in percent or absolute"
+          "description" : "markup value in percent or absolute",
+          "minimum" : 0,
+          "maximum" : 10000
         },
         "priceRounding" : {
           "description" : "The type of rounding",
@@ -28563,13 +28669,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "subType" : {
-          "type" : "string",
-          "description" : "The job subtype."
-        },
         "action" : {
           "type" : "string",
           "description" : "The job action."
+        },
+        "subType" : {
+          "type" : "string",
+          "description" : "The job subtype."
         },
         "id" : {
           "type" : "integer",
@@ -31198,6 +31304,15 @@
           "type" : "string",
           "description" : "The password."
         },
+        "passwordChanged" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password has changed"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "The passwordExpired boolean"
+        },
         "token" : {
           "type" : "string",
           "description" : "The one time password in case of 2fa authentication."
@@ -31847,7 +31962,7 @@
         "currency" : {
           "type" : "string",
           "example" : "EUR",
-          "description" : "The currency of the sale",
+          "description" : "The currency of the sale. Currently only EUR, USD, GBP supported.",
           "x-custom-type" : "currency"
         },
         "fixedPrice" : {
@@ -32305,9 +32420,268 @@
           "format" : "date-time",
           "description" : "Date until the price is valid"
         },
+        "priceChange" : {
+          "description" : "The price change",
+          "$ref" : "#/definitions/PriceChange"
+        },
         "product" : {
           "description" : "The product",
           "$ref" : "#/definitions/Product"
+        }
+      }
+    },
+    "PriceChange" : {
+      "type" : "object",
+      "required" : [ "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "owner" : {
+          "description" : "The object owner.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "updater" : {
+          "description" : "User who performed the last update.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The id."
+        },
+        "primary" : {
+          "description" : "The optional primary price change",
+          "$ref" : "#/definitions/PriceChange"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The name of the priceChange."
+        },
+        "customer" : {
+          "description" : "the customer or customer group used for the price change",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "customerData" : {
+          "description" : "The new customer data",
+          "$ref" : "#/definitions/BasicCustomer"
+        },
+        "article" : {
+          "description" : "Article",
+          "$ref" : "#/definitions/Article"
+        },
+        "comment" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#/definitions/PriceChangeTypeConstants"
+        },
+        "status" : {
+          "$ref" : "#/definitions/PriceChangeStatusConstants"
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the confirmed date of the priceChange"
+        },
+        "validFrom" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the validFrom date of the priceChange"
+        },
+        "validUntil" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the validUntil date of the priceChange"
+        },
+        "messageSend" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the messageSend date of the priceChange"
+        },
+        "priceTemplates" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProductPriceTemplate"
+          }
+        },
+        "priceClassTemplates" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PriceClassTemplate"
+          }
+        },
+        "priceChangeExcludes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PriceChangeExclude"
+          }
+        },
+        "priceChangeExcludesAdd" : {
+          "type" : "array",
+          "description" : "Used by the patch route",
+          "items" : {
+            "$ref" : "#/definitions/PriceChangeExclude"
+          }
+        },
+        "priceChangeExcludesRem" : {
+          "type" : "array",
+          "description" : "Used by the patch route",
+          "items" : {
+            "$ref" : "#/definitions/PriceChangeExclude"
+          }
+        },
+        "worker" : {
+          "type" : "string",
+          "description" : "the worker of the priceChange"
+        },
+        "ticketNumber" : {
+          "type" : "string",
+          "description" : "The ticketing number if available."
+        },
+        "priceClassPrefix" : {
+          "type" : "string",
+          "description" : "prefix of the price class"
+        },
+        "priceClassType" : {
+          "type" : "string",
+          "description" : "type of the priceClass article "
+        }
+      }
+    },
+    "PriceChangeExclude" : {
+      "type" : "object",
+      "required" : [ "priceChange" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the price"
+        },
+        "customer" : {
+          "description" : "Customer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "priceChange" : {
+          "description" : "The priceChange",
+          "$ref" : "#/definitions/PriceChange"
+        }
+      }
+    },
+    "PriceChangeStatusConstants" : {
+      "type" : "string",
+      "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET", "CONFIRMED", "FINISHED" ]
+    },
+    "PriceChangeTypeConstants" : {
+      "type" : "string",
+      "enum" : [ "CUSTOMER", "GENERAL", "GENERAL_DISCOUNT", "GENERAL_NEW_ARTICLE", "PROMO", "PRIMARY" ]
+    },
+    "PriceClassTemplate" : {
+      "type" : "object",
+      "required" : [ "amount", "businessCase", "currency", "name", "priceChange", "relative", "type" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the price"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Namee of the price class"
+        },
+        "businessCase" : {
+          "description" : "Lorem Ipum",
+          "$ref" : "#/definitions/BusinessCase"
+        },
+        "priceChange" : {
+          "description" : "The priceChange",
+          "$ref" : "#/definitions/PriceChange"
+        },
+        "customer" : {
+          "description" : "Customer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "priority" : {
+          "description" : "Priority",
+          "$ref" : "#/definitions/PriorityConstants"
+        },
+        "discountable" : {
+          "type" : "boolean",
+          "description" : "Indicates if price discountable is possible"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Used currency ",
+          "x-custom-type" : "currency"
+        },
+        "period" : {
+          "description" : "The activity period of a product",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "relative" : {
+          "description" : "The rounding strategy",
+          "$ref" : "#/definitions/RelativeConstants"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Amount"
+        },
+        "actualAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The actual amount, before the price change processing"
+        },
+        "purchaseAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The actual purchase amount"
+        },
+        "margin" : {
+          "type" : "number",
+          "format" : "float",
+          "description" : "The margin between amount and purchase amount"
+        },
+        "priceConditions" : {
+          "type" : "array",
+          "description" : "ProductPriceTemplate Price condition",
+          "items" : {
+            "$ref" : "#/definitions/PriceServiceEntity"
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "type of the article "
         }
       }
     },
@@ -32517,6 +32891,89 @@
         "businessCase" : {
           "type" : "string",
           "description" : "Business case"
+        }
+      }
+    },
+    "ProductPriceTemplate" : {
+      "type" : "object",
+      "required" : [ "amount", "currency", "priceChange", "product", "relative" ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the price"
+        },
+        "priceChange" : {
+          "description" : "The priceChange",
+          "$ref" : "#/definitions/PriceChange"
+        },
+        "product" : {
+          "description" : "The product",
+          "$ref" : "#/definitions/Product"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Amount"
+        },
+        "currency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Used currency ",
+          "x-custom-type" : "currency"
+        },
+        "customer" : {
+          "description" : "Customer",
+          "$ref" : "#/definitions/GenericCustomer"
+        },
+        "priority" : {
+          "description" : "Priority",
+          "$ref" : "#/definitions/PriorityConstants"
+        },
+        "discountable" : {
+          "type" : "boolean",
+          "description" : "Indicates if price discountable is possible"
+        },
+        "period" : {
+          "description" : "The activity period of a product",
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "relative" : {
+          "description" : "The rounding strategy",
+          "$ref" : "#/definitions/RelativeConstants"
+        },
+        "priceConditions" : {
+          "type" : "array",
+          "description" : "ProductPriceTemplate Price condition",
+          "items" : {
+            "$ref" : "#/definitions/PriceServiceEntity"
+          }
+        },
+        "actualAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The actual amount, before the price change processing"
+        },
+        "purchaseAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "The actual purchase amount"
+        },
+        "margin" : {
+          "type" : "number",
+          "format" : "float",
+          "description" : "The margin between amount and purchase amount"
         }
       }
     },
@@ -32836,6 +33293,10 @@
     "RegistryStatusConstants" : {
       "type" : "string",
       "enum" : [ "ACTIVE", "HOLD", "LOCK", "HOLD_LOCK", "AUTO", "LOCK_OWNER", "LOCK_UPDATE", "PENDING", "NONE" ]
+    },
+    "RelativeConstants" : {
+      "type" : "string",
+      "enum" : [ "FIX", "RELATIVE_PERCENT", "RELATIVE_AMOUNT", "DELETE" ]
     },
     "RenewStatusConstants" : {
       "type" : "string",
@@ -34898,6 +35359,15 @@
         "oldPassword" : {
           "type" : "string",
           "description" : "The old password."
+        },
+        "passwordChanged" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password has changed"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "The passwordExpired boolean"
         },
         "acls" : {
           "description" : "User privileges.",
