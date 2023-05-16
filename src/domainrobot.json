@@ -1,24 +1,18 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Domainrobot JSON API for managing: Domains, SSL\n\t\t\t\t\t\t\t\t\t\t\tCertificates, DNS and\n\t\t\t\t\t\t\t\t\t\t\tmuch more.",
+    "description" : "Domainrobot JSON API for managing: Domains, SSL\n                                            Certificates, DNS and\n                                            much more.",
     "version" : "v1",
     "title" : "Domainrobot JSON API"
   },
   "host" : "api.autodns.com",
   "basePath" : "/v1",
   "tags" : [ {
-    "name" : "BackupMx Bulk Tasks"
-  }, {
     "name" : "BackupMx Tasks"
-  }, {
-    "name" : "Certificate Bulk Tasks"
   }, {
     "name" : "Certificate Tasks"
   }, {
-    "name" : "ClientCustomer Bulk Tasks"
-  }, {
-    "name" : "Contact Bulk Tasks"
+    "name" : "Client Customer Tasks"
   }, {
     "name" : "Contact Document Tasks"
   }, {
@@ -26,17 +20,15 @@
   }, {
     "name" : "Customer Account Tasks"
   }, {
-    "name" : "CustomerPriceList Bulk Tasks"
+    "name" : "CustomerPriceList Tasks"
   }, {
     "name" : "Document Tasks"
   }, {
-    "name" : "Domain Bulk Tasks"
+    "name" : "Domain Prereg Tasks"
   }, {
     "name" : "Domain Tasks"
   }, {
     "name" : "DomainPremium Tasks"
-  }, {
-    "name" : "DomainPrereg Bulk Tasks"
   }, {
     "name" : "DomainPrereg Tasks"
   }, {
@@ -56,29 +48,21 @@
   }, {
     "name" : "Mail Tasks"
   }, {
-    "name" : "MailProxy Bulk Tasks"
-  }, {
     "name" : "MailProxy Tasks"
-  }, {
-    "name" : "ObjectUserAssignment Bulk Tasks"
   }, {
     "name" : "ObjectUserAssignment Tasks"
   }, {
-    "name" : "Parking Domain Bulk Tasks"
+    "name" : "Parking Domain Tasks"
   }, {
     "name" : "Poll Tasks"
   }, {
-    "name" : "Price Bulk Tasks"
-  }, {
-    "name" : "Redirect Bulk Tasks"
+    "name" : "Price Tasks"
   }, {
     "name" : "Redirect Tasks"
   }, {
     "name" : "SalesReport Tasks"
   }, {
     "name" : "Session Tasks"
-  }, {
-    "name" : "SslContact Bulk Tasks"
   }, {
     "name" : "SslContact Tasks"
   }, {
@@ -99,8 +83,6 @@
     "name" : "User Tasks"
   }, {
     "name" : "UserTaskLimit Task"
-  }, {
-    "name" : "Zone Bulk Tasks"
   }, {
     "name" : "Zone Query Tasks"
   }, {
@@ -848,8 +830,8 @@
     },
     "/bulk/backupMx" : {
       "post" : {
-        "tags" : [ "BackupMx Bulk Tasks" ],
-        "summary" : "BackupMx Create Bulk",
+        "tags" : [ "BackupMx Tasks" ],
+        "summary" : "BackupMx Create Bulk (0521)",
         "description" : "Creating several new backupMxs.",
         "operationId" : "backupMxCreates",
         "produces" : [ "application/json" ],
@@ -937,8 +919,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "BackupMx Bulk Tasks" ],
-        "summary" : "BackupMx Delete Bulk",
+        "tags" : [ "BackupMx Tasks" ],
+        "summary" : "BackupMx Delete Bulk (0523)",
         "description" : "Deleting several existing backupMxs.",
         "operationId" : "backupMxDeletes",
         "produces" : [ "application/json" ],
@@ -1028,8 +1010,8 @@
     },
     "/bulk/certificate" : {
       "post" : {
-        "tags" : [ "Certificate Bulk Tasks" ],
-        "summary" : "Certificate Create Bulk",
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Create Bulk (400101)",
         "description" : "Creating several new certificates.",
         "operationId" : "certificateCreates",
         "produces" : [ "application/json" ],
@@ -1117,8 +1099,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Certificate Bulk Tasks" ],
-        "summary" : "Certificate Delete Bulk",
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Delete Bulk (400103)",
         "description" : "Deleting several existing certificates.",
         "operationId" : "certificateDeletes",
         "produces" : [ "application/json" ],
@@ -1206,8 +1188,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "Certificate Bulk Tasks" ],
-        "summary" : "Certificate Update Bulk",
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Update Bulk (400102)",
         "description" : "Updating several existing certificates.",
         "operationId" : "certificatePatches",
         "produces" : [ "application/json" ],
@@ -1297,8 +1279,8 @@
     },
     "/bulk/certificate/_renew" : {
       "patch" : {
-        "tags" : [ "Certificate Bulk Tasks" ],
-        "summary" : "Certificate Update Bulk",
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : "Certificate Update Bulk (400106)",
         "description" : "Renewing several existing certificates.",
         "operationId" : "certificatRenews",
         "produces" : [ "application/json" ],
@@ -1388,8 +1370,8 @@
     },
     "/bulk/clientAccount/{label}/clientCustomer" : {
       "post" : {
-        "tags" : [ "ClientCustomer Bulk Tasks" ],
-        "summary" : "ClientCustomer Create Bulk",
+        "tags" : [ "Client Customer Tasks" ],
+        "summary" : "Client Customer Create Bulk (0144201)",
         "description" : "Creating several client customers in one request.",
         "operationId" : "externalCustomerCreates",
         "produces" : [ "application/json" ],
@@ -1482,9 +1464,9 @@
         }
       },
       "delete" : {
-        "tags" : [ "ClientCustomer Bulk Tasks" ],
-        "summary" : " ClientCustomer Delete Bulk",
-        "description" : "Deleting several clientCustomer in one request.",
+        "tags" : [ "Client Customer Tasks" ],
+        "summary" : " Client Customer Delete Bulk (0144203)",
+        "description" : "Deleting several client customers in one request.",
         "operationId" : "externalCustomerDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1573,8 +1555,8 @@
     },
     "/bulk/contact" : {
       "delete" : {
-        "tags" : [ "Contact Bulk Tasks" ],
-        "summary" : "Contact Delete Bulk",
+        "tags" : [ "Contact Tasks" ],
+        "summary" : "Contact Delete Bulk (0303)",
         "description" : "Deleting several contacts with one request.",
         "operationId" : "contactDeletes",
         "produces" : [ "application/json" ],
@@ -1664,8 +1646,8 @@
     },
     "/bulk/contact/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Contact Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Contact Create Bulk (0601)",
         "description" : "Adding several contacts in the DomainSafe with one request.",
         "operationId" : "domainsAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -1753,8 +1735,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Contact Delete Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Contact Delete Bulk (0603)",
         "description" : "Deleting several contacts from the DomainSafe with one request.",
         "operationId" : "domainsDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -1844,9 +1826,9 @@
     },
     "/bulk/customerPriceList" : {
       "post" : {
-        "tags" : [ "CustomerPriceList Bulk Tasks" ],
-        "summary" : "CustomerPriceList Create Bulk",
-        "description" : "Creating several customerPriceLists in one request.",
+        "tags" : [ "CustomerPriceList Tasks" ],
+        "summary" : "CustomerPriceList Create Bulk (099961)",
+        "description" : "Creating several customer price lists in one request.",
         "operationId" : "customerPriceListCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1933,9 +1915,9 @@
         }
       },
       "delete" : {
-        "tags" : [ "CustomerPriceList Bulk Tasks" ],
-        "summary" : " CustomerPriceList Delete Bulk",
-        "description" : "Deleting several customerPriceLists in one request.",
+        "tags" : [ "CustomerPriceList Tasks" ],
+        "summary" : " CustomerPriceList Delete Bulk (099963)",
+        "description" : "Deleting several customer price lists in one request.",
         "operationId" : "customerPriceListDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -2024,8 +2006,8 @@
     },
     "/bulk/domain" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Create Bulk (0101)",
         "description" : "Creating several domains with one request.",
         "operationId" : "domainCreates",
         "produces" : [ "application/json" ],
@@ -2113,8 +2095,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Update Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Update Bulk (0102)",
         "description" : "Updating several domains with one request.",
         "operationId" : "domainPatches",
         "produces" : [ "application/json" ],
@@ -2204,8 +2186,8 @@
     },
     "/bulk/domain/_authinfo1" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Authinfo1 Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Authinfo1 Create Bulk (0113001)",
         "description" : "Creating several AuthInfos 1 with one request.",
         "operationId" : "domainAuthinfoCreates",
         "produces" : [ "application/json" ],
@@ -2293,8 +2275,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Authinfo1 Delete Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Authinfo1 Delete Bulk (0113002)",
         "description" : "Deleting several AuthInfos 1 with one request.",
         "operationId" : "domainAuthinfoDeletes",
         "produces" : [ "application/json" ],
@@ -2384,8 +2366,8 @@
     },
     "/bulk/domain/_authinfo2" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "AuthInfo2 Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "AuthInfo2 Create Bulk (0113003)",
         "description" : "Creating several AuthInfos 2 with one request.",
         "operationId" : "domainAuthinfo2Creates",
         "produces" : [ "application/json" ],
@@ -2475,8 +2457,8 @@
     },
     "/bulk/domain/_buy" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Buy Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Buy Bulk (0101006)",
         "description" : "Buying several domains with one request.",
         "operationId" : "domainBuys",
         "produces" : [ "application/json" ],
@@ -2566,8 +2548,8 @@
     },
     "/bulk/domain/_comment" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Comments Update Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Comments Update Bulk (0102004)",
         "description" : "Updating several domain comments with one request.",
         "operationId" : "domainUpdateComments",
         "produces" : [ "application/json" ],
@@ -2657,8 +2639,8 @@
     },
     "/bulk/domain/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Create Bulk (0601)",
         "description" : "Adding several domains in the DomainSafe with one request.",
         "operationId" : "domainsAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -2746,8 +2728,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Delete Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Delete Bulk (0603)",
         "description" : "Deleting several domains from the DomainSafe with one request.",
         "operationId" : "domainsDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -2837,8 +2819,8 @@
     },
     "/bulk/domain/_renew" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Renew Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Renew Bulk (0101003)",
         "description" : "Renewing several domains with one request.",
         "operationId" : "domainRenews",
         "produces" : [ "application/json" ],
@@ -2928,8 +2910,8 @@
     },
     "/bulk/domain/_restore" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Restore Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Restore Bulk (0101005)",
         "description" : "Restoring several domains with one request.",
         "operationId" : "domainRestores",
         "produces" : [ "application/json" ],
@@ -3019,8 +3001,8 @@
     },
     "/bulk/domain/_transfer" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Domain Transfer Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Domain Transfer Bulk (0104)",
         "description" : "Transferring several domains with one request.",
         "operationId" : "domainTransfers",
         "produces" : [ "application/json" ],
@@ -3110,8 +3092,8 @@
     },
     "/bulk/domain/cancelation" : {
       "post" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Cancelation Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Cancelation Create Bulk (0103101)",
         "description" : "Creating several domain cancelations with one request.",
         "operationId" : "domainCancelationCreates",
         "produces" : [ "application/json" ],
@@ -3199,8 +3181,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Cancelation Delete Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Cancelation Delete Bulk (0103103)",
         "description" : "Deleting several domain cancelations with one request.",
         "operationId" : "domainCancelationDeletes",
         "produces" : [ "application/json" ],
@@ -3288,8 +3270,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Cancelation Update Bulk ",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Cancelation Update Bulk (0103102)",
         "description" : "Updating several domain cancelations with one request.",
         "operationId" : "domainCancelationPatches",
         "produces" : [ "application/json" ],
@@ -3379,8 +3361,8 @@
     },
     "/bulk/domainPrereg" : {
       "post" : {
-        "tags" : [ "DomainPrereg Bulk Tasks" ],
-        "summary" : "Domain Prereg Create Bulk",
+        "tags" : [ "Domain Prereg Tasks" ],
+        "summary" : "Domain Prereg Create Bulk (0110001)",
         "description" : "Creating several domain preregistrations with one request.",
         "operationId" : "domainPreregCreates",
         "produces" : [ "application/json" ],
@@ -3468,8 +3450,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "DomainPrereg Bulk Tasks" ],
-        "summary" : "Domain Prereg Delete Bulk",
+        "tags" : [ "Domain Prereg Tasks" ],
+        "summary" : "Domain Prereg Delete Bulk (0110003)",
         "description" : "Deleting several domain preregistrations with one request.",
         "operationId" : "domainPreregDeletes",
         "produces" : [ "application/json" ],
@@ -3557,8 +3539,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "DomainPrereg Bulk Tasks" ],
-        "summary" : "Domain Prereg Update Bulk",
+        "tags" : [ "Domain Prereg Tasks" ],
+        "summary" : "Domain Prereg Update Bulk (0110002)",
         "description" : "Updating several domain preregistrations with one request.",
         "operationId" : "domainPreregPatches",
         "produces" : [ "application/json" ],
@@ -3648,8 +3630,8 @@
     },
     "/bulk/domainPrereg/_confirm" : {
       "put" : {
-        "tags" : [ "DomainPrereg Bulk Tasks" ],
-        "summary" : "Domain Prereg Confirm Bulk",
+        "tags" : [ "Domain Prereg Tasks" ],
+        "summary" : "Domain Prereg Confirm Bulk (0110007)",
         "description" : "Confirming several domain preregistrations with one request.",
         "operationId" : "domainPreregConfimrs",
         "produces" : [ "application/json" ],
@@ -3739,8 +3721,8 @@
     },
     "/bulk/mailProxy" : {
       "post" : {
-        "tags" : [ "MailProxy Bulk Tasks" ],
-        "summary" : "MailProxy Create Bulk",
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "MailProxy Create Bulk (0511)",
         "description" : "Creating several new MailProxys with one request.",
         "operationId" : "mailProxyCreates",
         "produces" : [ "application/json" ],
@@ -3828,8 +3810,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "MailProxy Bulk Tasks" ],
-        "summary" : "MailProxy Delete Bulk",
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "MailProxy Delete Bulk (0513)",
         "description" : "Deleting several new MailProxys with one request.",
         "operationId" : "mailProxyDeletes",
         "produces" : [ "application/json" ],
@@ -3917,8 +3899,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "MailProxy Bulk Tasks" ],
-        "summary" : "MailProxy Update Bulk",
+        "tags" : [ "MailProxy Tasks" ],
+        "summary" : "MailProxy Update Bulk (0512)",
         "description" : "Updating several new MailProxys with one request.",
         "operationId" : "mailProxyPatches",
         "produces" : [ "application/json" ],
@@ -4008,9 +3990,9 @@
     },
     "/bulk/objectUserAssignment" : {
       "patch" : {
-        "tags" : [ "ObjectUserAssignment Bulk Tasks" ],
-        "summary" : "Update owner objects",
-        "description" : "Reassgins objects to a new owner..",
+        "tags" : [ "ObjectUserAssignment Tasks" ],
+        "summary" : "Update owner objects (1308)",
+        "description" : "Reassigins objects to a new owner.",
         "operationId" : "objectUserAssignment",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -4099,9 +4081,9 @@
     },
     "/bulk/parking/domain" : {
       "post" : {
-        "tags" : [ "Parking Domain Bulk Tasks" ],
-        "summary" : "ParkingDomain Create",
-        "description" : "Create multiple parking domain.",
+        "tags" : [ "Parking Domain Tasks" ],
+        "summary" : "Parking Domain Create (400101)",
+        "description" : "Creating multiple parking domains.",
         "operationId" : "parkingDomainCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -4188,9 +4170,9 @@
         }
       },
       "delete" : {
-        "tags" : [ "Parking Domain Bulk Tasks" ],
-        "summary" : "ParkingDomain Bulk Delete",
-        "description" : "Delete multiple parking domain.",
+        "tags" : [ "Parking Domain Tasks" ],
+        "summary" : "Parkin gDomain Bulk Delete (400101)",
+        "description" : "Deleting multiple parking domains.",
         "operationId" : "parkingDomainDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -4279,8 +4261,8 @@
     },
     "/bulk/price" : {
       "post" : {
-        "tags" : [ "Price Bulk Tasks" ],
-        "summary" : "Price Create Bulk",
+        "tags" : [ "Price Tasks" ],
+        "summary" : "Price Create Bulk (09951)",
         "description" : "Creating several prices in one request.",
         "operationId" : "priceCreates",
         "produces" : [ "application/json" ],
@@ -4368,8 +4350,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Price Bulk Tasks" ],
-        "summary" : " Price Delete Bulk",
+        "tags" : [ "Price Tasks" ],
+        "summary" : " Price Delete Bulk (09953)",
         "description" : "Deleting several prices in one request.",
         "operationId" : "priceDeletes",
         "produces" : [ "application/json" ],
@@ -4457,9 +4439,9 @@
         }
       },
       "patch" : {
-        "tags" : [ "Price Bulk Tasks" ],
-        "summary" : "Price Update Bulk ",
-        "description" : "Updating several prices with one request.",
+        "tags" : [ "Price Tasks" ],
+        "summary" : "Price Update Bulk (09952)",
+        "description" : "Updating several prices in one request.",
         "operationId" : "pricePatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -4548,8 +4530,8 @@
     },
     "/bulk/redirect" : {
       "post" : {
-        "tags" : [ "Redirect Bulk Tasks" ],
-        "summary" : "Redirect Create Bulk",
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Redirect Create Bulk (0501)",
         "description" : "Creating several redirects in one request.",
         "operationId" : "redirectCreates",
         "produces" : [ "application/json" ],
@@ -4637,8 +4619,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Redirect Bulk Tasks" ],
-        "summary" : " Redirect Delete Bulk",
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : " Redirect Delete Bulk (0503)",
         "description" : "Deleting several redirects in one request.",
         "operationId" : "redirectDeletes",
         "produces" : [ "application/json" ],
@@ -4726,8 +4708,8 @@
         }
       },
       "patch" : {
-        "tags" : [ "Redirect Bulk Tasks" ],
-        "summary" : "Redirect Update Bulk ",
+        "tags" : [ "Redirect Tasks" ],
+        "summary" : "Redirect Update Bulk (0502) ",
         "description" : "Updating several redirects in one request.",
         "operationId" : "redirectPatches",
         "produces" : [ "application/json" ],
@@ -4817,8 +4799,8 @@
     },
     "/bulk/sslcontact" : {
       "delete" : {
-        "tags" : [ "SslContact Bulk Tasks" ],
-        "summary" : "SslContact Delete Bulk",
+        "tags" : [ "SslContact Tasks" ],
+        "summary" : "SslContact Delete Bulk (400203)",
         "description" : "Deleting serveral SslContact with one request.",
         "operationId" : "sslContactsDeletes",
         "produces" : [ "application/json" ],
@@ -4908,9 +4890,9 @@
     },
     "/bulk/zone" : {
       "post" : {
-        "tags" : [ "Zone Bulk Tasks" ],
-        "summary" : "Create Zones",
-        "description" : "Create a zone.",
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Create Zones (0201)",
+        "description" : "Creating several zones with one request.",
         "operationId" : "zoneCreates",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -4997,9 +4979,9 @@
         }
       },
       "delete" : {
-        "tags" : [ "Zone Bulk Tasks" ],
-        "summary" : "Delete Zones",
-        "description" : "Delete an existing zone.",
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Delete Zones (0203)",
+        "description" : "Deleting several existing zones with one request.",
         "operationId" : "zoneDeletes",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5086,9 +5068,9 @@
         }
       },
       "patch" : {
-        "tags" : [ "Zone Bulk Tasks" ],
-        "summary" : "Update Zones",
-        "description" : "Update existings zone.",
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Update Zones (0202001)",
+        "description" : "Updating several existing zones with one request.",
         "operationId" : "zoneBulkPatches",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5177,9 +5159,9 @@
     },
     "/bulk/zone/_comment" : {
       "put" : {
-        "tags" : [ "Zone Bulk Tasks" ],
-        "summary" : "Update Zone Comment",
-        "description" : "Update an existing zone.",
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Update Zone Comments (0202004)",
+        "description" : "Updating several existing zone comments with one request.",
         "operationId" : "zoneUpdateComments",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5268,8 +5250,8 @@
     },
     "/bulk/zone/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Zone Create Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Zone Create Bulk (0601)",
         "description" : "Adding several zones in the DomainSafe with one request.",
         "operationId" : "domainsAddDomainSafe",
         "produces" : [ "application/json" ],
@@ -5357,8 +5339,8 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Bulk Tasks" ],
-        "summary" : "Safe Object Zone Delete Bulk",
+        "tags" : [ "Domain Tasks" ],
+        "summary" : "Safe Object Zone Delete Bulk (0603)",
         "description" : "Deleting several zones from the DomainSafe with one request.",
         "operationId" : "domainsDeleteDomainSafe",
         "produces" : [ "application/json" ],
@@ -5448,9 +5430,9 @@
     },
     "/bulk/zone/_import" : {
       "post" : {
-        "tags" : [ "Zone Bulk Tasks" ],
-        "summary" : "Import Zones",
-        "description" : "Import the specified zone.",
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Import Zones (0204)",
+        "description" : "Importing several specified zones with one request.",
         "operationId" : "zoneImports",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -5636,6 +5618,97 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataJob"
+            }
+          }
+        }
+      }
+    },
+    "/certificate/_checkVmcData" : {
+      "post" : {
+        "tags" : [ "Certificate Tasks" ],
+        "summary" : " Vmc Data Check (4001015)",
+        "description" : "Checks the given data against requirements for VMC certificates",
+        "operationId" : "vmcDataCheck",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "vmcCheckData",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/VmcCheckData"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataVmcCheckData"
             }
           }
         }
@@ -6013,97 +6086,6 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/JsonResponseDataCertificate"
-            }
-          }
-        }
-      }
-    },
-    "/certificate/_verifyVmc" : {
-      "post" : {
-        "tags" : [ "Certificate Tasks" ],
-        "summary" : "Certificate Verify VMC (4001015)",
-        "description" : "Verify a VMC logo.",
-        "operationId" : "certificateVerifyVmc",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "certificate",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Certificate"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataJob"
             }
           }
         }
@@ -14682,7 +14664,7 @@
         "tags" : [ "ObjectUserAssignment Tasks" ],
         "summary" : "Object Owner Update (1308)",
         "description" : "Reassigning an object to a new owner.",
-        "operationId" : "ObjectUserAssignment",
+        "operationId" : "objectUserAssignment",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -14773,7 +14755,7 @@
         "tags" : [ "ObjectUserAssignment Tasks" ],
         "summary" : "Object User Assignment All (1308001)",
         "description" : "Reassigning all objects from one user to another one.",
-        "operationId" : "ObjectUserAssignmentAll",
+        "operationId" : "objectUserAssignmentAll",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -16354,7 +16336,7 @@
         "tags" : [ "Subscription Tasks" ],
         "summary" : "Subscription Delete (1703)",
         "description" : "Deleting a subscription contract.",
-        "operationId" : "subscriptionDelte",
+        "operationId" : "subscriptionDelete",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -24303,6 +24285,14 @@
         "vmcTrademarkCountryOrRegion" : {
           "description" : "Two-letter code for the country or region where the logo is trademarked",
           "$ref" : "#/definitions/VmcTrademarkCountryOrRegion"
+        },
+        "keyAttention" : {
+          "type" : "string",
+          "description" : "Base64 encoded Proof that the keypair has been generated. Only for Sectigo Codesigning products!"
+        },
+        "hsmType" : {
+          "description" : "Hardware type used to generate the keypair in a non-exportable format, CSR and key attestation. Only for Sectigo Codesigning products!",
+          "$ref" : "#/definitions/SectigoHsmType"
         }
       }
     },
@@ -28669,13 +28659,13 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "description" : "The job action."
-        },
         "subType" : {
           "type" : "string",
           "description" : "The job subtype."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "The job action."
         },
         "id" : {
           "type" : "integer",
@@ -31186,6 +31176,41 @@
         }
       }
     },
+    "JsonResponseDataVmcCheckData" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction id for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The object of the response.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/VmcCheckData"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The client transaction id for the response."
+        }
+      }
+    },
     "JsonResponseDataVoid" : {
       "type" : "object",
       "properties" : {
@@ -31379,8 +31404,9 @@
           "$ref" : "#/definitions/ProtectionConstants"
         },
         "greylisting" : {
-          "type" : "boolean",
-          "description" : "The grey listing policy"
+          "type" : "string",
+          "description" : "The grey listing policy",
+          "enum" : [ "ENABLED", "DISABLED" ]
         },
         "virus" : {
           "type" : "string",
@@ -33451,6 +33477,10 @@
     "SanType" : {
       "type" : "string",
       "enum" : [ "FQDN", "SUBDOMAIN", "WILDCARD" ]
+    },
+    "SectigoHsmType" : {
+      "type" : "string",
+      "enum" : [ "YUBIKEY", "LUNA" ]
     },
     "SepaStatus" : {
       "type" : "string",
@@ -35813,6 +35843,30 @@
         "systemNameServerGroup" : {
           "description" : "The group of physical name servers responsible for this virtual name server group.",
           "$ref" : "#/definitions/PhysicalNameServerGroup"
+        }
+      }
+    },
+    "VmcCheckData" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The common name."
+        },
+        "subjectAlternativeNames" : {
+          "type" : "array",
+          "description" : "The subject alternative names, listed in the csr.",
+          "items" : {
+            "$ref" : "#/definitions/SubjectAlternativeName"
+          }
+        },
+        "vmcLogo" : {
+          "type" : "string",
+          "description" : "The base64 encoded SVG logo"
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "The ssl product."
         }
       }
     },
