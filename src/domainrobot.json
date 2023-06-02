@@ -24155,12 +24155,12 @@
           "$ref" : "#/definitions/CodeSigningType"
         },
         "codeSigningProvisioningMethod" : {
-          "description" : "The provisioning method for the code signing token",
-          "$ref" : "#/definitions/CodeSigningProvisioningMethod"
+          "description" : "The provisioning method for the code signing token. Only for DigiCert products!",
+          "$ref" : "#/definitions/DigiCertCodeSigningProvisioningMethod"
         },
         "codeSigningHardwarePlatform" : {
-          "description" : "The hardware platform for the code signing token.",
-          "$ref" : "#/definitions/CodeSigningHardwarePlatform"
+          "description" : "The hardware platform for the code signing token for DigiCert codesigning products.",
+          "$ref" : "#/definitions/DigiCertCodeSigningHardwarePlatform"
         },
         "globalSignPickupMethod" : {
           "description" : "The pickup method for globalsign products.",
@@ -24286,7 +24286,7 @@
           "description" : "Two-letter code for the country or region where the logo is trademarked",
           "$ref" : "#/definitions/VmcTrademarkCountryOrRegion"
         },
-        "keyAttention" : {
+        "keyAttestation" : {
           "type" : "string",
           "description" : "Base64 encoded Proof that the keypair has been generated. Only for Sectigo Codesigning products!"
         },
@@ -24580,14 +24580,6 @@
     "ClearAccountPeriod" : {
       "type" : "string",
       "enum" : [ "DAY", "MONTH", "BILL", "WEEK", "NONE" ]
-    },
-    "CodeSigningHardwarePlatform" : {
-      "type" : "string",
-      "enum" : [ "AEP_KEYPER", "ARX_PRIVATE_SERVER", "BULL_TRUSTWAY_CRYPTO_PCI", "E_PASS_3003", "SAFE_NET_E_TOKEN_5100", "SAFE_NET_E_TOKEN_5105", "SAFE_NET_E_TOKEN_5110", "SAFE_NET_E_TOKEN_5110_FIPS", "SAFE_NET_E_TOKEN_5200", "SAFE_NET_E_TOKEN_5205", "SAFE_NET_E_TOKEN_PRO_72K", "SAFE_NET_E_TOKEN_PRO_ANYWHERE", "SAFE_NET_I_KEY_4000", "SAFE_NET_LUNA", "THALES_N_SHIELD", "ULTIMACO_CRYPTO_SERVER", "OTHER" ]
-    },
-    "CodeSigningProvisioningMethod" : {
-      "type" : "string",
-      "enum" : [ "EMAIL", "SOFTWARE", "SHIPPING" ]
     },
     "CodeSigningType" : {
       "type" : "string",
@@ -25831,6 +25823,14 @@
     "DeliveryStatus" : {
       "type" : "string",
       "enum" : [ "PENDING", "SUCCESS", "FAILED", "EXPIRED", "ATTEMPTING", "PARTIAL" ]
+    },
+    "DigiCertCodeSigningHardwarePlatform" : {
+      "type" : "string",
+      "enum" : [ "SAFE_NET_E_TOKEN_5110_FIPS", "SAFE_NET_E_TOKEN_5110_CC", "SAFE_NET_E_TOKEN_5110_PLUS_FIPS", "OTHER" ]
+    },
+    "DigiCertCodeSigningProvisioningMethod" : {
+      "type" : "string",
+      "enum" : [ "SOFTWARE", "SHIPPING" ]
     },
     "Document" : {
       "type" : "object",
@@ -31586,7 +31586,7 @@
       "properties" : {
         "name" : {
           "type" : "string",
-          "description" : "Host name of the nameserver."
+          "description" : "Host name of the nameserver written as a Fully-Qualified-Domain-Name (FQDN)."
         },
         "ttl" : {
           "type" : "integer",
@@ -35872,7 +35872,7 @@
     },
     "VmcTrademarkCountryOrRegion" : {
       "type" : "string",
-      "enum" : [ "US", "CA", "EM", "GB", "DE", "JP", "AU", "ES", "IN", "KR", "BR" ]
+      "enum" : [ "AU", "BR", "BX", "CA", "CH", "DE", "DK", "EM", "ES", "FR", "GB", "IN", "JP", "KR", "NZ", "SE", "US" ]
     },
     "Void" : {
       "type" : "object"
