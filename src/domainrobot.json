@@ -28415,11 +28415,11 @@
       "properties" : {
         "type" : {
           "type" : "string",
-          "description" : "The type of the object."
+          "description" : "Object type.\nPossible values:\ndomain, handle, zone, domainzone (domain and zone), domain_prereg (preregistration), server_redirect (redirect), backup_mx, tmch_mark, externalAccounting, nic_response, nic_code, contact, address, \nExternalCustomer authinfo adminContact registry_status name discount uri tmch_mark contact/document vmcLogo customer ParkingDomain user billing_event safeuser contact_document version revision trusted_application dns-check error certificate key[] seo_domain_data message, \nexecdate redirect nic allow_transfer_from conditions[].operator conditions[].value nserver record accounting_document workflow_job domain_monitoring ownerc identifier context_configuration quota sepa_xml acl periodic_billing context_host CertificateData,\nschedule zone_log_id customerPriceList safeuser price symantec_reissue dispute irtp safecontact pushcode customerGroupProduct revision article_package microservice ns_virtual document document/type extension/au_registrant_id extension/au_eligibility_id mailproxy,\nbulk_job gaining_registrar gaining_registrar2 nameServers\n"
         },
         "value" : {
           "type" : "string",
-          "description" : "The value of the object."
+          "description" : "The value contained in the object."
         }
       }
     },
@@ -31591,11 +31591,11 @@
         "ttl" : {
           "type" : "integer",
           "format" : "int64",
-          "description" : "The time to live."
+          "description" : "Time-to-live value of the nameservers in seconds"
         },
         "ipAddresses" : {
           "type" : "array",
-          "description" : "The ip addresses.",
+          "description" : "IPv4 and IPv6 addresses of the name server. For GLUE records only; \noptional. The values for the IP addresses are only relevant for domain operations and are only used there in the case of glue name servers.",
           "items" : {
             "type" : "string"
           }
@@ -31941,6 +31941,10 @@
           "description" : "The status",
           "$ref" : "#/definitions/ParkingAccountStatus"
         },
+        "master" : {
+          "type" : "boolean",
+          "description" : "Defines whether the account is the master account or not"
+        },
         "lastSynchronized" : {
           "type" : "string",
           "format" : "date-time",
@@ -32120,10 +32124,19 @@
           "format" : "date-time",
           "description" : "The expiration date of the subscription."
         },
+        "cancelationTerm" : {
+          "description" : "cancelationTerm of the subscription..",
+          "$ref" : "#/definitions/TimePeriod"
+        },
         "cancelation" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The cancelation date of the subscription."
+        },
+        "canceled" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The canceled date."
         },
         "businessCase" : {
           "type" : "string",
@@ -34123,10 +34136,19 @@
           "format" : "date-time",
           "description" : "The expiration date of the subscription."
         },
+        "cancelationTerm" : {
+          "description" : "cancelationTerm of the subscription..",
+          "$ref" : "#/definitions/TimePeriod"
+        },
         "cancelation" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The cancelation date of the subscription."
+        },
+        "canceled" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The canceled date."
         },
         "limits" : {
           "type" : "array",
