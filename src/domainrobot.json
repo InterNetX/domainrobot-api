@@ -22509,7 +22509,7 @@
     },
     "AuEligibilityTypeConstants" : {
       "type" : "string",
-      "enum" : [ "COMPANY", "REGISTERED_BUSINESS", "SOLE_TRADER", "PARTNERSHIP", "TRADEMARK_OWNER", "PENDING_TM_OWNER", "CITIZEN_RESIDENT", "INCORPORATED_ASSOCIATION", "UNINCORPORATED_ASSOCIATION", "CLUB", "NON_PROFIT_ORGANISATION", "CHARITY", "TRADE_UNION", "INDUSTRY_BODY", "COMMERCIAL_STATUTORY_BODY", "POLITICAL_PARTY", "RELIGIOUS_CHURCH_GROUPS", "OTHER", "REGISTRABLE_BODY", "INDIGENOUS_CORPORATION", "REGISTERED_ORGANISATION", "COOPERATIVE", "TRUST", "EDUCATIONAL_INSTITUTION", "COMMONWEALTH_ENTITY", "STATUTORY_BODY", "TRADING_COOPERATIVE", "COMPANY_LIMITED_BY_GUARANTEE", "NON_DISTRIBUTING_COOPERATIVE", "NON_TRADING_COOPERATIVE", "CHARITABLE_TRUST", "PUBLIC_PRIVATE_ANCILLARY_FUND", "PEAK_STATE_TERRITORY_BODY", "NOT_FOR_PROFIT_COMMUNITY_GROUP" ]
+      "enum" : [ "COMPANY", "REGISTERED_BUSINESS", "SOLE_TRADER", "PARTNERSHIP", "TRADEMARK_OWNER", "PENDING_TM_OWNER", "CITIZEN_RESIDENT", "INCORPORATED_ASSOCIATION", "UNINCORPORATED_ASSOCIATION", "CLUB", "NON_PROFIT_ORGANISATION", "CHARITY", "TRADE_UNION", "INDUSTRY_BODY", "COMMERCIAL_STATUTORY_BODY", "POLITICAL_PARTY", "RELIGIOUS_CHURCH_GROUPS", "OTHER", "REGISTRABLE_BODY", "INDIGENOUS_CORPORATION", "REGISTERED_ORGANISATION", "COOPERATIVE", "TRUST", "EDUCATIONAL_INSTITUTION", "COMMONWEALTH_ENTITY", "STATUTORY_BODY", "TRADING_COOPERATIVE", "COMPANY_LIMITED_BY_GUARANTEE", "NON_DISTRIBUTING_COOPERATIVE", "NON_TRADING_COOPERATIVE", "CHARITABLE_TRUST", "PUBLIC_PRIVATE_ANCILLARY_FUND", "PEAK_STATE_TERRITORY_BODY", "NOT_FOR_PROFIT_COMMUNITY_GROUP", "FOREIGN_EMBASSY_OR_CONSULATE" ]
     },
     "AuRegistrantIdTypeConstants" : {
       "type" : "string",
@@ -22783,8 +22783,10 @@
           "description" : "The payment mode of the customer."
         },
         "paymentCurrency" : {
+          "type" : "string",
+          "example" : "EUR",
           "description" : "The payment currency of the customer.",
-          "$ref" : "#/definitions/Currency"
+          "x-custom-type" : "currency"
         },
         "paymentCurrencyExchangeFee" : {
           "type" : "number",
@@ -22983,29 +22985,39 @@
         },
         "id" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "description" : "The unique identifier of the document"
         },
         "comment" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Document comment"
         },
         "type" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "- tmchMarkDocument \n - contactDocument",
+          "description" : "Type of document, related to InternetX."
         },
         "mimeType" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "application/pdf (invalid for contact document)\nimage/png\nimage/jpeg \ntext/xml (invalid for contact document)\nimage/gif (invalid for contact document)",
+          "description" : "MIME type (Multipurpose Internet Mail Extensions) \n Which MimeType is valid depends on the type of document"
         },
         "data" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "The file in binary format"
         },
         "size" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "description" : "Document size\n(Maximum size for contact documents is 2MB)"
         },
         "name" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Name of the document. Can be freely chosen"
         },
         "link" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Link created by Internetx to download invoices."
         },
         "uuid" : {
           "type" : "string",
@@ -24754,8 +24766,8 @@
         },
         "pcode" : {
           "type" : "string",
-          "example" : "93055",
-          "description" : "The postal code (“zip-code”) of the contact."
+          "example" : "Canada: M5V 3H5, H3Z2Y7 \nNorway: 0010 \nPoland: 12-345 \nSpain: 28040",
+          "description" : "The postal code (“zip-code”) of the contact. For countries Canada, Norway, Poland and Spain the format of the postal code is checked for validity. \nCanada (ca): Six characters in the following format 'LNL NLN', where 'L' represents a letter and 'N' represents a number. \nNorway (co): Four characters between 0001 and 9990. \nPoland (pl): Consists of five digits, with a hyphen ('-') between the second and third digits. \nSpain (es): Consisting of exactly five digits. No letters or special characters, only numbers. Each of the five positions can be any digit from 0 to 9."
         },
         "phone" : {
           "type" : "string",
@@ -25847,29 +25859,39 @@
         },
         "id" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "description" : "The unique identifier of the document"
         },
         "comment" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Document comment"
         },
         "type" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "- tmchMarkDocument \n - contactDocument",
+          "description" : "Type of document, related to InternetX."
         },
         "mimeType" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "application/pdf (invalid for contact document)\nimage/png\nimage/jpeg \ntext/xml (invalid for contact document)\nimage/gif (invalid for contact document)",
+          "description" : "MIME type (Multipurpose Internet Mail Extensions) \n Which MimeType is valid depends on the type of document"
         },
         "data" : {
-          "type" : "string"
+          "type" : "string",
+          "example" : "The file in binary format"
         },
         "size" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "description" : "Document size\n(Maximum size for contact documents is 2MB)"
         },
         "name" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Name of the document. Can be freely chosen"
         },
         "link" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Link created by Internetx to download invoices."
         }
       }
     },
@@ -28415,7 +28437,7 @@
       "properties" : {
         "type" : {
           "type" : "string",
-          "description" : "Object type.\nPossible values:\ndomain, handle, zone, domainzone (domain and zone), domain_prereg (preregistration), server_redirect (redirect), backup_mx, tmch_mark, externalAccounting, nic_response, nic_code, contact, address, \nExternalCustomer authinfo adminContact registry_status name discount uri tmch_mark contact/document vmcLogo customer ParkingDomain user billing_event safeuser contact_document version revision trusted_application dns-check error certificate key[] seo_domain_data message, \nexecdate redirect nic allow_transfer_from conditions[].operator conditions[].value nserver record accounting_document workflow_job domain_monitoring ownerc identifier context_configuration quota sepa_xml acl periodic_billing context_host CertificateData,\nschedule zone_log_id customerPriceList safeuser price symantec_reissue dispute irtp safecontact pushcode customerGroupProduct revision article_package microservice ns_virtual document document/type extension/au_registrant_id extension/au_eligibility_id mailproxy,\nbulk_job gaining_registrar gaining_registrar2 nameServers\n"
+          "description" : "Object type.\n\nPossible values:\n\ndomain\nhandle\nzone\ndomainzone (domain and zone)\ndomain_prereg (preregistration)\nserver_redirect (redirect)\nbackup_mx\ntmch_mark"
         },
         "value" : {
           "type" : "string",
@@ -33238,7 +33260,7 @@
     },
     "Redirect" : {
       "type" : "object",
-      "required" : [ "mode", "type" ],
+      "required" : [ "mode", "source", "target", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33260,11 +33282,11 @@
         },
         "source" : {
           "type" : "string",
-          "description" : "The domain to be redirected. Enter the domain with or without \"www\"."
+          "description" : "The domain/email to be redirected. Enter the domain with or without \"www\"."
         },
         "target" : {
           "type" : "string",
-          "description" : "The URL of the target domain. Enter the domain without \"http://\""
+          "description" : "The URL of the target domain/email. Enter the domain without \"http://\""
         },
         "type" : {
           "description" : "Redirect type",
@@ -33280,7 +33302,7 @@
         },
         "title" : {
           "type" : "string",
-          "description" : "Name of the redirection"
+          "description" : "Only for the 'frame' mode. Page title to be displayed in the browser title bar."
         },
         "backups" : {
           "type" : "array",
@@ -35843,7 +35865,7 @@
         "name" : {
           "type" : "string",
           "description" : "Custom name of the name server group.",
-          "pattern" : "(?i)\\b(?!default\\b)\\w+"
+          "pattern" : "\\b(?!default\\b)\\w+"
         },
         "useDefaultIps" : {
           "type" : "boolean",
