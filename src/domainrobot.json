@@ -1535,6 +1535,11 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "label",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "in" : "body",
           "name" : "body",
           "description" : "externalCustomers",
@@ -1646,10 +1651,10 @@
     },
     "/bulk/contact/_domainSafe" : {
       "put" : {
-        "tags" : [ "Domain Tasks" ],
+        "tags" : [ "Contact Tasks" ],
         "summary" : "Safe Object Contact Create Bulk (0601)",
         "description" : "Adding several contacts in the DomainSafe with one request.",
-        "operationId" : "domainsAddDomainSafe",
+        "operationId" : "contactsAddDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
@@ -1735,10 +1740,10 @@
         }
       },
       "delete" : {
-        "tags" : [ "Domain Tasks" ],
+        "tags" : [ "Contact Tasks" ],
         "summary" : "Safe Object Contact Delete Bulk (0603)",
         "description" : "Deleting several contacts from the DomainSafe with one request.",
-        "operationId" : "domainsDeleteDomainSafe",
+        "operationId" : "contactsDeleteDomainSafe",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "X-Domainrobot-Domain-Safe-Pin",
