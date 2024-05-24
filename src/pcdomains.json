@@ -458,15 +458,16 @@
             "in": "body",
             "description": "The token to search after",
             "required": true,
-            "type": "string"
+            "schema" : {
+              "$ref" : "#/definitions/SocialMedia"
+            }
           },
           {
             "name": "platforms",
             "in": "body",
             "description": "The platforms to check",
             "required": true,
-            "type": "array",
-            "items": {
+            "schema": {
               "$ref" : "#/definitions/Platform"
             }
           }
