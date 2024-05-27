@@ -23257,14 +23257,14 @@
         },
         "email" : {
           "type" : "string",
-          "description" : "The email address to verify"
+          "description" : "The email address that will be verified."
         },
         "status" : {
-          "description" : "The status of the verification",
+          "description" : "Status of the verification process.",
           "$ref" : "#/definitions/GenericStatusConstants"
         },
         "customer" : {
-          "description" : "The related customer",
+          "description" : "The customer whose email address is being verified.",
           "$ref" : "#/definitions/GenericCustomer"
         }
       }
@@ -33085,6 +33085,18 @@
           "type" : "string",
           "description" : "prefix of the price class"
         },
+        "errorProductPriceTemplate" : {
+          "description" : "ProductPriceTemplate",
+          "$ref" : "#/definitions/ProductPriceTemplate"
+        },
+        "errorPriceClassTemplate" : {
+          "description" : "PriceClassTemplate",
+          "$ref" : "#/definitions/PriceClassTemplate"
+        },
+        "errorMessage" : {
+          "type" : "string",
+          "description" : "the error message from job "
+        },
         "priceClassType" : {
           "type" : "string",
           "description" : "type of the priceClass article "
@@ -33196,6 +33208,12 @@
           "type" : "number",
           "format" : "double",
           "description" : "The actual amount, before the price change processing"
+        },
+        "actualCurrency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Actual currency ",
+          "x-custom-type" : "actualCurrency"
         },
         "purchaseAmount" : {
           "type" : "number",
@@ -33502,6 +33520,12 @@
           "type" : "number",
           "format" : "double",
           "description" : "The actual amount, before the price change processing"
+        },
+        "actualCurrency" : {
+          "type" : "string",
+          "example" : "EUR",
+          "description" : "Actual currency ",
+          "x-custom-type" : "actualCurrency"
         },
         "purchaseAmount" : {
           "type" : "number",
