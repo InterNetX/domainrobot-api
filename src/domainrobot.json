@@ -26996,6 +26996,11 @@
           "description" : "User who performed the last update.",
           "$ref" : "#/definitions/User"
         },
+        "minPrice" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Sedo Make-Offer minimum price."
+        },
         "premiumStatus" : {
           "example" : "FREE, ASSIGNED, INACTIVE, EAP, ON_HOLD, OFFERED, SYNC_ERROR",
           "description" : "The domain status.",
@@ -29255,7 +29260,7 @@
           "items" : {
             "$ref" : "#/definitions/IpRestriction"
           },
-          "maxItems" : 30,
+          "maxItems" : 50,
           "minItems" : 0
         }
       }
