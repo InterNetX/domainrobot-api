@@ -29310,15 +29310,15 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "example" : "drop, create, transfer, renew, ownerchange, delete",
-          "description" : "The action, which the job is supposed to do."
-        },
         "subType" : {
           "type" : "string",
           "example" : "GLOBALSIGN_PERSONALSIGN_2, COMODO_SSL, COMODO_SSL_PREMIUM, SECURESITEPRO",
           "description" : "The job subtype. "
+        },
+        "action" : {
+          "type" : "string",
+          "example" : "drop, create, transfer, renew, ownerchange, delete",
+          "description" : "The action, which the job is supposed to do."
         },
         "id" : {
           "type" : "integer",
@@ -35271,6 +35271,9 @@
           "format" : "int32"
         },
         "numeric" : {
+          "type" : "boolean"
+        },
+        "sedo_mls" : {
           "type" : "boolean"
         }
       }
