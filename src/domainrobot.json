@@ -2533,7 +2533,7 @@
           "description" : "domains",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/BulkDomainDeleteRequest"
+            "$ref" : "#/definitions/BulkDomainPostRequest"
           }
         } ],
         "responses" : {
@@ -9490,7 +9490,7 @@
       "post" : {
         "tags" : [ "Domain Tasks" ],
         "summary" : "Domain List (0105)",
-        "description" : "Inquiring a list of domains with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: sld, subtld, tld, status, authinfo, expire, comment, ownerc, updated, zonec, nserver, techc, adminc,  certificate, created, autorenew.",
+        "description" : "Inquiring a list of domains with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: sld, subtld, tld, status, authinfo, expire, comment, ownerc, updated, zonec, nserver, techc, adminc,  certificate, created, autorenew, cancelationStatus.",
         "operationId" : "domainList",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -9575,7 +9575,7 @@
           "items" : {
             "type" : "string",
             "example" : "?keys[]=expire",
-            "enum" : [ "{sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "certificate", "created", "autorenew}" ]
+            "enum" : [ "{sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "certificate", "created", "autorenew", "cancelationStatus}" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=expire"
@@ -27632,10 +27632,9 @@
           "description" : "The currency of the sale",
           "x-custom-type" : "currency"
         },
-        "price" : {
-          "type" : "number",
-          "format" : "double",
-          "description" : "The price to use"
+        "fixedPrice" : {
+          "type" : "boolean",
+          "description" : "Is the price fix"
         },
         "keywords" : {
           "type" : "array",
@@ -27644,14 +27643,11 @@
             "type" : "string"
           }
         },
-        "fixedPrice" : {
-          "type" : "boolean",
-          "description" : "Is the price fix"
-        },
         "minPrice" : {
           "type" : "number",
           "format" : "double",
-          "description" : "The minimum of price"
+          "example" : 50.0,
+          "description" : "The minimum of price. Has to be between 0 and 16777215."
         },
         "mode" : {
           "description" : "The mode.",
@@ -29396,15 +29392,15 @@
             "$ref" : "#/definitions/WorkflowEvent"
           }
         },
-        "action" : {
-          "type" : "string",
-          "example" : "drop, create, transfer, renew, ownerchange, delete",
-          "description" : "The action, which the job is supposed to do."
-        },
         "subType" : {
           "type" : "string",
           "example" : "GLOBALSIGN_PERSONALSIGN_2, COMODO_SSL, COMODO_SSL_PREMIUM, SECURESITEPRO",
           "description" : "The job subtype. "
+        },
+        "action" : {
+          "type" : "string",
+          "example" : "drop, create, transfer, renew, ownerchange, delete",
+          "description" : "The action, which the job is supposed to do."
         },
         "id" : {
           "type" : "integer",
