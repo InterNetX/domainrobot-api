@@ -26208,6 +26208,10 @@
         "ticketNumber" : {
           "type" : "string",
           "description" : "The ticketing number if available."
+        },
+        "noSap" : {
+          "type" : "boolean",
+          "description" : "If sap is set or not"
         }
       }
     },
@@ -26970,10 +26974,6 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "Date of the last update."
-        },
-        "data" : {
-          "type" : "string",
-          "description" : "The data"
         }
       }
     },
@@ -33222,7 +33222,7 @@
     },
     "PriceChangeStatusConstants" : {
       "type" : "string",
-      "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET", "CONFIRMED", "FINISHED" ]
+      "enum" : [ "PENDING", "SUCCESS", "FAILED", "NOT_SET", "CONFIRMED", "FINISHED", "PREPARE" ]
     },
     "PriceChangeTypeConstants" : {
       "type" : "string",
@@ -33945,7 +33945,7 @@
     },
     "RelativeConstants" : {
       "type" : "string",
-      "enum" : [ "FIX", "RELATIVE_PERCENT", "RELATIVE_AMOUNT", "DELETE" ]
+      "enum" : [ "FIX", "RELATIVE_PERCENT", "RELATIVE_AMOUNT", "DELETE", "REPLACE" ]
     },
     "RenewStatusConstants" : {
       "type" : "string",
