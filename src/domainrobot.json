@@ -5703,6 +5703,97 @@
         }
       }
     },
+    "/bulk/zone/_restore" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "restore Zones (0226)",
+        "description" : "Restoring several specified zones with one request.",
+        "operationId" : "zoneRestores",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zones",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BulkZonePostRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
     "/certificate" : {
       "post" : {
         "tags" : [ "Certificate Tasks" ],
@@ -17914,7 +18005,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -18533,7 +18624,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19217,7 +19308,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19317,7 +19408,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19417,7 +19508,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19524,7 +19615,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19618,7 +19709,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19725,7 +19816,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19827,7 +19918,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -19927,7 +20018,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -20029,7 +20120,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -20443,7 +20534,7 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataUser"
+              "$ref" : "#/definitions/JsonResponseDataBasicUser"
             }
           }
         }
@@ -22330,6 +22421,107 @@
         }
       }
     },
+    "/zone/{name}/{systemNameServer}/_restore" : {
+      "post" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Zone Restore (0226)",
+        "description" : "Restoring the specified zone.",
+        "operationId" : "zoneRestore",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "systemNameServer",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "zone",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Zone"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
     "/zone/{name}/{systemNameServer}/zoneQuery/_search" : {
       "post" : {
         "tags" : [ "ZoneQuery Tasks" ],
@@ -22556,11 +22748,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "type" : {
           "type" : "string",
@@ -22615,11 +22807,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "language" : {
           "type" : "string",
@@ -22658,11 +22850,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "description" : "The domain.",
@@ -22725,11 +22917,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -22913,7 +23105,7 @@
           "type" : "array",
           "description" : "The billing users.",
           "items" : {
-            "$ref" : "#/definitions/User"
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "comments" : {
@@ -23035,11 +23227,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -23208,16 +23400,41 @@
         },
         "owner" : {
           "description" : "The owner of the object.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "expire" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The expire date."
+        }
+      }
+    },
+    "BasicUser" : {
+      "type" : "object",
+      "required" : [ "context", "user" ],
+      "properties" : {
+        "context" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The context. A separated section."
+        },
+        "passwordChanged" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password has changed"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "The passwordExpired boolean"
+        },
+        "user" : {
+          "type" : "string",
+          "description" : "The user name.",
+          "pattern" : "^[^_].*"
         }
       }
     },
@@ -23243,11 +23460,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
           "description" : "Billing status of the subscription.",
@@ -23301,7 +23518,7 @@
       "required" : [ "user" ],
       "properties" : {
         "user" : {
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "entries" : {
           "type" : "array",
@@ -23367,11 +23584,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "cancelation" : {
           "$ref" : "#/definitions/TimePeriod"
@@ -24362,11 +24579,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -24881,7 +25098,7 @@
           "type" : "string"
         },
         "user" : {
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -24925,11 +25142,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "alias" : {
           "type" : "string",
@@ -25707,11 +25924,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "reference" : {
           "type" : "string",
@@ -26195,11 +26412,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -26463,11 +26680,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "type" : "string",
@@ -26716,11 +26933,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -26882,11 +27099,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "minPrice" : {
           "type" : "number",
@@ -26915,11 +27132,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "ownerc" : {
           "description" : "The owner contact.",
@@ -27102,11 +27319,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -27344,11 +27561,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -27393,11 +27610,11 @@
         },
         "owner" : {
           "description" : "The owner of the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating user of the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updated" : {
           "type" : "string",
@@ -28605,11 +28822,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "amount" : {
           "type" : "number",
@@ -28764,11 +28981,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "provider" : {
           "description" : "The provider of the external_accounting",
@@ -28869,7 +29086,7 @@
         },
         "billing" : {
           "description" : "The billing user.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "externalReference" : {
           "type" : "string",
@@ -29009,11 +29226,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -29172,11 +29389,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
           "description" : "Defines the status of a job.",
@@ -29389,6 +29606,41 @@
           "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the ResponseObject value of the response.",
           "items" : {
             "$ref" : "#/definitions/BackupMx"
+          }
+        },
+        "ctid" : {
+          "type" : "string",
+          "description" : "The CTID (Client Transaction ID) of the response."
+        }
+      }
+    },
+    "JsonResponseDataBasicUser" : {
+      "type" : "object",
+      "properties" : {
+        "stid" : {
+          "type" : "string",
+          "description" : "The server transaction ID for the response."
+        },
+        "messages" : {
+          "type" : "array",
+          "description" : "The messages belonging to the response.",
+          "items" : {
+            "$ref" : "#/definitions/Message"
+          }
+        },
+        "status" : {
+          "description" : "The status of the response.",
+          "$ref" : "#/definitions/ResponseStatus"
+        },
+        "object" : {
+          "description" : "The response object.",
+          "$ref" : "#/definitions/ResponseObject"
+        },
+        "data" : {
+          "type" : "array",
+          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the ResponseObject value of the response.",
+          "items" : {
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "ctid" : {
@@ -31891,11 +32143,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "target" : {
           "type" : "string",
@@ -32267,11 +32519,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "protocolType" : {
           "description" : "The type of protocol",
@@ -32372,7 +32624,7 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -32386,11 +32638,11 @@
         },
         "source" : {
           "description" : "The user that currently has the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "target" : {
           "description" : "The user that should receive the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -32452,11 +32704,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
           "description" : "Billing status of the subscription.",
@@ -32575,7 +32827,7 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "job" : {
           "description" : "The job data. Available if the message is a job message",
@@ -32759,11 +33011,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "amount" : {
           "type" : "number",
@@ -32874,11 +33126,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -33158,11 +33410,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -33314,11 +33566,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "article" : {
           "description" : "Article",
@@ -33459,11 +33711,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -33668,11 +33920,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "source" : {
           "type" : "string",
@@ -33971,11 +34223,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "key" : {
           "type" : "string",
@@ -34241,11 +34493,11 @@
         },
         "owner" : {
           "description" : "The owner of the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "The updating using of the object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -34393,11 +34645,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -34414,7 +34666,7 @@
         },
         "billing" : {
           "description" : "Billing user",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "product" : {
           "description" : "Name of the product",
@@ -34516,11 +34768,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "status" : {
           "description" : "Billing status of the subscription.",
@@ -34673,7 +34925,7 @@
         },
         "user" : {
           "description" : "The affected user ",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -34682,7 +34934,7 @@
       "required" : [ "user" ],
       "properties" : {
         "user" : {
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "entries" : {
           "type" : "array",
@@ -35235,11 +35487,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "reference" : {
           "type" : "string"
@@ -35358,11 +35610,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
@@ -35502,7 +35754,7 @@
           "type" : "string"
         },
         "user" : {
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         }
       }
     },
@@ -35556,11 +35808,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "type" : "string",
@@ -35633,11 +35885,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "domain" : {
           "type" : "string",
@@ -35719,15 +35971,15 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "user" : {
           "description" : "The user the trusted application belongs to.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "uuid" : {
           "type" : "string",
@@ -35803,10 +36055,54 @@
       "type" : "object",
       "required" : [ "context", "user" ],
       "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The user created date."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The user updated date."
+        },
         "context" : {
           "type" : "integer",
           "format" : "int32",
           "description" : "The context. A separated section."
+        },
+        "password" : {
+          "type" : "string",
+          "description" : "User password."
+        },
+        "defaultEmail" : {
+          "type" : "string",
+          "description" : "The default email."
+        },
+        "status" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "User status."
+        },
+        "substatus" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "User substatus of the User."
+        },
+        "authType" : {
+          "description" : "Authentication type, e.g. password or TOTP.",
+          "$ref" : "#/definitions/AuthType"
+        },
+        "details" : {
+          "description" : "The user details.",
+          "$ref" : "#/definitions/UserDetails"
+        },
+        "lock" : {
+          "description" : "Defines the type of user lock.",
+          "$ref" : "#/definitions/UserLock"
+        },
+        "oldPassword" : {
+          "type" : "string",
+          "description" : "The old password."
         },
         "passwordChanged" : {
           "type" : "string",
@@ -35817,10 +36113,96 @@
           "type" : "boolean",
           "description" : "The passwordExpired boolean"
         },
+        "acls" : {
+          "description" : "User privileges.",
+          "$ref" : "#/definitions/UserAcls"
+        },
+        "profiles" : {
+          "description" : "User profile.",
+          "$ref" : "#/definitions/UserProfileViews"
+        },
+        "serviceProfiles" : {
+          "description" : "Wrapper for the service user profiles.",
+          "$ref" : "#/definitions/ServiceProfiles"
+        },
+        "ancestors" : {
+          "type" : "array",
+          "description" : "The ancestors of the user.",
+          "items" : {
+            "$ref" : "#/definitions/BasicUser"
+          }
+        },
+        "customer" : {
+          "description" : "Customer to which this user belongs.",
+          "$ref" : "#/definitions/BasicCustomer"
+        },
+        "nameServerGroups" : {
+          "type" : "array",
+          "description" : "The available name server groups",
+          "items" : {
+            "$ref" : "#/definitions/VirtualNameServerGroup"
+          }
+        },
+        "subscriptions" : {
+          "type" : "array",
+          "description" : "Different subscriptions of the users.",
+          "items" : {
+            "$ref" : "#/definitions/Subscription"
+          }
+        },
+        "applications" : {
+          "type" : "array",
+          "description" : "Trusted applications of the user.",
+          "items" : {
+            "$ref" : "#/definitions/TrustedApplication"
+          }
+        },
+        "restrictions" : {
+          "description" : "Grouping object for specifying the user's IP networks.",
+          "$ref" : "#/definitions/IpRestrictions"
+        },
+        "customerLevel" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The actual customer level for the user."
+        },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
           "pattern" : "^[^_].*"
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The language for the user. The setting affects \nthe user interface language and system messages.\nPossible values:\nde\nen\nes."
+        },
+        "parent" : {
+          "description" : "Parent user.",
+          "$ref" : "#/definitions/User"
+        },
+        "directCustomer" : {
+          "type" : "boolean",
+          "description" : "Specifies whether the user is a direct customer of the user.\nfalse = No direct customer\ntrue = direct customer\nDefault value = false\nFor XML, 0 (false) and 1 (true) can also be used."
+        },
+        "clientAccounts" : {
+          "type" : "array",
+          "description" : "The client accounting datas for the user.",
+          "items" : {
+            "$ref" : "#/definitions/ExternalAccounting"
+          }
+        },
+        "tasklimits" : {
+          "type" : "array",
+          "description" : "The task limits of the user.",
+          "items" : {
+            "$ref" : "#/definitions/TaskLimit"
+          }
+        },
+        "trusteeContacts" : {
+          "type" : "array",
+          "description" : "The trustee Contacts of the user.",
+          "items" : {
+            "$ref" : "#/definitions/TrusteeContact"
+          }
         }
       }
     },
@@ -35836,7 +36218,7 @@
           "description" : "The none locked children",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/User"
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "childrenLocked" : {
@@ -35855,14 +36237,14 @@
           "type" : "array",
           "description" : "Children to remove from the exception list",
           "items" : {
-            "$ref" : "#/definitions/User"
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "childrenAdd" : {
           "type" : "array",
           "description" : "Children to add to the exception list",
           "items" : {
-            "$ref" : "#/definitions/User"
+            "$ref" : "#/definitions/BasicUser"
           }
         },
         "restriction" : {
@@ -35877,7 +36259,7 @@
       "properties" : {
         "user" : {
           "description" : "The user which has been effected",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "acls" : {
           "type" : "array",
@@ -35947,11 +36329,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "key" : {
           "type" : "string",
@@ -35990,11 +36372,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "key" : {
           "type" : "string",
@@ -36047,11 +36429,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "date" : {
           "type" : "string",
@@ -36100,11 +36482,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "active" : {
           "type" : "boolean",
@@ -36144,11 +36526,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "name" : {
           "type" : "string",
@@ -36471,11 +36853,11 @@
         },
         "owner" : {
           "description" : "Owner of the zone object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who last updated the zone.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "logId" : {
           "type" : "integer",
@@ -36506,6 +36888,11 @@
         "purgeType" : {
           "description" : "Setting for automatic zone deletion.",
           "$ref" : "#/definitions/PurgeTypes"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of search."
         },
         "nameServers" : {
           "type" : "array",
@@ -36601,11 +36988,11 @@
         },
         "owner" : {
           "description" : "Owner of the zone object",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who last updated the zone.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "logId" : {
           "type" : "integer",
@@ -36636,6 +37023,11 @@
         "purgeType" : {
           "description" : "Setting for automatic zone deletion.",
           "$ref" : "#/definitions/PurgeTypes"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of search."
         },
         "zoneGrantsAdd" : {
           "type" : "array",
@@ -36801,11 +37193,11 @@
         },
         "owner" : {
           "description" : "The object owner.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "updater" : {
           "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/User"
+          "$ref" : "#/definitions/BasicUser"
         },
         "id" : {
           "type" : "integer",
