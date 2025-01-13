@@ -26565,20 +26565,20 @@
           "description" : "Removes pending services like BackupMX and MailProxy.",
           "$ref" : "#/definitions/DomainServices"
         },
-        "techc" : {
-          "description" : "The technical contact reference.",
-          "$ref" : "#/definitions/Contact"
-        },
-        "zonec" : {
-          "description" : "The dns contact.",
-          "$ref" : "#/definitions/Contact"
-        },
         "ownerc" : {
           "description" : "The owner contact.",
           "$ref" : "#/definitions/Contact"
         },
         "adminc" : {
           "description" : "The administrative contact.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact reference.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The dns contact.",
           "$ref" : "#/definitions/Contact"
         },
         "expire" : {
@@ -27138,20 +27138,20 @@
           "description" : "User who performed the last update.",
           "$ref" : "#/definitions/BasicUser"
         },
-        "techc" : {
-          "description" : "The technical contact reference.",
-          "$ref" : "#/definitions/Contact"
-        },
-        "zonec" : {
-          "description" : "The dns contact.",
-          "$ref" : "#/definitions/Contact"
-        },
         "ownerc" : {
           "description" : "The owner contact.",
           "$ref" : "#/definitions/Contact"
         },
         "adminc" : {
           "description" : "The administrative contact.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact reference.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The dns contact.",
           "$ref" : "#/definitions/Contact"
         },
         "name" : {
@@ -27482,20 +27482,20 @@
           "format" : "date-time",
           "description" : "The end of current restore phase"
         },
-        "techc" : {
-          "description" : "The technical contact reference.",
-          "$ref" : "#/definitions/Contact"
-        },
-        "zonec" : {
-          "description" : "The dns contact.",
-          "$ref" : "#/definitions/Contact"
-        },
         "ownerc" : {
           "description" : "The owner contact.",
           "$ref" : "#/definitions/Contact"
         },
         "adminc" : {
           "description" : "The administrative contact.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "techc" : {
+          "description" : "The technical contact reference.",
+          "$ref" : "#/definitions/Contact"
+        },
+        "zonec" : {
+          "description" : "The dns contact.",
           "$ref" : "#/definitions/Contact"
         },
         "expire" : {
