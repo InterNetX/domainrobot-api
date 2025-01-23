@@ -14428,6 +14428,88 @@
               "$ref" : "#/definitions/JsonResponseDataJsonNoData"
             }
           }
+        },
+        "deprecated" : true
+      },
+      "delete" : {
+        "tags" : [ "Session Tasks" ],
+        "summary" : "Logout (1321003)",
+        "description" : "Logging out and deleting the current session.",
+        "operationId" : "authSessionDelete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
         }
       }
     },
@@ -21223,6 +21305,94 @@
         }
       }
     },
+    "/zone/{name}" : {
+      "get" : {
+        "tags" : [ "Zone Tasks" ],
+        "summary" : "Zone Info (0205)",
+        "description" : "Inquiring the data for the specified zone.",
+        "operationId" : "zoneInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataZone"
+            }
+          }
+        }
+      }
+    },
     "/zone/{name}/_stream" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
@@ -23427,14 +23597,21 @@
           "format" : "date-time",
           "description" : "The date on which the password has changed"
         },
-        "passwordExpired" : {
-          "type" : "boolean",
-          "description" : "The passwordExpired boolean"
+        "passwordExpires" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password will expire",
+          "readOnly" : true
         },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
           "pattern" : "^[^_].*"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "Is the current password expired",
+          "readOnly" : true
         }
       }
     },
@@ -32092,18 +32269,25 @@
           "format" : "date-time",
           "description" : "The date on which the password has changed"
         },
-        "passwordExpired" : {
-          "type" : "boolean",
-          "description" : "The passwordExpired boolean"
-        },
         "token" : {
           "type" : "string",
           "description" : "The one time password in case of 2fa authentication."
+        },
+        "passwordExpires" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password will expire",
+          "readOnly" : true
         },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
           "pattern" : "^[^_].*"
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "Is the current password expired",
+          "readOnly" : true
         }
       }
     },
@@ -34024,7 +34208,7 @@
         },
         "type" : {
           "type" : "string",
-          "example" : "A, MX, CNAME, TXT, SRV, PTR, AAAA, NS, CAA, PROCEED_MUC, TLSA, NAPTR, SSHFP, LOC, RP, HINFO, PROCEED, ALIAS, DNSKEY, NSEC, DS",
+          "example" : "A, MX, CNAME, TXT, SRV, PTR, AAAA, NS, CAA, PROCEED_MUC, TLSA, NAPTR, SSHFP, LOC, RP, HINFO, PROCEED, ALIAS, DNSKEY, NSEC, DS, HTTPS, SVCB",
           "description" : "Resource record type\nFurther information about resource records:\nhttps://de.wikipedia.org/wiki/Resource_Record"
         },
         "value" : {
@@ -36109,10 +36293,6 @@
           "format" : "date-time",
           "description" : "The date on which the password has changed"
         },
-        "passwordExpired" : {
-          "type" : "boolean",
-          "description" : "The passwordExpired boolean"
-        },
         "acls" : {
           "description" : "User privileges.",
           "$ref" : "#/definitions/UserAcls"
@@ -36166,6 +36346,12 @@
           "format" : "int32",
           "description" : "The actual customer level for the user."
         },
+        "passwordExpires" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password will expire",
+          "readOnly" : true
+        },
         "user" : {
           "type" : "string",
           "description" : "The user name.",
@@ -36203,6 +36389,11 @@
           "items" : {
             "$ref" : "#/definitions/TrusteeContact"
           }
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "Is the current password expired",
+          "readOnly" : true
         }
       }
     },
