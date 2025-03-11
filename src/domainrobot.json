@@ -22801,7 +22801,6 @@
     },
     "Account" : {
       "type" : "object",
-      "required" : [ "customer" ],
       "properties" : {
         "customer" : {
           "description" : "The customer object.",
@@ -22876,7 +22875,6 @@
     },
     "Application" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -22904,7 +22902,6 @@
     },
     "Article" : {
       "type" : "object",
-      "required" : [ "label", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -23111,7 +23108,6 @@
     },
     "BasicCustomer" : {
       "type" : "object",
-      "required" : [ "addressLines", "client", "name", "number", "payment" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -23120,9 +23116,7 @@
         },
         "client" : {
           "type" : "string",
-          "description" : "Account Label.",
-          "minLength" : 1,
-          "maxLength" : 2147483647
+          "description" : "Account Label."
         },
         "group" : {
           "type" : "integer",
@@ -23132,9 +23126,7 @@
         },
         "name" : {
           "type" : "string",
-          "description" : "The name of the customer.",
-          "minLength" : 0,
-          "maxLength" : 255
+          "description" : "The name of the customer."
         },
         "type" : {
           "description" : "The type of the customer.",
@@ -23142,15 +23134,11 @@
         },
         "organization" : {
           "type" : "string",
-          "description" : "The name of the organization.",
-          "minLength" : 0,
-          "maxLength" : 35
+          "description" : "The name of the organization."
         },
         "organization2" : {
           "type" : "string",
-          "description" : "The second line for the name of the organization.",
-          "minLength" : 0,
-          "maxLength" : 35
+          "description" : "The second line for the name of the organization."
         },
         "vatNumber" : {
           "type" : "string",
@@ -23169,9 +23157,7 @@
           "description" : "The address of the customer",
           "items" : {
             "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 0
+          }
         },
         "city" : {
           "type" : "string",
@@ -23202,9 +23188,7 @@
           "description" : "The email addresses.",
           "items" : {
             "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
+          }
         },
         "billingEmails" : {
           "type" : "array",
@@ -23357,15 +23341,11 @@
         },
         "fname" : {
           "type" : "string",
-          "description" : "The first name.",
-          "minLength" : 0,
-          "maxLength" : 35
+          "description" : "The first name."
         },
         "lname" : {
           "type" : "string",
-          "description" : "The last name.",
-          "minLength" : 0,
-          "maxLength" : 35
+          "description" : "The last name."
         },
         "pcode" : {
           "type" : "string",
@@ -23383,7 +23363,6 @@
     },
     "BasicCustomerContact" : {
       "type" : "object",
-      "required" : [ "customer", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -23512,7 +23491,6 @@
     },
     "BasicDocument" : {
       "type" : "object",
-      "required" : [ "uuid" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -23585,7 +23563,6 @@
     },
     "BasicUser" : {
       "type" : "object",
-      "required" : [ "context", "user" ],
       "properties" : {
         "context" : {
           "type" : "integer",
@@ -23600,24 +23577,20 @@
         "passwordExpires" : {
           "type" : "string",
           "format" : "date-time",
-          "description" : "The date on which the password will expire",
-          "readOnly" : true
+          "description" : "The date on which the password will expire"
         },
         "user" : {
           "type" : "string",
-          "description" : "The user name.",
-          "pattern" : "^[^_].*"
+          "description" : "The user name."
         },
         "passwordExpired" : {
           "type" : "boolean",
-          "description" : "Is the current password expired",
-          "readOnly" : true
+          "description" : "Is the current password expired"
         }
       }
     },
     "BillingEvent" : {
       "type" : "object",
-      "required" : [ "payable" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -23692,7 +23665,6 @@
     },
     "BillingLimit" : {
       "type" : "object",
-      "required" : [ "user" ],
       "properties" : {
         "user" : {
           "$ref" : "#/definitions/BasicUser"
@@ -23747,7 +23719,6 @@
     },
     "BillingObjectTerm" : {
       "type" : "object",
-      "required" : [ "cancelation", "customer", "initial", "renew" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -24576,7 +24547,6 @@
     },
     "BusinessCase" : {
       "type" : "object",
-      "required" : [ "label" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -24742,7 +24712,6 @@
     },
     "Certificate" : {
       "type" : "object",
-      "required" : [ "lifetime", "product" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -24880,8 +24849,7 @@
         },
         "password" : {
           "type" : "string",
-          "description" : "The password that is to be used for the certificate download. Only for S/MIME!",
-          "pattern" : "^[a-zA-Z0-9]{8,32}$"
+          "description" : "The password that is to be used for the certificate download. Only for S/MIME!"
         },
         "firstname" : {
           "type" : "string",
@@ -25299,7 +25267,6 @@
     },
     "Contact" : {
       "type" : "object",
-      "required" : [ "address", "city", "country", "lname", "pcode", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -25413,9 +25380,7 @@
           "description" : "Street or post box. Depending on the registry, up to 65,536 characters may be possible.",
           "items" : {
             "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
+          }
         },
         "pcode" : {
           "type" : "string",
@@ -25582,7 +25547,6 @@
     },
     "ContactDocument" : {
       "type" : "object",
-      "required" : [ "contact", "document", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26087,7 +26051,6 @@
     },
     "ContactVerification" : {
       "type" : "object",
-      "required" : [ "confirmIp", "contact" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26363,7 +26326,6 @@
     },
     "Custom" : {
       "type" : "object",
-      "required" : [ "key" ],
       "properties" : {
         "key" : {
           "type" : "string",
@@ -26373,7 +26335,6 @@
     },
     "CustomerContract" : {
       "type" : "object",
-      "required" : [ "contract" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26384,6 +26345,12 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "Date of the last update."
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "description" : "The unique identifier of the customerContract"
         },
         "contract" : {
           "description" : "The contract.",
@@ -26417,7 +26384,6 @@
     },
     "CustomerPriceList" : {
       "type" : "object",
-      "required" : [ "customer" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26445,7 +26411,6 @@
     },
     "CustomerTag" : {
       "type" : "object",
-      "required" : [ "tag" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26469,7 +26434,6 @@
     },
     "DNSSec" : {
       "type" : "object",
-      "required" : [ "algorithm", "flags", "protocol", "publicKey" ],
       "properties" : {
         "algorithm" : {
           "type" : "integer",
@@ -26479,9 +26443,7 @@
         "flags" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "DNSSEC type\nSupported values:\n256 (zone signing key)\n257 (key signing key)",
-          "minimum" : 256,
-          "maximum" : 257
+          "description" : "DNSSEC type\nSupported values:\n256 (zone signing key)\n257 (key signing key)"
         },
         "protocol" : {
           "type" : "integer",
@@ -26490,8 +26452,7 @@
         },
         "publicKey" : {
           "type" : "string",
-          "description" : "The public key. With the pattern ^[\\sA-Za-z0-9+\\/]+[=]*$",
-          "pattern" : "^[\\sa-zA-Z0-9+\\/\\n=]{8,}$"
+          "description" : "The public key. With the pattern ^[\\sA-Za-z0-9+\\/]+[=]*$"
         }
       }
     },
@@ -26575,7 +26536,6 @@
     },
     "Domain" : {
       "type" : "object",
-      "required" : [ "name", "payable", "removeCancelation" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -26843,7 +26803,6 @@
     },
     "DomainCancelation" : {
       "type" : "object",
-      "required" : [ "domain", "execution", "registryWhen", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27096,7 +27055,6 @@
     },
     "DomainMonitoring" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27156,9 +27114,7 @@
           "description" : "Email addresses to which an email is sent when the status changes.",
           "items" : {
             "type" : "string"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
+          }
         }
       }
     },
@@ -27219,7 +27175,6 @@
     },
     "DomainPremium" : {
       "type" : "object",
-      "required" : [ "name", "priceClass", "provider" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27482,7 +27437,6 @@
     },
     "DomainRestore" : {
       "type" : "object",
-      "required" : [ "name", "payable", "removeCancelation" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27724,7 +27678,6 @@
     },
     "DomainSafeAccount" : {
       "type" : "object",
-      "required" : [ "mobile", "pin" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -27771,7 +27724,6 @@
     },
     "DomainSafeObject" : {
       "type" : "object",
-      "required" : [ "name", "type" ],
       "properties" : {
         "type" : {
           "type" : "string",
@@ -27802,7 +27754,6 @@
     },
     "DomainSafeUser" : {
       "type" : "object",
-      "required" : [ "context", "user" ],
       "properties" : {
         "context" : {
           "type" : "integer",
@@ -28979,7 +28930,6 @@
     },
     "ExchangedPrice" : {
       "type" : "object",
-      "required" : [ "amount", "currency" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -29187,9 +29137,7 @@
         "priceMarkup" : {
           "type" : "number",
           "format" : "double",
-          "description" : "markup value in percent or absolute",
-          "minimum" : 0,
-          "maximum" : 10000
+          "description" : "markup value in percent or absolute"
         },
         "priceRounding" : {
           "description" : "The type of rounding",
@@ -29242,7 +29190,6 @@
     },
     "ExternalCustomer" : {
       "type" : "object",
-      "required" : [ "client", "number" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -29251,9 +29198,7 @@
         },
         "client" : {
           "type" : "string",
-          "description" : "Account Label.",
-          "minLength" : 1,
-          "maxLength" : 2147483647
+          "description" : "Account Label."
         },
         "group" : {
           "type" : "integer",
@@ -29302,7 +29247,6 @@
     },
     "GenericCustomer" : {
       "type" : "object",
-      "required" : [ "client", "number" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -29311,9 +29255,7 @@
         },
         "client" : {
           "type" : "string",
-          "description" : "Account Label.",
-          "minLength" : 1,
-          "maxLength" : 2147483647
+          "description" : "Account Label."
         },
         "group" : {
           "type" : "integer",
@@ -29325,7 +29267,6 @@
     },
     "GenericLabelEntity" : {
       "type" : "object",
-      "required" : [ "label" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -29506,7 +29447,6 @@
     },
     "IpRestriction" : {
       "type" : "object",
-      "required" : [ "address", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -29541,9 +29481,7 @@
           "description" : "A list of ip restrictions",
           "items" : {
             "$ref" : "#/definitions/IpRestriction"
-          },
-          "maxItems" : 50,
-          "minItems" : 0
+          }
         }
       }
     },
@@ -32253,7 +32191,6 @@
     },
     "LoginData" : {
       "type" : "object",
-      "required" : [ "context", "user" ],
       "properties" : {
         "context" : {
           "type" : "integer",
@@ -32269,25 +32206,22 @@
           "format" : "date-time",
           "description" : "The date on which the password has changed"
         },
+        "passwordExpires" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password will expire"
+        },
         "token" : {
           "type" : "string",
           "description" : "The one time password in case of 2fa authentication."
         },
-        "passwordExpires" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date on which the password will expire",
-          "readOnly" : true
-        },
         "user" : {
           "type" : "string",
-          "description" : "The user name.",
-          "pattern" : "^[^_].*"
+          "description" : "The user name."
         },
         "passwordExpired" : {
           "type" : "boolean",
-          "description" : "Is the current password expired",
-          "readOnly" : true
+          "description" : "Is the current password expired"
         }
       }
     },
@@ -32499,7 +32433,6 @@
     },
     "Modifier" : {
       "type" : "object",
-      "required" : [ "type" ],
       "properties" : {
         "search" : {
           "type" : "string",
@@ -32524,7 +32457,6 @@
     },
     "NameServer" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "name" : {
           "type" : "string",
@@ -32689,7 +32621,6 @@
     },
     "OTPAuth" : {
       "type" : "object",
-      "required" : [ "algorithm", "digits", "protocolType", "timeout" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -32720,16 +32651,12 @@
         "timeout" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "Timeout in seconds",
-          "minimum" : 5,
-          "maximum" : 90
+          "description" : "Timeout in seconds"
         },
         "digits" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The length of the token",
-          "minimum" : 6,
-          "maximum" : 8
+          "description" : "The length of the token"
         },
         "secret" : {
           "type" : "string",
@@ -32800,7 +32727,6 @@
     },
     "ObjectUserAssignment" : {
       "type" : "object",
-      "required" : [ "name", "owner", "type" ],
       "properties" : {
         "type" : {
           "type" : "string",
@@ -32812,9 +32738,7 @@
         },
         "name" : {
           "type" : "string",
-          "description" : "Name of the object to be reassigned.",
-          "minLength" : 1,
-          "maxLength" : 2147483647
+          "description" : "Name of the object to be reassigned."
         },
         "cancelation" : {
           "description" : "Mode when assigning domains with an active cancelation.",
@@ -32868,7 +32792,6 @@
     },
     "PeriodicBilling" : {
       "type" : "object",
-      "required" : [ "payable" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33061,7 +32984,6 @@
     },
     "PreregConfig" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33175,7 +33097,6 @@
     },
     "Price" : {
       "type" : "object",
-      "required" : [ "amount", "currency", "product" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33296,7 +33217,6 @@
     },
     "PriceChange" : {
       "type" : "object",
-      "required" : [ "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33434,7 +33354,6 @@
     },
     "PriceChangeExclude" : {
       "type" : "object",
-      "required" : [ "priceChange" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33472,7 +33391,6 @@
     },
     "PriceClassTemplate" : {
       "type" : "object",
-      "required" : [ "amount", "businessCase", "currency", "name", "priceChange", "relative", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33736,7 +33654,6 @@
     },
     "Product" : {
       "type" : "object",
-      "required" : [ "article", "businessCase" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -33781,7 +33698,6 @@
     },
     "ProductPriceTemplate" : {
       "type" : "object",
-      "required" : [ "amount", "currency", "priceChange", "product", "relative" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34195,7 +34111,6 @@
     },
     "ResourceRecord" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "name" : {
           "type" : "string",
@@ -34218,8 +34133,7 @@
         "pref" : {
           "type" : "integer",
           "format" : "int32",
-          "description" : "The resource record priority which may be needed by certain record types such as MX.",
-          "maximum" : 65535
+          "description" : "The resource record priority which may be needed by certain record types such as MX."
         },
         "raw" : {
           "type" : "string",
@@ -34272,7 +34186,6 @@
     },
     "SEPAMandate" : {
       "type" : "object",
-      "required" : [ "confirmChecked", "confirmIp", "confirmSignature" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34361,7 +34274,6 @@
     },
     "ServiceEntity" : {
       "type" : "object",
-      "required" : [ "label" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34393,7 +34305,6 @@
     },
     "ServiceUsersProfile" : {
       "type" : "object",
-      "required" : [ "key", "value" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34506,7 +34417,6 @@
     },
     "Soa" : {
       "type" : "object",
-      "required" : [ "email" ],
       "properties" : {
         "refresh" : {
           "type" : "integer",
@@ -34582,7 +34492,6 @@
     },
     "SslContact" : {
       "type" : "object",
-      "required" : [ "country", "email", "id", "organization", "phone", "title" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34641,9 +34550,7 @@
         "organization" : {
           "type" : "string",
           "example" : "Company",
-          "description" : "The name of organisation of the contact.",
-          "minLength" : 0,
-          "maxLength" : 64
+          "description" : "The name of organisation of the contact."
         },
         "address" : {
           "type" : "array",
@@ -34752,7 +34659,6 @@
     },
     "Subject" : {
       "type" : "object",
-      "required" : [ "name" ],
       "properties" : {
         "name" : {
           "type" : "string",
@@ -34815,7 +34721,6 @@
     },
     "SubjectProduct" : {
       "type" : "object",
-      "required" : [ "product", "subject" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34932,7 +34837,6 @@
     },
     "Subscription" : {
       "type" : "object",
-      "required" : [ "payable" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -35115,7 +35019,6 @@
     },
     "TaskUserLimit" : {
       "type" : "object",
-      "required" : [ "user" ],
       "properties" : {
         "user" : {
           "$ref" : "#/definitions/BasicUser"
@@ -35130,7 +35033,6 @@
     },
     "TechnicalCustomer" : {
       "type" : "object",
-      "required" : [ "client", "number" ],
       "properties" : {
         "number" : {
           "type" : "integer",
@@ -35139,9 +35041,7 @@
         },
         "client" : {
           "type" : "string",
-          "description" : "Account Label.",
-          "minLength" : 1,
-          "maxLength" : 2147483647
+          "description" : "Account Label."
         },
         "group" : {
           "type" : "integer",
@@ -35657,7 +35557,6 @@
     },
     "TmchClaimsNotice" : {
       "type" : "object",
-      "required" : [ "confirmIP" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -35741,7 +35640,6 @@
     },
     "TmchContact" : {
       "type" : "object",
-      "required" : [ "email", "entitlement" ],
       "properties" : {
         "entitlement" : {
           "$ref" : "#/definitions/TmchMarkHolderConstants"
@@ -35780,7 +35678,6 @@
     },
     "TmchMark" : {
       "type" : "object",
-      "required" : [ "claimsNotify", "description", "name", "payable", "period", "reference", "smdInclusion", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -35944,7 +35841,6 @@
     },
     "TmchMarkDocument" : {
       "type" : "object",
-      "required" : [ "document", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -35978,7 +35874,6 @@
     },
     "Transfer" : {
       "type" : "object",
-      "required" : [ "domain" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36055,7 +35950,6 @@
     },
     "TransferOut" : {
       "type" : "object",
-      "required" : [ "domain", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36141,7 +36035,6 @@
     },
     "TrustedApplication" : {
       "type" : "object",
-      "required" : [ "application", "uuid" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36237,7 +36130,6 @@
     },
     "User" : {
       "type" : "object",
-      "required" : [ "context", "user" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36293,6 +36185,11 @@
           "format" : "date-time",
           "description" : "The date on which the password has changed"
         },
+        "passwordExpires" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the password will expire"
+        },
         "acls" : {
           "description" : "User privileges.",
           "$ref" : "#/definitions/UserAcls"
@@ -36346,20 +36243,17 @@
           "format" : "int32",
           "description" : "The actual customer level for the user."
         },
-        "passwordExpires" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date on which the password will expire",
-          "readOnly" : true
-        },
         "user" : {
           "type" : "string",
-          "description" : "The user name.",
-          "pattern" : "^[^_].*"
+          "description" : "The user name."
         },
         "language" : {
           "type" : "string",
           "description" : "The language for the user. The setting affects \nthe user interface language and system messages.\nPossible values:\nde\nen\nes."
+        },
+        "passwordExpired" : {
+          "type" : "boolean",
+          "description" : "Is the current password expired"
         },
         "parent" : {
           "description" : "Parent user.",
@@ -36389,11 +36283,6 @@
           "items" : {
             "$ref" : "#/definitions/TrusteeContact"
           }
-        },
-        "passwordExpired" : {
-          "type" : "boolean",
-          "description" : "Is the current password expired",
-          "readOnly" : true
         }
       }
     },
@@ -36446,7 +36335,6 @@
     },
     "UserAcls" : {
       "type" : "object",
-      "required" : [ "user" ],
       "properties" : {
         "user" : {
           "description" : "The user which has been effected",
@@ -36457,9 +36345,7 @@
           "description" : "The acls of the user.",
           "items" : {
             "$ref" : "#/definitions/UserAcl"
-          },
-          "maxItems" : 2147483647,
-          "minItems" : 1
+          }
         }
       }
     },
@@ -36506,7 +36392,6 @@
     },
     "UserProfile" : {
       "type" : "object",
-      "required" : [ "flag", "key", "value" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36549,7 +36434,6 @@
     },
     "UserProfileView" : {
       "type" : "object",
-      "required" : [ "flag", "key", "value" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36703,7 +36587,6 @@
     },
     "VirtualNameServerGroup" : {
       "type" : "object",
-      "required" : [ "systemNameServerGroup" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -36725,8 +36608,7 @@
         },
         "name" : {
           "type" : "string",
-          "description" : "Custom name of the name server group.",
-          "pattern" : "\\b(?!default\\b)\\w+"
+          "description" : "Custom name of the name server group."
         },
         "useDefaultIps" : {
           "type" : "boolean",
@@ -37006,7 +36888,6 @@
     },
     "Zone" : {
       "type" : "object",
-      "required" : [ "origin" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -37127,9 +37008,7 @@
           "description" : "The resource records.",
           "items" : {
             "$ref" : "#/definitions/ResourceRecord"
-          },
-          "maxItems" : 10000,
-          "minItems" : 0
+          }
         },
         "roid" : {
           "type" : "integer",
@@ -37141,7 +37020,6 @@
     },
     "ZoneBasePatchRequest" : {
       "type" : "object",
-      "required" : [ "origin" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -37283,9 +37161,7 @@
           "description" : "The resource records.",
           "items" : {
             "$ref" : "#/definitions/ResourceRecord"
-          },
-          "maxItems" : 10000,
-          "minItems" : 0
+          }
         },
         "roid" : {
           "type" : "integer",
