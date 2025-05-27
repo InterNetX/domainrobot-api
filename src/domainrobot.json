@@ -21682,7 +21682,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}" : {
+    "/zone/{name}/{virtualNameServer}" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Info (0205)",
@@ -21760,7 +21760,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -21851,7 +21851,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -21950,7 +21950,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22041,7 +22041,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22064,7 +22064,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_axfr" : {
+    "/zone/{name}/{virtualNameServer}/_axfr" : {
       "get" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Axfr (0210)",
@@ -22142,7 +22142,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22157,7 +22157,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_comment" : {
+    "/zone/{name}/{virtualNameServer}/_comment" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Comment Update (0202004)",
@@ -22235,7 +22235,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22258,7 +22258,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_copy" : {
+    "/zone/{name}/{virtualNameServer}/_copy" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Update (0212)",
@@ -22336,7 +22336,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22372,7 +22372,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_domainSafe" : {
+    "/zone/{name}/{virtualNameServer}/_domainSafe" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Safe Object Create (0601)",
@@ -22450,7 +22450,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22541,7 +22541,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22556,7 +22556,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_import" : {
+    "/zone/{name}/{virtualNameServer}/_import" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Import (0204)",
@@ -22634,7 +22634,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22657,7 +22657,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_migrate" : {
+    "/zone/{name}/{virtualNameServer}/_migrate" : {
       "put" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Update (0212)",
@@ -22735,7 +22735,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22771,7 +22771,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/_restore" : {
+    "/zone/{name}/{virtualNameServer}/_restore" : {
       "post" : {
         "tags" : [ "Zone Tasks" ],
         "summary" : "Zone Restore (0226)",
@@ -22849,7 +22849,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -22872,7 +22872,7 @@
         }
       }
     },
-    "/zone/{name}/{systemNameServer}/zoneQuery/_search" : {
+    "/zone/{name}/{virtualNameServer}/zoneQuery/_search" : {
       "post" : {
         "tags" : [ "ZoneQuery Tasks" ],
         "summary" : "Zone Query List (0265)",
@@ -22950,7 +22950,7 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "systemNameServer",
+          "name" : "virtualNameServer",
           "in" : "path",
           "required" : true,
           "type" : "string"
@@ -23242,7 +23242,6 @@
     },
     "BackupMx" : {
       "type" : "object",
-      "required" : [ "domain" ],
       "properties" : {
         "domain" : {
           "type" : "string",
@@ -32419,7 +32418,6 @@
     },
     "MailProxy" : {
       "type" : "object",
-      "required" : [ "domain", "target" ],
       "properties" : {
         "domain" : {
           "type" : "string",
@@ -34186,7 +34184,6 @@
     },
     "Redirect" : {
       "type" : "object",
-      "required" : [ "mode", "source", "target", "type" ],
       "properties" : {
         "created" : {
           "type" : "string",
@@ -34235,9 +34232,7 @@
           "description" : "Backup destinations for the redirects. If the first destination cannot be reached, the domain is automatically redirected to the substitute destination (domain redirection, frame redirect).",
           "items" : {
             "type" : "string"
-          },
-          "maxItems" : 3,
-          "minItems" : 0
+          }
         },
         "sourceIdn" : {
           "type" : "string",
@@ -37151,6 +37146,12 @@
           "format" : "date-time",
           "description" : "Date of search."
         },
+        "external" : {
+          "type" : "boolean"
+        },
+        "inUse" : {
+          "type" : "boolean"
+        },
         "nameServers" : {
           "type" : "array",
           "description" : "List of hostnames to be used as name severs.",
@@ -37282,6 +37283,12 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "Date of search."
+        },
+        "external" : {
+          "type" : "boolean"
+        },
+        "inUse" : {
+          "type" : "boolean"
         },
         "zoneGrantsAdd" : {
           "type" : "array",
