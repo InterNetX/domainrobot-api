@@ -9666,7 +9666,7 @@
           "items" : {
             "type" : "string",
             "example" : "?keys[]=expire",
-            "enum" : [ "{sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "certificate", "created", "autorenew", "cancelationStatus}" ]
+            "enum" : [ "{sld", "subtld", "tld", "status", "authinfo", "expire", "comment", "ownerc", "updated", "zonec", "nserver", "techc", "adminc", "action certificate", "created", "autorenew", "cancelationStatus}" ]
           },
           "collectionFormat" : "multi",
           "x-example" : "?keys[]=expire"
@@ -27955,6 +27955,7 @@
     },
     "DomainSellExtensions" : {
       "type" : "object",
+      "required" : [ "price" ],
       "properties" : {
         "currency" : {
           "type" : "string",
@@ -27962,9 +27963,11 @@
           "description" : "The currency of the sale",
           "x-custom-type" : "currency"
         },
-        "fixedPrice" : {
-          "type" : "boolean",
-          "description" : "Is the price fix"
+        "price" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 100.5,
+          "description" : "The fixed selling price for the domain. Has to be between 0 and 16777215."
         },
         "keywords" : {
           "type" : "array",
@@ -27972,6 +27975,10 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "fixedPrice" : {
+          "type" : "boolean",
+          "description" : "Is the price fix"
         },
         "minPrice" : {
           "type" : "number",
