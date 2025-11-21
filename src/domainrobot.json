@@ -26717,61 +26717,12 @@
           "format" : "date-time",
           "description" : "Date of the last update."
         },
-        "owner" : {
-          "description" : "The object owner.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "updater" : {
-          "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "reference" : {
-          "type" : "string",
-          "description" : "The unique reference of the Verification"
-        },
-        "messageSend" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was sent."
-        },
-        "confirmed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was confirmed."
-        },
-        "confirmIp" : {
-          "description" : "The IP address from which the verification was confirmed.",
-          "$ref" : "#/definitions/InetAddress"
-        },
-        "failed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date on which the verification failed."
-        },
-        "domains" : {
-          "type" : "array",
-          "description" : "Domain for which verification was/is required.",
-          "items" : {
-            "$ref" : "#/definitions/ContactVerificationDomain"
-          }
-        },
-        "verificationMails" : {
-          "type" : "array",
-          "description" : "The verification mails. For each mail sent, it is recorded here whether the verification was successful or not.",
-          "items" : {
-            "$ref" : "#/definitions/ContactVerificationMessage"
-          }
-        },
-        "comment" : {
-          "type" : "string",
-          "description" : "The verification comment. Can be included in the confirmation."
-        },
-        "action" : {
-          "type" : "string",
-          "description" : "Action for which the verification was triggered or updated."
+        "status" : {
+          "description" : "The status of the CaseVerification",
+          "$ref" : "#/definitions/CaseStatus"
         },
         "contact" : {
-          "description" : "the contact of the Verification",
+          "description" : "the contact of the case",
           "$ref" : "#/definitions/Contact"
         }
       }
