@@ -33018,9 +33018,8 @@
           "$ref" : "#/definitions/ProtectionConstants"
         },
         "greylisting" : {
-          "type" : "string",
-          "description" : "If greylisting is activated, the first email from an unknown sender is rejected at first. Mails from this sender will only be accepted after a further delayed delivery attempt.",
-          "enum" : [ "ENABLED", "DISABLED" ]
+          "type" : "boolean",
+          "description" : "If greylisting is activated, the first email from an unknown sender is rejected at first. Mails from this sender will only be accepted after a further delayed delivery attempt."
         },
         "virus" : {
           "type" : "string",
