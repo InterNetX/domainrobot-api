@@ -12,6 +12,8 @@
   }, {
     "name" : "Billing Tasks"
   }, {
+    "name" : "CaseVerification Tasks"
+  }, {
     "name" : "Certificate Tasks"
   }, {
     "name" : "Client Customer Tasks"
@@ -7279,6 +7281,109 @@
         }
       }
     },
+    "/contact/case" : {
+      "post" : {
+        "tags" : [ "CaseVerification Tasks" ],
+        "summary" : "CaseVerification Update",
+        "description" : "Updating the caseVerification of contacts.",
+        "operationId" : "caseVerificationUpdate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "verify",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Case"
+          }
+        }, {
+          "name" : "keys",
+          "in" : "query",
+          "description" : "If the dns should be provisioned if available.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "?keys[]=dnsProvisioning"
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "?keys[]=dnsProvisioning"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataJsonNoData"
+            }
+          }
+        }
+      }
+    },
     "/contact/verification" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
@@ -7569,7 +7674,7 @@
     },
     "/contact/verification/contact" : {
       "get" : {
-        "tags" : [ "Contact Tasks" ],
+        "tags" : [ "CaseVerification Tasks" ],
         "summary" : "CaseVerificationContact Info (0374)",
         "description" : "Inquiring the data for the specified verification.",
         "operationId" : "caseVerificationInfoWithReference",
@@ -7655,105 +7760,9 @@
         }
       }
     },
-    "/contact/verification/contact/_confirm" : {
-      "put" : {
-        "tags" : [ "Contact Tasks" ],
-        "summary" : "CaseVerificationContact Confirm (0376)",
-        "description" : "Confirming an existing CaseVerificationContact with a given hash.",
-        "operationId" : "caseVerificationConfirm",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "reference",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "caseVerificationContact",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/ContactVerificationContact"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContactVerificationContact"
-            }
-          }
-        }
-      }
-    },
     "/contact/verification/contact/_search" : {
       "post" : {
-        "tags" : [ "Contact Tasks" ],
+        "tags" : [ "CaseVerification Tasks" ],
         "summary" : "CaseVerificationContact List (0375)",
         "description" : "Inquiring a list of ContactVerificationContact with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: confirmed, action, deactivation, created, failed, name, comment, updated, status.",
         "operationId" : "caseVerificationList",
@@ -9633,6 +9642,100 @@
           "required" : true,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "caseVerificationContact",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ContactVerificationContact"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataContactVerificationContact"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "CaseVerification Tasks" ],
+        "summary" : "CaseVerificationContact Update (0372)",
+        "description" : "Updating an existing CaseVerificationContact.",
+        "operationId" : "caseVerificationConfirm",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
         }, {
           "in" : "body",
           "name" : "body",
@@ -25291,6 +25394,15 @@
       "type" : "string",
       "enum" : [ "LOST", "EXPIRED", "ACTIVE" ]
     },
+    "Case" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "description" : "The status of the case",
+          "$ref" : "#/definitions/CaseStatus"
+        }
+      }
+    },
     "CaseStatus" : {
       "type" : "string",
       "enum" : [ "CANCELED", "COMPLETED", "FRAUDULENT", "PENDING", "TIMEOUT" ]
@@ -25864,6 +25976,25 @@
     "CiraCprConstants" : {
       "type" : "string",
       "enum" : [ "CCT", "RES", "CCO", "ABO", "TDM", "MAJ", "GOV", "LGR", "TRS", "PRT", "ASS", "TRD", "PLT", "EDU", "LAM", "HOP", "INB", "OMK" ]
+    },
+    "Claim" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "contact" : {
+          "description" : "the verification of the case",
+          "$ref" : "#/definitions/ContactVerification"
+        }
+      }
     },
     "ClearAccountPeriod" : {
       "type" : "string",
@@ -26721,9 +26852,26 @@
           "description" : "The status of the CaseVerification",
           "$ref" : "#/definitions/CaseStatus"
         },
-        "contact" : {
-          "description" : "the contact of the case",
-          "$ref" : "#/definitions/Contact"
+        "references" : {
+          "type" : "array",
+          "description" : "contactReference for which case verification was/is required.",
+          "items" : {
+            "$ref" : "#/definitions/VerifyReference"
+          }
+        },
+        "contacts" : {
+          "type" : "array",
+          "description" : "contact for which verification was/is required.",
+          "items" : {
+            "$ref" : "#/definitions/ContactVerificationContact"
+          }
+        },
+        "claims" : {
+          "type" : "array",
+          "description" : "claims for which verification was/is required.",
+          "items" : {
+            "$ref" : "#/definitions/Claim"
+          }
         }
       }
     },
@@ -27464,7 +27612,7 @@
     },
     "DomainActionConstants" : {
       "type" : "string",
-      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "AUTOUPDATE_DNSSEC", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY", "CONTACT_CREATE", "DELETE_EXPIRE" ]
+      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "AUTOUPDATE_DNSSEC", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY", "CONTACT_CREATE", "DELETE_EXPIRE", "VERIFICATION_DOMAIN", "VERIFICATION_CONTACT", "DELETE_NICREF" ]
     },
     "DomainAutodeleteExtensions" : {
       "type" : "object",
@@ -37282,9 +37430,30 @@
         }
       }
     },
+    "VerifyReference" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "description" : "The status of the case",
+          "$ref" : "#/definitions/CaseStatus"
+        },
+        "nic" : {
+          "description" : "The nic",
+          "$ref" : "#/definitions/NicMember"
+        },
+        "type" : {
+          "description" : "The contact reference type",
+          "$ref" : "#/definitions/ContactReferenceType"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "The nic reference"
+        }
+      }
+    },
     "VerifyStatus" : {
       "type" : "string",
-      "enum" : [ "SUCCESS", "PENDING", "FAILED", "NOT_STARTED", "MANUAL_VERIFICATION" ]
+      "enum" : [ "SUCCESS", "PENDING", "FAILED", "NOT_SET", "RUNNING", "DELETED" ]
     },
     "VirtualNameServer" : {
       "type" : "object",
