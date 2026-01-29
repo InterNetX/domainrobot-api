@@ -26848,30 +26848,62 @@
           "format" : "date-time",
           "description" : "Date of the last update."
         },
-        "status" : {
-          "description" : "The status of the CaseVerification",
-          "$ref" : "#/definitions/CaseStatus"
+        "owner" : {
+          "description" : "The object owner.",
+          "$ref" : "#/definitions/BasicUser"
         },
-        "references" : {
+        "updater" : {
+          "description" : "User who performed the last update.",
+          "$ref" : "#/definitions/BasicUser"
+        },
+        "reference" : {
+          "type" : "string",
+          "description" : "The unique reference of the Verification"
+        },
+        "messageSend" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date when the last verification email was sent."
+        },
+        "confirmed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date when the last verification email was confirmed."
+        },
+        "confirmIp" : {
+          "description" : "The IP address from which the verification was confirmed.",
+          "$ref" : "#/definitions/InetAddress"
+        },
+        "failed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the verification failed."
+        },
+        "domains" : {
           "type" : "array",
-          "description" : "contactReference for which case verification was/is required.",
+          "description" : "Domain for which verification was/is required.",
           "items" : {
-            "$ref" : "#/definitions/VerifyReference"
+            "$ref" : "#/definitions/ContactVerificationDomain"
           }
         },
-        "contacts" : {
+        "verificationMails" : {
           "type" : "array",
-          "description" : "contact for which verification was/is required.",
+          "description" : "The verification mails. For each mail sent, it is recorded here whether the verification was successful or not.",
           "items" : {
-            "$ref" : "#/definitions/ContactVerificationContact"
+            "$ref" : "#/definitions/ContactVerificationMessage"
           }
         },
-        "claims" : {
-          "type" : "array",
-          "description" : "claims for which verification was/is required.",
-          "items" : {
-            "$ref" : "#/definitions/Claim"
-          }
+        "comment" : {
+          "type" : "string",
+          "description" : "The verification comment. Can be included in the confirmation."
+        },
+        "action" : {
+          "type" : "string",
+          "description" : "Action for which the verification was triggered or updated."
+        },
+        "contact" : {
+          "description" : "the contact of the Verification",
+          "$ref" : "#/definitions/Contact"
         }
       }
     },
