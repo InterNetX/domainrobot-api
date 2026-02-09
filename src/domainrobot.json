@@ -21299,6 +21299,108 @@
         }
       }
     },
+    "/user/{name}/{context}/sso" : {
+      "post" : {
+        "tags" : [ "User Tasks" ],
+        "summary" : "SSO Action Create",
+        "description" : "Applying a verification code for a signle sign on.",
+        "operationId" : "userSSOCreate",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Domainrobot-Domain-Safe-Pin",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
+          "in" : "header",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "X-Domainrobot-Domain-Safe-Tan",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-User",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Owner-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-Demo",
+          "in" : "header",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "X-Domainrobot-SessionId",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Context",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-WS",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "X-Domainrobot-Bulk-Limit",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "X-Domainrobot-2FA-Token",
+          "in" : "header",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "auth",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/AuthSession"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/JsonResponseDataUser"
+            }
+          }
+        }
+      }
+    },
     "/user/{name}/{context}/verification" : {
       "post" : {
         "tags" : [ "User Tasks" ],
@@ -26848,62 +26950,30 @@
           "format" : "date-time",
           "description" : "Date of the last update."
         },
-        "owner" : {
-          "description" : "The object owner.",
-          "$ref" : "#/definitions/BasicUser"
+        "status" : {
+          "description" : "The status of the CaseVerification",
+          "$ref" : "#/definitions/CaseStatus"
         },
-        "updater" : {
-          "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "reference" : {
-          "type" : "string",
-          "description" : "The unique reference of the Verification"
-        },
-        "messageSend" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was sent."
-        },
-        "confirmed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was confirmed."
-        },
-        "confirmIp" : {
-          "description" : "The IP address from which the verification was confirmed.",
-          "$ref" : "#/definitions/InetAddress"
-        },
-        "failed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date on which the verification failed."
-        },
-        "domains" : {
+        "references" : {
           "type" : "array",
-          "description" : "Domain for which verification was/is required.",
+          "description" : "contactReference for which case verification was/is required.",
           "items" : {
-            "$ref" : "#/definitions/ContactVerificationDomain"
+            "$ref" : "#/definitions/VerifyReference"
           }
         },
-        "verificationMails" : {
+        "contacts" : {
           "type" : "array",
-          "description" : "The verification mails. For each mail sent, it is recorded here whether the verification was successful or not.",
+          "description" : "contact for which verification was/is required.",
           "items" : {
-            "$ref" : "#/definitions/ContactVerificationMessage"
+            "$ref" : "#/definitions/ContactVerificationContact"
           }
         },
-        "comment" : {
-          "type" : "string",
-          "description" : "The verification comment. Can be included in the confirmation."
-        },
-        "action" : {
-          "type" : "string",
-          "description" : "Action for which the verification was triggered or updated."
-        },
-        "contact" : {
-          "description" : "the contact of the Verification",
-          "$ref" : "#/definitions/Contact"
+        "claims" : {
+          "type" : "array",
+          "description" : "claims for which verification was/is required.",
+          "items" : {
+            "$ref" : "#/definitions/Claim"
+          }
         }
       }
     },
