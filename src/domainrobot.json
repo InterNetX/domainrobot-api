@@ -4354,97 +4354,6 @@
         }
       }
     },
-    "/bulk/objectUserAssignment" : {
-      "patch" : {
-        "tags" : [ "ObjectUserAssignment Tasks" ],
-        "summary" : "Update owner objects (1308)",
-        "description" : "Reassigins objects to a new owner.",
-        "operationId" : "objectUserAssignmentBulk",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "objects",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/BulkObjectUserAssignmentPatchRequest"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataListJsonResponseDataObjectUserAssignment"
-            }
-          }
-        }
-      }
-    },
     "/bulk/price" : {
       "post" : {
         "tags" : [ "Price Tasks" ],
@@ -25190,22 +25099,6 @@
         }
       }
     },
-    "BulkObjectUserAssignmentPatchRequest" : {
-      "type" : "object",
-      "properties" : {
-        "objects" : {
-          "type" : "array",
-          "description" : "The objects to process",
-          "items" : {
-            "$ref" : "#/definitions/ObjectUserAssignment"
-          }
-        },
-        "template" : {
-          "description" : "The template for objects to process",
-          "$ref" : "#/definitions/ObjectUserAssignment"
-        }
-      }
-    },
     "BulkPriceDeleteRequest" : {
       "type" : "object",
       "properties" : {
@@ -25508,6 +25401,33 @@
     "CaseStatus" : {
       "type" : "string",
       "enum" : [ "CANCELED", "COMPLETED", "FRAUDULENT", "PENDING", "TIMEOUT" ]
+    },
+    "CaseVerificationMessage" : {
+      "type" : "object",
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of creation."
+        },
+        "updated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date of the last update."
+        },
+        "mail" : {
+          "description" : "The notification that was sent for verification",
+          "$ref" : "#/definitions/MailServiceMessage"
+        },
+        "status" : {
+          "description" : "The status of the verification mail",
+          "$ref" : "#/definitions/GenericStatusConstants"
+        },
+        "lastResponse" : {
+          "type" : "string",
+          "description" : "The last response of the mail server"
+        }
+      }
     },
     "CertAuthentication" : {
       "type" : "object",
@@ -26303,6 +26223,14 @@
         "extensions" : {
           "description" : "Additional data for contacts required by certain TLDs.",
           "$ref" : "#/definitions/ContactExtensions"
+        },
+        "ownedBy" : {
+          "type" : "string",
+          "description" : "The domain, which the contact is assigned to."
+        },
+        "addressQuality" : {
+          "type" : "string",
+          "description" : "The quality of the address"
         }
       }
     },
@@ -27036,6 +26964,23 @@
           "type" : "string",
           "description" : "Action for which the case verification was triggered or updated."
         },
+        "messageSend" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date when the last verification email was sent."
+        },
+        "failed" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the verification failed."
+        },
+        "verificationMails" : {
+          "type" : "array",
+          "description" : "The verification mails. For each mail sent, it is recorded here whether the verification was successful or not.",
+          "items" : {
+            "$ref" : "#/definitions/CaseVerificationMessage"
+          }
+        },
         "contact" : {
           "description" : "the contact of the case",
           "$ref" : "#/definitions/Contact"
@@ -27068,6 +27013,11 @@
           "$ref" : "#/definitions/VerifyStatus"
         },
         "deactivation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the associated domain is deactivated if the contact verification is not completed"
+        },
+        "deletion" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The date on which the associated domain is deactivated if the contact verification is not completed"
@@ -31997,44 +31947,6 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/definitions/JsonResponseDataMailProxy"
-            }
-          }
-        },
-        "ctid" : {
-          "type" : "string",
-          "description" : "The CTID (Client Transaction ID) of the response."
-        }
-      }
-    },
-    "JsonResponseDataListJsonResponseDataObjectUserAssignment" : {
-      "type" : "object",
-      "properties" : {
-        "stid" : {
-          "type" : "string",
-          "description" : "The server transaction ID for the response."
-        },
-        "messages" : {
-          "type" : "array",
-          "description" : "The messages belonging to the response.",
-          "items" : {
-            "$ref" : "#/definitions/Message"
-          }
-        },
-        "status" : {
-          "description" : "The status of the response.",
-          "$ref" : "#/definitions/ResponseStatus"
-        },
-        "object" : {
-          "description" : "The response object.",
-          "$ref" : "#/definitions/ResponseObject"
-        },
-        "data" : {
-          "type" : "array",
-          "description" : "The data for the response. The type of the objects are depending on the request and are also specified in the ResponseObject value of the response.",
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/definitions/JsonResponseDataObjectUserAssignment"
             }
           }
         },
