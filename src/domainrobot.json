@@ -26173,12 +26173,6 @@
             "$ref" : "#/definitions/ContactDocument"
           }
         },
-        "handleClaims" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/HandleClaim"
-          }
-        },
         "fname" : {
           "type" : "string",
           "example" : "John",
@@ -26231,6 +26225,13 @@
         "addressQuality" : {
           "type" : "string",
           "description" : "The quality of the address"
+        },
+        "handleClaims" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/HandleClaim"
+          }
         }
       }
     },
@@ -27053,6 +27054,16 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The date on which the associated domain is deactivated if the contact verification is not completed"
+        },
+        "cvDeactivation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the associated domain is deactivated due to contact verification"
+        },
+        "cvDeletion" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "The date on which the associated domain is deleted due to contact verification"
         }
       }
     },
@@ -27670,7 +27681,7 @@
     },
     "DomainActionConstants" : {
       "type" : "string",
-      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "AUTOUPDATE_DNSSEC", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY", "CONTACT_CREATE", "DELETE_EXPIRE", "VERIFICATION_DOMAIN", "VERIFICATION_CONTACT", "DELETE_NICREF" ]
+      "enum" : [ "CREATE", "UPDATE", "UPDATE_OWNER_CHANGE", "UPDATE_DNSSEC", "UPDATE_NAMESERVER", "DELETE", "TRANSIT", "TRANSFER", "TRANSFER_INTERN", "TRANSFER_INTERN_REGISTRAR_CHANGE", "TRANSFER_INTERN_REGISTRAR_CHANGE_RUNTIME_TAKEOVER", "IMPORT", "MIGRATE", "RESTORE", "RESTORE_NE", "RESTORE_RENEW", "RESTORE_ARGP", "RENEW", "AUTHINFO", "AUTHINFO_2", "UPDATE_STATUS", "REGISTRAR_UPDATE_STATUS", "UPDATE_COMMENT", "AUTOUPDATE_DNS", "AUTOUPDATE_DNSSEC", "OWNERCHANGE", "OWNERCHANGE_TRANSFER", "OWNERCHANGE_TRANSFER_INTERN", "OWNERCHANGE_TRANSFER_INTERN_REGISTRAR_CHANGE", "PREACK", "WHOIS_REGISTRY_STATUS", "DOMAIN_AWAY", "TRANSFER_OUT_AUTOACK", "DROP", "AUTHINFO_CREATE", "AUTHINFO_DELETE", "AUTOUPDATE_DEFERRED", "DOMAIN_BUY", "CONTACT_CREATE", "DELETE_EXPIRE", "VERIFICATION_DOMAIN", "VERIFICATION_CONTACT", "VERIFICATION_CHANGE_CONTACT", "DELETE_NICREF" ]
     },
     "DomainAutodeleteExtensions" : {
       "type" : "object",
