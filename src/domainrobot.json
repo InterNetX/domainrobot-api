@@ -7581,198 +7581,6 @@
         }
       }
     },
-    "/contact/verification/contact" : {
-      "get" : {
-        "tags" : [ "CaseVerification Tasks" ],
-        "summary" : "CaseVerificationContact Info (0374)",
-        "description" : "Inquiring the data for the specified verification.",
-        "operationId" : "caseVerificationInfoWithReference",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "reference",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContactVerificationContact"
-            }
-          }
-        }
-      }
-    },
-    "/contact/verification/contact/_search" : {
-      "post" : {
-        "tags" : [ "CaseVerification Tasks" ],
-        "summary" : "CaseVerificationContact List (0375)",
-        "description" : "Inquiring a list of ContactVerificationContact with certain details. The following keys can be used for filtering, ordering and fetching additional data via query parameter: confirmed, action, deactivation, created, failed, name, comment, updated, status.",
-        "operationId" : "caseVerificationList",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "query",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Query"
-          }
-        }, {
-          "name" : "keys",
-          "in" : "query",
-          "description" : "The query parameter to fetch additional details.",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "example" : "?keys[]=action",
-            "enum" : [ "{confirmed", "action", "deactivation", "created", "failed", "name", "comment", "updated", "status}" ]
-          },
-          "collectionFormat" : "multi",
-          "x-example" : "?keys[]=action"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContactVerificationContact"
-            }
-          }
-        }
-      }
-    },
     "/contact/verification/history" : {
       "get" : {
         "tags" : [ "Contact Tasks" ],
@@ -9387,93 +9195,6 @@
       }
     },
     "/contact/{id}/verification/contact" : {
-      "get" : {
-        "tags" : [ "Contact Tasks" ],
-        "summary" : "CaseVerificationContact Info (0374)",
-        "description" : "Inquiring the data for the specified verification.",
-        "operationId" : "caseVerificationInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "X-Domainrobot-Domain-Safe-Pin",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Transaction-Expire",
-          "in" : "header",
-          "required" : false,
-          "type" : "string",
-          "format" : "date-time"
-        }, {
-          "name" : "X-Domainrobot-Domain-Safe-Tan",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-User",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Owner-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-Demo",
-          "in" : "header",
-          "required" : false,
-          "type" : "boolean"
-        }, {
-          "name" : "X-Domainrobot-SessionId",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Context",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-WS",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "X-Domainrobot-Bulk-Limit",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "X-Domainrobot-2FA-Token",
-          "in" : "header",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/JsonResponseDataContactVerificationContact"
-            }
-          }
-        }
-      },
       "post" : {
         "tags" : [ "Contact Tasks" ],
         "summary" : "CaseVerificationContact Create (0371)",
@@ -26885,62 +26606,30 @@
           "format" : "date-time",
           "description" : "Date of the last update."
         },
-        "owner" : {
-          "description" : "The object owner.",
-          "$ref" : "#/definitions/BasicUser"
+        "status" : {
+          "description" : "The status of the CaseVerification",
+          "$ref" : "#/definitions/CaseStatus"
         },
-        "updater" : {
-          "description" : "User who performed the last update.",
-          "$ref" : "#/definitions/BasicUser"
-        },
-        "reference" : {
-          "type" : "string",
-          "description" : "The unique reference of the Verification"
-        },
-        "messageSend" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was sent."
-        },
-        "confirmed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date when the last verification email was confirmed."
-        },
-        "confirmIp" : {
-          "description" : "The IP address from which the verification was confirmed.",
-          "$ref" : "#/definitions/InetAddress"
-        },
-        "failed" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "The date on which the verification failed."
-        },
-        "domains" : {
+        "references" : {
           "type" : "array",
-          "description" : "Domain for which verification was/is required.",
+          "description" : "contactReference for which case verification was/is required.",
           "items" : {
-            "$ref" : "#/definitions/ContactVerificationDomain"
+            "$ref" : "#/definitions/VerifyReference"
           }
         },
-        "verificationMails" : {
+        "contacts" : {
           "type" : "array",
-          "description" : "The verification mails. For each mail sent, it is recorded here whether the verification was successful or not.",
+          "description" : "contact for which verification was/is required.",
           "items" : {
-            "$ref" : "#/definitions/ContactVerificationMessage"
+            "$ref" : "#/definitions/ContactVerificationContact"
           }
         },
-        "comment" : {
-          "type" : "string",
-          "description" : "The verification comment. Can be included in the confirmation."
-        },
-        "action" : {
-          "type" : "string",
-          "description" : "Action for which the verification was triggered or updated."
-        },
-        "contact" : {
-          "description" : "the contact of the Verification",
-          "$ref" : "#/definitions/Contact"
+        "claims" : {
+          "type" : "array",
+          "description" : "claims for which verification was/is required.",
+          "items" : {
+            "$ref" : "#/definitions/Claim"
+          }
         }
       }
     },
