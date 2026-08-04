@@ -23825,6 +23825,10 @@
           "type" : "boolean",
           "description" : "Flag indication if the customer is active"
         },
+        "segmentation" : {
+          "description" : "The customer segmentation.",
+          "$ref" : "#/definitions/CustomerSegmentation"
+        },
         "fname" : {
           "type" : "string",
           "description" : "The first name."
@@ -27043,6 +27047,10 @@
           "$ref" : "#/definitions/PriceList"
         }
       }
+    },
+    "CustomerSegmentation" : {
+      "type" : "string",
+      "enum" : [ "A", "B", "C", "D" ]
     },
     "CustomerTag" : {
       "type" : "object",
